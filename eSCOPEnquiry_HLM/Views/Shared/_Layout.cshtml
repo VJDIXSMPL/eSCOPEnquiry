@@ -1,0 +1,408 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+.footer-top {
+  background-color: #ff8c00;
+}
+.footer-logo {
+    margin-bottom: 15px;
+}
+.footer-logo-address {
+    border-bottom: 1px solid #787878;
+    padding-bottom: 20px;
+    margin-bottom: 40px;
+}
+.footer-text-all li > a {
+    color: #fff;
+    display: block;
+    font-family: "Lato", sans-serif;
+    font-size: 14px;
+    margin-bottom: 14px;
+    transition: all .3s ease 0s;
+}
+.footer-text-all li > a:hover {
+    color: #0151b0;
+}
+.footer-text.footer-social > ul {
+  margin-top: 22px;
+}
+.footer-text > h3 {
+  color: #fff;
+  font-size: 18px;
+  font-weight: normal;
+  margin-bottom: 30px;
+  text-transform: capitalize;
+}
+.footer-text > p {
+  color: #fff;
+  margin-top: 20px;
+}
+.footer-social li {
+  display: inline-block;
+  margin-right: 20px;
+}
+.footer-social ul li a {
+  border: 1px solid #fff;
+  border-radius: 100%;
+  display: inline-block;
+  height: 28px;
+  line-height: 28px;
+  text-align: center;
+  width: 28px;
+    background-color: transparent;
+}
+.footer-social ul li a:hover {
+  border: 1px solid #0151b0;
+    background-color: #0151b0;
+    color: #fff;
+}
+.footer-top form input,
+.footer-top form textarea {
+    border-color: #fff;
+    border-style: solid;
+    border-width: 0 0 1px;
+    color: #fff;
+    display: block;
+    float: left;
+    font-size: 12px;
+    line-height: 29px;
+    margin-bottom: 11px;
+    padding: 0 0 7px;
+    width: 100%;
+}
+.footer-top form textarea {
+    background: transparent none repeat scroll 0 0;
+    height: 55px;
+    margin-bottom: 30px;
+    margin-right: 0;
+    padding: 0;
+    width: 100%;
+}
+.footer-text button.submit {
+  background-color: #0151b0;
+  border: 1px solid #0151b0;
+}
+.footer-top form input.in-mrg {
+    margin-right: 0px;
+}
+.footer-top form input::-webkit-input-placeholder,
+.footer-top form textarea::-webkit-input-placeholder {
+    /* Chrome */
+    
+    color: #fff;
+    opacity: 1;
+}
+.footer-top form input::-moz-placeholder,
+.footer-top form textarea::-moz-placeholder {
+    /* Firefox 19+ */
+    
+    color: #fff;
+    opacity: 1;
+}
+
+.footer-bottom { background-color: #ff8c00; }
+
+
+.footer-bottom-text > p {
+    margin-bottom: 0;
+    color: #232323;
+}
+.footer-bottom-text a {
+    color: #c80909;
+}
+.footer-bottom-text a:hover {
+    text-decoration: underline;
+}
+.footer-text button.submit {
+    padding: 10px 36px;
+}
+/* Footer 2*/
+
+.footer-2 .footer-text-all > p {
+    color: #fff;
+    margin: 16px 0 24px;
+}
+.footer-2-social li {
+    float: left;
+    margin-right: 13px;
+}
+.footer-2-social a {
+    background-color: #fff;
+    color: #666666;
+    display: inline-block;
+    font-size: 16px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    width: 30px;
+    transition: all .3s ease 0s;
+}
+.footer-2-social a:hover {
+    background-color: #0151b0;
+    color: #fff;
+}
+.footer-2-tags a {
+    background-color: #7c7c7c;
+    border-radius: 5px;
+    color: #fff;
+    display: inline-block;
+    font-family: "Lato",sans-serif;
+    font-size: 14px;
+    margin-bottom: 15px;
+    margin-right: 15px;
+    padding: 7px 7px 9px;
+    transition: all 0.3s ease 0s;
+}
+.footer-2-tags a:hover {
+    background-color: #0151b0;
+    color: #fff;
+}
+.footer-2-tags li {
+    float: left;
+}
+.footer-instagram .img-one {
+    float: left;
+    margin: 0 7px 7px 0;
+    position: relative;
+}
+.img-one.f2-mrg {
+    margin-right: 0;
+}
+.img-one.f2-mrgb {
+    margin-bottom: 0;
+}
+.img-one a::before {
+    background: #0151b0 none repeat scroll 0 0;
+    bottom: 0;
+    content: "";
+    height: 100%;
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: all 300ms ease-in-out 0s;
+    visibility: hidden;
+    width: 100%;
+    z-index: 1;
+}
+.img-one:hover a::before {
+    opacity: 0.5;
+    visibility: visible;
+}
+.footer-two2 .footer-text > h3 {
+    margin-bottom: 40px;
+}
+/* Footer 3 */
+
+.footer-three .footer-logo {
+    margin-bottom: 0;
+}
+.footer-3-location {
+    display: block;
+    overflow: hidden;
+}
+.footer-3-location > p,
+.footer-3-mail > p {
+    float: left;
+    color: #fff;
+}
+.footer-3-mail3 > p {
+    color: #fff;
+}
+p.west {
+    padding-left: 10px;
+}
+.footer-3-mail3 {
+    padding-left: 25px;
+}
+.footer-3-mail3 > p {
+    margin-bottom: 0;
+}
+.footer-3-mail3 a {
+    color: #fff;
+}
+.footer-3-mail3 a:hover {
+    color: #0151b0;
+}
+.ft22 .footer-text-all > a {
+    font-size: 14px;
+}
+.footer-3-subscribe .main-input input {
+    color: #fff;
+    padding-left: 10px;
+}
+.footer-3-subscribe .main-input input::-webkit-input-placeholder {
+    /* Chrome */
+    
+    color: #fff;
+    opacity: 1;
+}
+.footer-3-subscribe .main-input input::-moz-placeholder {
+    /* Firefox 19+ */
+    
+    color: #fff;
+    opacity: 1;
+}
+.footer-3-subscribe > p i {
+    margin-right: 10px;
+}
+.footer-3-subscribe > p {
+    color: #fff;
+    margin: 16px 0 14px;
+}
+/* Footer 4 */
+
+.footer-top .ft-four form input {
+    width: 100%;
+}
+.footer-6-address > p {
+    color: #fff;
+}
+/* Footer 7 */
+
+.img-both {
+    display: inline-block;
+    float: left;
+}
+.text-both > h3 {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 5px;
+    text-transform: capitalize;
+}
+.text-both > p {
+    color: #fff;
+    margin-bottom: 0;
+}
+.text-both {
+    padding-left: 78px;
+}
+.img-text-both {
+    margin-bottom: 13px;
+}
+/* Footer 8 */
+
+.footer-eight {
+    float: right;
+}
+.footer-eight li {
+    display: inline-block;
+    margin-left: 13px;
+    text-align: center;
+}
+.footer-eight li a {
+    color: #2d3e50;
+    display: inline-block;
+    font-size: 16px;
+    text-align: center;
+    transition: all 0.3s ease 0s;
+}
+.footer-eight li a:hover {
+    color: #0151b0;
+}
+.footer-eight > ul {
+    display: block;
+    overflow: hidden;
+    padding-top: 20px;
+}
+.footer-8 .footer-logo-address {
+    border-bottom: medium none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+/* Footer 9 */
+
+.footer-9 .footer-eight li a {
+    color: #fff;
+}
+.footer-9 .footer-eight li a:hover {
+    color: #0151b0;
+}
+.footer-9 .footer-bottom-text > p {
+    color: #fff;
+    margin-bottom: 0;
+}
+.footer9 {
+  border-top: 1px solid #ddd;
+}
+</style>
+    <meta http-equiv="content-type" content="text/html" charset="UTF-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Enquiry Registration</title>
+    <!--[if IE]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <script src="~/js/jquery.min.js"></script>
+    <link href="~/css/bootstrap-datepicker.css" rel="stylesheet" />
+    <link href="~/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/css/font-awesome.css" rel="stylesheet" />
+    <link href="~/css/jquery-confirm.css" rel="stylesheet" />
+    <link href="~/css/style.css" rel="stylesheet" />
+    <link href="~/css/smartadmin-production-plugins.min.css" rel="stylesheet" />
+    <link href="~/css/jquery-ui.css" rel="stylesheet" />
+    <link href="~/css/animate.css" rel="stylesheet" />
+    <script src="~/Scripts/eSSMS/ValdateScript.js"></script>
+    <script src="~/Scripts/UploadScripts.js"></script>
+    <script src="~/Scripts/jquery-ui-1.10.3.min.js"></script>
+    <script src="~/Scripts/notification/SmartNotification.min.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+    <script src="~/js/bootstrap-datepicker.js"></script>
+    <script src="~/js/jquery-confirm.js"></script>
+    <script src="~/js/bootstrapValidator.min.js"></script>
+    <script src="~/Scripts/essms/CommonBinder.js"></script>
+    <script src="~/Scripts/eSCOP/CommonBinder.js"></script>
+    <script src="~/Scripts/smart-chat-ui/smart.chat.ui.min.js"></script>
+    <script src="~/Scripts/smartwidgets/jarvis.widget.min.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-41323182-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'UA-41323182-1');
+    </script>
+	<style>
+	.header-part{border-top: 4px #6d7a7c solid !important;}
+	</style>
+</head>
+
+<body style="background:url(/img/backimage.jpg) no-repeat; background-size:cover;">
+    <!-- header part --->
+    <header class="header-part clearfix">
+        <div class="container">
+            <div class="" style="margin:-15px;"><img src="/img/HLMHeader.jpg" class="header-image" alt=""></div>
+        </div>
+		
+		<li style="color: #141313;text-decoration: none;font-size: large;"><u>@Html.ActionLink("Home", "Index", "Home")</u></li>
+    </header>
+
+    @RenderBody()
+
+
+ <footer class="footer-area">
+            <div class="footer-top p-2">
+                
+            </div>
+            <div class="footer-bottom">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 text-center">
+                            <div class="footer-bottom-text ptb-20">
+                                <p>
+                                    Copyright © 2022, HLM Group of Institutions, All rights reserved. || <a href="https://www.sonetmicrosystems.com/" target="_blank"> Institute ERP Software </a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

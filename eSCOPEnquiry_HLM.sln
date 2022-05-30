@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32519.379
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eSCOPEnquiry_HLM", "eSCOPEnquiry_HLM\eSCOPEnquiry_HLM.csproj", "{C556D086-D3DE-40B7-957D-0C72CD74C11C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C556D086-D3DE-40B7-957D-0C72CD74C11C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C556D086-D3DE-40B7-957D-0C72CD74C11C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C556D086-D3DE-40B7-957D-0C72CD74C11C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C556D086-D3DE-40B7-957D-0C72CD74C11C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {496B5A80-8794-4845-B6CB-85B6DEEB5C80}
+	EndGlobalSection
+EndGlobal
