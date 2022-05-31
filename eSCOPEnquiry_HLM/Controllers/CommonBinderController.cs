@@ -13,7 +13,6 @@ using System.Globalization;
 
 namespace eSCOPEnquiry_HLM.Controllers
 {
-
     public class MyChartData
     {
         public string label { get; set; }
@@ -42,7 +41,6 @@ namespace eSCOPEnquiry_HLM.Controllers
             return this.Json(tags, new Newtonsoft.Json.JsonSerializerSettings());
         }
 
-
         [HttpGet]
         public JsonResult BinderInstitute()
         {
@@ -51,6 +49,7 @@ namespace eSCOPEnquiry_HLM.Controllers
             var SchoolWiseSessionData = JsonConvert.SerializeObject(dt);
             return Json(SchoolWiseSessionData, new Newtonsoft.Json.JsonSerializerSettings());
         }
+
         public IActionResult SchemeSearch(string term)
         {
             Dllbind.UserinfoDetails.optMode = "SchemeLikeSearch";
