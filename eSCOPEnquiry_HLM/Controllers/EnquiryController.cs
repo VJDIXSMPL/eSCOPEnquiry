@@ -9,21 +9,32 @@ using Microsoft.Extensions.Logging;
 using eSCOPEnquiry_HLM.Models;
 using Microsoft.AspNetCore.Authorization;
 using Newtonsoft.Json;
+using System.Data;
 
 namespace eSCOPEnquiry_HLM.Controllers
 {
     public class EnquiryController : eSCOPBaseController
     {
         CultureInfo ci = new CultureInfo("en-GB");
+        private IConfiguration Configuration;
+        string conCommon = String.Empty;
+        Enquiry_BAL EBAL;
+        Enquiry_DAL EDAL;
+        public EnquiryController(IConfiguration configuration)
+        {
+            Configuration = configuration;
+            conCommon = Configuration.GetConnectionString("DefaultConnection");
+            EBAL = new Enquiry_BAL(conCommon);
+            EDAL = new Enquiry_DAL(conCommon);
+        }
 
         public ActionResult EnquiryDetails()
         {
-            Enquiry_BAL b = new Enquiry_BAL();
             if (TempData["Error"] != null)
             {
-                b.Remark = TempData["Error"].ToString();
+                EBAL.Remark = TempData["Error"].ToString();
             }
-            return View(b);
+            return View(EBAL);
         }
 
         [HttpPost]
@@ -32,9 +43,7 @@ namespace eSCOPEnquiry_HLM.Controllers
             int ResultCaller = -1;
             string msgOutCaller = "";
             string SavedenqNo = "";
-            Enquiry_BAL EBAL = new Enquiry_BAL();
             TempData["Enq"] = EBAL;
-            //Session["Enq"] = EBAL;
             EBAL.InstituteID = Convert.ToInt64(fc["InstituteID"].ToString() == "" ? "-1" : fc["InstituteID"].ToString());
             EBAL.SessionID = Convert.ToInt64(fc["SessionId"].ToString() == "" ? "-1" : fc["SessionId"].ToString());
             EBAL.ProgramID = Convert.ToInt64(fc["ProgramID"].ToString() == "" ? "-1" : fc["ProgramID"].ToString());
@@ -64,7 +73,7 @@ namespace eSCOPEnquiry_HLM.Controllers
             else
             {
                 TempData["Error"] = msgOutCaller;
-                return RedirectToAction("BasicDetails");
+                return RedirectToAction("EnquiryDetails");
             }
         }
 
@@ -78,7 +87,6 @@ namespace eSCOPEnquiry_HLM.Controllers
             int ResultCaller = -1;
             string msgOutCaller = "";
             string SavedenqNo = "";
-            Enquiry_BAL EBAL = new Enquiry_BAL();
             TempData["Enq"] = EBAL;
             EBAL.InstituteID = InstituteID;
             EBAL.SessionID = SessionId;
@@ -114,7 +122,54 @@ namespace eSCOPEnquiry_HLM.Controllers
                 string data = JsonConvert.SerializeObject(new { ResultCaller, msgOutCaller });
                 return data;
             }
+        }
 
+        public JsonResult Reg_Validate(string Student_FirstName, string StudentDob, string FMobileNo, string optMode)
+        {
+            DataSet ds = new DataSet();
+            EBAL.Student_FirstName = Student_FirstName.Split(' ')[0];
+            EBAL.Student_Dob = Convert.ToDateTime(StudentDob, ci);
+            EBAL.FMobileNo = FMobileNo;
+            EBAL.optMode = optMode;
+            try
+            {
+                ds = EDAL.Reg_Validate(EBAL);
+            }
+            catch (Exception ex)
+            {
+                return Json(JsonConvert.SerializeObject(ex));
+            }
+            return Json(JsonConvert.SerializeObject(ds));
+        }
+
+        public ActionResult ThankYou()
+        {
+            if (TempData["EnqNo"] == null && TempData["RegData"] == null)
+            {
+                return RedirectToAction("EnquiryDetails", "Enquiry");
+            }
+            else
+            {
+                if (TempData["EnqNo"] != null)
+                {
+                    string EnqNo = TempData["EnqNo"].ToString();
+                    string InsName = TempData["InstituteName"].ToString();
+                    string MobNo = TempData["MobileNo"].ToString();
+                    EBAL.EnqNo = EnqNo;
+                    EBAL.FMobileNo = MobNo;
+                    TempData["MyEnqNo"] = EnqNo;
+                    TempData["MyIns"] = InsName;
+                    EDAL.sendSMS(EBAL);
+                }
+                else if (TempData["RegData"] != null)
+                {
+                    EBAL.RegNo = TempData["RegData"].ToString();
+                    EBAL.smsMode = TempData["Mode"].ToString();
+                    TempData["RegNo"] = TempData["RegData"].ToString();
+                    EDAL.sendSMS(EBAL);
+                }
+                return View();
+            }
         }
     }
 }

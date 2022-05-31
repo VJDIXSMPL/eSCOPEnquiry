@@ -1,7 +1,10 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
+    <PreserveCompilationContext>true</PreserveCompilationContext>
+    <RazorCompileOnPublish>false</RazorCompileOnPublish>
+    <CopyRazorGenerateFilesToPublishDirectory>true</CopyRazorGenerateFilesToPublishDirectory>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
@@ -11,9 +14,77 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\fonts\fontawesome-webfont.svg" />
+    <None Include="wwwroot\fonts\fontawesome-webfont.woff2" />
+    <None Include="wwwroot\fonts\glyphicons-halflings-regular.svg" />
+    <None Include="wwwroot\fonts\glyphicons-halflings-regular.woff2" />
+    <None Include="wwwroot\Scripts\bootstrap-timepicker.min.js" />
+    <None Include="wwwroot\Scripts\bootstrap.bundle.js" />
+    <None Include="wwwroot\Scripts\bootstrap.bundle.js.map" />
+    <None Include="wwwroot\Scripts\bootstrap.bundle.min.js" />
+    <None Include="wwwroot\Scripts\bootstrap.bundle.min.js.map" />
+    <None Include="wwwroot\Scripts\bootstrap.esm.js" />
+    <None Include="wwwroot\Scripts\bootstrap.esm.js.map" />
+    <None Include="wwwroot\Scripts\bootstrap.esm.min.js" />
+    <None Include="wwwroot\Scripts\bootstrap.esm.min.js.map" />
+    <None Include="wwwroot\Scripts\bootstrap.js" />
+    <None Include="wwwroot\Scripts\bootstrap.js.map" />
+    <None Include="wwwroot\Scripts\bootstrap.min.js" />
+    <None Include="wwwroot\Scripts\bootstrap.min.js.map" />
+    <None Include="wwwroot\Scripts\bootstrapValidator.min.js" />
+    <None Include="wwwroot\Scripts\eSCOP\AttedanceMarking.js" />
+    <None Include="wwwroot\Scripts\eSCOP\AttedanceSetup.js" />
+    <None Include="wwwroot\Scripts\eSCOP\BuildAjaxData.js" />
+    <None Include="wwwroot\Scripts\eSCOP\CommonBinder.js" />
+    <None Include="wwwroot\Scripts\eSCOP\CommunicationStatusChange.js" />
+    <None Include="wwwroot\Scripts\eSCOP\ExamBinder.js" />
+    <None Include="wwwroot\Scripts\eSCOP\ExcelGanrate.js" />
+    <None Include="wwwroot\Scripts\eSCOP\HolidayDetails.js" />
+    <None Include="wwwroot\Scripts\eSCOP\INVCommonBinder.js" />
+    <None Include="wwwroot\Scripts\eSCOP\OpenDays.js" />
+    <None Include="wwwroot\Scripts\eSCOP\validate.js" />
+    <None Include="wwwroot\Scripts\eSCOP\WeekofMapping.js" />
+    <None Include="wwwroot\Scripts\eSSMS\CommonBinder.js" />
+    <None Include="wwwroot\Scripts\eSSMS\ValdateScript.js" />
+    <None Include="wwwroot\Scripts\jquery-1.10.2.intellisense.js" />
+    <None Include="wwwroot\Scripts\jquery-1.10.2.js" />
+    <None Include="wwwroot\Scripts\jquery-1.10.2.min.js" />
+    <None Include="wwwroot\Scripts\jquery-1.10.2.min.map" />
+    <None Include="wwwroot\Scripts\jquery-3.6.0.js" />
+    <None Include="wwwroot\Scripts\jquery-3.6.0.min.js" />
+    <None Include="wwwroot\Scripts\jquery-3.6.0.min.map" />
+    <None Include="wwwroot\Scripts\jquery-3.6.0.slim.js" />
+    <None Include="wwwroot\Scripts\jquery-3.6.0.slim.min.js" />
+    <None Include="wwwroot\Scripts\jquery-3.6.0.slim.min.map" />
+    <None Include="wwwroot\Scripts\jquery-ui-1.10.3.min.js" />
+    <None Include="wwwroot\Scripts\jquery-ui.js" />
+    <None Include="wwwroot\Scripts\jquery.validate-vsdoc.js" />
+    <None Include="wwwroot\Scripts\jquery.validate.js" />
+    <None Include="wwwroot\Scripts\jquery.validate.min.js" />
+    <None Include="wwwroot\Scripts\jquery.validate.unobtrusive.js" />
+    <None Include="wwwroot\Scripts\jquery.validate.unobtrusive.min.js" />
+    <None Include="wwwroot\Scripts\modernizr-2.6.2.js" />
+    <None Include="wwwroot\Scripts\modernizr-2.8.3.js" />
+    <None Include="wwwroot\Scripts\notification\SmartNotification.min.js" />
+    <None Include="wwwroot\Scripts\respond.js" />
+    <None Include="wwwroot\Scripts\respond.matchmedia.addListener.js" />
+    <None Include="wwwroot\Scripts\respond.matchmedia.addListener.min.js" />
+    <None Include="wwwroot\Scripts\respond.min.js" />
+    <None Include="wwwroot\Scripts\smart-chat-ui\smart.chat.manager.min.js" />
+    <None Include="wwwroot\Scripts\smart-chat-ui\smart.chat.ui.min.js" />
+    <None Include="wwwroot\Scripts\smartwidgets\jarvis.widget.min.js" />
+    <None Include="wwwroot\Scripts\UploadScripts.js" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.5" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.5" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="6.0.5" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.RazorPages" Version="2.2.5" />
+    <PackageReference Include="Microsoft.AspNetCore.Razor" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Razor.Runtime" Version="2.2.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.5" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.5">
       <PrivateAssets>all</PrivateAssets>

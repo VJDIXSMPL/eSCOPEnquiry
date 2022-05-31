@@ -14,10 +14,13 @@ namespace eSCOPEnquiry_HLM.Models
     public class Enquiry_BAL : PreviousSchoolDetails_BAL
     {
         CultureInfo ci = new CultureInfo("en-GB");
-        
+
+        Enquiry_DAL EDAL;
+
         public string[] cell;
-        public Enquiry_BAL()
+        public Enquiry_BAL(string conCommon)
         {
+            EDAL = new Enquiry_DAL(conCommon);
             CultureInfo provider = new CultureInfo("en-GB");
             this.HasSibling = false;
             this.SiblingID = -1L;
@@ -566,16 +569,13 @@ namespace eSCOPEnquiry_HLM.Models
         public int StreamId { get; set; }
         public string ServiceId { get; set; }
         public string StudentType { get; set; }
-
-        Enquiry_DAL EDAL = new Enquiry_DAL();
         public void crmEnquiry(Enquiry_BAL eqb, out int ResultCaller, out string msgOutCaller)
         {
-            new Enquiry_DAL().CRUD_Enquiry(eqb, out ResultCaller, out msgOutCaller);
+            EDAL.CRUD_Enquiry(eqb, out ResultCaller, out msgOutCaller);
         }
         public int SaveEnquirySession(Enquiry_BAL obj, out int ResultCaller, out string msgOutCaller)
         {
-            Enquiry_DAL objDal = new Enquiry_DAL();
-            return objDal.SaveEnquirySession(obj, out ResultCaller, out msgOutCaller);
+            return EDAL.SaveEnquirySession(obj, out ResultCaller, out msgOutCaller);
         }
     }
 }

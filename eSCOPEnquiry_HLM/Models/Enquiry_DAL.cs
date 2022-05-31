@@ -13,18 +13,11 @@ namespace eSCOPEnquiry_HLM.Models
     public class Enquiry_DAL
     {
         CultureInfo ci = new CultureInfo("en-GB");
-        private IConfiguration Configuration;
         string constring = String.Empty;
-        public Enquiry_DAL()
+        public Enquiry_DAL(string conCommon)
         {
-
+            constring = conCommon;
         }
-        public Enquiry_DAL(IConfiguration configuration)
-        {
-            Configuration = configuration;
-            constring = Configuration.GetConnectionString("DefaultConnection");
-        }
-
         public void CRUD_Enquiry(Enquiry_BAL EnqBal, out int ResultCaller, out string msgOutCaller)
         {
             DataSet ds = new DataSet();
@@ -126,6 +119,55 @@ namespace eSCOPEnquiry_HLM.Models
                 ResultCaller = Convert.ToInt32(com.Parameters["@Result"].Value);
                 return result;
             }
+        }
+
+        public DataSet Reg_Validate(Enquiry_BAL bal)
+        {
+            int result = 0;
+            string msg = string.Empty;
+            DataSet theds = new DataSet();
+            using (SqlConnection con = new SqlConnection(constring))
+            {
+                SqlCommand com = new SqlCommand("regAddition_Validate", con);
+                com.CommandType = CommandType.StoredProcedure;
+                com.Parameters.AddWithValue("@Student_FirstName", bal.Student_FirstName);
+                com.Parameters.AddWithValue("@Student_Dob", Convert.ToDateTime(bal.Student_Dob, ci));
+                com.Parameters.AddWithValue("@Father_MobileNo", bal.FMobileNo);
+                com.Parameters.AddWithValue("@optMode", bal.optMode);
+                SqlDataAdapter theadapter = new SqlDataAdapter(com);
+                theds = new DataSet();
+                theadapter.Fill(theds);
+                con.Close();
+                return theds;
+            }
+        }
+        public string sendSMS(Enquiry_BAL SmSdetail)
+        {
+            string msgOutCaller = "";
+            using (SqlConnection con = new SqlConnection(constring))
+            {
+                SqlCommand cmd = new SqlCommand("SendSMS", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@number", SmSdetail.FMobileNo);
+                cmd.Parameters.AddWithValue("@schoolid", SmSdetail.SchoolId);
+                cmd.Parameters.AddWithValue("@userid", SmSdetail.HostName);
+                cmd.Parameters.AddWithValue("@EnqNo", SmSdetail.EnqNo);
+                cmd.Parameters.AddWithValue("@RegId", SmSdetail.RegNo);
+                cmd.Parameters.AddWithValue("@Mode", SmSdetail.smsMode);
+                cmd.Parameters.Add("@retstatus", SqlDbType.VarChar, 250);
+                cmd.Parameters["@retstatus"].Direction = ParameterDirection.Output;
+                try
+                {
+                    con.Open();
+                    int a = cmd.ExecuteNonQuery();
+                    con.Close();
+                }
+                catch (Exception ex)
+                {
+                }
+                msgOutCaller = "";
+            }
+            return msgOutCaller;
         }
     }
 }

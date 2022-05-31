@@ -29,6 +29,7 @@ namespace eSCOPEnquiry_HLM
             System.Threading.Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
             System.Threading.Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-US");
             services.AddControllersWithViews();
+            services.AddRazorPages().AddRazorRuntimeCompilation();
             services.AddSession(options => {
                 options.IdleTimeout = TimeSpan.FromMinutes(60);
             });

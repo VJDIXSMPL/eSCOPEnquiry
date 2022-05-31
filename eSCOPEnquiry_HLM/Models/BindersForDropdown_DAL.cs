@@ -14,16 +14,10 @@ namespace eSCOPEnquiry_HLM.Models
     public class BindersForDropdown_DAL
     {
         CultureInfo ci = new CultureInfo("en-GB");
-        private IConfiguration Configuration;
         string conCommon = String.Empty;
-        public BindersForDropdown_DAL()
+        public BindersForDropdown_DAL(string conString)
         {
-
-        }
-        public BindersForDropdown_DAL(IConfiguration configuration)
-        {
-            Configuration = configuration;
-            conCommon = Configuration.GetConnectionString("DefaultConnection");
+            conCommon = conString;
         }
 
         public DataSet getCommonBindersList(BindersForDropdown_BAL BDLBAL)

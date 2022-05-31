@@ -6,11 +6,14 @@ namespace eSCOPEnquiry_HLM.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        private IConfiguration Configuration;
+        string conCommon = String.Empty;
+        Enquiry_BAL EBAL;
+        public HomeController(IConfiguration configuration)
         {
-            _logger = logger;
+            Configuration = configuration;
+            conCommon = Configuration.GetConnectionString("DefaultConnection");
+            EBAL = new Enquiry_BAL(conCommon);
         }
 
         public IActionResult Index()
@@ -31,7 +34,6 @@ namespace eSCOPEnquiry_HLM.Controllers
         public ActionResult LandingPage(string Source = "-1", string SubSource = "-1")
         {
             HttpContext.Session.SetString("Name", "New Enquiry");
-            Enquiry_BAL EBAL = new Enquiry_BAL();
             EBAL.Session = HttpContext.Session.Id;
             EBAL.Source = Source;
             EBAL.SubSource = SubSource;

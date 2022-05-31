@@ -12,10 +12,10 @@ namespace eSCOPEnquiry_HLM.Models
     public class BindersForDropdown_BAL
     {
         private CommonValues_BAL objGetList = new CommonValues_BAL();
-        private BindersForDropdown_DAL commDAL = new BindersForDropdown_DAL();
+        private BindersForDropdown_DAL commDAL;
         System.Globalization.CultureInfo ci = new System.Globalization.CultureInfo("en-GB");
 
-        public BindersForDropdown_BAL()
+        public BindersForDropdown_BAL(string conCommon)
         {
             ParentCategoryID = -1;
             CountryID = -1;
@@ -45,6 +45,7 @@ namespace eSCOPEnquiry_HLM.Models
             InstituteName = "";
             TypeSearch = "";
             HeadCategory = "";
+            commDAL = new BindersForDropdown_DAL(conCommon);
         }
         public long ExamType { get; set; }
         public long SubjectId { get; set; }
