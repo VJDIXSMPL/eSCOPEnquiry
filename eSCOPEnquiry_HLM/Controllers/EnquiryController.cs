@@ -43,7 +43,7 @@ namespace eSCOPEnquiry_HLM.Controllers
             int ResultCaller = -1;
             string msgOutCaller = "";
             string SavedenqNo = "";
-            TempData["Enq"] = EBAL;
+            TempData["Enq"] = JsonConvert.SerializeObject(EBAL);
             EBAL.InstituteID = Convert.ToInt64(fc["InstituteID"].ToString() == "" ? "-1" : fc["InstituteID"].ToString());
             EBAL.SessionID = Convert.ToInt64(fc["SessionId"].ToString() == "" ? "-1" : fc["SessionId"].ToString());
             EBAL.ProgramID = Convert.ToInt64(fc["ProgramID"].ToString() == "" ? "-1" : fc["ProgramID"].ToString());
@@ -65,14 +65,15 @@ namespace eSCOPEnquiry_HLM.Controllers
             EBAL.crmEnquiry(EBAL, out ResultCaller, out msgOutCaller);
             if (ResultCaller > 0)
             {
-                TempData["EnqNo"] = msgOutCaller.Split('.')[1]; ;
+                //TempData["EnqNo"] = msgOutCaller.Split('.')[1];
+                TempData["EnqNo"] = JsonConvert.SerializeObject(msgOutCaller.Split('.')[1]);
                 TempData["RegData"] = null;
                 TempData["Mode"] = "Enq";
                 return RedirectToAction("ThankYou");
             }
             else
             {
-                TempData["Error"] = msgOutCaller;
+                TempData["Error"] = JsonConvert.SerializeObject(msgOutCaller);
                 return RedirectToAction("EnquiryDetails");
             }
         }
@@ -87,7 +88,7 @@ namespace eSCOPEnquiry_HLM.Controllers
             int ResultCaller = -1;
             string msgOutCaller = "";
             string SavedenqNo = "";
-            TempData["Enq"] = EBAL;
+            TempData["Enq"] = JsonConvert.SerializeObject(EBAL);
             EBAL.InstituteID = InstituteID;
             EBAL.SessionID = SessionId;
             EBAL.ProgramID = ProgramID;
