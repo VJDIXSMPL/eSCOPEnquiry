@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using eSCOPEnquiry_HLM.Models;
 using Microsoft.AspNetCore.Authorization;
+using Newtonsoft.Json;
 
 namespace eSCOPEnquiry_HLM.Controllers
 {
@@ -65,6 +66,55 @@ namespace eSCOPEnquiry_HLM.Controllers
                 TempData["Error"] = msgOutCaller;
                 return RedirectToAction("BasicDetails");
             }
+        }
+
+
+        [AllowAnonymous]
+        public string EnquirySaveAPI(long InstituteID = -1, long SessionId = -1, long ProgramID = -1, string hdStudent_Dob = "01/01/1900",
+            string Student_FirstName = "", string Student_LastName = "", string FMobileNo = "", string FatherEmailID = "", string Father_FirstName = "",
+            string hdnname = "")
+        {
+            HttpContext.Session.SetString("Name", "New Enquiry");
+            int ResultCaller = -1;
+            string msgOutCaller = "";
+            string SavedenqNo = "";
+            Enquiry_BAL EBAL = new Enquiry_BAL();
+            TempData["Enq"] = EBAL;
+            EBAL.InstituteID = InstituteID;
+            EBAL.SessionID = SessionId;
+            EBAL.ProgramID = ProgramID;
+            EBAL.Student_Dob = Convert.ToDateTime(hdStudent_Dob, ci);
+            EBAL.Student_FirstName = Student_FirstName;
+            EBAL.Student_LastName = Student_LastName;
+            EBAL.MobileNo = FMobileNo;
+            EBAL.EmailID = FatherEmailID;
+            EBAL.FatherName = Father_FirstName;
+            EBAL.optMode = "Insert";
+            EBAL.EnquiryType = "2";
+            EBAL.EnteredBy = "Website";
+            EBAL.IpAddress = "Website";
+            EBAL.McAddress = "Website";
+            EBAL.HostName = "Website";
+            TempData["InstituteName"] = hdnname;
+            TempData["MobileNo"] = FMobileNo;
+            EBAL.EnqNo = "";
+            EBAL.Session = HttpContext.Session.Id;
+            EBAL.crmEnquiry(EBAL, out ResultCaller, out msgOutCaller);
+            if (ResultCaller > 0)
+            {
+                TempData["EnqNo"] = msgOutCaller.Split('.')[1]; ;
+                TempData["RegData"] = null;
+                TempData["Mode"] = "Enq";
+                string data = JsonConvert.SerializeObject(new { ResultCaller, msgOutCaller });
+                return data;
+            }
+            else
+            {
+                TempData["Error"] = msgOutCaller;
+                string data = JsonConvert.SerializeObject(new { ResultCaller, msgOutCaller });
+                return data;
+            }
+
         }
     }
 }

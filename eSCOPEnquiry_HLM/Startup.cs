@@ -40,14 +40,6 @@ namespace eSCOPEnquiry_HLM
             {
                 options.Cookie.Name = "eSCOPCORE";
             });
-            //services.AddAuthentication(options =>
-            //{
-            //    options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-            //    options.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-            //}).AddCookie(options =>
-            //{
-            //    options.Cookie.Name = "EnquiryFromTab";
-            //});
 
             //services.AddDbContext<ApplicationDbContext>(options =>
             //{

@@ -222,6 +222,9 @@ namespace eSCOPEnquiry_HLM.Models
         public long EnquirySubSourceID { get; set; }
         public string Notes { get; set; }
         public string optMode { get; set; }
+        public string Session { get; set; }
+        public string Source { get; set; }
+        public string SubSource { get; set; }
         public string EnteredBy { get; set; }
         public string IpAddress { get; set; }
         public string McAddress { get; set; }
@@ -568,6 +571,11 @@ namespace eSCOPEnquiry_HLM.Models
         public void crmEnquiry(Enquiry_BAL eqb, out int ResultCaller, out string msgOutCaller)
         {
             new Enquiry_DAL().CRUD_Enquiry(eqb, out ResultCaller, out msgOutCaller);
+        }
+        public int SaveEnquirySession(Enquiry_BAL obj, out int ResultCaller, out string msgOutCaller)
+        {
+            Enquiry_DAL objDal = new Enquiry_DAL();
+            return objDal.SaveEnquirySession(obj, out ResultCaller, out msgOutCaller);
         }
     }
 }

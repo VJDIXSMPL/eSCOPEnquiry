@@ -28,5 +28,20 @@ namespace eSCOPEnquiry_HLM.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+        public ActionResult LandingPage(string Source = "-1", string SubSource = "-1")
+        {
+            HttpContext.Session.SetString("Name", "New Enquiry");
+            Enquiry_BAL EBAL = new Enquiry_BAL();
+            EBAL.Session = HttpContext.Session.Id;
+            EBAL.Source = Source;
+            EBAL.SubSource = SubSource;
+            EBAL.optMode = "SaveEnquirySession";
+            string msgOutCaller = "";
+            int ResultCaller = 0;
+            int result = 0;
+            TempData["Session"] = HttpContext.Session.Id;
+            EBAL.SaveEnquirySession(EBAL, out ResultCaller, out msgOutCaller);
+            return RedirectToAction("Index");
+        }
     }
 }

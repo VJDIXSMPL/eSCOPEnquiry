@@ -105,5 +105,27 @@ namespace eSCOPEnquiry_HLM.Models
                 }
             }
         }
+
+        public int SaveEnquirySession(Enquiry_BAL eqb, out int ResultCaller, out string msgOutCaller)
+        {
+            using (SqlConnection con = new SqlConnection(constring))
+            {
+                SqlCommand com = new SqlCommand("Crm_EnquiryMaster_Online", con);
+                com.CommandType = CommandType.StoredProcedure;
+                con.Open();
+                com.Parameters.AddWithValue("@Session", eqb.Session);
+                com.Parameters.AddWithValue("@Source", eqb.Source);
+                com.Parameters.AddWithValue("@Code", eqb.SubSource);
+                com.Parameters.AddWithValue("@optMode", eqb.optMode);
+                com.Parameters.Add("@msgOut", SqlDbType.VarChar, 100);
+                com.Parameters.Add("@Result", SqlDbType.Int);
+                com.Parameters["@msgOut"].Direction = ParameterDirection.Output;
+                com.Parameters["@Result"].Direction = ParameterDirection.Output;
+                int result = Convert.ToInt32(com.ExecuteNonQuery());
+                msgOutCaller = com.Parameters["@msgOut"].Value.ToString();
+                ResultCaller = Convert.ToInt32(com.Parameters["@Result"].Value);
+                return result;
+            }
+        }
     }
 }
