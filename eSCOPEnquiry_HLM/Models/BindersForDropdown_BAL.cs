@@ -82,65 +82,10 @@ namespace eSCOPEnquiry_HLM.Models
 
         public UserInfo UserinfoDetails = new UserInfo();
 
-        public DataSet getBindersListForSemester(BindersForDropdown_BAL commBAL)
-        {
-            DataSet ds = new DataSet();
-            ds = commDAL.getCommonBindersListForSemester(commBAL);
-            return ds;
-        }
-
-        public DataSet getBindersListForBindShiftNo(BindersForDropdown_BAL commBAL)
-        {
-            DataSet ds = new DataSet();
-            ds = commDAL.getCommonBindersListForShiftNo(commBAL);
-            return ds;
-        }
-
-        public DataSet getBindersListForAdmissinStatus(BindersForDropdown_BAL commBAL)
-        {
-            DataSet ds = new DataSet();
-            ds = commDAL.getCommonBindersListForAdmissinStatus(commBAL);
-            return ds;
-        }
-
-        public DataSet getUser_Inrole(BindersForDropdown_BAL commBAL)
-        {
-            DataSet ds = new DataSet();
-            ds = commDAL.getUser_Inrole(commBAL);
-            return ds;
-        }
-
         public DataSet getBindersList(BindersForDropdown_BAL commBAL)
         {
             DataSet ds = new DataSet();
             ds = commDAL.getCommonBindersList(commBAL);
-            return ds;
-        }
-        public DataSet getMainCategoryList(BindersForDropdown_BAL commBAL)
-        {
-            DataSet ds = new DataSet();
-            ds = commDAL.getMainCategoryBindersList(commBAL);
-            return ds;
-        }
-
-        public DataSet GetSchemeList(BindersForDropdown_BAL commBAL)
-        {
-            DataSet ds = new DataSet();
-            ds = commDAL.GetSchemeList(commBAL);
-            return ds;
-        }
-
-        public DataSet getinventory(BindersForDropdown_BAL commBAL)
-        {
-            DataSet ds = new DataSet();
-            ds = commDAL.getinventoryList(commBAL);
-            return ds;
-        }
-
-        public DataSet getinventorystudent(BindersForDropdown_BAL commBAL)
-        {
-            DataSet ds = new DataSet();
-            ds = commDAL.getinventorystudent(commBAL);
             return ds;
         }
     }

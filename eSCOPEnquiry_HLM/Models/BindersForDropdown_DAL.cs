@@ -26,57 +26,6 @@ namespace eSCOPEnquiry_HLM.Models
             conCommon = Configuration.GetConnectionString("DefaultConnection");
         }
 
-        public DataSet getCommonBindersListForSemester(BindersForDropdown_BAL BDLBAL)
-        {
-            using (SqlConnection con = new SqlConnection(conCommon))
-            {
-                SqlDataAdapter da = new SqlDataAdapter("CMSP_BinderWithFilter_2", con);
-                da.SelectCommand.CommandType = CommandType.StoredProcedure;
-                da.SelectCommand.Parameters.AddWithValue("@OptMode", BDLBAL.UserinfoDetails.optMode);
-                da.SelectCommand.Parameters.AddWithValue("@BranchId", BDLBAL.BranchID);
-                DataSet ds = new DataSet();
-                da.Fill(ds);
-                return ds;
-            }
-        }
-
-        public DataSet getCommonBindersListForShiftNo(BindersForDropdown_BAL BDLBAL)
-        {
-            using (SqlConnection con = new SqlConnection(conCommon))
-            {
-                SqlDataAdapter da = new SqlDataAdapter("CMSP_BinderWithFilter_2", con);
-                da.SelectCommand.CommandType = CommandType.StoredProcedure;
-                da.SelectCommand.Parameters.AddWithValue("@OptMode", BDLBAL.UserinfoDetails.optMode);
-                DataSet ds = new DataSet();
-                da.Fill(ds);
-                return ds;
-            }
-        }
-        public DataSet getCommonBindersListForAdmissinStatus(BindersForDropdown_BAL BDLBAL)
-        {
-            using (SqlConnection con = new SqlConnection(conCommon))
-            {
-                SqlDataAdapter da = new SqlDataAdapter("CMSP_BinderWithFilter_2", con);
-                da.SelectCommand.CommandType = CommandType.StoredProcedure;
-                da.SelectCommand.Parameters.AddWithValue("@OptMode", BDLBAL.UserinfoDetails.optMode);
-                DataSet ds = new DataSet();
-                da.Fill(ds);
-                return ds;
-            }
-        }
-        public DataSet getUser_Inrole(BindersForDropdown_BAL BDLBAL)
-        {
-            using (SqlConnection con = new SqlConnection(conCommon))
-            {
-                SqlDataAdapter da = new SqlDataAdapter("GetFeeUsers_collectionReport", con);
-                da.SelectCommand.CommandType = CommandType.StoredProcedure;
-                da.SelectCommand.Parameters.AddWithValue("@Institute", BDLBAL.InstituteID);
-                DataSet ds = new DataSet();
-                da.Fill(ds);
-                return ds;
-            }
-        }
-
         public DataSet getCommonBindersList(BindersForDropdown_BAL BDLBAL)
         {
             using (SqlConnection con = new SqlConnection(conCommon))
@@ -117,67 +66,6 @@ namespace eSCOPEnquiry_HLM.Models
                 da.SelectCommand.Parameters.AddWithValue("@SubjectID", BDLBAL.SubjectId);
                 da.SelectCommand.Parameters.AddWithValue("@CategoryID", BDLBAL.ParentCategoryID);
                 da.SelectCommand.Parameters.AddWithValue("@ExamType", BDLBAL.ExamType);
-                DataSet ds = new DataSet();
-                da.Fill(ds);
-                return ds;
-            }
-        }
-
-        public DataSet getMainCategoryBindersList(BindersForDropdown_BAL BDLBAL)
-        {
-            using (SqlConnection con = new SqlConnection(conCommon))
-            {
-                SqlDataAdapter da = new SqlDataAdapter("CMSP_BinderWithFilter", con);
-                da.SelectCommand.CommandType = CommandType.StoredProcedure;
-                da.SelectCommand.Parameters.AddWithValue("@OptMode", BDLBAL.UserinfoDetails.optMode);
-                DataSet ds = new DataSet();
-                da.Fill(ds);
-                return ds;
-            }
-        }
-
-        public DataSet getinventoryList(BindersForDropdown_BAL BDLBAL)
-        {
-            using (SqlConnection con = new SqlConnection(conCommon))
-            {
-                SqlDataAdapter da = new SqlDataAdapter("CMSP_BinderWithFilter_2", con);
-                da.SelectCommand.CommandType = CommandType.StoredProcedure;
-                da.SelectCommand.Parameters.AddWithValue("@OptMode", BDLBAL.UserinfoDetails.optMode);
-                DataSet ds = new DataSet();
-                da.Fill(ds);
-                return ds;
-            }
-        }
-
-        public DataSet getinventorystudent(BindersForDropdown_BAL BDLBAL)
-        {
-            using (SqlConnection con = new SqlConnection(conCommon))
-            {
-                SqlDataAdapter da = new SqlDataAdapter("CMSP_BinderWithFilter_2", con);
-                da.SelectCommand.CommandType = CommandType.StoredProcedure;
-                da.SelectCommand.Parameters.AddWithValue("@OptMode", BDLBAL.UserinfoDetails.optMode);
-                da.SelectCommand.Parameters.AddWithValue("@ProgramID", BDLBAL.ProgramID);
-                da.SelectCommand.Parameters.AddWithValue("@InstituteID", BDLBAL.InstituteID);
-                da.SelectCommand.Parameters.AddWithValue("@BatchID", BDLBAL.BatchID);
-                da.SelectCommand.Parameters.AddWithValue("@InstituteName", BDLBAL.InstituteName);
-                da.SelectCommand.Parameters.AddWithValue("@SemesterID", BDLBAL.SemesterID);
-                da.SelectCommand.Parameters.AddWithValue("@SessionID", BDLBAL.SessionID);
-                da.SelectCommand.Parameters.AddWithValue("@TradeID", BDLBAL.TradeID);
-                da.SelectCommand.Parameters.AddWithValue("@EnteredBy", BDLBAL.UserinfoDetails.EnteredBy);
-                DataSet ds = new DataSet();
-                da.Fill(ds);
-                return ds;
-            }
-        }
-        public DataSet GetSchemeList(BindersForDropdown_BAL BDLBAL)
-        {
-            using (SqlConnection con = new SqlConnection(conCommon))
-            {
-                SqlDataAdapter da = new SqlDataAdapter("CMSP_BinderWithFilter", con);
-                da.SelectCommand.CommandType = CommandType.StoredProcedure;
-                da.SelectCommand.Parameters.AddWithValue("@ReasonType", BDLBAL.ReasonType);
-                da.SelectCommand.Parameters.AddWithValue("@CityID", BDLBAL.CityID);
-                da.SelectCommand.Parameters.AddWithValue("@optMode", BDLBAL.UserinfoDetails.optMode);
                 DataSet ds = new DataSet();
                 da.Fill(ds);
                 return ds;

@@ -2455,25 +2455,23 @@ function LoadInstituteWiseProgram(id, InstituteID, defaultval) {
     });
 }
 function LoadInstitute(id, defaultval) {
-	debugger
     defaultval = typeof defaultval !== 'undefined' ? defaultval : -1;
     $.getJSON("../CommonBinder/BinderInstitute", {},
-                   function (InstituteData) {
-                       var select = $(id);
-                       select.empty();
-                       select.append($('<option/>', {
-                           value: ddlInitialValue,
-                           text: "Select"
-                       }));
-                       $.each($.parseJSON(InstituteData), function (index, itemData) {
-                           select.append($('<option/>', {
-                               value: itemData.InstituteID,
-                               text: itemData.InstituteName
-                           }));
-                       });
-                       select.val(defaultval);
-                   });
-
+    function (InstituteData) {
+        var select = $(id);
+        select.empty();
+        select.append($('<option/>', {
+            value: ddlInitialValue,
+            text: "Select"
+        }));
+        $.each($.parseJSON(InstituteData), function (index, itemData) {
+            select.append($('<option/>', {
+                value: itemData.InstituteID,
+                text: itemData.InstituteName
+            }));
+        });
+        select.val(defaultval);
+    });
 }
 
 function LoadRegStatus(id, defaultval) {
