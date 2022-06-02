@@ -43,7 +43,7 @@ namespace eSCOPEnquiry_HLM.Controllers
             int ResultCaller = -1;
             string msgOutCaller = "";
             string SavedenqNo = "";
-            TempData["Enq"] = JsonConvert.SerializeObject(EBAL);
+            //TempData["Enq"] = JsonConvert.SerializeObject(EBAL);
             EBAL.InstituteID = Convert.ToInt64(fc["InstituteID"].ToString() == "" ? "-1" : fc["InstituteID"].ToString());
             EBAL.SessionID = Convert.ToInt64(fc["SessionId"].ToString() == "" ? "-1" : fc["SessionId"].ToString());
             EBAL.ProgramID = Convert.ToInt64(fc["ProgramID"].ToString() == "" ? "-1" : fc["ProgramID"].ToString());
@@ -88,7 +88,7 @@ namespace eSCOPEnquiry_HLM.Controllers
             int ResultCaller = -1;
             string msgOutCaller = "";
             string SavedenqNo = "";
-            TempData["Enq"] = JsonConvert.SerializeObject(EBAL);
+            //TempData["Enq"] = JsonConvert.SerializeObject(EBAL);
             EBAL.InstituteID = InstituteID;
             EBAL.SessionID = SessionId;
             EBAL.ProgramID = ProgramID;
@@ -104,8 +104,8 @@ namespace eSCOPEnquiry_HLM.Controllers
             EBAL.IpAddress = "Website";
             EBAL.McAddress = "Website";
             EBAL.HostName = "Website";
-            TempData["InstituteName"] = hdnname;
-            TempData["MobileNo"] = FMobileNo;
+            //TempData["InstituteName"] = hdnname;
+            //TempData["MobileNo"] = FMobileNo;
             EBAL.EnqNo = "";
             EBAL.Session = HttpContext.Session.Id;
             EBAL.crmEnquiry(EBAL, out ResultCaller, out msgOutCaller);
@@ -143,34 +143,19 @@ namespace eSCOPEnquiry_HLM.Controllers
             return Json(JsonConvert.SerializeObject(ds));
         }
 
-        public ActionResult ThankYou()
+        public IActionResult ThankYou()
         {
-            if (TempData["EnqNo"] == null && TempData["RegData"] == null)
-            {
-                return RedirectToAction("EnquiryDetails", "Enquiry");
-            }
-            else
-            {
-                if (TempData["EnqNo"] != null)
-                {
-                    string EnqNo = TempData["EnqNo"].ToString();
-                    string InsName = TempData["InstituteName"].ToString();
-                    string MobNo = TempData["MobileNo"].ToString();
-                    EBAL.EnqNo = EnqNo;
-                    EBAL.FMobileNo = MobNo;
-                    TempData["MyEnqNo"] = EnqNo;
-                    TempData["MyIns"] = InsName;
-                    EDAL.sendSMS(EBAL);
-                }
-                else if (TempData["RegData"] != null)
-                {
-                    EBAL.RegNo = TempData["RegData"].ToString();
-                    EBAL.smsMode = TempData["Mode"].ToString();
-                    TempData["RegNo"] = TempData["RegData"].ToString();
-                    EDAL.sendSMS(EBAL);
-                }
-                return View();
-            }
+            return View();
+        }
+
+        public IActionResult PrintForm()
+        {
+            return View();
+        }
+
+        public IActionResult PrintForm1()
+        {
+            return View();
         }
     }
 }

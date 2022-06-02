@@ -26,20 +26,26 @@ namespace eSCOPEnquiry_HLM
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
             System.Threading.Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
             System.Threading.Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-US");
+            services.AddMvc(options => options.EnableEndpointRouting = false);
             services.AddControllersWithViews();
             services.AddRazorPages().AddRazorRuntimeCompilation();
             services.AddSession(options => {
                 options.IdleTimeout = TimeSpan.FromMinutes(60);
             });
-            services.AddAuthentication(options =>
+            //services.addauthentication(options =>
+            //{
+            //    options.defaultscheme = cookieauthenticationdefaults.authenticationscheme;
+            //    options.defaultchallengescheme = cookieauthenticationdefaults.authenticationscheme;
+            //}).addcookie(options =>
+            //{
+            //    options.cookie.name = "escopcore";
+            //});
+            services.AddAuthentication("eSCOPEnquiry").AddCookie(options =>
             {
-                options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-                options.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-            }).AddCookie(options =>
-            {
-                options.Cookie.Name = "eSCOPCORE";
+                options.Cookie.Name = "eSCOPEnquiry";
             });
 
             //services.AddDbContext<ApplicationDbContext>(options =>
