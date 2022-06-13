@@ -5,7 +5,7 @@ using System.Web;
 using System.Data;
 using System.Data.SqlClient;
 
-namespace eSCOPEnquiry_HLM.Models
+namespace eSCOPEnquiry.Models
 {
     public class CommonMaster_BAL
     {

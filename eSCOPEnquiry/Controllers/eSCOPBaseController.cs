@@ -1,4 +1,4 @@
-﻿using eSCOPEnquiry_HLM.Models;
+﻿using eSCOPEnquiry.Models;
 using System;
 using System.Net;
 using System.Collections.Generic;
@@ -9,7 +9,7 @@ using System.Threading;
 using System.Web;
 using Microsoft.AspNetCore.Mvc;
 
-namespace eSCOPEnquiry_HLM.Controllers
+namespace eSCOPEnquiry.Controllers
 {
     public class eSCOPBaseController : Controller
     {

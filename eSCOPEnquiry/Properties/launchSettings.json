@@ -8,7 +8,7 @@
     }
   },
   "profiles": {
-    "eSCOPEnquiry_HLM": {
+    "eSCOPEnquiry": {
       "commandName": "Project",
       "launchBrowser": true,
       "environmentVariables": {

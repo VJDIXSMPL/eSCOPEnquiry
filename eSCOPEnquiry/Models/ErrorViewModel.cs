@@ -1,4 +1,4 @@
-namespace eSCOPEnquiry_HLM.Models
+namespace eSCOPEnquiry.Models
 {
     public class ErrorViewModel
     {

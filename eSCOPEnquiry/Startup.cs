@@ -11,8 +11,9 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Globalization;
+using Microsoft.Extensions.FileProviders;
 
-namespace eSCOPEnquiry_HLM
+namespace eSCOPEnquiry
 {
     public class Startup
     {
@@ -20,21 +21,37 @@ namespace eSCOPEnquiry_HLM
         {
             Configuration = configuration;
         }
+        public string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+
 
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            MyAllowSpecificOrigins = Configuration.GetSection("AppSettings").GetSection("CrossOrigin").Value.ToString();
 
             System.Threading.Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
             System.Threading.Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-US");
+            services.AddCors(options =>
+            {
+                options.AddPolicy(name: MyAllowSpecificOrigins,
+                                  builder =>
+                                  {
+                                      builder.WithOrigins(MyAllowSpecificOrigins.Split(','))
+                                      .AllowAnyMethod()
+                                      .AllowAnyHeader();
+                                  });
+            });
             services.AddMvc(options => options.EnableEndpointRouting = false);
             services.AddControllersWithViews();
             services.AddRazorPages().AddRazorRuntimeCompilation();
             services.AddSession(options => {
                 options.IdleTimeout = TimeSpan.FromMinutes(60);
             });
+            services.AddSingleton<IFileProvider>(
+            new PhysicalFileProvider(
+                Path.Combine(Directory.GetCurrentDirectory(), "wwwroot")));
             //services.addauthentication(options =>
             //{
             //    options.defaultscheme = cookieauthenticationdefaults.authenticationscheme;
@@ -70,6 +87,7 @@ namespace eSCOPEnquiry_HLM
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            MyAllowSpecificOrigins = Configuration.GetSection("AppSettings").GetSection("CrossOrigin").Value.ToString();
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -84,6 +102,10 @@ namespace eSCOPEnquiry_HLM
             app.UseStaticFiles();
 
             app.UseRouting();
+            app.UseCors(
+                options => options.WithOrigins(MyAllowSpecificOrigins.Split(',')).AllowAnyMethod()
+                );
+            app.UseMvc();
             app.UseAuthentication();
             app.UseAuthorization();
 

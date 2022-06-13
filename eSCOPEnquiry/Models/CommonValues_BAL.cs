@@ -5,7 +5,7 @@ using System.Web;
 using System.Data;
 
 
-namespace eSCOPEnquiry_HLM.Models
+namespace eSCOPEnquiry.Models
 {
     [Serializable]
     public class CommonValues_BAL

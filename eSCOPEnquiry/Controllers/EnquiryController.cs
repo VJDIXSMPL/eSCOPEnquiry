@@ -6,12 +6,14 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using eSCOPEnquiry_HLM.Models;
+using eSCOPEnquiry.Models;
 using Microsoft.AspNetCore.Authorization;
 using Newtonsoft.Json;
 using System.Data;
+using Amazon.S3;
+using Amazon.S3.Transfer;
 
-namespace eSCOPEnquiry_HLM.Controllers
+namespace eSCOPEnquiry.Controllers
 {
     public class EnquiryController : eSCOPBaseController
     {
@@ -51,6 +53,7 @@ namespace eSCOPEnquiry_HLM.Controllers
             EBAL.Student_FirstName = fc["Student_FirstName"].ToString().Split(' ')[0];
             EBAL.Student_LastName = fc["Student_FirstName"].ToString().Split(' ')[1];
             EBAL.MobileNo = fc["FMobileNo"].ToString();
+            EBAL.AlternateMobileNo = fc["AlternateMobileNo"].ToString();
             EBAL.EmailID = fc["FatherEmailID"].ToString();
             EBAL.FatherName = fc["Father_FirstName"].ToString();
             EBAL.optMode = "Insert";
@@ -84,7 +87,6 @@ namespace eSCOPEnquiry_HLM.Controllers
             string Student_FirstName = "", string Student_LastName = "", string FMobileNo = "", string FatherEmailID = "", string Father_FirstName = "",
             string hdnname = "")
         {
-            HttpContext.Session.SetString("Name", "New Enquiry");
             int ResultCaller = -1;
             string msgOutCaller = "";
             string SavedenqNo = "";
@@ -107,11 +109,11 @@ namespace eSCOPEnquiry_HLM.Controllers
             //TempData["InstituteName"] = hdnname;
             //TempData["MobileNo"] = FMobileNo;
             EBAL.EnqNo = "";
-            EBAL.Session = HttpContext.Session.Id;
+            EBAL.Session = "";//HttpContext.Session.Id;
             EBAL.crmEnquiry(EBAL, out ResultCaller, out msgOutCaller);
             if (ResultCaller > 0)
             {
-                TempData["EnqNo"] = msgOutCaller.Split('.')[1]; ;
+                TempData["EnqNo"] = msgOutCaller.Split('.')[1];
                 TempData["RegData"] = null;
                 TempData["Mode"] = "Enq";
                 string data = JsonConvert.SerializeObject(new { ResultCaller, msgOutCaller });
@@ -153,9 +155,53 @@ namespace eSCOPEnquiry_HLM.Controllers
             return View();
         }
 
-        public IActionResult PrintForm1()
+        public IActionResult UploadFile()
         {
             return View();
+        }
+
+        [HttpPost("FileUpload")]
+        public async Task<IActionResult> Index(List<IFormFile> files)
+        {
+            long size = files.Sum(f => f.Length);
+            var filePaths = new List<string>();
+            foreach (var formFile in files)
+            {
+                if (formFile.Length > 0)
+                {
+                    // full path to file in temp location
+                    var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", formFile.FileName); //we are using Temp file name just for the example. Add your own file path.
+                    filePaths.Add(filePath);
+                    using (var stream = new FileStream(filePath, FileMode.Create))
+                    {
+                        await formFile.CopyToAsync(stream);
+                    }
+                    //public RegionEndpoint bucketRegion = Amazon.RegionEndpoint.APSouth1;
+                    //https://s3.ap-south-1.amazonaws.com/prudence.schooloncloud.com/
+                    var s3Client = new AmazonS3Client("AKIA5F2B4I4WHGF7TUTK", "rl2jCNWi7QKsERBNKmRwXRTKHa335J795XAhOrbe", Amazon.RegionEndpoint.APSouth1);
+                    var fileTransferUtility = new TransferUtility(s3Client);
+                    try
+                    {
+                        var fileTransferUtilityRequest = new TransferUtilityUploadRequest
+                        {
+                            BucketName = "prudence.schooloncloud.com",
+                            FilePath = filePath,
+                            StorageClass = S3StorageClass.StandardInfrequentAccess,
+                            PartSize = 6291456, // 6 MB.  
+                            Key = "Temp/TestUpload/" + formFile.FileName,
+                            CannedACL = S3CannedACL.PublicRead
+                        };
+                        fileTransferUtilityRequest.Metadata.Add("param1", "Value1");
+                        fileTransferUtilityRequest.Metadata.Add("param2", "Value2");
+                        fileTransferUtility.Upload(fileTransferUtilityRequest);
+                        fileTransferUtility.Dispose();
+                    }
+                    catch (AmazonS3Exception amazonS3Exception)
+                    {
+                    }
+                }
+            }
+            return Ok(new { count = files.Count, size, filePaths });
         }
     }
 }

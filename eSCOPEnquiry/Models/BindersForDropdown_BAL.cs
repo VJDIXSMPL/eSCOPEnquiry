@@ -6,7 +6,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 
-namespace eSCOPEnquiry_HLM.Models
+namespace eSCOPEnquiry.Models
 {
     [Serializable]
     public class BindersForDropdown_BAL

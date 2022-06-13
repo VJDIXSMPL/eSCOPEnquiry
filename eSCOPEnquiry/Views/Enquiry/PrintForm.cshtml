@@ -25,8 +25,22 @@
         <div class="book">
             <div class="page">
                 <div class="subpage1">
-                    <table border="0" width="100%" cellspacing="0" cellpadding="0">
-                        <tr></tr>
+                    <table border="1" width="100%" cellspacing="0" cellpadding="0">
+                        <tr border="1">
+                            <th border="1">Name</th>
+                            <th border="1">Address</th>
+                            <th border="1">Age</th>
+                            <th border="1">Gender</th>
+                        </tr>
+                        @for (int j = 0; j < 200; j++)
+                        {
+                            <tr border="1">
+                                <td border="1">Varun Dixit</td>
+                                <td border="1">Noida</td>
+                                <td border="1">@j</td>
+                                <td border="1">Male</td>
+                            </tr>
+                        }
                     </table>
                     @*<table border="0" width="100%" cellspacing="0" cellpadding="0">
                 <tr>

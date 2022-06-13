@@ -7,7 +7,7 @@ using System.Globalization;
 using System.Linq;
 using System.Web;
 
-namespace eSCOPEnquiry_HLM.Models
+namespace eSCOPEnquiry.Models
 {
     [Serializable]
     public class CommonValues_DAL

@@ -1,8 +1,8 @@
-﻿using eSCOPEnquiry_HLM.Models;
+﻿using eSCOPEnquiry.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
-namespace eSCOPEnquiry_HLM.Controllers
+namespace eSCOPEnquiry.Controllers
 {
     public class HomeController : Controller
     {

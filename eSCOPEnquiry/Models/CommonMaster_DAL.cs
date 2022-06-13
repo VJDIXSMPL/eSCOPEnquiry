@@ -6,7 +6,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Globalization;
 
-namespace eSCOPEnquiry_HLM.Models
+namespace eSCOPEnquiry.Models
 {
     public class CommonMaster_DAL
     {

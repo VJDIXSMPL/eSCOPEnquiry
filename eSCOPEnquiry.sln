@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32519.379
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eSCOPEnquiry_HLM", "eSCOPEnquiry_HLM\eSCOPEnquiry_HLM.csproj", "{C556D086-D3DE-40B7-957D-0C72CD74C11C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "eSCOPEnquiry", "eSCOPEnquiry_HLM\eSCOPEnquiry.csproj", "{C556D086-D3DE-40B7-957D-0C72CD74C11C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

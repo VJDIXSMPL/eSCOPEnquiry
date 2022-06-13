@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Microsoft.AspNetCore.Mvc;
-using eSCOPEnquiry_HLM.Models;
+using eSCOPEnquiry.Models;
 using System.Data;
 using Newtonsoft.Json;
 using System.Data.SqlClient;
@@ -11,7 +11,7 @@ using System.Configuration;
 using System.Collections;
 using System.Globalization;
 
-namespace eSCOPEnquiry_HLM.Controllers
+namespace eSCOPEnquiry.Controllers
 {
     public class MyChartData
     {

@@ -6,9 +6,9 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
 using System.Globalization;
-using eSCOPEnquiry_HLM.Models;
+using eSCOPEnquiry.Models;
 
-namespace eSCOPEnquiry_HLM.Models
+namespace eSCOPEnquiry.Models
 {
     [Serializable]
     public class BindersForDropdown_DAL
