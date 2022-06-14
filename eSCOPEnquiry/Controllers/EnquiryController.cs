@@ -185,7 +185,7 @@ namespace eSCOPEnquiry.Controllers
                     {
                         var fileTransferUtilityRequest = new TransferUtilityUploadRequest
                         {
-                            BucketName = "prudence.schooloncloud.com",
+                            BucketName = "",
                             FilePath = filePath,
                             StorageClass = S3StorageClass.StandardInfrequentAccess,
                             PartSize = 6291456, // 6 MB.  
