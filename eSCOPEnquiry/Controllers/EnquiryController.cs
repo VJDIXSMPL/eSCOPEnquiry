@@ -53,7 +53,7 @@ namespace eSCOPEnquiry.Controllers
             EBAL.Student_FirstName = fc["Student_FirstName"].ToString().Split(' ')[0];
             EBAL.Student_LastName = fc["Student_FirstName"].ToString().Split(' ')[1];
             EBAL.MobileNo = fc["FMobileNo"].ToString();
-            EBAL.AlternateMobileNo = fc["AlternateMobileNo"].ToString();
+            EBAL.AlternateMobNo = fc["AlternateMobNo"].ToString();
             EBAL.EmailID = fc["FatherEmailID"].ToString();
             EBAL.FatherName = fc["Father_FirstName"].ToString();
             EBAL.optMode = "Insert";
@@ -85,7 +85,7 @@ namespace eSCOPEnquiry.Controllers
         [AllowAnonymous]
         public string EnquirySaveAPI(long InstituteID = -1, long SessionId = -1, long ProgramID = -1, string hdStudent_Dob = "01/01/1900",
             string Student_FirstName = "", string Student_LastName = "", string FMobileNo = "", string FatherEmailID = "", string Father_FirstName = "",
-            string hdnname = "")
+            string hdnname = "", string AlternateMobNo = "")
         {
             int ResultCaller = -1;
             string msgOutCaller = "";
@@ -98,6 +98,7 @@ namespace eSCOPEnquiry.Controllers
             EBAL.Student_FirstName = Student_FirstName;
             EBAL.Student_LastName = Student_LastName;
             EBAL.MobileNo = FMobileNo;
+            EBAL.AlternateMobNo = AlternateMobNo;
             EBAL.EmailID = FatherEmailID;
             EBAL.FatherName = Father_FirstName;
             EBAL.optMode = "Insert";

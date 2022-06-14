@@ -213,7 +213,6 @@ namespace eSCOPEnquiry.Models
         public string Student_ReligionName { get; set; }
         public long GenderID { get; set; }
         public string MobileNo { get; set; }
-        public string AlternateMobileNo { get; set; }
         public string AlternateMobNo { get; set; }
         public DateTime DateOfBirth { get; set; }
         public string EmailID { get; set; }
