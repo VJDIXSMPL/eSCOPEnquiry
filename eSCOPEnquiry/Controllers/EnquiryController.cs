@@ -179,7 +179,7 @@ namespace eSCOPEnquiry.Controllers
                     }
                     //public RegionEndpoint bucketRegion = Amazon.RegionEndpoint.APSouth1;
                     //https://s3.ap-south-1.amazonaws.com/prudence.schooloncloud.com/
-                    var s3Client = new AmazonS3Client("AKIA5F2B4I4WHGF7TUTK", "rl2jCNWi7QKsERBNKmRwXRTKHa335J795XAhOrbe", Amazon.RegionEndpoint.APSouth1);
+                    var s3Client = new AmazonS3Client("", "", Amazon.RegionEndpoint.APSouth1);
                     var fileTransferUtility = new TransferUtility(s3Client);
                     try
                     {
