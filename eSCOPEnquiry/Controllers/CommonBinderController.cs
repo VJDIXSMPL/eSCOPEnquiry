@@ -85,5 +85,25 @@ namespace eSCOPEnquiry.Controllers
                 return Json(JsonConvert.SerializeObject(ex));
             }
         }
+
+        [HttpGet]
+        public JsonResult LoadEnquiryBinder(long SessionID = -1, long InstituteID = -1, long ProgramType = -1, long ProgramID = -1, string optMode = "")
+        {
+            try
+            {
+                Dllbind.UserinfoDetails.optMode = optMode;
+                Dllbind.SessionID = SessionID;
+                Dllbind.InstituteID = InstituteID;
+                Dllbind.ProgramType = ProgramType;
+                Dllbind.ProgramID = ProgramID;
+                dt = Dllbind.LoadEnquiryBinder(Dllbind).Tables[0];
+                var stateData = JsonConvert.SerializeObject(dt);
+                return Json(stateData);
+            }
+            catch (Exception ex)
+            {
+                return Json(JsonConvert.SerializeObject(ex));
+            }
+        }
     }
 }

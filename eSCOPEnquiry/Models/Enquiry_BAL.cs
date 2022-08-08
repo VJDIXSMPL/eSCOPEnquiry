@@ -262,6 +262,7 @@ namespace eSCOPEnquiry.Models
         public string InstituteName { get; set; }
         public long StudentID { get; set; }
         public string FileTitle { get; set; }
+        public string ProgramType { get; set; }
         public long ProgramID { get; set; }
         public string UserID { get; set; }
         public int EnquiryStatusID { get; set; }

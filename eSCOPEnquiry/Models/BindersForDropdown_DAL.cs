@@ -46,6 +46,7 @@ namespace eSCOPEnquiry.Models
                 da.SelectCommand.Parameters.AddWithValue("@InstituteName", BDLBAL.InstituteName);
                 da.SelectCommand.Parameters.AddWithValue("@SemesterID", BDLBAL.SemesterID);
                 da.SelectCommand.Parameters.AddWithValue("@SessionID", BDLBAL.SessionID);
+                da.SelectCommand.Parameters.AddWithValue("@ProgramType", BDLBAL.ProgramType);
                 da.SelectCommand.Parameters.AddWithValue("@TradeID", BDLBAL.TradeID);
                 da.SelectCommand.Parameters.AddWithValue("@ShiftID", BDLBAL.ShiftID);
                 da.SelectCommand.Parameters.AddWithValue("@BatchID", BDLBAL.BatchID);

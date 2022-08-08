@@ -32,6 +32,10 @@ namespace eSCOPEnquiry.Controllers
 
         public ActionResult EnquiryDetails()
         {
+            if (TempData["Session"] != null)
+            {
+                EBAL.Session = TempData["Session"].ToString();
+            }
             if (TempData["Error"] != null)
             {
                 EBAL.Remark = TempData["Error"].ToString();
@@ -45,30 +49,33 @@ namespace eSCOPEnquiry.Controllers
             int ResultCaller = -1;
             string msgOutCaller = "";
             string SavedenqNo = "";
-            //TempData["Enq"] = JsonConvert.SerializeObject(EBAL);
             EBAL.InstituteID = Convert.ToInt64(fc["InstituteID"].ToString() == "" ? "-1" : fc["InstituteID"].ToString());
             EBAL.SessionID = Convert.ToInt64(fc["SessionId"].ToString() == "" ? "-1" : fc["SessionId"].ToString());
             EBAL.ProgramID = Convert.ToInt64(fc["ProgramID"].ToString() == "" ? "-1" : fc["ProgramID"].ToString());
             EBAL.Student_Dob = Convert.ToDateTime(hdStudent_Dob, ci);
             EBAL.Student_FirstName = fc["Student_FirstName"].ToString().Split(' ')[0];
-            EBAL.Student_LastName = fc["Student_FirstName"].ToString().Split(' ')[1];
+            if (fc["Student_FirstName"].ToString().Split(' ').Length > 1)
+            {
+                EBAL.Student_LastName = fc["Student_FirstName"].ToString().Split(' ')[1];
+            }
             EBAL.MobileNo = fc["FMobileNo"].ToString();
             EBAL.AlternateMobNo = fc["AlternateMobNo"].ToString();
             EBAL.EmailID = fc["FatherEmailID"].ToString();
             EBAL.FatherName = fc["Father_FirstName"].ToString();
+            EBAL.ProgramType = fc["ProgramType"].ToString();
             EBAL.optMode = "Insert";
             EBAL.EnquiryType = "2";
             EBAL.EnteredBy = "Online";
             EBAL.IpAddress = GetClientIpAddress();
             EBAL.McAddress = GetClientMac();
             EBAL.HostName = GetClientHost();
+            EBAL.Session = fc["Session"].ToString();
             TempData["InstituteName"] = fc["hdnname"].ToString();
             TempData["MobileNo"] = fc["FMobileNo"].ToString();
             EBAL.EnqNo = "";
             EBAL.crmEnquiry(EBAL, out ResultCaller, out msgOutCaller);
             if (ResultCaller > 0)
             {
-                //TempData["EnqNo"] = msgOutCaller.Split('.')[1];
                 TempData["EnqNo"] = JsonConvert.SerializeObject(msgOutCaller.Split('.')[1]);
                 TempData["RegData"] = null;
                 TempData["Mode"] = "Enq";
@@ -85,15 +92,15 @@ namespace eSCOPEnquiry.Controllers
         [AllowAnonymous]
         public string EnquirySaveAPI(long InstituteID = -1, long SessionId = -1, long ProgramID = -1, string hdStudent_Dob = "01/01/1900",
             string Student_FirstName = "", string Student_LastName = "", string FMobileNo = "", string FatherEmailID = "", string Father_FirstName = "",
-            string hdnname = "", string AlternateMobNo = "")
+            string hdnname = "", string AlternateMobNo = "", string ProgramType = "-1")
         {
             int ResultCaller = -1;
             string msgOutCaller = "";
             string SavedenqNo = "";
-            //TempData["Enq"] = JsonConvert.SerializeObject(EBAL);
             EBAL.InstituteID = InstituteID;
             EBAL.SessionID = SessionId;
             EBAL.ProgramID = ProgramID;
+            EBAL.ProgramType = ProgramType;
             EBAL.Student_Dob = Convert.ToDateTime(hdStudent_Dob, ci);
             EBAL.Student_FirstName = Student_FirstName;
             EBAL.Student_LastName = Student_LastName;

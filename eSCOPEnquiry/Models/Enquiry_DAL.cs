@@ -30,7 +30,9 @@ namespace eSCOPEnquiry.Models
                 cmd.Parameters.AddWithValue("@SocietyID", EnqBal.SocietyID);
                 cmd.Parameters.AddWithValue("@InstituteID", EnqBal.InstituteID);
                 cmd.Parameters.AddWithValue("@SessionID", EnqBal.SessionID);
+                cmd.Parameters.AddWithValue("@Session", EnqBal.Session);
                 cmd.Parameters.AddWithValue("@BranchID", EnqBal.TradeID);
+                cmd.Parameters.AddWithValue("@ProgramType", EnqBal.ProgramType);
                 cmd.Parameters.AddWithValue("@ProgramID", EnqBal.ProgramID);
                 cmd.Parameters.AddWithValue("@EnquiryNo", EnqBal.EnquiryNo);
                 cmd.Parameters.AddWithValue("@StudentID", EnqBal.StudentID);
@@ -108,7 +110,7 @@ namespace eSCOPEnquiry.Models
                 con.Open();
                 com.Parameters.AddWithValue("@Session", eqb.Session);
                 com.Parameters.AddWithValue("@Source", eqb.Source);
-                com.Parameters.AddWithValue("@Code", eqb.SubSource);
+                com.Parameters.AddWithValue("@SubSource", eqb.SubSource);
                 com.Parameters.AddWithValue("@optMode", eqb.optMode);
                 com.Parameters.Add("@msgOut", SqlDbType.VarChar, 100);
                 com.Parameters.Add("@Result", SqlDbType.Int);

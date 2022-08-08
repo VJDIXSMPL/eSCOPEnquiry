@@ -70,6 +70,7 @@ namespace eSCOPEnquiry.Models
         public long InstituteID { get; set; }
         public string InstituteName { get; set; }
         public long ProgramID { get; set; }
+        public long ProgramType { get; set; }
         public long BranchID { get; set; }
         public long SessionID { get; set; }
         public long SemesterID { get; set; }
@@ -84,6 +85,12 @@ namespace eSCOPEnquiry.Models
         public UserInfo UserinfoDetails = new UserInfo();
 
         public DataSet getBindersList(BindersForDropdown_BAL commBAL)
+        {
+            DataSet ds = new DataSet();
+            ds = commDAL.getCommonBindersList(commBAL);
+            return ds;
+        }
+        public DataSet LoadEnquiryBinder(BindersForDropdown_BAL commBAL)
         {
             DataSet ds = new DataSet();
             ds = commDAL.getCommonBindersList(commBAL);
