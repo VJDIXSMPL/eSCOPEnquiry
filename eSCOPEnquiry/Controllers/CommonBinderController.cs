@@ -53,6 +53,16 @@ namespace eSCOPEnquiry.Controllers
         }
 
         [HttpGet]
+
+        public JsonResult LoadPermissionWiseInstitute()
+        {
+            Dllbind.UserinfoDetails.optMode = "PermissionWiseInstitute";
+            dt = Dllbind.getBindersList(Dllbind).Tables[0];
+            var stateData = JsonConvert.SerializeObject(dt);
+            return Json(stateData);
+        }
+
+        [HttpGet]
         public JsonResult LoadStdAcademicSessionWiseSession(long InstituteID)
         {
             try

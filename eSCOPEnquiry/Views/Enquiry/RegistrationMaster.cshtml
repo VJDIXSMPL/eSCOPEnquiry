@@ -1,0 +1,2476 @@
+﻿@model Enquiry_BAL
+@using System.Globalization;
+@{
+    CultureInfo ci = new CultureInfo("en-GB");
+}
+@{
+    ViewBag.Title = "RegistrationMaster";
+}
+
+<style>
+    legend.scheduler-border {
+    font-size: 1.2em !important;
+    font-weight: bold !important;
+    text-align: left !important;
+     width:inherit; /* Or auto */
+    padding:0 10px; /* To give a bit of padding on the left and right */
+    border-bottom:none;
+}
+    .custom-control-inline-inline-block {
+        position: relative;
+        display: inline-block;
+        min-height: 1.19437rem;
+        padding-left: 1.625rem;
+    }
+
+    fieldset.border-css {
+        border: 1px solid #605296;
+        padding: 20px;
+        margin-bottom: 30px;.
+    }
+
+    .abc {
+        height: 19px;
+        width: 17px;
+    }
+</style>
+
+<div id="content">
+
+    <span id="msg"></span>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-xs-offset-2">
+                <div class="well well-lg mt30 mb30 ml60">
+
+                    @using (Html.BeginForm("RegistrationMaster", "Registration", FormMethod.Post, new { id = "Enquiry", @class = "smart-form" }))
+                    {
+                        <h5 class="" style="color:red">Note: All ‘*' marked fields are mandatory.</h5>
+                        <fieldset>
+                            <legend style="text-align: center;">Registration Form</legend>
+                            <div class="alert alert-danger fade in" id="DivError" style="display:none">
+                                <button class="close" data-dismiss="alert">
+                                    ×
+                                </button>
+                                <i class="fa-fw fa fa-check"></i>
+                                <strong>Error!</strong><span id="ValiError"></span>
+                            </div>
+                             </fieldset>
+                         <fieldset class="border-css mt-3">
+                            <legend class="scheduler-border"><b>Official Details</b></legend>
+                            <div class="row">
+                                <section class="form-group col-sm-3">
+                                    <label>Institute Name <span style="color:red">*</span></label>
+                                    @Html.DropDownListFor(model => model.InstituteID, new List<SelectListItem> { }, new { @class = "form-control" })
+                                </section>
+                                <section class="form-group col-sm-3">
+                                    <label>Session<span style="color:red">*</span></label>
+                                    @Html.DropDownListFor(model => model.SessionID, new List<SelectListItem> { }, new { @class = "form-control" })
+                                </section>
+                                <section class="form-group col-sm-3">
+                                    <label>Program<span style="color:red">*</span></label>
+                                    @Html.DropDownListFor(model => model.ProgramID, new List<SelectListItem> { }, new { @class = "form-control" })
+                                </section>
+                                <section class="form-group col-sm-3">
+                                    <label>Branch<span style="color:red">*</span></label>
+                                    @Html.DropDownListFor(model => model.BranchID, new List<SelectListItem> { }, new { @class = "form-control" })
+                                </section>
+                            </div>
+                            <div class="row">
+                                <section class="form-group col-sm-3">
+                                    <label>Student Photo<span style="color:red">*</span></label>
+                                    <input name="filepic" required type="file" id="uploadStudentPhoto" onchange="filePreviewStud(this);" class="form-control">
+                                </section>
+                                <section class="form-group col-sm-3">
+                                    <label>Student Sign<span style="color:red">*</span></label>
+                                    <input name="filesig" required type="file" id="uploadStudentSign" onchange="filePreviewStudSign(this);" class="form-control">
+                                </section>
+
+                                <section class="form-group col-sm-3" id="divlateral">
+                                    <div class="custom-control custom-checkbox mt-5">
+                                        <input type="checkbox" class="custom-control-input" id="chkislateralenq" name="chkislateralenq" onchange="LateralSemChanged()">
+                                        <label class="custom-control-label" for="chkislateralenq">Required Lateral</label>
+                                    </div>
+                                </section>
+                            </div>
+                        </fieldset>
+                        <fieldset class="border-css mt-3">
+                            <legend class="scheduler-border"><b>Student Details</b></legend>
+                            <div class="row">
+                                <section class="form-group col-sm-3">
+                                    <label>Title</label>
+                                    @*<input type="hidden" id="hdTrainee_Title" name="hdTrainee_Title" value="@Model.Trainee_Title" />*@
+                                    @Html.DropDownListFor(model => model.Trainee_Title, new List<SelectListItem> { }, new { @class = "form-control" , @placeholder = "Please Enter Title"})
+                                </section>
+                                <section class="form-group col-sm-3">
+                                    <label>First Name<span style="color:red">*</span></label>
+                                   
+                                    @Html.Editor("Trainee_FirstName", new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter FirstName" ,@type = "text",@required = "" }})
+                                </section>
+                                <section class="form-group col-sm-3">
+                                    <label>Middle Name<span style="color:red">*</span></label>
+                                    @Html.Editor("Trainee_MiddleName", new { htmlAttributes = new { @class = "form-control" ,@placeholder = "Please Enter MiddleName",@type = "text",@required = ""}})
+                                </section>
+                                <section class="form-group col-sm-3">
+                                    <label>Last Name<span style="color:red">*</span></label>
+                                    @Html.Editor("Trainee_LastName", new { htmlAttributes = new { @class = "form-control",@placeholder = "Please Enter LastName",@type = "text",@required = "" }})
+                                </section>
+                            </div>
+                            <div class="row">
+                                <section class="form-group col-sm-12">
+                                    <label>Student Name (in Religious Language)</label>
+                                    @Html.Editor("Student_ReligionName", new { htmlAttributes = new { @class = "form-control",@placeholder = "Please Enter Religion Name", @type = "text", @maxlength = "50" }})
+                                </section>
+                            </div>
+                            <div class="row">
+                                <section class="form-group col-sm-3">
+                                    <label>Gender<span style="color:red">*</span></label>
+                                    @*<input type="hidden" id="hdGenderID" name="hdGenderID" value="@Model.GenderID" />*@
+                                    @Html.DropDownListFor(model => model.GenderID, new List<SelectListItem> { }, new { @class = "form-control",@placeholder = "Please Enter Gender", @type = "text", @maxlength = "50" })
+                                </section>
+                                <section class="form-group col-sm-3">
+                                    <label>Date of Birth <span style="color:red">*</span></label>
+                                    <label class="input-group date">
+                                        @* <input type="hidden" id="hdStudent_Dob" name="hdStudent_Dob" value="@Model.DateOfBirth.Value.ToString("dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture)" />
+                                    *@
+                                        @*@if (Model.DateOfBirth == Convert.ToDateTime("01/01/1900", ci))
+                                        {*@
+                                            @Html.TextBoxFor(x => x.DateOfBirth, "{0:dd/MM/yyyy}", new { @class = "form-control", @placeholder = "Date Of Birth", @type = "dateFormat", @Value = "", @required = "" })
+                                        @*}
+                                        @*else
+                                        {
+                                            @Html.TextBoxFor(x => x.DateOfBirth, "{0:dd/MM/yyyy}", new { @class = "form-control", @placeholder = "Date Of Birth", @type = "dateFormat", @required = "" })
+                                        }*@
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+                                    </label>
+                                </section>
+                                @*<section class="form-group col-sm-1">
+                                    <input type="text" value="@Model.MobileNoCode" required name="MobileNoCode" id="TxtMobileNoCode" class="form-control" maxlength="10" placeholder="+91">
+                                    <label>&nbsp;</label>
+                                    @Html.Editor("MobileNoCode", new { htmlAttributes = new { @class = "form-control", @placeholder = "+91", @type = "text", @maxlength = "10" } })
+                                </section>*@
+                                <section class="form-group col-sm-3">
+                                    <label>Mobile No.<span style="color:red">*</span></label>
+                                    @Html.Editor("MobileNo", new { htmlAttributes = new { @class = "form-control", @required = "", @placeholder = "Please Enter Mobile No", @type = "text", @maxlength = "10" } })
+                                </section>
+                                @*<section class="form-group col-sm-1">
+                                    <input type="text" value="@Model.AlterNateNoCode" required name="AlterNateNoCode" id="AlterNateNoCode" class="form-control" maxlength="10" placeholder="+91">
+                                    <label>&nbsp;<span style="color:red">*</span></label>
+                                    @Html.Editor("AlterNateNoCode", new { htmlAttributes = new { @class = "form-control", @placeholder = "+91", @type = "text", @maxlength = "10" } })
+                                </section>*@
+                                <section class="form-group col-sm-3">
+                                    <label>Alternate No.</label>
+                                    @Html.Editor("AlternateMobNo", new { htmlAttributes = new { @class = "form-control", @required = "", @placeholder = "Please Enter Alternate No", @type = "text", @maxlength = "10" } })
+                                </section>
+                            </div>
+                            <div class="row">
+                                <section class="form-group col-sm-3">
+                                    <label>Email ID<span style="color:red">*</span></label>
+                                    @Html.EditorFor(model => model.EmailID, new { htmlAttributes = new { @name = "EmailID", @class = "form-control", @autocomplete = "off", @MaxLength = 100, @placeholder = "Please Enter Email Id", @Type = "text" } })
+                                </section>
+                                <section class="form-group col-sm-3">
+                                    <label>Aadhar No.<span style="color:red">*</span></label>
+                                    @Html.EditorFor(model => model.AadharNo, new { htmlAttributes = new { @name = "AadharNo", @class = "form-control", @autocomplete = "off", @MaxLength = 100, @placeholder = "Please Enter Aadhar No", @Type = "text" } })
+                                </section>
+                                <section class="form-group col-sm-3" style="display:none">
+                                    <label>Passport No<span style="color:red">*</span></label>
+                                    @Html.EditorFor(model => model.PassportNo, new { htmlAttributes = new { @name = "PassportNo", @class = "form-control", @autocomplete = "off", @MaxLength = 100, @placeholder = "Please Enter Email Id", @Type = "text" } })
+                                </section>
+                                <section class="form-group col-sm-3">
+                                    <label>Blood Group</label>
+                                    @* <input type="hidden" id="hdBlood" name="hdBlood" value="@Model.Blood" />*@
+                                    @Html.EditorFor(model => model.Blood, new { htmlAttributes = new { @name = "Blood", @class = "form-control", @autocomplete = "off", @MaxLength = 100, @placeholder = "Please Enter Blood", @Type = "text" } })
+                                </section>
+                                <section class="form-group col-sm-3">
+                                    <label>Category<span style="color:red">*</span></label>
+                                    @* <input type="hidden" id="hdCategoryID" name="hdCategoryID" value="@Model.CategoryID" />*@
+                                    @Html.EditorFor(model => model.CategoryID, new { htmlAttributes = new { @name = "CategoryID", @class = "form-control", @autocomplete = "off", @MaxLength = 100, @placeholder = "Please Enter Category", @Type = "text" } })
+                                </section>
+                            </div>
+                            <div class="row">
+                                <section class="form-group col-sm-3">
+                                    @* <input type="hidden" id="hdReligionID" name="hdReligionID" value="@Model.ReligionID" />*@
+                                    <label>Religion<span style="color:red">*</span></label>
+                                    @Html.EditorFor(model => model.ReligionID, new { htmlAttributes = new { @name = "ReligionID", @class = "form-control", @autocomplete = "off", @MaxLength = 100, @placeholder = "Please Enter Religion", @Type = "text" } })
+                                </section>
+                                <section class="form-group col-sm-3">
+                                    <label>Nationality<span style="color:red">*</span></label>
+                                    @*<input type="hidden" id="hdnationalityID" name="hdnationalityID" value="@Model.NationalityID" />*@
+                                    @Html.DropDownListFor(model => model.NationalityID, new List<SelectListItem> { }, new { @class = "form-control" })
+                                </section>
+                                <section class="form-group col-sm-3">
+                                    <label>Marital Status</label>
+                                    @*<input type="hidden" id="hdMartialID" name="hdMartialID" value="@Model.MartialID" />*@
+                                    @Html.DropDownListFor(model => model.MartialID, new List<SelectListItem> { }, new { @class = "form-control" })
+                                </section>
+
+                                <section class="form-group col-sm-3">
+                                    <label>Exam Status<span style="color:red">*</span></label>
+                                    <select id="ddlexamstaus" class="form-control" name="ddlexamstaus" required>
+                                        <option value="">Select</option>
+                                        <option value="Passed">Passed</option>
+                                        <option value="Appeared">Appeared</option>
+                                        <option value="Appearing">Appearing</option>
+                                    </select>
+                                </section>
+                            </div>
+                            <div class="row">
+                                <section class="form-group col-sm-3">
+                                    <label>Hostel Required</label>
+                                    @*<input type="hidden" id="hdhosType" name="hdhosType" value="@Model.HostelReq" />*@
+                                     <select id="HostelReq" class="form-control" name="HostelReq" required>
+                                        <option value="No">No</option>
+                                        <option value="Yes">Yes</option>
+                                    </select>
+                                </section>
+                                <section class="form-group col-sm-3">
+                                    <label id="lblt">Transport Required</label>
+                                    @* <input type="hidden" id="hdtrasnType" name="hdtrasnType" value="@Model.TransportReq" />*@
+                                    <select id="TransportReq" class="form-control" name="TransportReq" required>
+                                        <option value="No">No</option>
+                                        <option value="Yes">Yes</option>
+                                    </select>
+                                </section>
+                            </div>
+                        </fieldset>
+                        <div class="row">
+                            <section class="col-md-3 mb-3" style="display:none">
+                                @*<input type="hidden" id="hdnappli" value="@Model.ApplicantStatus" />
+                                <input type="hidden" id="hdnmedium" value="@Model.ExamMedium" />
+                                <input type="hidden" id="hdnstatus" value="@Model.ExamStatus" />
+                                <input type="hidden" id="hdnback" value="@Model.BackGRound" />*@
+
+                                <label class="form-label" id="lblh">Applicant Employment Status<span style="color:red">*</span></label>
+                                <select id="ddlappli" class="form-control" name="ddlappli" required>
+                                    <option value="">Select</option>
+                                    <option value="Employed">Employed</option>
+                                    <option value="UnEmployed">UnEmployed</option>
+                                </select>
+                            </section>
+                            <section class="col-md-3 mb-3" style="display:none">
+                                <label class="form-label" id="lblh">Examination Medium<span style="color:red">*</span></label>
+
+                                <select id="ddlexammedium" class="form-control" name="ddlexammedium" required>
+                                    <option value="">Select</option>
+                                    <option value="English">English</option>
+                                    <option value="Hindi">Hindi</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </section>
+                            <section class="col-md-3 mb-3" id="medother" style="display:none">
+                                <label class="form-label" id="lblh">Medium Name<span style="color:red">*</span></label>
+
+                                <input type="text" id="txtmedium" name="txtmedium" class="form-control" />
+                            </section>
+                            <section class="col-md-3 mb-3" style="display:none">
+                                <label class="form-label">BackGround<span style="color:red">*</span></label>
+                                <select id="ddlback" class="form-control" name="ddlback" required>
+                                    <option value="">Select</option>
+                                    <option value="Rural">Rural</option>
+                                    <option value="Urban">Urban</option>
+                                    <option value="Local">Local</option>
+                                </select>
+                            </section>
+                        </div>
+                        <div class="row">
+                        <div class="form-group col-sm-3" id="amt" style="display:none">
+                            <label>Registration Amount </label>
+                            <input type="text" id="lblamt" name="lblamt" class="form-control" readonly />
+                            <input type="hidden" id="hdnamt" name="hdnamt" />
+                        </div>                     
+                        <div class="col-md-3 mb-3" id="SCVTApplicationNo" style="display:none;">
+                            <label class="form-label">SCVT Application No.<span style="color:red">*</span></label>
+
+                            @Html.Editor("SCVTNo", new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter SCVT Application No", @type = "text", @maxlength = "50" } })
+
+
+                        </div>
+                        <div class="col-md-3 mb-3" id="NCVTApplicationNo" style="display:none;">
+
+                            <label class="label">NCVT Application No.</label>
+
+                            @Html.Editor("NCVTNo", new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter NCVT Application No", @type = "text", @maxlength = "50" } })
+
+
+
+
+                        </div>
+                        </div>
+                        <div id="FldSpouse1" style="display:none">
+
+                        <!--<legend class="col-md-12 page-title padding-top-0 padding-bottom-5">Spouse Details</legend>-->
+                            @*<div id="FldSpouse">*@
+                        <div class="form-row form-group">
+                            <div class="col-md-3 mb-3">
+                                <label class="form-label">Spouse Title</label>
+
+                                    @* <input type="hidden" id="hdSpouse_Title" name="hdSpouse_Title" value="@Model.Spouse_Title" />*@
+                                    @Html.DropDownList("Spouse_Title", new List<SelectListItem>
+                            {
+
+                            }, new { @class = "custom-select" })
+
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <label class="form-label">Spouse First Name </label>
+
+                                    @Html.Editor("Spouse_FirstName", new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter First Name", @type = "text", @maxlength = "50" } })
+                                <div class="invalid-feedback">
+                                    Please Enter Spouse First Name.
+                                </div>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <label class="form-label">Spouse Middle Name</label>
+
+                                    @Html.Editor("Spouse_MiddleName", new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Middle Name", @type = "text", @maxlength = "50" } })
+
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <label class="form-label">Spouse Last Name</label>
+
+                                    @Html.Editor("Spouse_LastName", new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Last Name", @type = "text", @maxlength = "50" } })
+
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <label class="form-label">Spouse Mobile No.</label>
+
+                                <i class="icon-prepend fa fa-mobile-phone"></i>
+                                    @Html.Editor("Spouse_MobileNo", new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Mobile No", @type = "text", @maxlength = "10" } })
+                                <div class="invalid-feedback">
+                                    Please Enter Spouse Mobile No.
+                                </div>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <label class="form-label">Spouse Email ID</label>
+
+                                <i class="icon-prepend fa fa-mobile-phone"></i>
+                                    @Html.Editor("Spouse_EmailID", new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Alternate No", @type = "text", @maxlength = "50" } })
+
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <fieldset class="border-css mt-3">
+                        <legend class="scheduler-border"><b>Parents Details</b></legend>
+                           <div class="row">
+                                <section class="form-group col-sm-3">
+                                    <label>Title</label>
+                                    @*  <input type="hidden" id="hdFather_Title" name="hdFather_Title" value="@Model.Father_Title" />*@
+                                    @Html.DropDownListFor(model => model.Father_Title, new List<SelectListItem> { }, new { @class = "form-control" ,@placeholder = "Please Select Title" })
+                                </section>
+                                <section class="form-group col-sm-3">
+                                    <label>Father's First Name<span style="color:red">*</span></label>
+                                    @Html.Editor("Father_FirstName", new { htmlAttributes = new { @class = "form-control", @required = "", @placeholder = "Please Enter First Name", @type = "text", @maxlength = "50" } })
+                                </section>
+                                <section class="form-group col-sm-3">
+                                    <label>Father's Middle Name<span style="color:red">*</span></label>
+                                    @Html.Editor("Father_MiddleName", new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Middle Name", @type = "text", @maxlength = "50" } })
+                                </section>
+                                <section class="form-group col-sm-3">
+                                    <label>Father's Last Name<span style="color:red">*</span></label>
+                                    @Html.Editor("Father_LastName", new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Last Name", @type = "text", @maxlength = "50" } })
+                                 </section>
+                              </div>
+                              <div class="row">
+                                 <section class="form-group col-sm-4">
+                                    <label>Father's Name (in Religious Language)</label>
+                                     @Html.Editor("Father_ReligiousName", new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Name", @type = "text", @maxlength = "50" } })
+                                 </section>
+                                 <section class="form-group col-sm-4">
+                                <label class="form-label">Father's Mobile No.<span style="color:red">*</span></label>
+                                    @Html.Editor("Father_MobileNo", new { htmlAttributes = new { @class = "form-control", @required = "", @placeholder = "Please Enter Mobile No", @type = "text", @maxlength = "10" } })
+                               
+                            </section>
+                            <section class="form-group col-sm-4">
+                                <label class="form-label">Father's Email ID</label>
+
+                                    @Html.Editor("FatherEmailID", new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Email ID", @type = "text", @maxlength = "50" } })
+
+                            </section>
+                               </div>
+                               <div class="row" style="display:none">
+                        <section class="col-md-1 mb-3">
+                                <label class="label">&nbsp;</label>
+                                    @Html.Editor("FatherMobileNoCode", new { htmlAttributes = new { @class = "form-control", @placeholder = "+91", @type = "text", @maxlength = "10" } })
+                            </section>
+                            
+                               </div>
+
+                        <div class="row">
+                            <section class="form-group col-sm-3">
+                                <label class="form-label">Title</label>
+
+                                    @* <input type="hidden" id="hdMother_Title" name="hdMother_Title" value="@Model.Mother_Title" />*@
+                                    @Html.DropDownList("Mother_Title", new List<SelectListItem>
+                            {
+
+                            }, new { @class = "form-control",@placeholder = "Please Select Title"})
+
+
+                            </section>
+                            <section class="form-group col-sm-3">
+                                <label class="form-label">Mother's First Name <span style="color:red">*</span></label>
+
+                                    @Html.Editor("Mother_FirstName", new { htmlAttributes = new { @class = "form-control", @required = "", @placeholder = "Please Enter First Name", @type = "text", @maxlength = "50" } })
+                                
+                            </section>
+                            <section class="form-group col-sm-3">
+                                <label class="form-label">Mother's Middle Name</label>
+
+                                    @Html.Editor("Mother_MiddleName", new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Middle Name", @type = "text", @maxlength = "50" } })
+
+                            </section>
+                            <section class="form-group col-sm-3">
+                                <label class="form-label">Mother's Last Name</label>
+
+                                    @Html.Editor("Mother_LastName", new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Last Name", @type = "text", @maxlength = "50" } })
+
+                            </section>
+                        </div>
+                        <div class="row">
+                            <section class="form-group col-sm-4">
+                                <label class="form-label">Mother's Name (in Religious Language)</label>
+                                    @Html.Editor("Mother_ReligiousName", new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Religious Name", @type = "text", @maxlength = "50" } })
+
+                            </section>
+                            @*<section class="col-md-1 mb-3">
+                                <label class="label">&nbsp;</label>
+                                    @Html.Editor("MotherMobileNoCode", new { htmlAttributes = new { @class = "form-control", @placeholder = "+91", @type = "text", @maxlength = "10" } })
+
+                            </section>*@
+                            <section class="form-group col-sm-4">
+                                <label class="form-label">Mother's Mobile No.</label>
+
+                                <i class="icon-prepend fal fa-phone"></i>
+                                    @Html.Editor("Mother_MobileNo", new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Mobile No", @type = "text", @maxlength = "10" } })
+
+
+                            </section>
+                            <section class="form-group col-sm-4">
+                                <label class="form-label">Mother's Email ID</label>
+
+                                <i class="icon-prepend fa fa-envelope-o"></i>
+                                    @Html.Editor("Mother_EmailID", new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Email ID", @type = "text", @maxlength = "50" } })
+
+                            </section>
+                        </div>
+                        <div class="row" id="divguard">
+                            <section class="form-group col-sm-3">
+                                <section class="inline-group">
+                                    <section class="custom-control custom-checkbox mt-2">
+                                        <input name="chklocalGuaother" class="custom-control-input" id="chklocalGuaother" type="checkbox" />
+                                        <label class="custom-control-label" for="chklocalGuaother">Has Guardian other than parents</label>
+                                    </section>
+                                </section>
+                            </section>
+                        </div>
+
+                        <div id="dvother" >
+                            <div class="form-row form-group">
+                                <div class="form-group col-sm-3">
+                                    <label class="form-label">Title</label>
+                                        @*
+                                <input type="hidden" id="hdGuardian_Title" name="hdGuardian_Title" value="@Model.Guardian_Title" />*@
+                                        @Html.DropDownList("Guardian_Title", new List<SelectListItem>
+                                {
+
+                                }, new { @class = "form-control" })
+
+                                </div>
+                                <div class="form-group col-sm-3">
+                                    <label class="form-label">First Name <span style="color:red">*</span></label>
+
+                                        @Html.Editor("Guardian_FirstName", new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter First Name", @type = "text", @maxlength = "50" } })
+                                    
+                                </div>
+                                <div class="form-group col-sm-3">
+                                    <label class="form-label">Middle Name</label>
+
+                                        @Html.Editor("Guardian_MiddleName", new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Middle Name", @type = "text", @maxlength = "50" } })
+
+                                </div>
+                                <div class="form-group col-sm-3">
+                                    <label class="form-label">Last Name</label>
+                                        @Html.Editor("Guardian_LastName", new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Last Name", @type = "text", @maxlength = "50" } })
+
+                                </div>
+                                <div class="form-group col-sm-12">
+
+                                    <label class="form-label">Guardian Name (in Religious Language)</label>
+                                        @Html.Editor("Guradian_ReligiousName", new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Name", @type = "text", @maxlength = "50" } })
+
+                                </div>
+                                @*<div class="col-md-1 mb-3">
+                                    <label class="label">&nbsp;</label>
+                                        @Html.Editor("GuardianMobileNoCode", new { htmlAttributes = new { @class = "form-control", @placeholder = "+91", @type = "text", @maxlength = "10" } })
+
+                                </div>*@
+                                <div class="form-group col-sm-4">
+                                    <label class="form-label">Mobile No.<span style="color:red">*</span></label>
+
+                                        @Html.Editor("Guardian_MobileNo", new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Mobile No", @type = "text", @maxlength = "10" } })
+                                    
+                                </div>
+                                <div class="form-group col-sm-4">
+                                    <label class="form-label">Email ID </label>
+
+                                        @Html.Editor("Guardian_EmailID", new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Email ID", @type = "text", @maxlength = "50" } })
+
+                                </div>
+                                <div class="form-group col-sm-4">
+                                    <label class="form-label">Relation<span style="color:red">*</span></label>
+
+
+                                        @* <input type="hidden" id="hdRelation" name="hdRelation" value="@Model.Relation" />*@
+                                        @Html.DropDownList("Relation", new List<SelectListItem>
+                                {
+
+                                }, new { @class = "form-control" })
+                                    
+                                </div>
+                            </div>
+                        </div>
+
+                    </fieldset>
+                    <fieldset class="border-css mt-3">
+                        <legend class="scheduler-border"><b>Address Details</b></legend>
+
+                        <p class="margin-bottom-10"><strong>Correspondance Address</strong></p>
+
+                        <div class="row">
+                            <section class="form-group col-sm-12">
+                                <label class="form-label">Address<span style="color:red">*</span></label>
+
+                                    @*   <input type="hidden" id="hdAddressID" value="@Model.AddressID" name="hdAddressID" />*@
+                                    @Html.TextArea("Address", new { @rows = 2, @cols = 150, @required = "", @placeholder = "Please Enter Address ", @maxlength = 250, @class = "form-control" })
+                                
+                            </section>
+                             </div>
+                             <div class="row">
+                            <section class="form-group col-sm-4">
+                                <label class="form-label">Country<span style="color:red">*</span></label>
+                                    @*
+                            <input type="hidden" id="hdCountry" value="@Model.CountryID" name="hdCountry" />*@
+
+                                    @Html.DropDownList("CountryID", new List<SelectListItem>
+                            {
+
+                            }, new { @class = "form-control", @required = "" })
+                               
+                            </section>
+                            <section class="form-group col-sm-4">
+                                <label class="form-label">State<span style="color:red">*</span></label>
+
+                                    @*<input type="hidden" id="hdState" value="@Model.StateID" name="hdState" />*@
+
+                                    @Html.DropDownList("StateID", new List<SelectListItem>
+                            {
+
+                            }, new { @class = "form-control", @required = "" })
+
+                            </section>
+                            <section class="form-group col-sm-4">
+                                <label class="form-label">District / City<span style="color:red">*</span></label>
+
+                                    @* <input type="hidden" id="hdCity" value="@Model.CityID" name="hdCity" />*@
+                                    @Html.DropDownList("CityID", new List<SelectListItem>
+                            {
+
+                            }, new { @class = "form-control", @required = "" })
+
+                               
+                            </section>
+                           
+                             </div>
+                             <div class="row">
+                            <section class="form-group col-sm-12">
+                                <label class="form-label">Correspondance Address (in Religious Language)<span style="color:red"></span></label>
+                                    @Html.TextArea("CorAddressReligious", new { @rows = 2, @cols = 100, @placeholder = "Please Enter Address ", @maxlength = 250, @class = "form-control" })
+
+                            </section>
+                        </div>
+                         <div class="row">
+                            <section class="form-group col-sm-4">
+                                <label class="form-label">Pincode</label>
+                                    @Html.Editor("PinCode", new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Pincode", @type = "text", @maxlength = "6", @required = "" } })
+                            </section>
+
+                            <section class="form-group col-sm-4">
+                                <label class="form-label">Area</label>
+                                    @Html.Editor("Area", new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Area", @type = "text", @maxlength = "150" } })
+
+                            </section>
+                            <div class="row" id="checkdiv">
+                            <div class="col-md-5 mb-3">
+                                <input type="hidden" id="hdnaddchck" name="hdnaddchck" />
+                                <div class="custom-control custom-checkbox mt-2">
+                                    <input name="chklocalGua" class="custom-control-input" id="chklocalGuaId" type="checkbox" />
+                                    <label class="custom-control-label" for="chklocalGuaId">Permanant Address (Other than Correspondance Address)</label>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                       
+                        
+
+                        <div id="dvCors">
+                            <div class="row">
+                                 <section class="form-group col-sm-12">
+                                    <label class="form-label">Address<span style="color:red">*</span></label>
+
+                                        @*<input type="hidden" id="hdnPerAdsressID" value="@Model.Permanant_AddressID" name="hdnPerAdsressID" />*@
+                                        @Html.TextArea("Permanant_Address", new { @rows = 2, @cols = 150, @placeholder = "Please Enter Address ", @maxlength = 250, @class = "form-control" })
+
+                                </section>
+                                </div>
+                                  <div class="row">
+                                <section class="form-group col-sm-4">
+                                    <label class="form-label">Country<span style="color:red">*</span></label>
+                                        @* //<input type="hidden" id="hdPerCountry" value="@Model.Permanant_CountryID" name="hdPerCountry" />*@
+                                        @Html.DropDownList("Permanant_CountryID", new List<SelectListItem>
+                                {
+
+                                }, new { @class = "form-control" })
+
+                                </section>
+                                <section class="form-group col-sm-4">
+                                    <label class="form-label">State<span style="color:red">*</span></label>
+
+                                        @* <input type="hidden" id="hdPerState" value="@Model.Permanant_StateID" name="hdPerState" />*@
+                                        @Html.DropDownList("Permanant_StateID", new List<SelectListItem>
+                                {
+
+                                }, new { @class = "form-control" })
+
+
+
+                                </section>
+                                <section class="form-group col-sm-4">
+                                    <label class="form-label">District / City<span style="color:red">*</span></label>
+                                        @*
+                                <input type="hidden" id="hdPerCity" value="@Model.Permanant_CityID" name="hdPerCity" />*@
+                                        @Html.DropDownList("Permanant_CityID", new List<SelectListItem>
+                                {
+
+                                }, new { @class = "form-control" })
+
+                                </section>
+                                 </div>
+
+                                  <div class="row">
+                                <section class="form-group col-sm-12">
+                                    <label class="form-label">Permanent Address (in Religious Language)<span style="color:red"></span></label>
+                                        @Html.TextArea("PerAddressReligious", new { @rows = 2, @cols = 100, @placeholder = "Please Enter Address ", @maxlength = 250, @class = "form-control" })
+
+                                </section>
+                            </div>
+                            <div class="row">
+                                <section class="form-group col-sm-4">
+                                    <label class="form-label">Pincode</label>
+                                        @Html.Editor("Permanant_PinCode", new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Pincode", @type = "text", @maxlength = "6" } })
+
+                                </section>
+                                <section class="form-group col-sm-4">
+                                    <label class="form-label">Area</label>
+                                        @Html.Editor("PermanantArea", new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Area", @type = "text", @maxlength = "150" } })
+
+                                </section>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <div id="Quali" style="display:none">
+
+                        <fieldset class="border-css mt-3">
+                            <legend class="scheduler-border"><b>Required Education Details</b></legend>
+
+
+                            <input type="hidden" id="hdneid" name="hdneid" />
+                            <input type="hidden" id="hdnboard" name="hdnboard" />
+                            <input type="hidden" id="hdnroll" name="hdnroll" />
+                            <input type="hidden" id="hdnyear" name="hdnyear" />
+                            <input type="hidden" id="hdntmarks" name="hdntmarks" />
+                            <input type="hidden" id="hdnomarks" name="hdnomarks" />
+                            <input type="hidden" id="hdnage" name="hdnage" />
+                            <div id="DivQuali">
+
+                                <fieldset>
+                                    <div class="row"></div>
+                                    <div class="row" id="secqualif">
+                                        <div class="col col-md-12">
+                                            <div class="table-responsive">
+                                                <table id="tblqualif" class="table table-striped table-bordered table-hover grid">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Examination Passed</th>
+                                                            <th>Board / University</th>
+                                                            <th>RolNo</th>
+                                                            <th>Year</th>
+                                                            <th>Total Marks</th>
+                                                            <th>Marks Obtained</th>
+                                                            <th>%Age</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="tbldata1"></tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </fieldset>
+                            </div>
+                        </fieldset>
+                    </div>
+                    <div id="Documents" style="display:none">
+
+                        <fieldset class="border-css mt-3">
+
+                            <legend class="col-md-12 page-title padding-top-0 padding-bottom-3"><b>Required Documents</b></legend>
+                            <div class="row" style="padding:10px">
+                                <section class="col-sm-12">
+                                    <div class="inline-group">
+                                        <i></i><b style="color:red">NOTE* : For documents jpeg,jpg and pdf formats are valid. Maximum file size for documents is 2 MB.</b>
+                                    </div>
+                                </section>
+                            </div>
+
+
+                            <div id="DivPhotos">
+
+                                <fieldset>
+                                    <div class="row"></div>
+                                    <div class="row" id="secDocuments">
+                                        <div class="col col-md-12">
+                                            <div class="table-responsive">
+                                                <table id="tblDocuments" class="table table-striped table-bordered table-hover grid">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Document Name</th>
+                                                            <th>Mandatory</th>
+                                                            <th>Upload File</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="tbldata2"></tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </fieldset>
+                            </div>
+                        </fieldset>
+                    </div>
+                    <div class="qualiiiiiiiiii" style="display:none">
+
+                        <fieldset class="border-css mt-3">
+                            <legend class="col-md-12 page-title padding-top-0 padding-bottom-3"><b>Required Education Details</b></legend>
+                        </fieldset>
+                    </div>
+
+                    <div class="chkvalid" style="display:none">
+
+                        <fieldset class="border-css mt-3">
+                            <legend class="col-md-12 page-title padding-top-0 padding-bottom-3"><b>Education Details</b></legend>
+
+                            <div class="form-row">
+                                <div class="col-md-3 mb-3">
+                                    <label>Examination<span style="color:red"></span></label>
+                                    <select id="Examination" name="Examination" class="custom-select"></select>
+                                        @*@Html.Editor("Examination, new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Examination", @type = "text", @maxlength = "20" } })*@
+
+                                </div>
+
+                                <div class="col-md-3 mb-3">
+                                    <label>Board<span style="color:red"></span></label>
+
+                                        @Html.Editor("Board", new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Board", @type = "text", @maxlength = "30" } })
+
+                                </div>
+
+                                <div class="col-md-3 mb-3">
+                                    <label>School/College</label>
+
+                                        @Html.Editor("Institute", new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter School/College", @type = "text", @maxlength = "50" } })
+
+                                </div>
+
+                                <div class="col-md-3 mb-3">
+                                    <label>Roll No.</label>
+
+                                        @Html.Editor("RollNo", new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Roll No.", @type = "text", @maxlength = "20" } })
+
+
+
+
+
+                                </div>
+
+                                <div class="col-md-3 mb-3">
+                                    <label>Month of Passing</label>
+
+                                        @Html.Editor("MonthofPassing", new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Month of Passing", @type = "text", @maxlength = "10" } })
+
+                                </div>
+
+                                <div class="col-md-3 mb-3">
+                                    <label>Year Of Passing <span style="color:red"></span></label>
+
+                                        @Html.Editor("YearOfPassing", new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Year Of Passing", @type = "text", @maxlength = "4" } })
+
+                                </div>
+
+                                <div class="col-md-3 mb-3">
+                                    <label>Marks Obtained <span style="color:red"></span></label>
+
+                                        @Html.Editor("MarksObtained", new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Marks Obtained", @type = "text", @maxlength = "3" } })
+
+                                </div>
+
+                                <div class="col-md-3 mb-3">
+                                    <label>Max Marks <span style="color:red"></span></label>
+
+                                        @Html.Editor("MaxMarks", new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Max Marks", @type = "text", @maxlength = "3" } })
+
+                                </div>
+
+                                <div class="col-md-3 mb-3">
+                                    <label>Grade</label>
+
+                                        @Html.Editor("Grade", new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Grade", @type = "text", @maxlength = "3" } })
+
+                                </div>
+
+                                <div class="col-md-3 mb-3">
+                                    <label>Division</label>
+
+                                        @Html.Editor("Division", new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Division", @type = "text", @maxlength = "10" } })
+
+                                </div>
+
+                                <div class="col-md-3 mb-3">
+                                    <label>Percentage</label>
+
+                                        @Html.Editor("Percentage", new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Percentage", @type = "text", @maxlength = "5" } })
+
+                                </div>
+
+                                <div class="col-md-3 mb-3">
+                                    <label>CGPA</label>
+
+                                        @Html.Editor("CGPA", new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter CGPA", @type = "text", @maxlength = "5" } })
+
+
+
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div class="custom-control-inline-inline-block custom-checkbox mt-1">
+                                        <input name="ishighestquli" class="custom-control-input" id="ishighestquli" type="checkbox" />
+                                        <label class="custom-control-label" for="ishighestquli">IS HighestQualification</label>
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+                            <div class="form-row form-group mb-3">
+                                    @*<input type="hidden" id="hdSub" value="@Model.Subjects" />*@
+                                <div class="col-sm-12">
+                                    <div class="inline-group">
+
+                                        <div class="custom-control-inline-inline-block custom-checkbox mt-5">
+                                            <input name="chkMath" class="custom-control-input" id="chkMath" type="checkbox" />
+                                            <label class="custom-control-label" for="chkMath" id="LblMath"></label>
+                                        </div>
+                                        <div class="custom-control-inline-inline-block custom-checkbox mt-5">
+                                            <input name="ChkScience" class="custom-control-input" id="ChkScience" type="checkbox" />
+                                            <label class="custom-control-label" for="ChkScience" id="LblScience"></label>
+                                        </div>
+                                        <div class="custom-control-inline-inline-block custom-checkbox mt-5">
+                                            <input name="ChkHindi" class="custom-control-input" id="ChkHindi" type="checkbox" />
+                                            <label class="custom-control-label" for="ChkHindi" id="LblHindi"></label>
+                                        </div>
+                                        <div class="custom-control-inline-inline-block custom-checkbox mt-5">
+                                            <input name="ChkEnglish" class="custom-control-input" id="ChkEnglish" type="checkbox" />
+                                            <label class="custom-control-label" for="ChkEnglish" id="LblEnglish"></label>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-content border-faded border-left-0 border-right-0 border-bottom-0 d-flex flex-row align-items-center">
+                                <div class="frame-wrap ml-auto">
+                                    <label class="form-label" style="visibility:hidden; margin-bottom:34px;">l</label>
+
+                                    <button type="button" name="submit" id="btnAdd" class="btn btn-info"><i class="fal fa-plus"></i>  Add </button>
+
+                                </div>
+                            </div>
+
+                            <div class="table-responsive" style="overflow-x:scroll;">
+                                <div class="form-row form-group">
+                                    <div class="col-md-12 mb-12">
+                                        <table id="tblEducationDetails" class="table table-bordered">
+                                            <thead class="thead-dark">
+                                                <tr>
+                                                    <th>
+                                                        Action
+                                                    </th>
+
+                                                    <th>
+                                                        Examination
+                                                    </th>
+                                                    <th>
+                                                        Boards
+                                                    </th>
+                                                    <th>
+                                                        School/College
+                                                    </th>
+                                                    <th>
+                                                        Roll No.
+                                                    </th>
+                                                    <th>
+                                                        Month Of Passing
+                                                    </th>
+                                                    <th>
+                                                        Passing year
+                                                    </th>
+                                                    <th>
+                                                        Marks Obtained
+                                                    </th>
+                                                    <th>
+                                                        Max Marks
+                                                    </th>
+                                                    <th>
+                                                        Grade
+                                                    </th>
+                                                    <th>
+                                                        Division
+                                                    </th>
+                                                    <th>
+                                                        Percentage
+                                                    </th>
+                                                    <th>
+                                                        CGPA
+                                                    </th>
+                                                    <th>
+                                                        Highest Qualification
+                                                    </th>
+                                                    <th>
+                                                        Subjects
+                                                    </th>
+
+                                                </tr>
+                                            </thead>
+                                            <tbody id="getSection_1">
+
+                                                    @*@if (TempData["EducDt"] != null)
+                                            {
+                                            foreach (DataRow dr in ((DataTable)TempData["EducDt"]).Rows)
+                                            {
+                                            <tr>
+                                            <td>
+                                            <button type='button' class='btn btn-sm btn-outline-danger btn-icon btn-inline-block mr-1' title="Delete Education Details" data-original-title='Delete Education Details' onclick="DeleteEducation(@dr["RecordID"],this)" name="FormCommand"><i class='fal fa-times'></i></button>
+                                            </td>
+                                            <td>@dr["Examination"]</td>
+                                            <td>@dr["Board"]</td>
+                                            <td>@dr["institute"]</td>
+                                            <td>@dr["RollNo"]</td>
+                                            <td>@dr["MonthOfPassing"]</td>
+                                            <td>@dr["YearOfPassing"]</td>
+                                            <td>@dr["MarksObtained"]</td>
+                                            <td>@dr["maxmarks"]</td>
+                                            <td>@dr["Grade"]</td>
+                                            <td>@dr["Division"]</td>
+                                            <td>@dr["Percentage"]</td>
+                                            <td>@dr["CGPA"]</td>
+                                            <td>@dr["IsHighest"]</td>
+                                            <td>@dr["Subjects"]</td>
+                                            </tr>
+                                            @*<input type="button" id="btnDelete" name="FormCommand" value="Delete_" style="display:none">
+                                            }
+                                            }*@
+
+
+
+                                            </tbody>
+
+                                            <input type="hidden" id="hdExamination" value="" name="hdExamination" />
+                                            <input type="hidden" id="hdBoards" value="" name="hdBoards" />
+                                            <input type="hidden" id="hdInstitute" value="" name="hdInstitute" />
+                                            <input type="hidden" id="hdRollNo" value="" name="hdRollNo" />
+                                            <input type="hidden" id="hdMonthOFPassing" value="" name="hdMonthOFPassing" />
+                                            <input type="hidden" id="hdYearOfPassing" value="" name="hdYearOfPassing" />
+                                            <input type="hidden" id="hdMarksObtained" value="" name="hdMarksObtained" />
+                                            <input type="hidden" id="hdMaxMarks" value="" name="hdMaxMarks" />
+                                            <input type="hidden" id="hdGrade" value="" name="hdGrade" />
+                                            <input type="hidden" id="hdDivision" value="" name="hdDivision" />
+                                            <input type="hidden" id="hdPercentage" value="" name="hdPercentage" />
+                                            <input type="hidden" id="hdCGPA" value="" name="hdCGPA" />
+                                            <input type="hidden" id="hdishighest" value="" name="hdishighest" />
+                                            <input type="hidden" id="hdSubjects" value="" name="hdSubjects" />
+                                                @*<input type="hidden" name="hdEditOptionMode" id="hdEditOptionMode" value="@Model.optMode">
+                                        <input type="hidden" name="hdEditReg" id="hdEditReg" value="@Model.RegistrationID">*@
+
+
+
+
+                                        </table>
+
+                                            @* <input type="hidden" name="hdregno" id="hdregno" value="@Model.RegistrationNo">
+                                    <input type="hidden" name="hdenqno" id="hdenqno" value="@Model.EnquiryNo">*@
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+
+                    <fieldset>
+
+
+
+
+                        <div class="form-row form-group mt-5" style="display:none">
+                            <div class="col-md-4 mb-4">
+
+                                <label class="form-label">&nbsp;</label>
+                                    @*             <input type="hidden" name="hdIsDisabled" value="@Model.IsDisabled" id="hdIsDisabled" />*@
+                                    @Html.CheckBox("IsDisabled", new { @onclick = "getIsDefault()", id = "NoEndDate", @class = "abc" })<i></i><text>Is Disabled / Handicapped</text>
+
+
+                            </div>
+
+
+                            <div id="dvhandidescip" style="display:none">
+                                <div class="col-md-12 mb-3">
+                                    <label class="form-label">Description<span style="color:red"></span></label>
+                                        @Html.TextArea("Description", new { @rows = 5, @cols = 150, @placeholder = "Please Enter Description ", @maxlength = 250, @class = "form-control" })
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+
+                        <div id="refID" style="display:none">
+                            >
+                            <div class="form-row form-group">
+                                <div class="col-md-3 mb-3">
+                                    <label class="form-label" id="lbl0">Reference Type</label>
+
+                                        @*  <input type="hidden" id="hdReferenceType" name="hdReferenceType" value="@Model.ReferenceType" />*@
+                                        @Html.DropDownList("Model.ReferenceType", new List<SelectListItem>
+                                {
+
+
+                                new SelectListItem {Text = "Student", Value = "Student"},
+                                new SelectListItem {Text = "Ex-Student", Value = "Ex-Student"},
+                                //new SelectListItem {Text = "Ex-Staff", Value = "3"},
+
+
+                                }, "Reference Type", new { @class = "custom-select" })
+
+
+                                </div>
+                                <div class="col-md-3 mb-3">
+
+                                    <label class="form-label" id="lbl1" style="display:none">Admission/Roll No.<span style="color:red">*</span></label>
+
+                                        @Html.Editor("RefNo", new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter NCVT/Reg/Roll No.", @type = "text", @maxlength = "50", @style = "display:none" } })
+
+
+                                </div>
+                                <div class="col-md-3 mb-3">
+
+                                    <label class="form-label" id="lbl2" style="display:none">Name<span style="color:red">*</span></label>
+
+                                        @Html.Editor("RefName", new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Name", @type = "text", @maxlength = "50", @style = "display:none" } })
+
+
+                                </div>
+                                <div class="col-md-3 mb-3">
+
+                                    <label class="form-label" id="lbl3" style="display:none">Mobile No.<span style="color:red">*</span></label>
+
+                                        @Html.Editor("RefMobileNo", new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Mobile No.", @type = "text", @maxlength = "10", @style = "display:none" } })
+
+
+                                </div>
+                                <div class="col-md-3 mb-4">
+                                    <div class="custom-control custom-checkbox mt-5">
+                                        <input name="chklocalGuaAgency" class="custom-control-input" id="chklocalGuaAgency" type="checkbox" onchange="EnquirdChanged();">
+                                        <label class="custom-control-label" for="chklocalGuaAgency">Agency/ Consultant</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-6" id="fldsGuardianDetails" style="display:none;">
+
+
+                                    <label class="form-label">Agency Name<span style="color:red">*</span></label>
+
+                                        @*  <input type="hidden" id="hdAgencyID" name="hdAgencyID" value="@Model.AgencyID" />*@
+                                        @Html.DropDownList("AgencyID", new List<SelectListItem>
+                                {
+
+                                }, new { @class = "custom-select" })
+
+                                    <div class="invalid-feedback">
+                                        Please Select Agency Name.
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!--<legend class="col-md-12 page-title padding-top-0 padding-bottom-5">Note/Remarks</legend>-->
+                        <div class="form-row form-group mt-2" style="display:none">
+
+                            <div class="col-md-12 mb-12">
+                                <label class="input">Remarks</label>
+
+
+
+                                    @Html.TextArea("Remarks", new { @rows = 5, @cols = 150, @placeholder = "Please Enter Remarks ", @maxlength = 250, @class = "form-control" })
+
+                            </div>
+                        </div>
+
+                    </fieldset>
+
+                    <div class="panel-content border-faded border-left-0 border-right-0 border-bottom-0 d-flex flex-row align-items-center">
+                        <div class="frame-wrap ml-auto">
+                                @*@if (Model.RegistrationID == -1)
+                        {
+                        <button type="submit" name="FormCommand" id="btnSave" value="SaveRegistration" style="display:none" class="btn btn-info"> <i class="fal fa-save"></i> Save </button>
+                        <button type="button" name="FormCommand" id="btnsubmit" value="SaveReg" class="btn btn-info"> <i class="fal fa-save"></i> Submit </button>
+                        <button type="reset" name="reset" id="btnclear" class="btn btn-default"> Clear </button>
+                        }
+                        else
+                        {
+
+                        <button type="submit" name="FormCommand" id="btnSave" value="SaveRegistrationUpdate" class="btn btn-info"> <i class="fal fa-save"></i> Update </button>
+                        <button type="reset" name="reset" id="btnCancel" class="btn btn-default"> Cancel </button>
+
+                        }*@
+                        </div>
+                    </div>
+                   }
+                    @*<input type="hidden" id="hdBatchID" value="@Model.BatchID" name="hdBatchID" />
+                <input type="hidden" id="hdEnquiryID" value="@Model.EnquiryID" name="hdEnquiryID" />
+                <input type="hidden" id="hdFatherID" value="@Model.FatherID" name="hdFatherID" />
+                <input type="hidden" name="hdStudentID" id="hdStudentID" value="@Model.StudentID">
+                <input type="hidden" name="hdMotherID" id="hdMotherID" value="@Model.MotherID">
+                <input type="hidden" name="hdGuardianID" id="hdGuardianID" value="@Model.GuardianID">
+                <input type="hidden" name="hdSpouseID" id="hdSpouseID" value="@Model.SpouseID">
+
+                <input type="hidden" name="hdDescription" id="hdDescription" value="@Model.Description">*@
+
+
+
+            </div>
+
+        </div>
+    </div>
+</div>
+</div>
+
+    <link href="~/Content/css/bootstrap-multiselect.css" rel="stylesheet" />
+    <link href="~/Content/css/jquery-ui.css" rel="stylesheet" />
+    <script src="~/Scripts/bootstrap/bootstrap-multiselect.js"></script>
+    <script src="~/Scripts/eSCOP/CommonBinder.js"></script>
+     <script type="text/javascript">
+     //New Customize
+
+        $("#chklocalGuaId").click(function () {
+
+            if ($("#chklocalGuaId").is(":checked")) {
+                $("#dvCors").show(300);
+                $("#Permanant_Address").attr('required', true);
+                $("#Permanant_CountryID").attr('required', true);
+                $("#Permanant_StateID").attr('required', true);
+                $("#Permanant_CityID").attr('required', true);
+                $("#Permanant_PinCode").attr('required', true);
+                $("#hdnaddchck").val($("#chklocalGuaId").prop('checked'));
+            }
+            else {
+                $("#dvCors").hide(200);
+                $('#hdnPerAdsressID').val(-1);
+                $('#Permanant_StateID').val("");
+                $("#Permanant_Address").attr('required', false);
+                $("#Permanant_CountryID").attr('required', false);
+                $("#Permanant_StateID").attr('required', false);
+                $("#Permanant_PinCode").attr('required', false);
+                $("#hdnaddchck").val($("#chklocalGuaId").prop('checked'));
+            }
+        });
+
+
+     $('#ddlexamstaus').change(function () {
+            if ($('#ddlexamstaus').val() != "") {
+                GetRequiredData();
+            }
+        });
+
+     $("#ddlexammedium").change(function () {
+            if ($('#ddlexammedium').val() == "Other") {
+                $("#medother").show();
+                $("#txtmedium").attr("required", true);
+            }
+            else {
+                $("#medother").hide();
+                $("#txtmedium").attr("required", false);
+            }
+        });
+
+    
+     function filePreviewStud(input) {
+            if (input.files && input.files[0]) {
+                var ext = $('#uploadStudentPhoto').val().split('.').pop().toLowerCase();
+                if ($.inArray(ext, ['png', 'jpg', 'jpeg']) == -1) {
+                    alert('invalid extension!');
+                    $("#uploadStudentPhoto").val("");
+                    $('#studpic').hide();
+                    return false;
+                }
+                else {
+                    if (input.files[0].size > 1048576) {
+                        alert('File size is larger than 1MB!');
+                        $("#uploadStudentPhoto").val("");
+                        $('#studpic').hide()
+                        return false;
+                    }
+                    else {
+                        var reader = new FileReader();
+                        reader.onload = function (e) {
+                            $('#studpic').show()
+                            $('#studpic').attr('src', e.target.result);
+                        };
+                        reader.readAsDataURL(input.files[0]);
+
+                    }
+
+                }
+
+            }
+        }
+
+     function filePreviewStudSign(input) {
+            if (input.files && input.files[0]) {
+                var ext = $('#uploadStudentSign').val().split('.').pop().toLowerCase();
+                if ($.inArray(ext, ['png', 'jpg', 'jpeg']) == -1) {
+                    alert('invalid extension!');
+                    $("#uploadStudentSign").val("");
+                    $('#studsign').hide();
+                    return false;
+                }
+                else {
+                    if (input.files[0].size > 1048576) {
+                        alert('File size is larger than 1MB!');
+                        $("#uploadStudentSign").val("");
+                        $('#studsign').hide();
+                        return false;
+                    }
+                    else {
+                        var reader = new FileReader();
+                        reader.onload = function (e) {
+                            $('#studsign').show()
+                            $('#studsign').attr('src', e.target.result);
+                        };
+                        reader.readAsDataURL(input.files[0]);
+
+                    }
+
+                }
+
+            }
+        }
+
+
+
+        $('#btnsubmit').click(function () {
+
+            var rowCountG1 = $('#tblqualif tr').length - 1;
+            chekCountG1 = 0;
+            $('#tblqualif tbody tr').each(function () {
+
+                if ($(this).find($(".txtboard")).val() == "") {
+                    chekCountG1 = 1;
+                }
+                else if ($(this).find($(".txtroll")).val() == "") {
+                    chekCountG1 = 1;
+                }
+                else if ($(this).find($(".txtyear")).val() == "") {
+                    chekCountG1 = 1;
+                }
+                else if ($(this).find($(".txttobt")).val() == "") {
+                    chekCountG1 = 1;
+                }
+                else if ($(this).find($(".txtomark")).val() == "") {
+                    chekCountG1 = 1;
+                }
+                else if ($(this).find($(".txtper")).val() == "") {
+                    chekCountG1 = 1;
+                }
+            });
+
+            var rowcount = $('#tblDocuments tbody tr').length;
+
+           
+            if ($("#uploadStudentPhoto").val() == "") {
+                alert('Please Upload Student Photo');
+                return;
+            }
+            if ($("#uploadStudentSign").val() == "") {
+                alert('Please Upload Student Signature');
+                return;
+            }
+            if ($("#ExamMedium").val() == "Other" && $("#MediumName").val() == "") {
+                alert('Please Enter MediumName');
+                return;
+            }
+            //ExamMedium   Other  MediumName
+            if (chekCountG1 == 1) {
+                alert('Please Enter All  Fields for Academic Qualification');
+                return;
+            }
+            var Response = true;
+            chekCountG2 = 0;
+           
+                $('#tblDocuments tbody tr').each(function () {
+
+                    var DocumentType = $(this).find('td').eq(0).html();
+                    if ($(this).find('td').eq(1).html() != "Yes") {
+                        //Response = true;
+                        chekCountG2 = 0;
+
+                    }
+                    else {
+                        if ($(this).find('td').eq(2).find('input[type=file]').val() == "") {
+                            alert('Please upload ' + DocumentType + ' !!!')
+                            //Response = false;
+                            chekCountG2 = 1;
+                            return false
+                        }
+
+                    }
+                    //return Response;
+                })
+
+            
+
+           
+            //if (chekCountG2 == 0) {
+                var EID = '';
+                var Board = '';
+                var Rollno = '';
+                var Year = '';
+                var Tmarks = '';
+                var Omarks = '';
+                var per = '';
+                $('#tblqualif tbody tr').each(function () {
+                    EID += $(this).closest("tr").attr('id') + ',';
+                    Board += $(this).find($(".txtboard")).val() + ',';
+                    Rollno += $(this).find($(".txtroll")).val() + ',';
+                    Year += $(this).find($(".txtyear")).val() + ',';
+                    Tmarks += $(this).find($(".txttobt")).val() + ',';
+                    Omarks += $(this).find($(".txtomark")).val() + ',';
+                    per += $(this).find($(".txtper")).val() + ',';
+                })
+                debugger;
+                $('#hdneid').val(EID);
+                $('#hdnboard').val(Board);
+                $('#hdnroll').val(Rollno);
+                $('#hdnyear').val(Year);
+                $('#hdntmarks').val(Tmarks);
+                $('#hdnomarks').val(Omarks);
+                $('#hdnage').val(per);
+              
+                $('#btnSave').prop('disabled', false);
+                $('#btnSave').click();
+            //}
+
+        });
+        //
+
+     (function () {
+            // Example starter JavaScript for disabling form submissions if there are invalid fields
+            'use strict';
+            window.addEventListener('load', function () {
+                // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                var forms = document.getElementsByClassName('needs-validation');
+                // Loop over them and prevent submission
+                var validation = Array.prototype.filter.call(forms, function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (form.checkValidity() === false) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+                        form.classList.add('was-validated');
+                    }, false);
+                });
+            }, false);
+        })();
+
+    //New Changes
+      var RelLang = "";
+    function GetRelgiousLangByInst() {
+
+                var InstituteId = $('#InstituteID').val()
+
+
+          //hdReligiousLanguage
+                $.ajax({
+                    url: '@Url.Action("GetReligiousLangByInstitute", "Registration")',
+                    type: 'get',
+                    contentType: 'application/json; charset=utf-8',
+                    data: { 'InstituteId': InstituteId},
+                    success: function (resp) {
+                        var data = JSON.parse(resp).Table;
+                        RelLang = data[0].ReligiouslanguageCode;
+                        //alert(RelLang);
+
+
+
+                    }
+                });
+            }
+
+     $("#InstituteID").change(function () {
+
+            GetRelgiousLangByInst();
+
+        });
+
+     $("#Trainee_FirstName").focusout(function () {
+               GetStudentNameReg();
+        });
+
+     $("#Trainee_MiddleName").focusout(function () {
+            GetStudentNameReg();
+     });
+
+     $("#Trainee_LastName").focusout(function () {
+         GetStudentNameReg();
+        });
+
+     function GetFatherNameReg() {
+             var iname = $("#Father_FirstName").val();
+
+         var lname = $("#Father_LastName").val();
+
+
+        var dataval=    iname +' ' + (lname).trim();
+
+                var settings = {
+	        "async": true,
+	        "crossDomain": true,
+	        "url": "https://translate.yandex.net/api/v1.5/tr.json/translate?key=trnsl.1.1.20200130T103142Z.5a25f5f4b4950b78.801037509944b2c3570ec0ff45a9493decb960a8&text="+dataval+"&lang=" + RelLang + " ",
+	        "method": "POST",
+        }
+
+        $.ajax(settings).done(function (response) {
+
+	        $("#Father_ReligiousName").val(response.text);
+        });
+    }
+
+     $("#Father_FirstName").focusout(function () {
+        GetFatherNameReg();
+
+       });
+
+     $("#Father_LastName").focusout(function () {
+          GetFatherNameReg();
+
+       });
+
+     function GetMotherNameReg() {
+             var iname = $("#Mother_FirstName").val();
+         var lname = $("#Mother_LastName").val();
+        var dataval=    iname +' ' + (lname).trim();
+
+                var settings = {
+	        "async": true,
+	        "crossDomain": true,
+	        "url": "https://translate.yandex.net/api/v1.5/tr.json/translate?key=trnsl.1.1.20200130T103142Z.5a25f5f4b4950b78.801037509944b2c3570ec0ff45a9493decb960a8&text="+dataval+"&lang=" + RelLang + " ",
+	        "method": "POST",
+        }
+
+        $.ajax(settings).done(function (response) {
+
+	        $("#Mother_ReligiousName").val(response.text);
+        });
+    }
+
+     $("#Mother_FirstName").focusout(function () {
+            GetMotherNameReg();
+
+       });
+
+    $("#Mother_LastName").focusout(function () {
+           GetMotherNameReg();
+
+       });
+
+    function GetGuardianNameReg() {
+             var iname = $("#Guardian_FirstName").val();
+         var lname = $("#Guardian_LastName").val();
+        var dataval=    iname +' ' + (lname).trim();
+
+                var settings = {
+	        "async": true,
+	        "crossDomain": true,
+	        "url": "https://translate.yandex.net/api/v1.5/tr.json/translate?key=trnsl.1.1.20200130T103142Z.5a25f5f4b4950b78.801037509944b2c3570ec0ff45a9493decb960a8&text="+dataval+"&lang=" + RelLang + " ",
+	        "method": "POST",
+        }
+
+        $.ajax(settings).done(function (response) {
+
+	        $("#Guradian_ReligiousName").val(response.text);
+        });
+    }
+
+    $("#Guardian_FirstName").focusout(function () {
+            GetGuardianNameReg();
+
+       });
+
+    $("#Guardian_LastName").focusout(function () {
+           GetGuardianNameReg();
+
+        });
+
+    //AddressReligious  Guradian_ReligiousName
+     function GetAddressReg() {
+             var iname = $("#Address").val();
+
+        var dataval=iname.trim();
+
+                var settings = {
+	        "async": true,
+	        "crossDomain": true,
+	        "url": "https://translate.yandex.net/api/v1.5/tr.json/translate?key=trnsl.1.1.20200130T103142Z.5a25f5f4b4950b78.801037509944b2c3570ec0ff45a9493decb960a8&text="+dataval+"&lang=" + RelLang + " ",
+	        "method": "POST",
+        }
+
+        $.ajax(settings).done(function (response) {
+
+	        $("#CorAddressReligious").val(response.text);
+        });
+    }
+
+     $("#Address").focusout(function () {
+            GetAddressReg();
+
+       });
+     function GetPerAddressReg() {
+     var iname = $("#Permanant_Address").val();
+
+     var dataval=iname.trim();
+
+     var settings = {
+	        "async": true,
+	        "crossDomain": true,
+	        "url": "https://translate.yandex.net/api/v1.5/tr.json/translate?key=trnsl.1.1.20200130T103142Z.5a25f5f4b4950b78.801037509944b2c3570ec0ff45a9493decb960a8&text="+dataval+"&lang=" + RelLang + " ",
+	        "method": "POST",
+        }
+
+     $.ajax(settings).done(function (response) {
+
+	        $("#PerAddressReligious").val(response.text);
+        });
+    }
+
+
+     $("#Permanant_Address").focusout(function () {
+            GetPerAddressReg();
+
+       });
+
+
+    ///Permanant_Address
+    function LateralSemChanged() {
+            if ($('#chkislateralenq').is(":checked")) {
+
+                $('#chkislateral').val("true");
+            }
+            else {
+
+                $('#chkislateral').val("false");
+
+            }
+        }
+
+     
+
+    $("#chklocalGuaother").click(function () {
+
+            if ($("#chklocalGuaother").is(":checked")) {
+                $("#dvother").show(300);
+                $("#Guardian_FirstName").attr('required', true);
+                $("#Guardian_MobileNo").attr('required', true);
+                $("#Relation").attr('required', true);
+
+
+            }
+            else {
+                $("#dvother").hide(200);
+                $('#Guardian_Title').val("");
+                $('#Guardian_FirstName').val("");
+                $('#Guardian_MiddleName').val("");
+                $('#Guardian_LastName').val("");
+                $('#Guardian_MobileNo').val("");
+                $('#Guardian_EmailID').val("");
+                $('#Relation').val("");
+                $("#hdGuardianID").val(-1);
+                $("#Guardian_FirstName").attr('required', false);
+                $("#Guardian_MobileNo").attr('required', false);
+                $("#Relation").attr('required', false);
+
+
+
+            }
+        });
+
+     $('#NoEndDate').click(function (e) {
+
+            if ($(this).is(':checked')) {
+                //$("#toDate").disableSelection;dvhandidescip
+                $('#toDate').attr('readonly', false);
+                $('#toDate').datepicker(this.checked ? "disable" : "enable");
+                $('#toDate').show();
+                $('#Description').show();
+                $('#dvhandidescip').show();
+
+
+
+            }
+            else {
+                $('#toDate').attr('readonly', true);
+                $('#Description').val('');
+                $('#toDate').hide();
+                $('#dvhandidescip').hide();
+                $('#Description').hide();
+                //$('#toDate').data('kendoDatePicker').enable(false);
+            }
+        })
+        $('#ReferenceType').change(function () {
+
+            $("#lbl1").show();
+            $("#lbl2").show();
+            $("#lbl3").show();
+            $("#RefNo").show();
+            $("#RefName").show();
+            $("#RefMobileNo").show();
+
+            if ($("#ReferenceType :selected").text() == "Reference Type") {
+                $("#lbl1").hide();
+                $("#lbl2").hide();
+                $("#lbl3").hide();
+                $("#RefNo").hide();
+                $("#RefName").hide();
+                $("#RefMobileNo").hide();
+
+            } else {
+
+                $("#lbl1").show();
+                $("#lbl2").show();
+                $("#lbl3").show();
+                $("#RefNo").show();
+                $("#RefName").show();
+                $("#RefMobileNo").show();
+            }
+
+
+            // $('#chklocalGua').attr('disabled', 'disabled');
+
+
+
+        });
+        function EnquirdChanged() {
+            if ($('#chklocalGuaAgency').is(":checked")) {
+                $("#fldsGuardianDetails").show(300);
+                $("#ReferenceType").prop("disabled", true);
+                $("#ReferenceType").val("");
+                $("#RefNo").hide();
+                $("#RefName").hide();
+                $("#RefMobileNo").hide();
+                $("#lbl1").hide();
+                $("#lbl2").hide();
+                $("#lbl3").hide();
+                $("#AgencyID").attr('required', true);
+            }
+            else {
+                $("#fldsGuardianDetails").hide(300);
+                $('#chklocalGua').prop('checked', false);
+                $("#ReferenceType").prop("disabled", false);
+                //$("#ReferenceType").val("Reference Type");
+
+                $("#lbl1").hide();
+                $("#lbl2").hide();
+                $("#lbl3").hide();
+                $("#RefNo").hide();
+                $("#RefName").hide();
+                $("#RefMobileNo").hide();
+                $("#AgencyID").attr('required', false);
+
+            }
+        }
+     $('#MartialID').change(function () {
+            //alert()
+            if ($('#MartialID').val() == "1") {
+                $('#FldSpouse').css('display', 'block');
+                $('#hdSpouseID').val(-1);
+                $("#Spouse_FirstName").attr('required', true);
+                $("#Spouse_MobileNo").attr('required', true);
+            }
+            else {
+                $('#FldSpouse').css('display', 'none');
+                $("#Spouse_FirstName").attr('required', false);
+                $("#Spouse_MobileNo").attr('required', false);
+            }
+        });
+
+
+     var d = new Date();
+
+     var month = 12;
+     var day = 31;
+     var year = d.getFullYear() - 14;
+     var ValidDate = (day < 10 ? '0' : '') + day + '/' + (month < 10 ? '0' : '') + month + '/' + +year;
+     $("#DateOfBirth").datepicker({
+
+
+            defaultDate: "+1w",
+            dateFormat: "dd/mm/yy",
+
+            changeMonth: true,
+            changeYear: true,
+            numberOfMonths: 1,
+            prevText: '<i class="fal fa-chevron-left"></i>',
+            nextText: '<i class="fal fa-chevron-right"></i>',
+
+            maxDate: ValidDate
+
+
+        });
+     $("#MobileNo").bind("paste", function (e) {
+            e.preventDefault();
+        });
+
+     $("#MobileNo").keypress(function (e) {
+            if (String.fromCharCode(e.which).match(/[^0-9 ]/)) {
+                e.preventDefault();
+
+            }
+        });
+     $("#Spouse_MobileNo").keypress(function (e) {
+            if (String.fromCharCode(e.which).match(/[^0-9 ]/)) {
+                e.preventDefault();
+
+            }
+        });
+     $("#Father_MobileNo").bind("paste", function (e) {
+            e.preventDefault();
+        });
+     $("#Father_MobileNo").keypress(function (e) {
+            if (String.fromCharCode(e.which).match(/[^0-9 ]/)) {
+                e.preventDefault();
+
+            }
+        });
+     $("#MarksObtained").keypress(function (e) {
+            if (String.fromCharCode(e.which).match(/[^0-9 ]/)) {
+                e.preventDefault();
+
+            }
+
+
+        });
+     $("#YearOfPassing").keypress(function (e) {
+            if (String.fromCharCode(e.which).match(/[^0-9 ]/)) {
+                e.preventDefault();
+
+            }
+        });
+
+     $("#MonthofPassing").keypress(function (e) {
+            if (!String.fromCharCode(e.which).match('[a-z A-Z]')) {
+                e.preventDefault();
+
+            }
+        });
+     $("#CGPA").keypress(function (e) {
+            if (String.fromCharCode(e.which).match('/(\d{1,2}\.(?=\d{1,2}))/')) {
+                e.preventDefault();
+
+            }
+        });
+
+     $("#RefMobileNo").keypress(function (e) {
+            if (String.fromCharCode(e.which).match(/[^0-9 ]/)) {
+                e.preventDefault();
+
+            }
+        });
+
+     $("#MarksObtained").on("blur", function (e) {
+            if ($("#MaxMarks").val() != "") {
+                if (parseInt($("#MarksObtained").val()) >= parseInt($("#MaxMarks").val()) + 1) {
+                    $("#MarksObtained").val('');
+                }
+                else if ($("#MarksObtained").val() != "" || $("#MaxMarks").val() != "") {
+                    $("#Percentage").val('');
+                }
+            }
+            else if ($("#MaxMarks").val() != "") {
+                $("#Percentage").val('');
+            }
+        });
+     $("#MaxMarks").on("blur", function (e) {
+            if ($("#MarksObtained").val() != "") {
+                if (parseInt($("#MarksObtained").val()) + 1 >= parseInt($("#MaxMarks").val())) {
+                    $("#MaxMarks").val('');
+                }
+                else if ($("#MarksObtained").val() != "" && $("#MaxMarks").val() != "") {
+                    var Paesecege = parseInt($("#MarksObtained").val()) * 100 / parseInt($("#MaxMarks").val());
+                    $("#Percentage").val(Paesecege.toFixed(2));
+                }
+                else if ($("#MarksObtained").val() != "" || $("#MaxMarks").val() != "") {
+                    $("#Percentage").val('');
+                }
+            }
+            else if ($("#MarksObtained").val() != "") {
+                $("#Percentage").val('');
+            }
+        });
+     $("#MaxMarks").keypress(function (e) {
+            if (String.fromCharCode(e.which).match(/[^0-9 ]/)) {
+                e.preventDefault();
+
+            }
+        });
+
+
+     $("#Mother_MobileNo").bind("paste", function (e) {
+            e.preventDefault();
+        });
+     $("#Mother_MobileNo").keypress(function (e) {
+            if (String.fromCharCode(e.which).match(/[^0-9 ]/)) {
+                e.preventDefault();
+
+            }
+        });
+     $("#Guardian_MobileNo").bind("paste", function (e) {
+         e.preventDefault();
+     });
+     $("#Guardian_MobileNo").keypress(function (e) {
+            if (String.fromCharCode(e.which).match(/[^0-9 ]/)) {
+                e.preventDefault();
+
+            }
+        });
+     $("#AlternateMobNo").bind("paste", function (e) {
+            e.preventDefault();
+        });
+     $("#AlternateMobNo").keypress(function (e) {
+            if (String.fromCharCode(e.which).match(/[^0-9 ]/)) {
+                e.preventDefault();
+
+            }
+        });
+
+     $("#PinCode").keypress(function (e) {
+            if (String.fromCharCode(e.which).match(/[^0-9 ]/)) {
+                e.preventDefault();
+
+            }
+        });
+     $("#Permanant_PinCode").keypress(function (e) {
+            if (String.fromCharCode(e.which).match(/[^0-9 ]/)) {
+                e.preventDefault();
+
+            }
+        });
+     $("#MarksObtained").keypress(function (e) {
+            if (String.fromCharCode(e.which).match(/[^0-9 ]/)) {
+                e.preventDefault();
+
+            }
+        });
+
+     $("#AadharNo").keypress(function (e) {
+            if (String.fromCharCode(e.which).match(/[^0-9 ]/)) {
+                e.preventDefault();
+
+            }
+        });
+     $("#MaxMarks").keypress(function (e) {
+            if (String.fromCharCode(e.which).match(/[^0-9 ]/)) {
+                e.preventDefault();
+
+            }
+        });
+     if ($('#hdEditReg').val() != -1) {
+            $('#btnSave').text("Update");
+            $('#btnclear').text("Cancel");
+
+
+        } else {
+         $('#btnSave').text("Save");
+         $('#btnclear').text("Clear");
+     }
+     $('#btnclear').click(function (e) {
+            // e.preventDefault();
+            document.location.href = "../Registration/RegistrationMaster";
+        });
+     $('#btnCancel').click(function (e) {
+            e.preventDefault();
+            document.location.href = "../Registration/RegistrationManagement";
+        });
+
+     var _IsHighest = "";
+     $("#btnAdd").click(function () {
+
+
+
+            // chkeduvalidation();
+            if ($("#Examination").val() != "" && $("#Boards").val() != "" && $("#YearOfPassing").val() != "" && $("#MarksObtained").val() != "" && $("#MaxMarks").val() != "") {
+                var tblid = document.getElementById("tblEducationDetails");
+                var tblrowcount = tblid.rows.length;
+                var found = false;
+                var found = false;
+                if (tblrowcount > 0) {
+                    for (var i = 0; i < tblrowcount; i++) {
+
+                        if (tblid.rows[i].cells[2].innerText == $("#Examination").val()) {
+                            found = true;
+                        }
+                    }
+                    if (!found) {
+
+
+                        $("#tblEducationDetails").css('display', 'block');
+                        var _Examination = $("#Examination").val();
+                        var _Boards = $("#Board").val();
+                        var _Institute = $("#Institute").val();
+                        var _RollNo = $("#RollNo").val();
+                        var _MonthofPassing = $("#MonthofPassing").val();
+                        var _YearOfPassing = $("#YearOfPassing").val();
+                        var _MarksObtained = $("#MarksObtained").val();
+                        var _MaxMarks = $("#MaxMarks").val();
+
+                        var _Grade = $("#Grade").val();
+                        var _Division = $("#Division").val();
+                        var _Percentage = $("#Percentage").val();
+                        var _CGPA = $("#CGPA").val();
+                        var SubCheckRow = 1;
+
+                             if ($("#ishighestquli").is(":checked")) {
+
+                              _IsHighest = 1;
+                             }
+                        var _Subjects = "";
+
+                        // $("#hdExamination").val() = $("#Examination").val();
+
+                        //$("#LblHindi")
+
+                        if ($("#chkMath").is(":checked")) {
+                            _Subjects = _Subjects + $("#LblMath").text() + "-";
+                        }
+                        if ($("#ChkScience").is(":checked")) {
+                            _Subjects = _Subjects + $("#LblScience").text() + "-";
+                        }
+                        if ($("#ChkHindi").is(":checked")) {
+                            _Subjects = _Subjects + $("#LblHindi").text() + "-";
+                        }
+                        if ($("#ChkEnglish").is(":checked")) {
+                            _Subjects = _Subjects + $("#LblEnglish").text() + "-";
+                        }
+
+
+                        var virtualtable = '';
+
+
+                        virtualtable = virtualtable + "<tr>"
+                        virtualtable = virtualtable + "<td >" + "<button type='button' class='btn btn-sm btn-outline-danger btn-icon btn-inline-block mr-1' title='Remove EduDetails' id='btnRemoveEdu'  onclick='myFunction(this)'><i class='fal fa-times'></i></button>" + "</td>";
+                        virtualtable = virtualtable + "<td>" + _Examination + "<input type=hidden id=hdExamination value= '" + _Examination + "' name=hdExamination /> </td>";
+                        virtualtable = virtualtable + "<td>" + _Boards + "<input type=hidden id=hdBoards value= '" + _Boards + "' name=hdBoards /> </td>";
+                        virtualtable = virtualtable + "<td>" + _Institute + "<input type=hidden id=hdInstitute value= '" + _Institute + "' name=hdInstitute /> </td>";
+                        virtualtable = virtualtable + "<td>" + _RollNo + "<input type=hidden id=hdRollNo value= '" + _RollNo + "' name=hdRollNo /> </td>";
+                        virtualtable = virtualtable + "<td>" + _MonthofPassing + "<input type=hidden id=hdMonthofPassing value= '" + _MonthofPassing + "' name=hdMonthofPassing /> </td>";
+                        virtualtable = virtualtable + "<td>" + _YearOfPassing + "<input type=hidden id=hdYearOfPassing value= '" + _YearOfPassing + "' name=hdYearOfPassing /> </td>";
+                        virtualtable = virtualtable + "<td>" + _MarksObtained + "<input type=hidden id=hdMarksObtained value= '" + _MarksObtained + "'name=hdMarksObtained /> </td>";
+                        virtualtable = virtualtable + "<td>" + _MaxMarks + "<input type=hidden id=hdMaxMarks value= '" + _MaxMarks + "' name=hdMaxMarks /> </td>";
+                        virtualtable = virtualtable + "<td>" + _Grade + "<input type=hidden id=hdGrade value= '" + _Grade + "' name=hdGrade /> </td>";
+                        virtualtable = virtualtable + "<td>" + _Division + "<input type=hidden id=hdDivision value= '" + _Division + "' name=hdDivision /> </td>";
+                        virtualtable = virtualtable + "<td>" + _Percentage + "<input type=hidden id=hdPercentage value= '" + _Percentage + "' name=hdPercentage /> </td>";
+                        virtualtable = virtualtable + "<td>" + _CGPA + "<input type=hidden id=hdCGPA value= '" + _CGPA + "' name=hdCGPA /> </td>";
+                        virtualtable = virtualtable + "<td>" + _IsHighest + "<input type=hidden id=hdishighest value= '" + _IsHighest + "' name=hdishighest /> </td>";
+                        virtualtable = virtualtable + "<td>" + _Subjects.slice(0, -1) + "<input type=hidden id=hdSubjects value= '" + _Subjects.slice(0, -1) + "' name=hdSubjects />  </td>";
+
+
+                        virtualtable = virtualtable + '</tr>';
+
+                        $("#getSection_1").append(virtualtable);
+
+                        $("#Examination").val("-1");
+                        $("#Board").val("");
+                        $("#Institute").val("");
+                        $("#RollNo").val("");
+                        $("#MonthofPassing").val("");
+                        $("#YearOfPassing").val("");
+                        $("#MarksObtained").val("");
+                        $("#MaxMarks").val("");
+
+                        $("#Grade").val("");
+                        $("#Division").val("");
+                        $("#Percentage").val("");
+                        $("#CGPA").val("");
+                        $("#ishighestquli").prop('checked', false);
+                        //$("#Subjects").val("");
+                        $("#chkMath").prop('checked', false);
+                        $("#ChkScience").prop('checked', false);
+                        $("#ChkHindi").prop('checked', false);
+                        $("#ChkEnglish").prop('checked', false);
+
+                    }
+                    else {
+                        alert('Please Enter Unique Examination');
+                       // $('#msg').html("<div class='alert alert-warning fade in'> <button class='close' data-dismiss='alert'>×</button><i class='fa-fw fa fa-warning'></i><strong>Warning!</strong>Please Enter Unique Examination </div>");
+                        $(window).scrollTop(0);
+                        return false;
+                    }
+
+
+                }
+
+
+            }
+            else if ($("#Boards").val() == "") {
+                alert('Please fill Examination,Board,YearOfPassing,Marks Obtained,Max Marks  in Education Details');
+                //$('#msg').html("<div class='alert alert-warning fade in'> <button class='close' data-dismiss='alert'>×</button><i class='fa-fw fa fa-warning'></i><strong>Warning!</strong> Please fill Examination,Board,YearOfPassing,Marks Obtained,Max Marks  in Education Details</div>");
+
+                return false;
+            }
+
+
+
+            //else if ($("#Institute").val() == "") {
+            //    $('#msg').html("<div class='alert alert-warning fade in'> <button class='close' data-dismiss='alert'>×</button><i class='fa-fw fa fa-warning'></i><strong>Warning!</strong> Please fill Examination,Board,YearOfPassing,Marks Obtained,Max Marks  in Education Details</div>");
+            //    $(window).scrollTop(0);
+            //    return false;
+            //}
+            else if ($("#YearOfPassing").val() == "") {
+                alert('Please fill Examination,Board,YearOfPassing,Marks Obtained,Max Marks  in Education Details');
+
+              //  $('#msg').html("<div class='alert alert-warning fade in'> <button class='close' data-dismiss='alert'>×</button><i class='fa-fw fa fa-warning'></i><strong>Warning!</strong> Please fill Examination,Board,YearOfPassing,Marks Obtained,Max Marks  in Education Details</div>");
+
+                return false;
+            }
+            else if ($("#MarksObtained").val() == "") {
+                alert('Please fill Examination,Board,YearOfPassing,Marks Obtained,Max Marks  in Education Details');
+
+               // $('#msg').html("<div class='alert alert-warning fade in'> <button class='close' data-dismiss='alert'>×</button><i class='fa-fw fa fa-warning'></i><strong>Warning!</strong> Please fill Examination,Board,YearOfPassing,Marks Obtained,Max Marks  in Education Details</div>");
+
+                return false;
+            }
+            else if ($("#MaxMarks").val() == "") {
+                alert('Please fill Examination,Board,YearOfPassing,Marks Obtained,Max Marks  in Education Details');
+
+                //$('#msg').html("<div class='alert alert-warning fade in'> <button class='close' data-dismiss='alert'>×</button><i class='fa-fw fa fa-warning'></i><strong>Warning!</strong> Please fill Examination,Board,YearOfPassing,Marks Obtained,Max Marks  in Education Details</div>");
+
+                return false;
+            }
+
+
+
+
+            else {
+                alert('Please fill Examination,Board,YearOfPassing,Marks Obtained,Max Marks  in Education Details');
+
+               // $('#msg').html("<div class='alert alert-warning fade in'> <button class='close' data-dismiss='alert'>×</button><i class='fa-fw fa fa-warning'></i><strong>Warning!</strong> Please fill Examination,Board,School/College,YearOfPassing,Marks Obtained,Max Marks  in Education Details</div>");
+
+                return false;
+            }
+
+
+
+        });
+     $("#btnSave").click(function () {
+            //debugger;
+            //var tblid = document.getElementById("tblEducationDetails");
+            //var tblrowcount = tblid.rows.length;
+            //if (tblrowcount > 1) {
+            //    $("#Examination").attr('required', false);
+            //    $("#Board").attr('required', false);
+            //    $("#YearOfPassing").attr('required', false);
+            //    $("#MarksObtained").attr('required', false);
+            //    $("#MaxMarks").attr('required', false);
+            //    $("#RollNo").attr('required', false);
+            //    $("#Institute").attr('required', false);
+            //    return true;
+            //}
+            //else {
+            //    $("#Examination").attr('required', true);
+            //    $("#Board").attr('required', true);
+            //    $("#YearOfPassing").attr('required', true);
+            //    $("#MarksObtained").attr('required', true);
+            //    $("#MaxMarks").attr('required', true);
+            //     $("#RollNo").attr('required', true);
+            //    $("#Institute").attr('required', true);
+            //    //return false;
+            //}
+
+
+
+            //if ($("#Examination").val() == "") {
+            //    $("#Examination").attr('required', true);
+            //}
+            //else {
+            //    $("#Examination").attr('required', false);
+            //}
+
+
+
+
+            //alert(' Please fill Examination,Board,YearOfPassing,Marks Obtained,Max Marks  in Education Details');
+            //var tblid = document.getElementById("tblEducationDetails");
+            //var tblrowcount = tblid.rows.length;
+            //var found = false;
+            //if (tblrowcount > 1) {
+            //    return true;
+            //}
+            //else {
+            //    $('#msg').html("<div class='alert alert-warning fade in'> <button class='close' data-dismiss='alert'>×</button><i class='fa-fw fa fa-warning'></i><strong>Warning!</strong> Please fill Examination,Board,YearOfPassing,Marks Obtained,Max Marks  in Education Details</div>");
+            //    $(window).scrollTop(0);
+            //    return false;
+
+            //}
+
+        });
+     function myFunctionName(d) {
+            ////////e.preventDefault();
+
+
+            var RecordID = d;
+
+            document.getElementById("tblEducationDetails").deleteRow(d.parentNode.parentNode.rowIndex);
+            var tblid = document.getElementById("tblEducationDetails");
+            var tblrowcount = tblid.rows.length;
+            if (tblrowcount < 2) {
+
+                $('#tblEducationDetails').hide();
+
+            }
+            else {
+                return false;
+            }
+
+
+
+        }
+     function myFunction(d) {
+          
+            var RecordID = d;
+
+            document.getElementById("tblEducationDetails").deleteRow(d.parentNode.parentNode.rowIndex);
+          
+        }
+
+        //    });
+        //}
+     LoadPermissionWiseInstitute("#InstituteID", -1, 1);
+     LoadStdAcademicSessionWiseSession("#SessionID", $("#hdSessionID").val() == "-1" ? "" : $("#hdSessionID").val(), $("#hdInstituteID").val(), 1);
+
+     LoadBatch("#BatchID", $("#hdBatchID").val() == "-1" ? "" : $("#hdBatchID").val());
+
+     LoadEducationExam("#Examination","","-1")
+     // Examination LoadBatchSessionWise("#BatchID", $("#hdSessionID").val() == 0 ? "-1" : $("#hdSessionID").val(), $("#hdBatchID").val() == "-1" ? "" : $("#hdBatchID").val());
+
+     LoadInstituteWiseProgram("#ProgramID", $("#hdProgram").val() == "-1" ? "" : $("#hdProgram").val(), $('#hdInstituteID').val() == "-1" ? "-1" : $('#hdInstituteID').val(), 1);
+     //LoadBranch("#BranchID", $("#hdnbranchid").val() == "-1" ? "" : $("#hdnbranchid").val(), 1);
+     LoadProgramWiseBranch("#BranchID", $("#hdProgram").val() == "-1" ? "-1" : $("#hdProgram").val(), $('#hdInstituteID').val() == "-1" ? "-1" : $('#hdInstituteID').val(),  $('#hdnbranchid').val() == "-1" ? "" : $('#hdnbranchid').val())
+     LoadLateralSemester("#SemesterID", "-1", "-1", "-1", "");
+
+     $("#InstituteID").change(function () {
+         var InstituteID = $("#InstituteID").val();
+         ProgramID = $("#ProgramID").val();
+         LoadStdAcademicSessionWiseSession("#SessionID", $("#hdSessionID").val() == "-1" ? "" : $("#hdSessionID").val(), InstituteID == "-1" ? "-1" : InstituteID, 1);
+         LoadInstituteWiseProgram("#ProgramID", $("#hdProgram").val() == "-1" ? "" : $("#hdProgram").val(), InstituteID == "-1" ? "-1" : InstituteID);
+     });
+     $("#ProgramID").change(function () {
+            var ProgramID = $("#ProgramID").val();
+            var InstituteID = $("#InstituteID").val();
+            var SessionID = $("#SessionID").val();
+            LoadProgramWiseBranch("#BranchID", ProgramID == "-1" ? "-1" : ProgramID, InstituteID == "-1" ? "-1" : InstituteID)
+        });
+
+     LoadTitle("#Trainee_Title", $("#hdTrainee_Title").val() == "-1" ? "" : $("#hdTrainee_Title").val(), 0);
+
+     LoadGender("#GenderID", $("#hdGenderID").val() == "-1" ? "" : $("#hdGenderID").val(), 0);
+     LoadBlood("#Blood", $("#hdBlood").val() == "-1" ? "" : $("#hdBlood").val(), 0);
+     LoadCategory("#CategoryID", $("#hdCategoryID").val() == "-1" ? "" : $("#hdCategoryID").val(), 0);
+     LoadPermissionnationality("#NationalityID", $('#hdnationalityID').val() == "-1" ? "" : $('#hdnationalityID').val(), 1);
+
+     LoadTitle("#Spouse_Title", $("#hdSpouse_Title").val() == "-1" ? "" : $("#hdSpouse_Title").val());
+     LoadTitle("#Father_Title", $("#hdFather_Title").val() == "-1" ? "" : $("#hdFather_Title").val());
+     LoadTitle("#Mother_Title", $("#hdMother_Title").val() == "-1" ? "" : $("#hdMother_Title").val());
+     LoadTitle("#Guardian_Title", $("#hdGuardian_Title").val() == "-1" ? "" : $("#hdGuardian_Title").val());
+
+
+
+     LoadReligion("#ReligionID", $("#hdReligionID").val() == "-1" ? "" : $("#hdReligionID").val(), 0);
+     LoadMaritalStatus("#MartialID", $("#hdMartialID").val() == "-1" ? "" : $("#hdMartialID").val());
+     LoadRelation("#Relation", $("#hdRelation").val() == "-1" ? "" : $("#hdRelation").val(), 1);
+     LoadAgency("#AgencyID", "", 1)
+
+
+     LoadCountry("#CountryID", $("#hdCountry").val() == "-1" ? "" : $("#hdCountry").val(), 1);
+     var CountryID = $('#CountryID').find(':selected').val();
+     LoadState("#StateID", $("#hdCountry").val() == "-1" ? "" : $("#hdCountry").val(), $("#hdState").val() == "-1" ? "" : $("#hdState").val(), 1);
+     LoadCity("#CityID", $("#hdState").val() == 0 ? "-1" : $("#hdState").val(), $("#hdCity").val() == "-1" ? "" : $("#hdCity").val(), 1);
+     //LoadCity("#CityID", $("#hdnState").val() == 0 ? "-1" : $("#hdnState").val(), $("#hdPerCity").val() == 0 ? "-1" : $("#hdPerCity").val());
+
+
+     var ProgramID = $("#ProgramID").val();
+     var InstituteID = $("#InstituteID").val();
+     var SessionID = $("#SessionID").val();
+     LoadSeatWiseBranchMultiple("#TradeID", $("#hdProgram").val() == "-1" ? "-1" : $("#hdProgram").val(), $("#hdInstituteID").val() == "-1" ? "-1" : $("#hdInstituteID").val(), $("#hdSessionID").val() == "-1" ? "-1" : $("#hdSessionID").val(), $("#hdTradeID").val())
+
+
+
+     $("#CountryID").change(function () {
+         $("#hdState").val("-1")
+         var Country = $(this).val();
+         LoadState("#StateID", Country == "0" ? "" : Country, $("#hdState").val() == "-1" ? "" : $("#hdState").val(), 1);
+         //LoadState("#StateID", Country == "-1" ? "-1" : Country);
+     });
+
+     $("#StateID").change(function () {
+         $("#hdCity").val("-1")
+         var State = $(this).val();
+		
+         LoadCity("#CityID", $(this).val(), $("#hdCity").val() == "-1" ? "" : $("#hdCity").val(), 1);
+         //LoadCity("#CityID", $(this).val(), "-1");
+     });
+
+     //Permanent
+     LoadCountry("#Permanant_CountryID", $("#hdPerCountry").val() == "-1" ? "" : $("#hdPerCountry").val(), 1);
+
+     var PerCountryID = $('#Permanant_CountryID').find(':selected').val();
+     LoadState("#Permanant_StateID", $("#hdPerCountry").val() == "-1" ? "" : $("#hdPerCountry").val(), $("#hdPerState").val() == "-1" ? "" : $("#hdPerState").val(), 1);
+     LoadCity("#Permanant_CityID", $("#hdPerState").val() == 0 ? "-1" : $("#hdPerState").val(), $("#hdPerCity").val() == "-1" ? "" : $("#hdPerCity").val(), 1);
+
+     $("#Permanant_CountryID").change(function () {
+         $("#hdPerState").val("-1")
+         var Country = $(this).val();
+         LoadState("#Permanant_StateID", Country == "0" ? "" : Country, $("#hdPerState").val() == "-1" ? "" : $("#hdPerState").val(), 1);
+     });
+     $("#Permanant_StateID").change(function () {
+         $("#hdCity").val("-1")
+         var State = $(this).val();
+         LoadCity("#Permanant_CityID", $(this).val(), $("#hdPerCity").val() == "-1" ? "" : $("#hdPerCity").val(), 1);
+     });
+     $('#MonthofPassing').bind('keypress', function (e) {
+            var regex = new RegExp("^[a-zA-Z]+$");
+            var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+            if (!regex.test(key)) {
+                event.preventDefault();
+                return false;
+            }
+        });
+
+     $('#RollNo').bind('keypress', function (e) {
+            var regex = new RegExp("^[a-zA-Z0-9]+$");
+            var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+            if (!regex.test(key)) { bv
+                event.preventDefault();
+                return false;
+            }
+        });
+
+     $(document).ready(function () {
+            document.title = "Add Registration";
+            //LoadCountry('#CountryID', $("#hdCountry").val() == "-1" ? "" : $("#hdCountry").val());
+            //if ($("#hdCountry").val() != -1) {
+            //    $("#CountryID").val($("#hdCountry").val());
+
+            //    LoadState("#StateID", $("#hdCountry").val(), $("#hdState").val() == 0 ? "-1" : $("#hdState").val());
+            //    LoadCity("#CityID", $("#hdState").val() == 0 ? "-1" : $("#hdState").val(), $("#hdCity").val() == 0 ? "-1" : $("#hdCity").val());
+
+            //}
+			 
+            var SubjectText = $("#hdSub").val().split(',');
+
+            if (SubjectText.length > 0) {
+                for (var i = 0; i < SubjectText.length; i++) {
+                    if (SubjectText[i] == "Hindi") {
+                        $("#LblHindi").text(SubjectText[i]);
+                    }
+                    if (SubjectText[i] == "Science") {
+                        $("#LblScience").text(SubjectText[i]);
+                    }
+                    if (SubjectText[i] == "Maths") {
+                        $("#LblMath").text(SubjectText[i]);
+                    }
+                    if (SubjectText[i] == "English") {
+                        $("#LblEnglish").text(SubjectText[i]);
+                    }
+                }
+            }
+
+
+
+            //$("#RefNo").hide();
+            //$("#RefName").hide();
+            //$("#RefMobileNo").hide();
+            //$("#lbl1").hide();
+            //$("#lbl2").hide();
+            //$("#lbl3").hide();
+            if ($('#hdTradeName').val() != "") {
+                $('#TradeNametxt').show();
+
+            }
+            else {
+                $('#TradeNametxt').hide();
+
+            }
+            $('#toDate').hide()
+            $('#refby').hide();
+            if ($("#Description").val() == "") {
+                $("#NoEndDate").prop('chacked', false);
+                $("#Description").hide();
+            }
+            else {
+
+                $("#NoEndDate").prop('chacked', true);
+                $("#Description").show();
+            }
+
+            if (($('#hdEditReg').val()) != "-1") {
+                ///alert($('#hdEditReg').val());
+                $("#ReferenceType").hide();
+                $('#chklocalGua').hide();
+                $("#RefNo").hide();
+                $("#RefName").hide();
+                $("#RefMobileNo").hide();
+                $("#lbl1").hide();
+                $("#lbl2").hide();
+                $("#lbl3").hide();
+                $("#refID").hide(300);
+                $("#TradeID").prop('disabled', true);
+                $("#SessionID").prop('disabled', true);
+               $("#BranchID").prop('disabled', true);
+                $("#BatchID").prop('disabled', true);
+                $("#ProgramID").prop('disabled', true);
+                $("#TradeID").prop('disabled', true);
+
+                $("#InstituteID").prop('disabled', true);
+
+                $('#uploadStudentPhoto').prop('disabled', true);
+                $('#uploadStudentSign').prop('disabled', true);
+
+
+                $("#ddlappli").prop('disabled', true);
+                $("#ddlexammedium").prop('disabled', true);
+                $("#ddlexamstaus").prop('disabled', true);
+               // $("#ddlback").prop('disabled', true);
+
+                $("#ddlappli").val($("#hdnappli").val());
+                $("#ddlexammedium").val($("#hdnmedium").val());
+                $("#ddlexamstaus").val($("#hdnstatus").val());
+                $("#ddlback").val($("#hdnback").val() == "0" ? "" : $("#hdnback").val());
+
+                $("#checkdiv").hide();
+                $("#divlateral").hide();
+                $("#divguard").hide();
+
+                 //divlateral divguard
+                if ($('#ddlexamstaus').val() != "") {
+			 setTimeout(GetRequiredData, 2000); 
+                //GetRequiredData();
+            }
+            }
+
+            if ($('#hdMartialID').val() == "1") {
+                $('#FldSpouse').css('display', 'block');
+                //$("#Spouse_FirstName").attr('required', true);
+                //$("#Spouse_MobileNo").attr('required', true);
+                //$("#Board").attr('required', true);
+
+
+
+            }
+            else {
+                $('#FldSpouse').css('display', 'none');
+                //$("#Spouse_FirstName").attr('required', false);
+                //$("#Spouse_MobileNo").attr('required', false);
+            }
+         //if (($("#hdnPerAdsressID").val() == 0 || $("#hdnPerAdsressID").val() == -1) && $("#Permanant_Address").val() == "") {
+         //       //alert($("#hdnPerAdsressID").val());
+         //       $("#chklocalGuaId").prop('checked', false);
+         //       $("#dvCors").hide();
+
+
+         //       //alert($('#chklocalGuaId').checked)
+         //   }
+         //   else {
+         //       $("#chklocalGuaId").prop('checked', true);
+         //       $("#dvCors").show();
+
+         //   }
+            if (($("#hdIsDisabled").val()) == 0) {
+                //  alert($("#hdDescription").val());
+                $("#NoEndDate").prop('checked', false);
+
+                $('#toDate').hide();
+
+                //alert($('#chklocalGuaId').checked)
+            }
+            else {
+                $("#NoEndDate").prop('checked', true);
+                $("#toDate").show();
+
+            }
+         if (($("#hdGuardianID").val()) == -1 || $("#hdGuardianID").val() == 0) {
+
+                $("#chklocalGuaother").prop('checked', false);
+
+                $('#dvother').hide();
+
+            }
+            else {
+                $("#chklocalGuaother").prop('checked', true);
+                $("#dvother").show();
+
+            }
+            if ($('#hdTradeID').val() != "-1") {
+                $("#TradeID").prop('disabled', true);
+            }
+
+
+
+            //   pageSetUp();
+
+            $("#wizard-picture").change(function () {
+                readURL(this);
+            });
+
+
+        });
+     function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#wizardPicturePreview').attr('src', e.target.result).fadeIn('slow');
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+    </script>

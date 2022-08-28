@@ -51,13 +51,12 @@
                             </section>
 
                             <section class="form-group col-sm-6">
-                                <label>Institute <span style="color:red">*</span></label>
+                                <label>Program Type <span style="color:red">*</span></label>
                                 <input type="hidden" id="hdSchoolId" value="@Model.InstituteID" />
                                 <input type="hidden" id="hdnname" name="hdnname" />
-                                @Html.DropDownListFor(model => model.InstituteID, new List<SelectListItem> { }, new { @class = "form-control" })
+                                <input type="hidden" id="InstituteID" name="InstituteID" value="-1" />
+                                @Html.DropDownListFor(model => model.ProgramType, new List<SelectListItem> { }, new { @class = "form-control" })
                             </section>
-
-
                         </div>
                         <div class="row">
                             <section class="form-group col-sm-6">
@@ -105,10 +104,15 @@
                                 @Html.EditorFor(model => model.FMobileNo, new { htmlAttributes = new { @name = "FMobileNo", @class = "form-control", @autocomplete = "off", @MaxLength = 10, @placeholder = "Mobile No.", @Type = "number", @oninput = "javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" } })
                             </section>
                             <section class="form-group col-sm-6">
+                                <label>Alternate Mobile No.<span style="color:red">*</span></label>
+                                @Html.EditorFor(model => model.AlternateMobNo, new { htmlAttributes = new { @name = "AlternateMobNo", @class = "form-control", @autocomplete = "off", @MaxLength = 10, @placeholder = "Mobile No.", @Type = "number", @oninput = "javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" } })
+                            </section>
+                        </div>
+                        <div class="row">
+                            <section class="form-group col-sm-12">
                                 <label>Email<span style="color:red">*</span></label>
                                 @Html.EditorFor(model => model.FatherEmailID, new { htmlAttributes = new { @name = "FatherEmailID", @class = "form-control", @autocomplete = "off", @MaxLength = 100, @placeholder = "Email", @Type = "text" } })
                             </section>
-
                         </div>
                         <div class="row">
                             <section class="form-group col-sm-12">
@@ -134,23 +138,27 @@
 <script type="text/javascript">
 
     $(document).ready(function () {
-
         LoadInstitute("#InstituteID", "-1", 1);
-
         LoadStdAcademicSessionWiseSession("#SessionId", "3")
-
-        LoadInstituteWiseProgram("#ProgramID", "-1", "-1");
-
-
+        //LoadInstituteWiseProgram("#ProgramID", "-1", "-1");
+        LoadSessionWiseAcademicDepartment("#ProgramType", 3, "-1");
+        LoadAcademicDepartmentWiseProgram("#ProgramID", "-1", "-1", "-1");
     });
 
+    //$("#InstituteID").change(function () {
+    //    var InstituteID = $("#InstituteID").val();
+    //    LoadInstituteWiseProgram("#ProgramID", InstituteID == "-1" ? "-1" : InstituteID, "-1");
+    //});
 
-    $("#InstituteID").change(function () {
-        var InstituteID = $("#InstituteID").val();
-        LoadInstituteWiseProgram("#ProgramID", InstituteID == "-1" ? "-1" : InstituteID, "-1");
-
+    $("#SessionId").change(function () {
+        var SessionId = $("#SessionId").val();
+        LoadSessionWiseAcademicDepartment("#ProgramType", SessionId, "-1");
     });
-
+		
+    $("#ProgramType").change(function () {
+        var ProgramType = $("#ProgramType").val();
+        LoadAcademicDepartmentWiseProgram("#ProgramID", $("#SessionId").val(), ProgramType, "-1");
+    });
 
     function PageIsvalid() {
         return true;
@@ -160,7 +168,7 @@
         //document.getElementById("ActionAddNewEnquiry").submit();
         //$("#ActionAddNewEnquiry").submit();
         $('#btnSave').prop('disabled', false);
-        $("#hdnname").val($('#InstituteID option:selected').text());
+        //$("#hdnname").val($('#InstituteID option:selected').text());
         $('#btnSave').click();
     }
 
@@ -178,8 +186,6 @@
             FinalValid();
         }
     }
-
-
 
     var RetVal = false;
     function FinalValid() {
@@ -232,89 +238,67 @@
         $('#hdStudent_Dob').val($("#Student_Dob").val());
         $("#StudentDob").val($("#Student_Dob").val());
         $('#ActionAddNewEnquiry').bootstrapValidator('revalidateField', 'Student_Dob');
-    });
+    });	
 
-
-    $('#ActionAddNewEnquiry').bootstrapValidator({
-        feedbackIcons: {
-            valid: 'glyphicon glyphicon-ok',
-            invalid: 'glyphicon glyphicon-remove',
-            validating: 'glyphicon glyphicon-refresh'
+    $("#Student_Dob").change(function () {
+        var DOB = $(this).val();
+        $('#hdStudent_Dob').val(DOB);
+    })
+    function LoadSessionWiseAcademicDepartment(id, SessionID, defaultval) {
+    defaultval = typeof defaultval !== 'undefined' ? defaultval : -1;
+    $.ajax({
+        type: 'GET',
+        url: '../CommonBinder/LoadEnquiryBinder',
+        async: false,
+        data: { SessionID: SessionID, optMode: "SessionWiseAcademicDepartment" },
+        success: function (Data) {
+            var select = $(id);
+            select.empty();
+            select.append($('<option/>', {
+                value: ddlInitialValue,
+                text: "Select"
+            }));
+            $.each($.parseJSON(Data), function (index, Data) {
+                select.append($('<option/>', {
+                    value: Data.AID,
+                    text: Data.AcademicDepartment
+                }));
+            });
+            select.val(defaultval);
         },
-        fields: {
-            SessionId: {
-                validators: {
-                    greaterThan: {
-                        value: 1,
-                        message: 'This field is required'
-                    }
-                }
-            },
-            Student_FirstName: {
-                validators: {
-                    notEmpty: {
-                        message: 'This field is required'
-                    }
-                }
-            },
-            ProgramID: {
-                validators: {
-                    greaterThan: {
-                        value: 1,
-                        message: 'This field is required'
-                    }
-                }
-            },
-            InstituteID: {
-                validators: {
-                    greaterThan: {
-                        value: 1,
-                        message: 'This field is required'
-                    }
-                }
-            },
-            Student_Dob: {
-                validators: {
-                    notEmpty: {
-                        message: 'This field is required'
-                    },
-                    date: {
-                        format: 'DD/MM/YYYY',
-                        message: 'The date is not a valid'
-                    }
-                }
-            },
-            Father_FirstName: {
-                validators: {
-                    notEmpty: {
-                        message: 'This field is required'
-                    }
-                }
-            },
-
-            FatherEmailID: {
-                validators: {
-                    emailAddress: {
-                        message: 'The value is not a valid email address'
-                    },
-                    notEmpty: {
-                        message: 'This field is required'
-                    }
-                }
-            },
-            FMobileNo: {
-                validators: {
-                    stringLength: {
-                        message: 'Please check mobile number length',
-                        min: 10
-                    },
-                    notEmpty: {
-                        message: 'This field is required'
-                    }
-                }
-            }
+        error: function (errorData) {
+            console.log(errorData);
         }
     });
+}
+function LoadAcademicDepartmentWiseProgram(id, SessionID, ProgramType, defaultval) {
+    defaultval = typeof defaultval !== 'undefined' ? defaultval : -1;
+    $.ajax({
+        type: 'GET',
+        url: '../CommonBinder/LoadEnquiryBinder',
+        async: false,
+        data: { SessionID: SessionID, optMode: "AcademicDepartmentWiseProgram", ProgramType: ProgramType },
+        success: function (Data) {
+            var select = $(id);
+            select.empty();
+            select.append($('<option/>', {
+                value: ddlInitialValue,
+                text: "Select"
+            }));
+            $.each($.parseJSON(Data), function (index, Data) {
+                select.append($('<option/>', {
+                    value: Data.ProgramID,
+                    text: Data.Program
+                }));
+            });
+            select.val(defaultval);
+        },
+        error: function (errorData) {
+            console.log(errorData);
+        }
+    });
+}
+
 
 </script>
 

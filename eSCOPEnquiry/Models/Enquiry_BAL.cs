@@ -174,9 +174,13 @@ namespace eSCOPEnquiry.Models
         }
 
         public string HosReq { get; set; }
+        public string HostelReq { get; set; }
         public string TransReq { get; set; }
+        public string TransportReq { get; set; }
         public string F_Email { get; set; }
         public string AadharNo { get; set; }
+        public string Blood { get; set; }
+        public string PassportNo { get; set; }
         public string MobileNoCode { get; set; }
         public string AlterNateNoCode { get; set; }
         public string FatherMobileNoCode { get; set; }
@@ -233,10 +237,20 @@ namespace eSCOPEnquiry.Models
         public string McAddress { get; set; }
         public string HostName { get; set; }
         public long Father_Title { get; set; }
+        public long Trainee_Title { get; set; }
         public long MotherID { get; set; }
         public long Mother_Title { get; set; }
+
+        public string ApplicantStatus { get; set; }
+        public string ExamMedium { get; set; }
+        public string ExamStatus { get; set; }
+        public string BackGRound { get; set; }
+
         public string Mother_FirstName { get; set; }
+        public string Trainee_FirstName { get; set; }
         public string Mother_MiddleName { get; set; }
+        public string Trainee_MiddleName { get; set; }
+        public string Trainee_LastName { get; set; }
         public string Mother_LastName { get; set; }
         public string Mother_ReligiousName { get; set; }
         public string Mother_MobileNo { get; set; }
@@ -294,6 +308,7 @@ namespace eSCOPEnquiry.Models
         public int NxtCommunicationTypeID { get; set; }
         public string CommunicationType { get; set; }
         public long CommunicationID { get; set; }
+        public long MartialID { get; set; }
         public string CommunicationText { get; set; }
         public bool NextCommunication { get; set; }
         public bool SendSMS { get; set; }
@@ -570,6 +585,35 @@ namespace eSCOPEnquiry.Models
         public int StreamId { get; set; }
         public string ServiceId { get; set; }
         public string StudentType { get; set; }
+        public string StudentSignName { get; set; }
+        public string StudentSignURL { get; set; }
+        public string Amount_Received { get; set; }
+        public string AddressCheck { get; set; }
+        public DataTable ExamTable { get; set; }
+        public string SubCategory { get; set; }
+        public string SCVTNo { get; set; }
+        public string NCVTNo { get; set; }
+        public long Spouse_Title { get; set; }
+        public string Spouse_FirstName { get; set; }
+        public string Spouse_MiddleName { get; set; }
+        public string Spouse_LastName { get; set; }
+        public string Spouse_MobileNo { get; set; }
+        public string Spouse_EmailID { get; set; }
+        public bool IsDisabled { get; set; }
+        public string Description { get; set; }
+        public long Guardian_Title { get; set; }
+        public string Guardian_EmailID { get; set; }
+        public long Permanant_CountryID { get; set; }
+        public long Permanant_StateID { get; set; }
+        public long Permanant_CityID { get; set; }
+        public string FormNo { get; set; }
+        public string Permanant_PinCode { get; set; }
+        public string PermanantArea { get; set; }
+        public string CorAddressReligious { get; set; }
+        public string Remarks { get; set; }
+        public long SpouseID { get; set; }
+
+        public DataTable DocsTable { get; set; }
         public void crmEnquiry(Enquiry_BAL eqb, out int ResultCaller, out string msgOutCaller)
         {
             EDAL.CRUD_Enquiry(eqb, out ResultCaller, out msgOutCaller);
@@ -578,5 +622,16 @@ namespace eSCOPEnquiry.Models
         {
             return EDAL.SaveEnquirySession(obj, out ResultCaller, out msgOutCaller);
         }
+        public void Registration_CRUD(Enquiry_BAL RBAL, out string msgOut, out int result, out string EnquiryOut, out string RegOut)
+        {
+            EDAL.CRUD_Registration(RBAL, out msgOut, out result, out EnquiryOut, out RegOut);
+
+        }
+        public void Registration_CRUDUpdate(Enquiry_BAL RBAL, out string msgOut, out int result, out string EnquiryOut, out string RegOut)
+        {
+            EDAL.UpdateCRUD_Registration(RBAL, out msgOut, out result, out EnquiryOut, out RegOut);
+
+        }
+
     }
 }

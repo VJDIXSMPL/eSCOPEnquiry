@@ -31,7 +31,7 @@ namespace eSCOPEnquiry.Controllers
         //    Thread.CurrentThread.CurrentUICulture = Thread.CurrentThread.CurrentCulture;
         //    return base.BeginExecuteCore(callback, state);
         //}
-
+       
         public string GetClientHost() =>
             HttpContext.Connection.RemoteIpAddress.ToString();//base.Request.UserHostName;
 

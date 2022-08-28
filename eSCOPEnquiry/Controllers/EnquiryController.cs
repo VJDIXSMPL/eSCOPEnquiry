@@ -66,7 +66,7 @@ namespace eSCOPEnquiry.Controllers
             EBAL.optMode = "Insert";
             EBAL.EnquiryType = "2";
             EBAL.EnteredBy = "Online";
-            EBAL.IpAddress = GetClientIpAddress();
+            EBAL.IpAddress = "Online";
             EBAL.McAddress = GetClientMac();
             EBAL.HostName = GetClientHost();
             EBAL.Session = fc["Session"].ToString();
@@ -158,6 +158,20 @@ namespace eSCOPEnquiry.Controllers
             return View();
         }
 
+        public IActionResult Rachna()
+        {
+            TempData["InstituteName"] = "";
+            TempData["EnqNo"] = "ENQ-06/2022/00644";
+            TempData["RegData"] = null;
+            TempData["Mode"] = "Enq";
+            return RedirectToAction("ThankYou");
+        }
+
+        public IActionResult RegistrationMaster()
+        {
+            return View();
+        }
+
         public IActionResult PrintForm()
         {
             return View();
@@ -211,5 +225,384 @@ namespace eSCOPEnquiry.Controllers
             }
             return Ok(new { count = files.Count, size, filePaths });
         }
+
+        [HttpPost]
+        public ActionResult RegistrationMaster(string FormCommand, FormCollection fc)
+        {
+           
+            int Result = 0;
+            string msgOut = string.Empty;
+            string EnquiryOut = string.Empty;
+            string RegOut = string.Empty;
+            if (FormCommand == "SaveRegistration")
+            {
+                //New Customization
+                //string fName = "";
+                //var s3Client = new AmazonS3Client(settingsCon.Instance.AWSAccessKey, settingsCon.Instance.AWSSecretKey, settingsCon.Instance.bucketRegion);
+
+                //DataTable dt = new DataTable();
+                //dt.Columns.Add("DocTypeName");
+                //dt.Columns.Add("DocURL");
+                //int j = 0;
+                //if (files != null)
+                //{
+                //    foreach (HttpPostedFileBase file in files)
+                //    {
+                //        if (file != null)
+                //        {
+                //            if (file != null && file.ContentLength > 0)
+                //            {
+
+                //                var originalDirectory = new DirectoryInfo(string.Format("{0}StudentDocsUpload\\" + Session.SessionID + "", Server.MapPath(@"\")));
+                //                string pathString = System.IO.Path.Combine(originalDirectory.ToString(), "imagepath");
+                //                bool isExists = System.IO.Directory.Exists(pathString);
+                //                if (!isExists)
+                //                    System.IO.Directory.CreateDirectory(pathString);
+                //                var path = string.Format("{0}\\{1}", pathString, file.FileName);
+                //                file.SaveAs(path);
+                //                //////////////////////////////
+                //                FileInfo file1 = new FileInfo(path);
+                //                var fileTransferUtility = new TransferUtility(s3Client);
+                //                try
+                //                {
+                //                    if (file1.Length > 0)
+                //                    {
+                //                        var filePath = file1.FullName;// Path.Combine(Server.MapPath("~/Files"), Path.GetFileName(file.Name));
+                //                        var fileTransferUtilityRequest = new TransferUtilityUploadRequest
+                //                        {
+                //                            BucketName = settingsCon.Instance.BucketName,
+                //                            FilePath = filePath,
+                //                            StorageClass = S3StorageClass.StandardInfrequentAccess,
+                //                            PartSize = 6291456, // 6 MB.  
+                //                            Key = "StudentDocsUpload/" + Session.SessionID + "/" + file.FileName,
+                //                            CannedACL = S3CannedACL.PublicRead
+                //                        };
+                //                        fileTransferUtilityRequest.Metadata.Add("param1", "Value1");
+                //                        fileTransferUtilityRequest.Metadata.Add("param2", "Value2");
+                //                        fileTransferUtility.Upload(fileTransferUtilityRequest);
+                //                        fileTransferUtility.Dispose();
+                //                        file1.Delete();
+                //                        DataRow dr1 = dt.NewRow();
+                //                        dr1[0] = fc["filetype_" + j.ToString()].ToString();
+                //                        dr1[1] = "https://s3.ap-south-1.amazonaws.com/" + settingsCon.Instance.BucketName + "/" + "StudentDocsUpload/" + Session.SessionID + "/" + file.FileName;
+
+                //                        dt.Rows.Add(dr1);
+                //                        j++;
+
+                //                    }
+
+                //                }
+                //                catch (AmazonS3Exception amazonS3Exception)
+                //                {
+                //                    if (amazonS3Exception.ErrorCode != null &&
+                //                        (amazonS3Exception.ErrorCode.Equals("InvalidAccessKeyId") || amazonS3Exception.ErrorCode.Equals("InvalidSecurity")))
+                //                    {
+                //                        ViewBag.Message = "Check the provided AWS Credentials.";
+                //                    }
+                //                    else
+                //                    {
+                //                        ViewBag.Message = "Error occurred: " + amazonS3Exception.Message;
+                //                    }
+                //                }
+                //            }
+                //        }
+                //    }
+
+
+                //}
+
+                //EBAL.DocsTable = dt;
+
+                //if (filepic != null)
+                //{
+                //    //Save file content goes here
+                //    fName = filepic.FileName;
+                //    if (filepic != null && filepic.ContentLength > 0)
+                //    {
+
+                //        var originalDirectory = new DirectoryInfo(string.Format("{0}StudentPhoto\\" + Session.SessionID + "", Server.MapPath(@"\")));
+                //        string pathString = System.IO.Path.Combine(originalDirectory.ToString(), "imagepath");
+                //        var fileName1 = Path.GetFileName(filepic.FileName);
+                //        bool isExists = System.IO.Directory.Exists(pathString);
+                //        if (!isExists)
+                //            System.IO.Directory.CreateDirectory(pathString);
+                //        var path = string.Format("{0}\\{1}", pathString, filepic.FileName);
+                //        filepic.SaveAs(path);
+
+                //        FileInfo file1 = new FileInfo(path);
+                //        var fileTransferUtility = new TransferUtility(s3Client);
+                //        try
+                //        {
+                //            if (file1.Length > 0)
+                //            {
+                //                var filePath = file1.FullName;// Path.Combine(Server.MapPath("~/Files"), Path.GetFileName(file.Name));
+                //                var fileTransferUtilityRequest = new TransferUtilityUploadRequest
+                //                {
+                //                    BucketName = settingsCon.Instance.BucketName,
+                //                    FilePath = filePath,
+                //                    StorageClass = S3StorageClass.StandardInfrequentAccess,
+                //                    PartSize = 6291456, // 6 MB.  
+                //                    Key = "StudentPhoto/" + Session.SessionID + "/" + filepic.FileName,
+                //                    CannedACL = S3CannedACL.PublicRead
+                //                };
+                //                fileTransferUtilityRequest.Metadata.Add("param1", "Value1");
+                //                fileTransferUtilityRequest.Metadata.Add("param2", "Value2");
+                //                fileTransferUtility.Upload(fileTransferUtilityRequest);
+                //                fileTransferUtility.Dispose();
+                //                file1.Delete();
+                //                EBAL.ImageName = filepic.FileName;
+                //                EBAL.ImageUrl = "https://s3.ap-south-1.amazonaws.com/" + settingsCon.Instance.BucketName + "/" + "StudentPhoto/" + Session.SessionID + "/" + filepic.FileName;
+                //            }
+                //        }
+                //        catch (Exception ex)
+                //        {
+                //        }
+                //    }
+                //}
+                //else
+                //{
+                //    EBAL.ImageName = "";
+                //    EBAL.ImageUrl = "";
+                //}
+                //if (filesig != null)
+                //{
+                //    //Save file content goes here
+                //    fName = filesig.FileName;
+                //    if (filesig != null && filepic.ContentLength > 0)
+                //    {
+
+                //        var originalDirectory = new DirectoryInfo(string.Format("{0}StudentPhoto\\" + Session.SessionID + "", Server.MapPath(@"\")));
+                //        string pathString = System.IO.Path.Combine(originalDirectory.ToString(), "imagepath");
+                //        var fileName1 = Path.GetFileName(filesig.FileName);
+                //        bool isExists = System.IO.Directory.Exists(pathString);
+                //        if (!isExists)
+                //            System.IO.Directory.CreateDirectory(pathString);
+                //        var path = string.Format("{0}\\{1}", pathString, filesig.FileName);
+                //        filesig.SaveAs(path);
+
+                //        FileInfo file1 = new FileInfo(path);
+                //        var fileTransferUtility = new TransferUtility(s3Client);
+                //        try
+                //        {
+                //            if (file1.Length > 0)
+                //            {
+                //                var filePath = file1.FullName;// Path.Combine(Server.MapPath("~/Files"), Path.GetFileName(file.Name));
+                //                var fileTransferUtilityRequest = new TransferUtilityUploadRequest
+                //                {
+                //                    BucketName = settingsCon.Instance.BucketName,
+                //                    FilePath = filePath,
+                //                    StorageClass = S3StorageClass.StandardInfrequentAccess,
+                //                    PartSize = 6291456, // 6 MB.  
+                //                    Key = "StudentPhoto/" + Session.SessionID + "/" + filesig.FileName,
+                //                    CannedACL = S3CannedACL.PublicRead
+                //                };
+                //                fileTransferUtilityRequest.Metadata.Add("param1", "Value1");
+                //                fileTransferUtilityRequest.Metadata.Add("param2", "Value2");
+                //                fileTransferUtility.Upload(fileTransferUtilityRequest);
+                //                fileTransferUtility.Dispose();
+                //                file1.Delete();
+                //                EBAL.StudentSignName = filesig.FileName;
+                //                EBAL.StudentSignURL = "https://s3.ap-south-1.amazonaws.com/" + settingsCon.Instance.BucketName + "/" + "StudentPhoto/" + Session.SessionID + "/" + filesig.FileName;
+                //            }
+                //        }
+                //        catch (Exception ex)
+                //        {
+                //        }
+                //    }
+                //}
+                //else
+                //{
+                    EBAL.StudentSignName = "";
+                    EBAL.StudentSignURL = "";
+                //}
+
+                if (fc["hdneid"].ToString() != null)
+                {
+                    DataTable tempdt = new DataTable();
+                    tempdt.Columns.Add("ExamID");
+                    tempdt.Columns.Add("ExamBoard");
+                    tempdt.Columns.Add("ExamRoll");
+                    tempdt.Columns.Add("ExamYear");
+                    tempdt.Columns.Add("ExamTMarks");
+                    tempdt.Columns.Add("ExamOMarks");
+                    tempdt.Columns.Add("ExamAge");
+
+                    string[] ExamID = fc["hdneid"].ToString().Split(',');
+                    string[] ExamBoard = fc["hdnboard"].ToString().Split(',');
+                    string[] ExamRoll = fc["hdnroll"].ToString().Split(',');
+                    string[] ExamYear = fc["hdnyear"].ToString().Split(',');
+                    string[] ExamTMarks = fc["hdntmarks"].ToString().Split(',');
+                    string[] ExamOMarks = fc["hdnomarks"].ToString().Split(',');
+                    string[] ExamAge = fc["hdnage"].ToString().Split(',');
+
+                    for (int i = 0; i < ExamID.Length; i++)
+                    {
+                        if (ExamID[i] != "")
+                        {
+                            DataRow dr = tempdt.NewRow();
+                            dr["ExamID"] = ExamID[i];
+                            dr["ExamBoard"] = ExamBoard[i];
+                            dr["ExamRoll"] = ExamRoll[i];
+                            dr["ExamYear"] = ExamYear[i];
+                            dr["ExamTMarks"] = ExamTMarks[i];
+                            dr["ExamOMarks"] = ExamOMarks[i];
+                            dr["ExamAge"] = ExamAge[i];
+                            tempdt.Rows.Add(dr);
+                        }
+                    }
+                    EBAL.ExamTable = tempdt;
+                }
+
+                //
+
+                if (fc["hdEditReg"] != "-1")
+                {
+                    EBAL.RegistrationID = Convert.ToInt64(fc["hdEditReg"].ToString());
+                    EBAL.EnquiryID = Convert.ToInt64(fc["hdEnquiryID"].ToString());
+                    EBAL.Permanent_AddressId = Convert.ToInt64(fc["hdnPerAdsressID"].ToString());
+                    EBAL.AddressID = Convert.ToInt64(fc["hdAddressID"].ToString());
+                    EBAL.FatherID = Convert.ToInt64(fc["hdFatherID"].ToString());
+                    EBAL.StudentID = Convert.ToInt64(fc["hdStudentID"].ToString());
+                    EBAL.MotherID = Convert.ToInt64(fc["hdMotherID"].ToString());
+                    EBAL.Guardian_Id = Convert.ToInt64(fc["hdGuardianID"].ToString());
+                    //EBAL.SpouseID = Convert.ToInt64(fc["hdSpouseID"].ToString());
+                    EBAL.InstituteID = Convert.ToInt64(fc["hdInstituteID"].ToString());
+
+
+                    //if (EBAL.Description=
+                }
+                else if (fc["hdEnquiryID"] != "-1")
+                {
+                    EBAL.EnquiryID = Convert.ToInt64(fc["hdEnquiryID"].ToString());
+                    EBAL.FatherID = Convert.ToInt64(fc["hdFatherID"].ToString());
+                    EBAL.MotherID = Convert.ToInt64(fc["hdMotherID"].ToString());
+                    EBAL.StudentID = Convert.ToInt64(fc["hdStudentID"].ToString());
+                    EBAL.AddressID = Convert.ToInt64(fc["hdAddressID"].ToString());
+                }
+                
+                //TryUpdateModel(EBAL);
+                EBAL.DateOfBirth = Convert.ToDateTime(fc["DateOfBirth"].ToString(), ci);
+                EBAL.RequiredLateral = Convert.ToBoolean(fc["chkislateral"].ToString());
+                EBAL.ApplicantStatus = fc["ddlappli"].ToString();
+                if (fc["ddlexammedium"].ToString() == "Other")
+                {
+                    EBAL.ExamMedium = fc["txtmedium"].ToString();
+                }
+                else
+                {
+                    EBAL.ExamMedium = fc["ddlexammedium"].ToString();
+                }
+                if (fc["hdnaddchck"].ToString() == "")
+                {
+                    EBAL.AddressCheck = "Yes";
+                }
+                else
+                {
+                    EBAL.AddressCheck = "No";
+                }
+                EBAL.ExamStatus = fc["ddlexamstaus"].ToString();
+                EBAL.BackGRound = fc["ddlback"].ToString();
+                EBAL.Amount_Received = fc["lblamt"].ToString();
+
+                //EBAL.EnteredBy = CurrentUser.UserName;
+                EBAL.IpAddress = "Online";
+                EBAL.McAddress = GetClientMac();
+                EBAL.HostName = GetClientHost();
+
+                EBAL.Registration_CRUD(EBAL, out msgOut, out Result, out EnquiryOut, out RegOut);
+
+
+                if (Result > 0)
+                {
+                    TempData["Successmsg"] = msgOut;
+                    TempData["Enquiry"] = null;
+                    EBAL.EnquiryID = Convert.ToInt64(EnquiryOut);
+                    EBAL.RegistrationID = Convert.ToInt64(RegOut);
+                    //TempData["TraineeProfile"] = lBal;
+                    return RedirectToAction("RegistrationManagement");
+                    // return Redirect("/StudentProfile/TraineeProfileReg");
+                }
+
+
+                else
+                {
+                    TempData["Error"] = 1;
+                    TempData["ErrorMsg"] = msgOut;
+
+                    TempData["val"] = EBAL;
+                    return RedirectToAction("RegistrationMaster");
+                }
+            }
+
+            if (FormCommand == "SaveRegistrationUpdate")
+            {
+
+
+
+
+                if (fc["hdEditReg"] != "-1")
+                {
+                    EBAL.RegistrationID = Convert.ToInt64(fc["hdEditReg"].ToString());
+                    EBAL.EnquiryID = Convert.ToInt64(fc["hdEnquiryID"].ToString());
+                    EBAL.Permanent_AddressId = Convert.ToInt64(fc["hdnPerAdsressID"].ToString());
+                    EBAL.AddressID = Convert.ToInt64(fc["hdAddressID"].ToString());
+                    EBAL.FatherID = Convert.ToInt64(fc["hdFatherID"].ToString());
+                    EBAL.StudentID = Convert.ToInt64(fc["hdStudentID"].ToString());
+                    EBAL.MotherID = Convert.ToInt64(fc["hdMotherID"].ToString());
+                    EBAL.Guardian_Id = Convert.ToInt64(fc["hdGuardianID"].ToString());
+                    EBAL.SpouseID = Convert.ToInt64(fc["hdSpouseID"].ToString());
+                    EBAL.InstituteID = Convert.ToInt64(fc["hdInstituteID"].ToString());
+
+
+                    //if (EBAL.Description=
+                }
+                else if (fc["hdEnquiryID"] != "-1")
+                {
+                    EBAL.EnquiryID = Convert.ToInt64(fc["hdEnquiryID"].ToString());
+                    EBAL.FatherID = Convert.ToInt64(fc["hdFatherID"].ToString());
+                    EBAL.MotherID = Convert.ToInt64(fc["hdMotherID"].ToString());
+                    EBAL.StudentID = Convert.ToInt64(fc["hdStudentID"].ToString());
+                    EBAL.AddressID = Convert.ToInt64(fc["hdAddressID"].ToString());
+
+                }
+                EBAL.optMode = "UpdateReg";
+
+                //TryUpdateModel(EBAL);
+                EBAL.DateOfBirth = Convert.ToDateTime(fc["DateOfBirth"].ToString(), ci);
+                EBAL.RequiredLateral = Convert.ToBoolean(fc["chkislateral"].ToString());
+                EBAL.BackGRound = fc["ddlback"].ToString();
+               // EBAL.ClientID = CurrentUser.ClientID;
+                //EBAL.EnteredBy = CurrentUser.UserName;
+                EBAL.IpAddress = "Online";
+                EBAL.McAddress = GetClientMac();
+                EBAL.HostName = GetClientHost();
+
+                EBAL.Registration_CRUDUpdate(EBAL, out msgOut, out Result, out EnquiryOut, out RegOut);
+
+
+                if (Result > 0)
+                {
+                    TempData["Successmsg"] = msgOut;
+                    TempData["Enquiry"] = null;
+                    EBAL.EnquiryID = Convert.ToInt64(EnquiryOut);
+                    EBAL.RegistrationID = Convert.ToInt64(RegOut);
+                    //TempData["TraineeProfile"] = lBal;
+                    return RedirectToAction("RegistrationManagement");
+                    // return Redirect("/StudentProfile/TraineeProfileReg");
+                }
+
+
+                else
+                {
+                    TempData["Error"] = 1;
+                    TempData["ErrorMsg"] = msgOut;
+
+                    TempData["val"] = EBAL;
+                    return RedirectToAction("RegistrationMaster");
+                }
+            }
+            return RedirectToAction("RegistrationMaster");
+        }
+
     }
 }

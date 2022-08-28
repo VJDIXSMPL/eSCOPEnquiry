@@ -132,6 +132,64 @@ function LoadAcademicDepartment(id, defaultval, Required) {
 
 }
 
+
+
+function LoadSessionWiseAcademicDepartment(id, SessionID, defaultval) {
+    defaultval = typeof defaultval !== 'undefined' ? defaultval : -1;
+    $.ajax({
+        type: 'GET',
+        url: '../CommonBinder/LoadEnquiryBinder',
+        async: false,
+        data: { SessionID: SessionID, optMode: "SessionWiseAcademicDepartment" },
+        success: function (Data) {
+            var select = $(id);
+            select.empty();
+            select.append($('<option/>', {
+                value: ddlInitialValue,
+                text: "Select"
+            }));
+            $.each($.parseJSON(Data), function (index, Data) {
+                select.append($('<option/>', {
+                    value: Data.AID,
+                    text: Data.AcademicDepartment
+                }));
+            });
+            select.val(defaultval);
+        },
+        error: function (errorData) {
+            console.log(errorData);
+        }
+    });
+}
+
+function LoadAcademicDepartmentWiseProgram(id, SessionID, ProgramType, defaultval) {
+    defaultval = typeof defaultval !== 'undefined' ? defaultval : -1;
+    $.ajax({
+        type: 'GET',
+        url: '../CommonBinder/LoadEnquiryBinder',
+        async: false,
+        data: { SessionID: SessionID, optMode: "AcademicDepartmentWiseProgram", ProgramType: ProgramType },
+        success: function (Data) {
+            var select = $(id);
+            select.empty();
+            select.append($('<option/>', {
+                value: ddlInitialValue,
+                text: "Select"
+            }));
+            $.each($.parseJSON(Data), function (index, Data) {
+                select.append($('<option/>', {
+                    value: Data.ProgramID,
+                    text: Data.Program
+                }));
+            });
+            select.val(defaultval);
+        },
+        error: function (errorData) {
+            console.log(errorData);
+        }
+    });
+}
+
 function Loadprogramlengthtype(id, defaultval, Required) {
     defaultval = typeof defaultval !== 'undefined' ? defaultval : -1;
 
