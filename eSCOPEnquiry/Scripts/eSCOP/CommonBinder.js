@@ -2465,7 +2465,7 @@ function LoadStdAcademicSessionWiseSession(id, defaultval ) {
             select.empty();
             select.append($('<option/>', {
                 value: ddlInitialValue, 
-                text: "Select"
+                text: "Select" 
             }));
             $.each($.parseJSON(Data), function (index, Data) {
                 select.append($('<option/>', {
