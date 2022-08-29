@@ -627,6 +627,12 @@ namespace eSCOPEnquiry.Models
             EDAL.CRUD_Registration(RBAL, out msgOut, out result, out EnquiryOut, out RegOut);
 
         }
+        public DataSet GetEnqRegistrationData(Enquiry_BAL CMBAL)
+        {
+            DataSet dt = new DataSet();
+            dt = EDAL.GetEnqRegistrationData(CMBAL);
+            return dt;
+        }
         public void Registration_CRUDUpdate(Enquiry_BAL RBAL, out string msgOut, out int result, out string EnquiryOut, out string RegOut)
         {
             EDAL.UpdateCRUD_Registration(RBAL, out msgOut, out result, out EnquiryOut, out RegOut);

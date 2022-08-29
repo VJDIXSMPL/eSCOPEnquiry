@@ -171,6 +171,25 @@ namespace eSCOPEnquiry.Models
             }
             return msgOutCaller;
         }
+        public DataSet GetEnqRegistrationData(Enquiry_BAL LibBal)
+        {
+            using (SqlConnection con = new SqlConnection(constring))
+            {
+                SqlDataAdapter da = new SqlDataAdapter("Crm_EnquiryMaster_Online", constring);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.Parameters.AddWithValue("@optMode", LibBal.optMode);
+                da.SelectCommand.Parameters.AddWithValue("@EnquiryNo", LibBal.EnquiryNo);
+                da.SelectCommand.Parameters.Add("@msgOut", SqlDbType.VarChar, 50);
+                da.SelectCommand.Parameters.Add("@Result", SqlDbType.Int);
+                da.SelectCommand.Parameters["@msgOut"].Direction = ParameterDirection.Output;
+                da.SelectCommand.Parameters["@Result"].Direction = ParameterDirection.Output;
+                DataSet dt = new DataSet();
+                da.Fill(dt);
+                return dt;
+
+            }
+        }
+
         public void CRUD_Registration(Enquiry_BAL RegBal, out string msgOutCaller, out int ResultCaller, out string EnquiryCallOuter, out string RegCallOuter)
         {
             using (SqlConnection con = new SqlConnection(constring))

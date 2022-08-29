@@ -132,6 +132,64 @@ function LoadAcademicDepartment(id, defaultval, Required) {
 
 }
 
+
+
+function LoadSessionWiseAcademicDepartment(id, SessionID, defaultval) {
+    defaultval = typeof defaultval !== 'undefined' ? defaultval : -1;
+    $.ajax({
+        type: 'GET',
+        url: '../CommonBinder/LoadEnquiryBinder',
+        async: false,
+        data: { SessionID: SessionID, optMode: "SessionWiseAcademicDepartment" },
+        success: function (Data) {
+            var select = $(id);
+            select.empty();
+            select.append($('<option/>', {
+                value: ddlInitialValue,
+                text: "Select"
+            }));
+            $.each($.parseJSON(Data), function (index, Data) {
+                select.append($('<option/>', {
+                    value: Data.AID,
+                    text: Data.AcademicDepartment
+                }));
+            });
+            select.val(defaultval);
+        },
+        error: function (errorData) {
+            console.log(errorData);
+        }
+    });
+}
+
+function LoadAcademicDepartmentWiseProgram(id, SessionID, ProgramType, defaultval) {
+    defaultval = typeof defaultval !== 'undefined' ? defaultval : -1;
+    $.ajax({
+        type: 'GET',
+        url: '../CommonBinder/LoadEnquiryBinder',
+        async: false,
+        data: { SessionID: SessionID, optMode: "AcademicDepartmentWiseProgram", ProgramType: ProgramType },
+        success: function (Data) {
+            var select = $(id);
+            select.empty();
+            select.append($('<option/>', {
+                value: ddlInitialValue,
+                text: "Select"
+            }));
+            $.each($.parseJSON(Data), function (index, Data) {
+                select.append($('<option/>', {
+                    value: Data.ProgramID,
+                    text: Data.Program
+                }));
+            });
+            select.val(defaultval);
+        },
+        error: function (errorData) {
+            console.log(errorData);
+        }
+    });
+}
+
 function Loadprogramlengthtype(id, defaultval, Required) {
     defaultval = typeof defaultval !== 'undefined' ? defaultval : -1;
 
@@ -1094,10 +1152,10 @@ function LoadPermissionnationality(id, defaultval, Required) {
     defval = "";
     check = typeof defaultval !== 'undefined' ? Required : 0
     if (check == 0) {
-        defval = "-1";
+        defval = "";
     }
     else {
-        defval = "";
+        defval = "-1";
     }
 
 
@@ -2405,10 +2463,10 @@ function LoadStdAcademicSessionWiseSession(id, defaultval ) {
         success: function (Data) {
             var select = $(id);
             select.empty();
-            //select.append($('<option/>', {
-            //    value: ddlInitialValue,
-            //    text: "Select"
-            //}));
+            select.append($('<option/>', {
+                value: ddlInitialValue, 
+                text: "Select" 
+            }));
             $.each($.parseJSON(Data), function (index, Data) {
                 select.append($('<option/>', {
                     value: Data.SessionID,
@@ -2426,7 +2484,7 @@ function LoadStdAcademicSessionWiseSession(id, defaultval ) {
 
 function LoadInstituteWiseProgram(id, InstituteID, defaultval) {
     defaultval = typeof defaultval !== 'undefined' ? defaultval : -1;
-
+    debugger
    
     $.ajax({
         type: 'GET',
@@ -2434,6 +2492,7 @@ function LoadInstituteWiseProgram(id, InstituteID, defaultval) {
         async: false,
         data: { InstituteID: InstituteID },
         success: function (Data) {
+            debugger
             var select = $(id);
             select.empty();
             select.append($('<option/>', {
@@ -3754,7 +3813,7 @@ function LoadBlood(id, defaultval) {
                        }));
                        $.each($.parseJSON(BloodData), function (index, itemData) {
                            select.append($('<option/>', {
-                               value: itemData.BloodGroup,
+                               value: itemData.BloodId,
                                text: itemData.BloodGroup
                            }));
                        });

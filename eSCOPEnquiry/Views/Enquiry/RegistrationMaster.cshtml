@@ -6,7 +6,6 @@
 @{
     ViewBag.Title = "RegistrationMaster";
 }
-
 <style>
     legend.scheduler-border {
         font-size: 1.2em !important;
@@ -28,7 +27,6 @@
         border: 1px solid #605296;
         padding: 20px;
         margin-bottom: 30px;
-        
     }
 
     .abc {
@@ -64,7 +62,8 @@
                             <div class="row">
                                 <section class="form-group col-sm-3">
                                     <label>Institute Name <span style="color:red">*</span></label>
-                                     <input type="hidden" name="hdInstituteID" id="hdInstituteID" value="-1" />
+                                    <input type="hidden" name="hdEnquiryID" id="hdEnquiryID" value="@TempData["EnqNo"].ToString()" />
+                                    <input type="hidden" name="hdInstituteID" id="hdInstituteID" value="-1" />
                                     @Html.DropDownListFor(model => model.InstituteID, new List<SelectListItem> { }, new { @class = "form-control" })
                                 </section>
                                 <section class="form-group col-sm-3">
@@ -74,12 +73,12 @@
                                 </section>
                                 <section class="form-group col-sm-3">
                                     <label>Program<span style="color:red">*</span></label>
-                                     <input type="hidden" id="hdProgram" value="-1" name="hDProgram" />
+                                    <input type="hidden" id="hdProgram" value="-1" name="hDProgram" />
                                     @Html.DropDownListFor(model => model.ProgramID, new List<SelectListItem> { }, new { @class = "form-control" })
                                 </section>
                                 <section class="form-group col-sm-3">
                                     <label>Branch<span style="color:red">*</span></label>
-                                     <input type="hidden" id="hdnbranchid" name="hdnbranchid" value="-1" />
+                                    <input type="hidden" id="hdnbranchid" name="hdnbranchid" value="-1" />
                                     @Html.DropDownListFor(model => model.BranchID, new List<SelectListItem> { }, new { @class = "form-control" })
                                 </section>
                             </div>
@@ -93,7 +92,7 @@
                                     <input name="filesig" required type="file" id="uploadStudentSign" onchange="filePreviewStudSign(this);" class="form-control">
                                 </section>
 
-                                <section class="form-group col-sm-3" id="divlateral">
+                                <section class="form-group col-sm-3" id="divlateral" style="margin-top:28px;">
                                     <div class="custom-control custom-checkbox mt-5">
                                         <input type="checkbox" class="custom-control-input" id="chkislateralenq" name="chkislateralenq" onchange="LateralSemChanged()">
                                         <label class="custom-control-label" for="chkislateralenq">Required Lateral</label>
@@ -185,29 +184,29 @@
                                 </section>
                                 <section class="form-group col-sm-3">
                                     <label>Blood Group</label>
-                                     <input type="hidden" id="hdBlood" name="hdBlood" value="-1" />
-                                     @Html.DropDownListFor(m => m.Blood, new List<SelectListItem>
-                                          {
+                                    <input type="hidden" id="hdBlood" name="hdBlood" value="-1" />
+                                    @Html.DropDownListFor(m => m.Blood, new List<SelectListItem>
+                                {
 
-                                          }, new { @class = "form-control" })
+                                }, new { @class = "form-control" })
                                 </section>
                                 <section class="form-group col-sm-3">
                                     <label>Category<span style="color:red">*</span></label>
-                                     <input type="hidden" id="hdCategoryID" name="hdCategoryID" value="-1" />
-                                   @Html.DropDownListFor(m => m.CategoryID, new List<SelectListItem>
-                                               {
+                                    <input type="hidden" id="hdCategoryID" name="hdCategoryID" value="-1" />
+                                    @Html.DropDownListFor(m => m.CategoryID, new List<SelectListItem>
+                                {
 
-                                               }, new { @class = "form-control", @required = "" })
+                                }, new { @class = "form-control", @required = "" })
                                 </section>
                             </div>
                             <div class="row">
                                 <section class="form-group col-sm-3">
-                                     <input type="hidden" id="hdReligionID" name="hdReligionID" value="-1" />
+                                    <input type="hidden" id="hdReligionID" name="hdReligionID" value="-1" />
                                     <label>Religion<span style="color:red">*</span></label>
-                                   @Html.DropDownListFor(m => m.ReligionID, new List<SelectListItem>
-                                               {
+                                    @Html.DropDownListFor(m => m.ReligionID, new List<SelectListItem>
+                                {
 
-                                               }, new { @class = "form-control", @required = "" })
+                                }, new { @class = "form-control", @required = "" })
 
                                 </section>
                                 <section class="form-group col-sm-3">
@@ -321,7 +320,7 @@
                                 <div class="col-md-3 mb-3">
                                     <label class="form-label">Spouse Title</label>
 
-                                     <input type="hidden" id="hdSpouse_Title" name="hdSpouse_Title" value="-1" />
+                                    <input type="hidden" id="hdSpouse_Title" name="hdSpouse_Title" value="-1" />
                                     @Html.DropDownList("Spouse_Title", new List<SelectListItem>
                                 {
 
@@ -373,7 +372,7 @@
                             <div class="row">
                                 <section class="form-group col-sm-3">
                                     <label>Title</label>
-                                      <input type="hidden" id="hdFather_Title" name="hdFather_Title" value="-1" />
+                                    <input type="hidden" id="hdFather_Title" name="hdFather_Title" value="-1" />
                                     @Html.DropDownListFor(model => model.Father_Title, new List<SelectListItem> { }, new { @class = "form-control" ,@placeholder = "Please Select Title" })
                                 </section>
                                 <section class="form-group col-sm-3">
@@ -418,7 +417,7 @@
                                 <section class="form-group col-sm-3">
                                     <label class="form-label">Title</label>
 
-                                     <input type="hidden" id="hdMother_Title" name="hdMother_Title" value="-1" />
+                                    <input type="hidden" id="hdMother_Title" name="hdMother_Title" value="-1" />
                                     @Html.DropDownList("Mother_Title", new List<SelectListItem>
                                 {
 
@@ -473,7 +472,7 @@
                                 </section>
                             </div>
                             <div class="row" id="divguard">
-                                <section class="form-group col-sm-3">
+                                <section class="form-group col-sm-6">
                                     <section class="inline-group">
                                         <section class="custom-control custom-checkbox mt-2">
                                             <input name="chklocalGuaother" class="custom-control-input" id="chklocalGuaother" type="checkbox" />
@@ -483,11 +482,11 @@
                                 </section>
                             </div>
 
-                            <div id="dvother">
+                            <div id="dvother" style="display:none">
                                 <div class="form-row form-group">
                                     <div class="form-group col-sm-3">
                                         <label class="form-label">Title</label>
-                                    <input type="hidden" id="hdGuardian_Title" name="hdGuardian_Title" value="-1" />
+                                        <input type="hidden" id="hdGuardian_Title" name="hdGuardian_Title" value="-1" />
                                         @Html.DropDownList("Guardian_Title", new List<SelectListItem>
                                     {
 
@@ -538,7 +537,7 @@
                                         <label class="form-label">Relation<span style="color:red">*</span></label>
 
 
-                                        @* <input type="hidden" id="hdRelation" name="hdRelation" value="@Model.Relation" />*@
+                                         <input type="hidden" id="hdRelation" name="hdRelation" value="-1" />
                                         @Html.DropDownList("Relation", new List<SelectListItem>
                                     {
 
@@ -617,20 +616,21 @@
                                     @Html.Editor("Area", new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Area", @type = "text", @maxlength = "150" } })
 
                                 </section>
+
                                 <div class="row" id="checkdiv">
-                                    <div class="col-md-5 mb-3">
-                                        <input type="hidden" id="hdnaddchck" name="hdnaddchck" />
-                                        <div class="custom-control custom-checkbox mt-2">
-                                            <input name="chklocalGua" class="custom-control-input" id="chklocalGuaId" type="checkbox" />
-                                            <label class="custom-control-label" for="chklocalGuaId">Permanant Address (Other than Correspondance Address)</label>
-                                        </div>
-                                    </div>
+                                    <section class="form-group col-sm-6" style="margin-left:17px">
+                                        <section class="inline-group">
+                                            <section class="custom-control custom-checkbox mt-2">
+                                                <input name="chklocalGua" class="custom-control-input" id="chklocalGuaId" type="checkbox" />
+                                                <label class="custom-control-label" for="chklocalGuaId">Permanant Address (Other than Correspondance Address)</label>
+                                            </section>
+                                        </section>
+                                    </section>
                                 </div>
                             </div>
 
 
-
-                            <div id="dvCors">
+                            <div id="dvCors" style="display:none">
                                 <div class="row">
                                     <section class="form-group col-sm-12">
                                         <label class="form-label">Address<span style="color:red">*</span></label>
@@ -673,7 +673,6 @@
 
                                     </section>
                                 </div>
-
                                 <div class="row">
                                     <section class="form-group col-sm-12">
                                         <label class="form-label">Permanent Address (in Religious Language)<span style="color:red"></span></label>
@@ -695,495 +694,12 @@
                                 </div>
                             </div>
                         </fieldset>
-
-                        <div id="Quali" style="display:none">
-
-                            <fieldset class="border-css mt-3">
-                                <legend class="scheduler-border"><b>Required Education Details</b></legend>
-
-
-                                <input type="hidden" id="hdneid" name="hdneid" />
-                                <input type="hidden" id="hdnboard" name="hdnboard" />
-                                <input type="hidden" id="hdnroll" name="hdnroll" />
-                                <input type="hidden" id="hdnyear" name="hdnyear" />
-                                <input type="hidden" id="hdntmarks" name="hdntmarks" />
-                                <input type="hidden" id="hdnomarks" name="hdnomarks" />
-                                <input type="hidden" id="hdnage" name="hdnage" />
-                                <div id="DivQuali">
-
-                                    <fieldset>
-                                        <div class="row"></div>
-                                        <div class="row" id="secqualif">
-                                            <div class="col col-md-12">
-                                                <div class="table-responsive">
-                                                    <table id="tblqualif" class="table table-striped table-bordered table-hover grid">
-                                                        <thead>
-                                                            <tr>
-                                                                <th>Examination Passed</th>
-                                                                <th>Board / University</th>
-                                                                <th>RolNo</th>
-                                                                <th>Year</th>
-                                                                <th>Total Marks</th>
-                                                                <th>Marks Obtained</th>
-                                                                <th>%Age</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody id="tbldata1"></tbody>
-                                                    </table>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </fieldset>
-                                </div>
-                            </fieldset>
-                        </div>
-                        <div id="Documents" style="display:none">
-
-                            <fieldset class="border-css mt-3">
-
-                                <legend class="col-md-12 page-title padding-top-0 padding-bottom-3"><b>Required Documents</b></legend>
-                                <div class="row" style="padding:10px">
-                                    <section class="col-sm-12">
-                                        <div class="inline-group">
-                                            <i></i><b style="color:red">NOTE* : For documents jpeg,jpg and pdf formats are valid. Maximum file size for documents is 2 MB.</b>
-                                        </div>
-                                    </section>
-                                </div>
-
-
-                                <div id="DivPhotos">
-
-                                    <fieldset>
-                                        <div class="row"></div>
-                                        <div class="row" id="secDocuments">
-                                            <div class="col col-md-12">
-                                                <div class="table-responsive">
-                                                    <table id="tblDocuments" class="table table-striped table-bordered table-hover grid">
-                                                        <thead>
-                                                            <tr>
-                                                                <th>Document Name</th>
-                                                                <th>Mandatory</th>
-                                                                <th>Upload File</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody id="tbldata2"></tbody>
-                                                    </table>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </fieldset>
-                                </div>
-                            </fieldset>
-                        </div>
-                        <div class="qualiiiiiiiiii" style="display:none">
-
-                            <fieldset class="border-css mt-3">
-                                <legend class="col-md-12 page-title padding-top-0 padding-bottom-3"><b>Required Education Details</b></legend>
-                            </fieldset>
-                        </div>
-
-                        <div class="chkvalid" style="display:none">
-
-                            <fieldset class="border-css mt-3">
-                                <legend class="col-md-12 page-title padding-top-0 padding-bottom-3"><b>Education Details</b></legend>
-
-                                <div class="form-row">
-                                    <div class="col-md-3 mb-3">
-                                        <label>Examination<span style="color:red"></span></label>
-                                        <select id="Examination" name="Examination" class="custom-select"></select>
-                                        @*@Html.Editor("Examination, new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Examination", @type = "text", @maxlength = "20" } })*@
-
-                                    </div>
-
-                                    <div class="col-md-3 mb-3">
-                                        <label>Board<span style="color:red"></span></label>
-
-                                        @Html.Editor("Board", new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Board", @type = "text", @maxlength = "30" } })
-
-                                    </div>
-
-                                    <div class="col-md-3 mb-3">
-                                        <label>School/College</label>
-
-                                        @Html.Editor("Institute", new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter School/College", @type = "text", @maxlength = "50" } })
-
-                                    </div>
-
-                                    <div class="col-md-3 mb-3">
-                                        <label>Roll No.</label>
-
-                                        @Html.Editor("RollNo", new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Roll No.", @type = "text", @maxlength = "20" } })
-
-
-
-
-
-                                    </div>
-
-                                    <div class="col-md-3 mb-3">
-                                        <label>Month of Passing</label>
-
-                                        @Html.Editor("MonthofPassing", new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Month of Passing", @type = "text", @maxlength = "10" } })
-
-                                    </div>
-
-                                    <div class="col-md-3 mb-3">
-                                        <label>Year Of Passing <span style="color:red"></span></label>
-
-                                        @Html.Editor("YearOfPassing", new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Year Of Passing", @type = "text", @maxlength = "4" } })
-
-                                    </div>
-
-                                    <div class="col-md-3 mb-3">
-                                        <label>Marks Obtained <span style="color:red"></span></label>
-
-                                        @Html.Editor("MarksObtained", new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Marks Obtained", @type = "text", @maxlength = "3" } })
-
-                                    </div>
-
-                                    <div class="col-md-3 mb-3">
-                                        <label>Max Marks <span style="color:red"></span></label>
-
-                                        @Html.Editor("MaxMarks", new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Max Marks", @type = "text", @maxlength = "3" } })
-
-                                    </div>
-
-                                    <div class="col-md-3 mb-3">
-                                        <label>Grade</label>
-
-                                        @Html.Editor("Grade", new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Grade", @type = "text", @maxlength = "3" } })
-
-                                    </div>
-
-                                    <div class="col-md-3 mb-3">
-                                        <label>Division</label>
-
-                                        @Html.Editor("Division", new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Division", @type = "text", @maxlength = "10" } })
-
-                                    </div>
-
-                                    <div class="col-md-3 mb-3">
-                                        <label>Percentage</label>
-
-                                        @Html.Editor("Percentage", new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Percentage", @type = "text", @maxlength = "5" } })
-
-                                    </div>
-
-                                    <div class="col-md-3 mb-3">
-                                        <label>CGPA</label>
-
-                                        @Html.Editor("CGPA", new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter CGPA", @type = "text", @maxlength = "5" } })
-
-
-
-                                    </div>
-
-                                    <div class="col-md-3">
-                                        <div class="custom-control-inline-inline-block custom-checkbox mt-1">
-                                            <input name="ishighestquli" class="custom-control-input" id="ishighestquli" type="checkbox" />
-                                            <label class="custom-control-label" for="ishighestquli">IS HighestQualification</label>
-                                        </div>
-
-                                    </div>
-                                </div>
-
-
-                                <div class="form-row form-group mb-3">
-                                    @*<input type="hidden" id="hdSub" value="@Model.Subjects" />*@
-                                    <div class="col-sm-12">
-                                        <div class="inline-group">
-
-                                            <div class="custom-control-inline-inline-block custom-checkbox mt-5">
-                                                <input name="chkMath" class="custom-control-input" id="chkMath" type="checkbox" />
-                                                <label class="custom-control-label" for="chkMath" id="LblMath"></label>
-                                            </div>
-                                            <div class="custom-control-inline-inline-block custom-checkbox mt-5">
-                                                <input name="ChkScience" class="custom-control-input" id="ChkScience" type="checkbox" />
-                                                <label class="custom-control-label" for="ChkScience" id="LblScience"></label>
-                                            </div>
-                                            <div class="custom-control-inline-inline-block custom-checkbox mt-5">
-                                                <input name="ChkHindi" class="custom-control-input" id="ChkHindi" type="checkbox" />
-                                                <label class="custom-control-label" for="ChkHindi" id="LblHindi"></label>
-                                            </div>
-                                            <div class="custom-control-inline-inline-block custom-checkbox mt-5">
-                                                <input name="ChkEnglish" class="custom-control-input" id="ChkEnglish" type="checkbox" />
-                                                <label class="custom-control-label" for="ChkEnglish" id="LblEnglish"></label>
-                                            </div>
-
-
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="panel-content border-faded border-left-0 border-right-0 border-bottom-0 d-flex flex-row align-items-center">
-                                    <div class="frame-wrap ml-auto">
-                                        <label class="form-label" style="visibility:hidden; margin-bottom:34px;">l</label>
-
-                                        <button type="button" name="submit" id="btnAdd" class="btn btn-info"><i class="fal fa-plus"></i>  Add </button>
-
-                                    </div>
-                                </div>
-
-                                <div class="table-responsive" style="overflow-x:scroll;">
-                                    <div class="form-row form-group">
-                                        <div class="col-md-12 mb-12">
-                                            <table id="tblEducationDetails" class="table table-bordered">
-                                                <thead class="thead-dark">
-                                                    <tr>
-                                                        <th>
-                                                            Action
-                                                        </th>
-
-                                                        <th>
-                                                            Examination
-                                                        </th>
-                                                        <th>
-                                                            Boards
-                                                        </th>
-                                                        <th>
-                                                            School/College
-                                                        </th>
-                                                        <th>
-                                                            Roll No.
-                                                        </th>
-                                                        <th>
-                                                            Month Of Passing
-                                                        </th>
-                                                        <th>
-                                                            Passing year
-                                                        </th>
-                                                        <th>
-                                                            Marks Obtained
-                                                        </th>
-                                                        <th>
-                                                            Max Marks
-                                                        </th>
-                                                        <th>
-                                                            Grade
-                                                        </th>
-                                                        <th>
-                                                            Division
-                                                        </th>
-                                                        <th>
-                                                            Percentage
-                                                        </th>
-                                                        <th>
-                                                            CGPA
-                                                        </th>
-                                                        <th>
-                                                            Highest Qualification
-                                                        </th>
-                                                        <th>
-                                                            Subjects
-                                                        </th>
-
-                                                    </tr>
-                                                </thead>
-                                                <tbody id="getSection_1">
-
-                                                    @*@if (TempData["EducDt"] != null)
-                                                {
-                                                foreach (DataRow dr in ((DataTable)TempData["EducDt"]).Rows)
-                                                {
-                                                <tr>
-                                                <td>
-                                                <button type='button' class='btn btn-sm btn-outline-danger btn-icon btn-inline-block mr-1' title="Delete Education Details" data-original-title='Delete Education Details' onclick="DeleteEducation(@dr["RecordID"],this)" name="FormCommand"><i class='fal fa-times'></i></button>
-                                                </td>
-                                                <td>@dr["Examination"]</td>
-                                                <td>@dr["Board"]</td>
-                                                <td>@dr["institute"]</td>
-                                                <td>@dr["RollNo"]</td>
-                                                <td>@dr["MonthOfPassing"]</td>
-                                                <td>@dr["YearOfPassing"]</td>
-                                                <td>@dr["MarksObtained"]</td>
-                                                <td>@dr["maxmarks"]</td>
-                                                <td>@dr["Grade"]</td>
-                                                <td>@dr["Division"]</td>
-                                                <td>@dr["Percentage"]</td>
-                                                <td>@dr["CGPA"]</td>
-                                                <td>@dr["IsHighest"]</td>
-                                                <td>@dr["Subjects"]</td>
-                                                </tr>
-                                                @*<input type="button" id="btnDelete" name="FormCommand" value="Delete_" style="display:none">
-                                                }
-                                                }*@
-
-
-
-                                                </tbody>
-
-                                                <input type="hidden" id="hdExamination" value="" name="hdExamination" />
-                                                <input type="hidden" id="hdBoards" value="" name="hdBoards" />
-                                                <input type="hidden" id="hdInstitute" value="" name="hdInstitute" />
-                                                <input type="hidden" id="hdRollNo" value="" name="hdRollNo" />
-                                                <input type="hidden" id="hdMonthOFPassing" value="" name="hdMonthOFPassing" />
-                                                <input type="hidden" id="hdYearOfPassing" value="" name="hdYearOfPassing" />
-                                                <input type="hidden" id="hdMarksObtained" value="" name="hdMarksObtained" />
-                                                <input type="hidden" id="hdMaxMarks" value="" name="hdMaxMarks" />
-                                                <input type="hidden" id="hdGrade" value="" name="hdGrade" />
-                                                <input type="hidden" id="hdDivision" value="" name="hdDivision" />
-                                                <input type="hidden" id="hdPercentage" value="" name="hdPercentage" />
-                                                <input type="hidden" id="hdCGPA" value="" name="hdCGPA" />
-                                                <input type="hidden" id="hdishighest" value="" name="hdishighest" />
-                                                <input type="hidden" id="hdSubjects" value="" name="hdSubjects" />
-                                                @*<input type="hidden" name="hdEditOptionMode" id="hdEditOptionMode" value="@Model.optMode">
-                                            <input type="hidden" name="hdEditReg" id="hdEditReg" value="@Model.RegistrationID">*@
-
-
-
-
-                                            </table>
-
-                                            @* <input type="hidden" name="hdregno" id="hdregno" value="@Model.RegistrationNo">
-                                        <input type="hidden" name="hdenqno" id="hdenqno" value="@Model.EnquiryNo">*@
-                                        </div>
-                                    </div>
-                                </div>
-                            </fieldset>
-                        </div>
-
-                        <fieldset>
-
-
-
-
-                            <div class="form-row form-group mt-5" style="display:none">
-                                <div class="col-md-4 mb-4">
-
-                                    <label class="form-label">&nbsp;</label>
-                                    @*             <input type="hidden" name="hdIsDisabled" value="@Model.IsDisabled" id="hdIsDisabled" />*@
-                                    @Html.CheckBox("IsDisabled", new { @onclick = "getIsDefault()", id = "NoEndDate", @class = "abc" })<i></i><text>Is Disabled / Handicapped</text>
-
-
-                                </div>
-
-
-                                <div id="dvhandidescip" style="display:none">
-                                    <div class="col-md-12 mb-3">
-                                        <label class="form-label">Description<span style="color:red"></span></label>
-                                        @Html.TextArea("Description", new { @rows = 5, @cols = 150, @placeholder = "Please Enter Description ", @maxlength = 250, @class = "form-control" })
-                                    </div>
-                                </div>
-                            </div>
-
-
-
-
-
-                            <div id="refID" style="display:none">
-                                >
-                                <div class="form-row form-group">
-                                    <div class="col-md-3 mb-3">
-                                        <label class="form-label" id="lbl0">Reference Type</label>
-
-                                        @*  <input type="hidden" id="hdReferenceType" name="hdReferenceType" value="@Model.ReferenceType" />*@
-                                        @Html.DropDownList("Model.ReferenceType", new List<SelectListItem>
-                                    {
-
-
-                                    new SelectListItem {Text = "Student", Value = "Student"},
-                                    new SelectListItem {Text = "Ex-Student", Value = "Ex-Student"},
-                                    //new SelectListItem {Text = "Ex-Staff", Value = "3"},
-
-
-                                    }, "Reference Type", new { @class = "custom-select" })
-
-
-                                    </div>
-                                    <div class="col-md-3 mb-3">
-
-                                        <label class="form-label" id="lbl1" style="display:none">Admission/Roll No.<span style="color:red">*</span></label>
-
-                                        @Html.Editor("RefNo", new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter NCVT/Reg/Roll No.", @type = "text", @maxlength = "50", @style = "display:none" } })
-
-
-                                    </div>
-                                    <div class="col-md-3 mb-3">
-
-                                        <label class="form-label" id="lbl2" style="display:none">Name<span style="color:red">*</span></label>
-
-                                        @Html.Editor("RefName", new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Name", @type = "text", @maxlength = "50", @style = "display:none" } })
-
-
-                                    </div>
-                                    <div class="col-md-3 mb-3">
-
-                                        <label class="form-label" id="lbl3" style="display:none">Mobile No.<span style="color:red">*</span></label>
-
-                                        @Html.Editor("RefMobileNo", new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Mobile No.", @type = "text", @maxlength = "10", @style = "display:none" } })
-
-
-                                    </div>
-                                    <div class="col-md-3 mb-4">
-                                        <div class="custom-control custom-checkbox mt-5">
-                                            <input name="chklocalGuaAgency" class="custom-control-input" id="chklocalGuaAgency" type="checkbox" onchange="EnquirdChanged();">
-                                            <label class="custom-control-label" for="chklocalGuaAgency">Agency/ Consultant</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 mb-6" id="fldsGuardianDetails" style="display:none;">
-
-
-                                        <label class="form-label">Agency Name<span style="color:red">*</span></label>
-
-                                        @*  <input type="hidden" id="hdAgencyID" name="hdAgencyID" value="@Model.AgencyID" />*@
-                                        @Html.DropDownList("AgencyID", new List<SelectListItem>
-                                    {
-
-                                    }, new { @class = "custom-select" })
-
-                                        <div class="invalid-feedback">
-                                            Please Select Agency Name.
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <!--<legend class="col-md-12 page-title padding-top-0 padding-bottom-5">Note/Remarks</legend>-->
-                            <div class="form-row form-group mt-2" style="display:none">
-
-                                <div class="col-md-12 mb-12">
-                                    <label class="input">Remarks</label>
-
-
-
-                                    @Html.TextArea("Remarks", new { @rows = 5, @cols = 150, @placeholder = "Please Enter Remarks ", @maxlength = 250, @class = "form-control" })
-
-                                </div>
-                            </div>
-
-                        </fieldset>
-
-                        <div class="panel-content border-faded border-left-0 border-right-0 border-bottom-0 d-flex flex-row align-items-center">
-                            <div class="frame-wrap ml-auto">
-                                @*@if (Model.RegistrationID == -1)
-                            {
-                            <button type="submit" name="FormCommand" id="btnSave" value="SaveRegistration" style="display:none" class="btn btn-info"> <i class="fal fa-save"></i> Save </button>
-                            <button type="button" name="FormCommand" id="btnsubmit" value="SaveReg" class="btn btn-info"> <i class="fal fa-save"></i> Submit </button>
-                            <button type="reset" name="reset" id="btnclear" class="btn btn-default"> Clear </button>
-                            }
-                            else
-                            {
-
-                            <button type="submit" name="FormCommand" id="btnSave" value="SaveRegistrationUpdate" class="btn btn-info"> <i class="fal fa-save"></i> Update </button>
-                            <button type="reset" name="reset" id="btnCancel" class="btn btn-default"> Cancel </button>
-
-                            }*@
-                            </div>
-                        </div>
+                <div class="form-group text-right mt30 mb30">
+                        <a class="btn btn btn-default" onclick="window.location.reload();">Cancel</a>
+                        <button id="btnSave" type="submit" class="btn btn btn-primary" value="Submit" name="FormCommand">Submit</button>
+                    </div>
                     }
-                    @*<input type="hidden" id="hdBatchID" value="@Model.BatchID" name="hdBatchID" />
-                    <input type="hidden" id="hdEnquiryID" value="@Model.EnquiryID" name="hdEnquiryID" />
-                    <input type="hidden" id="hdFatherID" value="@Model.FatherID" name="hdFatherID" />
-                    <input type="hidden" name="hdStudentID" id="hdStudentID" value="@Model.StudentID">
-                    <input type="hidden" name="hdMotherID" id="hdMotherID" value="@Model.MotherID">
-                    <input type="hidden" name="hdGuardianID" id="hdGuardianID" value="@Model.GuardianID">
-                    <input type="hidden" name="hdSpouseID" id="hdSpouseID" value="@Model.SpouseID">
-
-                    <input type="hidden" name="hdDescription" id="hdDescription" value="@Model.Description">*@
-
-
-
+                    
                 </div>
 
             </div>
@@ -1217,37 +733,32 @@
 
     $(document).ready(function() {
 
-     LoadPermissionWiseInstitute("#InstituteID", $('#hdInstituteID').val() == "-1" ? "" : $('#hdInstituteID').val(), 1);
-     LoadStdAcademicSessionWiseSession("#SessionID", $("#hdSessionID").val() == "-1" ? "" : $("#hdSessionID").val(), $("#hdInstituteID").val(), -1);
+        LoadPermissionWiseInstitute("#InstituteID", $('#hdInstituteID').val() == "-1" ? "" : $('#hdInstituteID').val(), 1);
+        LoadStdAcademicSessionWiseSession("#SessionID", $("#hdSessionID").val() == "" ? "-1" : $("#hdSessionID").val(), "");
 
-     LoadBatch("#BatchID", $("#hdBatchID").val() == "-1" ? "" : $("#hdBatchID").val());
+        LoadEducationExam("#Examination", "", "-1")
+        LoadInstituteWiseProgram("#ProgramID", $('#hdInstituteID').val() == "-1" ? "-1" : $('#hdInstituteID').val(), $("#hdProgram").val() == "" ? "-1" : $("#hdProgram").val(), -1);
+        LoadProgramWiseBranch("#BranchID", $("#hdProgram").val() == "-1" ? "-1" : $("#hdProgram").val(), $('#hdInstituteID').val() == "-1" ? "-1" : $('#hdInstituteID').val(), $("#hdnbranchid").val() == "" ? "-1" : $("#hdnbranchid").val())
 
-     LoadEducationExam("#Examination","","-1")
-     // Examination LoadBatchSessionWise("#BatchID", $("#hdSessionID").val() == 0 ? "-1" : $("#hdSessionID").val(), $("#hdBatchID").val() == "-1" ? "" : $("#hdBatchID").val());
-
-     LoadInstituteWiseProgram("#ProgramID", $("#hdProgram").val() == "-1" ? "" : $("#hdProgram").val(), $('#hdInstituteID').val() == "-1" ? "-1" : $('#hdInstituteID').val(), 1);
-     //LoadBranch("#BranchID", $("#hdnbranchid").val() == "-1" ? "" : $("#hdnbranchid").val(), 1);
-     LoadProgramWiseBranch("#BranchID", $("#hdProgram").val() == "-1" ? "-1" : $("#hdProgram").val(), $('#hdInstituteID').val() == "-1" ? "-1" : $('#hdInstituteID').val(), $("#hdnbranchid").val() == "-1" ? "" : $("#hdnbranchid").val())
-    
-     $("#InstituteID").change(function () {
-         var InstituteID = $("#InstituteID").val();
-         ProgramID = $("#ProgramID").val();
-         LoadStdAcademicSessionWiseSession("#SessionID", $("#hdSessionID").val() == "-1" ? "" : $("#hdSessionID").val(), InstituteID == "-1" ? "-1" : InstituteID, -1);
-         LoadInstituteWiseProgram("#ProgramID", $("#hdProgram").val() == "-1" ? "" : $("#hdProgram").val(), InstituteID == "-1" ? "-1" : InstituteID);
-     });
-     $("#ProgramID").change(function () {
+        $("#InstituteID").change(function() {
+            var InstituteID = $("#InstituteID").val();
+            ProgramID = $("#ProgramID").val();
+            LoadStdAcademicSessionWiseSession("#SessionID", $("#hdSessionID").val() == "-1" ? "" : $("#hdSessionID").val(), InstituteID == "-1" ? "-1" : InstituteID, "");
+            LoadInstituteWiseProgram("#ProgramID", InstituteID == "-1" ? "-1" : InstituteID, $("#hdProgram").val() == "" ? "-1" : $("#hdProgram").val(), -1);
+        });
+        $("#ProgramID").change(function() {
             var ProgramID = $("#ProgramID").val();
             var InstituteID = $("#InstituteID").val();
             var SessionID = $("#SessionID").val();
             LoadProgramWiseBranch("#BranchID", ProgramID == "-1" ? "-1" : ProgramID, InstituteID == "-1" ? "-1" : InstituteID)
         });
-        
+
         LoadTitle("#Trainee_Title", $("#hdTrainee_Title").val() == "-1" ? "" : $("#hdTrainee_Title").val(), -1);
 
         LoadGender("#GenderID", $("#hdGenderID").val() == "-1" ? "" : $("#hdGenderID").val(), 0);
         LoadBlood("#Blood", $("#hdBlood").val() == "" ? "-1" : $("#hdBlood").val(), -1);
         LoadCategory("#CategoryID", $("#hdCategoryID").val() == "" ? "-1" : $("#hdCategoryID").val(), -1);
-        LoadPermissionnationality("#NationalityID", $('#hdnationalityID').val() == "-1" ? "" : $('#hdnationalityID').val(),-1);
+        LoadPermissionnationality("#NationalityID", $('#hdnationalityID').val() == "-1" ? "" : $('#hdnationalityID').val(), "");
 
         LoadTitle("#Spouse_Title", $("#hdSpouse_Title").val() == "-1" ? "" : $("#hdSpouse_Title").val());
         LoadTitle("#Father_Title", $("#hdFather_Title").val() == "-1" ? "" : $("#hdFather_Title").val());
@@ -1258,7 +769,7 @@
 
         LoadReligion("#ReligionID", $("#hdReligionID").val() == "" ? "-1" : $("#hdReligionID").val(), -1);
         LoadMaritalStatus("#MartialID", $("#hdMartialID").val() == "" ? "-1" : $("#hdMartialID").val());
-        LoadRelation("#Relation", $("#hdRelation").val() == "-1" ? "" : $("#hdRelation").val(), 1);
+        LoadRelation("#Relation", $("#hdRelation").val() == "-1" ? "" : $("#hdRelation").val(), "");
         LoadAgency("#AgencyID", "", 1)
 
 
@@ -1266,7 +777,7 @@
         var CountryID = $('#CountryID').find(':selected').val();
         LoadState("#StateID", $("#hdCountry").val() == "-1" ? "" : $("#hdCountry").val(), $("#hdState").val() == "-1" ? "" : $("#hdState").val(), 1);
         LoadCity("#CityID", $("#hdState").val() == 0 ? "-1" : $("#hdState").val(), $("#hdCity").val() == "-1" ? "" : $("#hdCity").val(), 1);
-        
+
         $("#CountryID").change(function() {
             $("#hdState").val("-1")
             var Country = $(this).val();
@@ -1298,24 +809,297 @@
             var State = $(this).val();
             LoadCity("#Permanant_CityID", $(this).val(), $("#hdPerCity").val() == "-1" ? "" : $("#hdPerCity").val(), 1);
         });
+       Edit()
     });
 
     $("#DateOfBirth").datepicker({
+        format: 'dd/mm/yyyy',
+        todayHighlight: true,
+        autoclose: true
+    });
 
+    $('#chklocalGuaother').click(function() {
+        if ($(this).is(":checked")) {
+            $('#dvother').show();
+        } else {
+            $('#dvother').hide();
+        }
+    });
+    $('#chklocalGuaId').click(function() {
+        if ($(this).is(":checked")) {
+            $('#dvCors').show();
+        } else {
+            $('#dvCors').hide();
+        }
+    });
 
-            defaultDate: "+1w",
-            dateFormat: "dd/mm/yy",
+     $("#MobileNo").bind("paste", function (e) {
+            e.preventDefault();
+        });
 
-            changeMonth: true,
-            changeYear: true,
-            numberOfMonths: 1,
-            prevText: '<i class="fal fa-chevron-left"></i>',
-            nextText: '<i class="fal fa-chevron-right"></i>',
+     $("#MobileNo").keypress(function (e) {
+            if (String.fromCharCode(e.which).match(/[^0-9 ]/)) {
+                e.preventDefault();
 
-            maxDate: ValidDate
+            }
+        });
+     $("#Spouse_MobileNo").keypress(function (e) {
+            if (String.fromCharCode(e.which).match(/[^0-9 ]/)) {
+                e.preventDefault();
+
+            }
+        });
+     $("#Father_MobileNo").bind("paste", function (e) {
+            e.preventDefault();
+        });
+     $("#Father_MobileNo").keypress(function (e) {
+            if (String.fromCharCode(e.which).match(/[^0-9 ]/)) {
+                e.preventDefault();
+
+            }
+        });
+     $("#MarksObtained").keypress(function (e) {
+            if (String.fromCharCode(e.which).match(/[^0-9 ]/)) {
+                e.preventDefault();
+
+            }
 
 
         });
+     $("#YearOfPassing").keypress(function (e) {
+            if (String.fromCharCode(e.which).match(/[^0-9 ]/)) {
+                e.preventDefault();
+
+            }
+        });
+
+     $("#MonthofPassing").keypress(function (e) {
+            if (!String.fromCharCode(e.which).match('[a-z A-Z]')) {
+                e.preventDefault();
+
+            }
+        });
+     $("#CGPA").keypress(function (e) {
+            if (String.fromCharCode(e.which).match('/(\d{1,2}\.(?=\d{1,2}))/')) {
+                e.preventDefault();
+
+            }
+        });
+
+     $("#RefMobileNo").keypress(function (e) {
+            if (String.fromCharCode(e.which).match(/[^0-9 ]/)) {
+                e.preventDefault();
+
+            }
+     });
+
+    function Edit() {
+            debugger;
+       
+            $.ajax({
+                url: "/Enquiry/GetEnqRegistrationData",
+                data: { optMode: "GetEnquiryForReg", EnquiryNo: $('#hdEnquiryID').val() },
+                type: "Get",
+                contentType: "application/json;charset=utf-8",
+                dataType: "json",
+                success:
+                    function (result) {
+                        debugger;
+                        var _htmlstr = '';
+                        var v = $.parseJSON(result)
+                        var Session = v.Table[0].SessionID;
+                        var Program = v.Table[0].ProgramID;
+                        var DateOfBirth = v.Table[0].DOB;
+                        var Trainee_FirstName = v.Table[0].FirstName;
+                        var MobileNo = v.Table[0].MobileNo;
+                        var AlternateMobNo = v.Table[0].AlternateMobileNo;
+                        var EmailID = v.Table[0].Email;
+                        var Father_FirstName = v.Table[0].fatherFName;
+
+                        $("#hdEnquiryID").val(v.Table[0].EnquiryNo);
+                        $("#SessionID").val(Session);
+                        $("#ProgramID").val(Program);
+                        $("#DateOfBirth").val(DateOfBirth);
+                        $("#Trainee_FirstName").val(Trainee_FirstName);
+                        $("#MobileNo").val(MobileNo);
+                        $("#AlternateMobNo").val(AlternateMobNo);
+                        $("#EmailID").val(EmailID);
+                        $("#Father_FirstName").val(Father_FirstName);
+
+                    },
+                error: function (errormessage) {
+                    alert(errormessage.responseText);
+                }
+            })
+        }
+
+      function CheckValidation() {
+            debugger
+            var EnquiryNo = $("#hdEnquiryID").val() == "" ? "-1" : $("#hdEnquiryID").val();
+            var InstituteID = $("#InstituteID").val() == "" ? "-1" : $("#InstituteID").val() ;
+            var SessionID = $("#SessionID").val() == "" ? "-1" : $("#SessionID").val();
+            var ProgramID = $("#ProgramID").val() == "" ? "-1" : $("#ProgramID").val();
+            var BranchID = $("#BranchID").val() == "" ? "-1" : $("#BranchID").val();
+            var RequiredLateral = $("#chkislateralenq").prop('checked');
+            ///////  student Details
+            var StudentTitle = $("#Trainee_Title").val() == "" ? "-1" : $("#Trainee_Title").val() ;
+            var StudentFirstName = $("#Trainee_FirstName").val() == "" ? "-1" : $("#Trainee_FirstName").val();
+            var StudentMiddleName = $("#Trainee_MiddleName").val() == "" ? "-1" : $("#Trainee_MiddleName").val();
+            var StudentlastName = $("#Trainee_LastName").val() == "" ? "-1" : $("#Trainee_LastName").val();
+            var StudentReligiousLang = $("#Student_ReligionName").val() == "" ? "-1" : $("#Student_ReligionName").val() ;
+            var StudentGender = $("#GenderID").val() == "" ? "-1" : $("#GenderID").val();
+            var StudentDOB = $("#DateOfBirth").val() == "" ? "-1" : $("#DateOfBirth").val();
+            var StudentMobileNo = $("#MobileNo").val() == "" ? "-1" : $("#MobileNo").val() ;
+            var StudentAltMobileNo = $("#AlternateMobNo").val() == "" ? "-1" : $("#AlternateMobNo").val();
+            var StudentEmailId = $("#EmailID").val() == "" ? "-1" : $("#EmailID").val();
+            var StudentAadharNo = $("#AadharNo").val() == "" ? "-1" : $("#AadharNo").val() ;
+            var StudntBloodGroup = $("#Blood").val() == "" ? "-1" : $("#Blood").val();
+            var StudentCategory = $("#CategoryID").val() == "" ? "-1" : $("#CategoryID").val();
+            var StudentReligion = $("#ReligionID").val() == "" ? "-1" : $("#ReligionID").val() ;
+            var StudentNationality = $("#NationalityID").val() == "" ? "-1" : $("#NationalityID").val();
+            var StudentMartialStatus = $("#MartialID").val() == "" ? "-1" : $("#MartialID").val();
+            var ExamStatus = $("#ddlexamstaus").val() == "" ? "-1" : $("#ddlexamstaus").val() ;
+            var HostelReq = $("#HostelReq").val() == "" ? "-1" : $("#HostelReq").val();
+            var TransportReq = $("#TransportReq").val() == "" ? "-1" : $("#TransportReq").val();
+            //// Parent Details
+            var FatherTitle = $("#Father_Title").val() == "" ? "-1" : $("#Father_Title").val() ;
+            var FatherFirstName = $("#Father_FirstName").val() == "" ? "-1" : $("#Father_FirstName").val();
+            var FatherMiddleName = $("#Father_MiddleName").val() == "" ? "-1" : $("#Father_MiddleName").val();
+            var FatherlastName = $("#Father_LastName").val() == "" ? "-1" : $("#Father_LastName").val();
+            var FatherReligiousLang = $("#Father_ReligiousName").val() == "" ? "-1" : $("#Father_ReligiousName").val() ;
+            var FatherMobileNo = $("#Father_MobileNo").val() == "" ? "-1" : $("#Father_MobileNo").val() ;
+            var FatherEmailId = $("#FatherEmailID").val() == "" ? "-1" : $("#FatherEmailID").val();
+
+            var MotherTitle = $("#Mother_Title").val() == "" ? "-1" : $("#Mother_Title").val() ;
+            var MotherFirstName = $("#Mother_FirstName").val() == "" ? "-1" : $("#Mother_FirstName").val();
+            var MotherMiddleName = $("#Mother_MiddleName").val() == "" ? "-1" : $("#Mother_MiddleName").val();
+            var MotherlastName = $("#Mother_LastName").val() == "" ? "-1" : $("#Mother_LastName").val();
+            var MotherReligiousLang = $("#Mother_ReligiousName").val() == "" ? "-1" : $("#Mother_ReligiousName").val() ;
+            var MotherMobileNo = $("#Mother_MobileNo").val() == "" ? "-1" : $("#Mother_MobileNo").val() ;
+            var MotherEmailId = $("#Mother_EmailID").val() == "" ? "-1" : $("#Mother_EmailID").val();
+
+            var chkForGuardian = $("#chklocalGuaother").prop('checked');
+            var GuardianTitle = $("#Guardian_Title").val() == "" ? "-1" : $("#Guardian_Title").val() ;
+            var GuardianFirstName = $("#Guardian_FirstName").val() == "" ? "-1" : $("#Guardian_FirstName").val();
+            var GuardianMiddleName = $("#Guardian_MiddleName").val() == "" ? "-1" : $("#Guardian_MiddleName").val();
+            var GuardianlastName = $("#Guardian_LastName").val() == "" ? "-1" : $("#Guardian_LastName").val();
+            var GuardianReligiousLang = $("#Guradian_ReligiousName").val() == "" ? "-1" : $("#Guradian_ReligiousName").val() ;
+            var GuardianMobileNo = $("#Guardian_MobileNo").val() == "" ? "-1" : $("#Guardian_MobileNo").val() ;
+            var GuardianEmailId = $("#Guardian_EmailID").val() == "" ? "-1" : $("#Guardian_EmailID").val();
+            var Relation = $("#Relation").val() == "" ? "-1" : $("#Relation").val();
+           ////// Address Details
+            var CorresAddress = $("#Address").val() == "" ? "-1" : $("#Address").val() ;
+            var CorresCountry = $("#CountryID").val() == "" ? "-1" : $("#CountryID").val();
+            var CorresState = $("#StateID").val() == "" ? "-1" : $("#StateID").val();
+            var CorresCity = $("#CityID").val() == "" ? "-1" : $("#CityID").val();
+            var CorresReligiousLang = $("#CorAddressReligious").val() == "" ? "-1" : $("#CorAddressReligious").val() ;
+            var CorresPincode = $("#PinCode").val() == "" ? "-1" : $("#PinCode").val();
+            var CorresArea = $("#Area").val() == "" ? "-1" : $("#Area").val();
+
+            
+            var chkPermaAddress = $("#chklocalGuaId").prop('checked');
+            var PermaAddress = $("#Permanant_Address").val() == "" ? "-1" : $("#Permanant_Address").val() ;
+            var PermaCountry = $("#Permanant_CountryID").val() == "" ? "-1" : $("#Permanant_CountryID").val();
+            var PermaState = $("#Permanant_StateID").val() == "" ? "-1" : $("#Permanant_StateID").val();
+            var PermaCity = $("#Permanant_CityID").val() == "" ? "-1" : $("#Permanant_CityID").val();
+            var PermaReligiousLang = $("#PerAddressReligious").val() == "" ? "-1" : $("#PerAddressReligious").val() ;
+            var PermaPincode = $("#Permanant_PinCode").val() == "" ? "-1" : $("#Permanant_PinCode").val();
+            var PermaArea = $("#PermanantArea").val() == "" ? "-1" : $("#PermanantArea").val();
+
+
+          
+                $.ajax({
+                    type: "Post",
+                    url: "/Enquiry/SaveEnquiryRegistrationMaster",
+                    data: {
+                     EnquiryNo              :  EnquiryNo    
+                    ,InstituteID            :  InstituteID          
+                    ,SessionID 			  :  SessionID 			
+                    ,ProgramID 			  :  ProgramID 			
+                    ,BranchID 			  :  BranchID 			
+                    ,RequiredLateral 	  :  RequiredLateral 
+                    ,StudentTitle 		  :  StudentTitle 		
+                    ,StudentFirstName 	  :  StudentFirstName 	
+                    ,StudentMiddleName 	  :  StudentMiddleName 	
+                    ,StudentlastName 	  :  StudentlastName 	
+                    ,StudentReligiousLang   :  StudentReligiousLang 
+                    ,StudentGender 		  :  StudentGender 		
+                    ,StudentDOB 			  :  StudentDOB 			
+                    ,StudentMobileNo 	  :  StudentMobileNo 	
+                    ,StudentAltMobileNo 	  :  StudentAltMobileNo 	
+                    ,StudentEmailId 		  :  StudentEmailId 		
+                    ,StudentAadharNo 	  :  StudentAadharNo 	
+                    ,StudntBloodGroup 	  :  StudntBloodGroup 	
+                    ,StudentCategory 	  :  StudentCategory 	
+                    ,StudentReligion 	  :  StudentReligion 	
+                    ,StudentNationality 	  :  StudentNationality 	
+                    ,StudentMartialStatus   :  StudentMartialStatus 
+                    ,ExamStatus 			  :  ExamStatus 			
+                    ,HostelReq 			  :  HostelReq 			
+                    ,TransportReq 		  :  TransportReq 
+                    ,FatherTitle 		  :  FatherTitle 		
+                    ,FatherFirstName 	  :  FatherFirstName 	
+                    ,FatherMiddleName 	  :  FatherMiddleName 	
+                    ,FatherlastName 		  :  FatherlastName 		
+                    ,FatherReligiousLang   :  FatherReligiousLang 
+                    ,FatherMobileNo 		  :  FatherMobileNo 		
+                    ,FatherEmailId 		  :  FatherEmailId 
+                    ,MotherTitle 		  :  MotherTitle 		
+                    ,MotherFirstName 	  :  MotherFirstName 	
+                    ,MotherMiddleName 	  :  MotherMiddleName 	
+                    ,MotherlastName 		  :  MotherlastName 		
+                    ,MotherReligiousLang   :  MotherReligiousLang 
+                    ,MotherMobileNo 		  :  MotherMobileNo 		
+                    ,MotherEmailId 		  :  MotherEmailId 		
+                    ,chkForGuardian		   :  chkForGuardian		 
+                    ,GuardianTitle		   :  GuardianTitle		 
+                    ,GuardianFirstName	  :  GuardianFirstName	
+                    ,GuardianMiddleName 	  :  GuardianMiddleName 	
+                    ,GuardianlastName	  :  GuardianlastName	
+                    ,GuardianReligiousLang  :  GuardianReligiousLang
+                    ,GuardianMobileNo	  :  GuardianMobileNo	
+                    ,GuardianEmailId 	  :  GuardianEmailId 	
+                    ,Relation			   :  Relation	
+                    ,CorresAddress		   :  CorresAddress		 
+                    ,CorresCountry 		  :  CorresCountry 		
+                    ,CorresState 		  :  CorresState 		
+                    ,CorresCity 			  :  CorresCity 			
+                    ,CorresReligiousLang   :  CorresReligiousLang 
+                    ,CorresPincode 		  :  CorresPincode 		
+                    ,CorresArea 			  :  CorresArea 
+                    ,chkPermaAddress 	  :  chkPermaAddress 	
+                    ,PermaAddress 		  :  PermaAddress 		
+                    ,PermaCountry 		  :  PermaCountry 		
+                    ,PermaState 			  :  PermaState 			
+                    ,PermaCity 			  :  PermaCity 			
+                    ,PermaReligiousLang 	  :  PermaReligiousLang 	
+                    ,PermaPincode 		  :  PermaPincode 		
+                    ,PermaArea 			  :  PermaArea 			
+    
+                    }, async: false,
+                    success: function (response) {
+                        if (response == 'Record Already Exists') {
+
+
+                            $("#msg").html("<div class='alert alert-danger alert-dismissible fade show' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'><i class='fal fa-trash-alt'></i></span></button><strong>Error!</strong>" + response + "</div >");
+                        }
+                        else {
+
+                            window.location.href = "/Home/Index";
+                        }
+                    },
+                    error: function (data) {
+
+
+                        $("#msg").html("<div class='alert alert-danger fade in'><button class='close' data-dismiss='alert'> × </button><i class='fa-fw fa fa-times'></i><strong>Error!</strong>Record not save succesfully</div>")
+                    }
+                });
+        }
+
+
+
+
+
 
 
 </script>

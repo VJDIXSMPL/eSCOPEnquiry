@@ -53,7 +53,8 @@
     });
 
     $("#BtnYes").click(function() {
-        window.location.href = "/Enquiry/RegistrationMaster";
+        var hdnenq = $('#hdnenq').val();
+        window.location.href = "../Enquiry/RegistrationMaster?EnquiryNo="+hdnenq+"";
     });
 
     $("#BtnNo").click(function() {

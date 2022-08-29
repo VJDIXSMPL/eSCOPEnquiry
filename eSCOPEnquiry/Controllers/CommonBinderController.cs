@@ -88,7 +88,16 @@ namespace eSCOPEnquiry.Controllers
                 var stateData = JsonConvert.SerializeObject(dt);
                 return Json(stateData);
         }
-
+        public JsonResult LoadInstituteProgramWiseBranch(long ProgramID, long InstituteID)
+        {
+            Dllbind.UserinfoDetails.optMode = "LoadProgramWiseBranch";
+            Dllbind.InstituteID = InstituteID;
+            Dllbind.ProgramID = ProgramID;
+            dt = Dllbind.getBindersList(Dllbind).Tables[0];
+            var BranchData = JsonConvert.SerializeObject(dt);
+            return Json(BranchData);
+        }
+        
         [HttpGet]
         public JsonResult LoadEnquiryBinder(long SessionID = -1, long InstituteID = -1, long ProgramType = -1, long ProgramID = -1, string optMode = "")
         {
@@ -193,6 +202,7 @@ namespace eSCOPEnquiry.Controllers
         public JsonResult LoadRelation()
         {
             Dllbind.UserinfoDetails.optMode = "Relation";
+            Dllbind.ClientID = 1;
             dt = Dllbind.getBindersList(Dllbind).Tables[0];
             var RelationData = JsonConvert.SerializeObject(dt);
             return Json(RelationData);
