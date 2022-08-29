@@ -1152,10 +1152,10 @@ function LoadPermissionnationality(id, defaultval, Required) {
     defval = "";
     check = typeof defaultval !== 'undefined' ? Required : 0
     if (check == 0) {
-        defval = "-1";
+        defval = "";
     }
     else {
-        defval = "";
+        defval = "-1";
     }
 
 
@@ -2463,10 +2463,10 @@ function LoadStdAcademicSessionWiseSession(id, defaultval ) {
         success: function (Data) {
             var select = $(id);
             select.empty();
-            //select.append($('<option/>', {
-            //    value: ddlInitialValue,
-            //    text: "Select"
-            //}));
+            select.append($('<option/>', {
+                value: ddlInitialValue, 
+                text: "Select"
+            }));
             $.each($.parseJSON(Data), function (index, Data) {
                 select.append($('<option/>', {
                     value: Data.SessionID,
@@ -2484,7 +2484,7 @@ function LoadStdAcademicSessionWiseSession(id, defaultval ) {
 
 function LoadInstituteWiseProgram(id, InstituteID, defaultval) {
     defaultval = typeof defaultval !== 'undefined' ? defaultval : -1;
-
+    debugger
    
     $.ajax({
         type: 'GET',
@@ -2492,6 +2492,7 @@ function LoadInstituteWiseProgram(id, InstituteID, defaultval) {
         async: false,
         data: { InstituteID: InstituteID },
         success: function (Data) {
+            debugger
             var select = $(id);
             select.empty();
             select.append($('<option/>', {
@@ -3812,7 +3813,7 @@ function LoadBlood(id, defaultval) {
                        }));
                        $.each($.parseJSON(BloodData), function (index, itemData) {
                            select.append($('<option/>', {
-                               value: itemData.BloodGroup,
+                               value: itemData.BloodId,
                                text: itemData.BloodGroup
                            }));
                        });

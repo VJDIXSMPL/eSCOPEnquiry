@@ -8838,19 +8838,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\varun.SONET\\.nuget\\packages\\": {}
+    "C:\\Users\\aditya\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\varun.SONET\\Source\\Repos\\eSCOPEnquiry\\eSCOPEnquiry\\eSCOPEnquiry.csproj",
+      "projectUniqueName": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\eSCOPEnquiry.csproj",
       "projectName": "eSCOPEnquiry",
-      "projectPath": "C:\\Users\\varun.SONET\\Source\\Repos\\eSCOPEnquiry\\eSCOPEnquiry\\eSCOPEnquiry.csproj",
-      "packagesPath": "C:\\Users\\varun.SONET\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\varun.SONET\\Source\\Repos\\eSCOPEnquiry\\eSCOPEnquiry\\obj\\",
+      "projectPath": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\eSCOPEnquiry.csproj",
+      "packagesPath": "C:\\Users\\aditya\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\varun.SONET\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\aditya\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
