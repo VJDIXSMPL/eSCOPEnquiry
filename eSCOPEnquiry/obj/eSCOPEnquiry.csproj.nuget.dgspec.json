@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\eSCOPEnquiry.csproj": {}
+    "C:\\Users\\aditya\\Source\\Repos\\eSCOPEnquiry\\eSCOPEnquiry\\eSCOPEnquiry.csproj": {}
   },
   "projects": {
-    "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\eSCOPEnquiry.csproj": {
+    "C:\\Users\\aditya\\Source\\Repos\\eSCOPEnquiry\\eSCOPEnquiry\\eSCOPEnquiry.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\eSCOPEnquiry.csproj",
+        "projectUniqueName": "C:\\Users\\aditya\\Source\\Repos\\eSCOPEnquiry\\eSCOPEnquiry\\eSCOPEnquiry.csproj",
         "projectName": "eSCOPEnquiry",
-        "projectPath": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\eSCOPEnquiry.csproj",
+        "projectPath": "C:\\Users\\aditya\\Source\\Repos\\eSCOPEnquiry\\eSCOPEnquiry\\eSCOPEnquiry.csproj",
         "packagesPath": "C:\\Users\\aditya\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\obj\\",
+        "outputPath": "C:\\Users\\aditya\\Source\\Repos\\eSCOPEnquiry\\eSCOPEnquiry\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\aditya\\AppData\\Roaming\\NuGet\\NuGet.Config",
