@@ -84,6 +84,7 @@ namespace eSCOPEnquiry.Models
             SocietyID = -1;
             InstituteID = -1;
             SessionID = -1;
+            ProgramID = -1;
             Student_Title = -1;
             Student_FirstName = "";
             Student_MiddleName = "";
@@ -93,7 +94,7 @@ namespace eSCOPEnquiry.Models
             GenderID = -1;
             MobileNo = "";
             AlternateMobNo = "";
-            DateOfBirth = Convert.ToDateTime("01/01/1900", ci);
+            DateOfBirth = "01/01/1900";
             FromDate = Convert.ToDateTime("01/01/1900", ci);
             ToDate = Convert.ToDateTime("01/01/1900", ci);
             CommunicationDate = Convert.ToDateTime("01/01/1900", ci);
@@ -171,6 +172,16 @@ namespace eSCOPEnquiry.Models
             F_Email = "";
             HosReq = "";
             TransReq = "";
+            Trainee_Title = -1;
+            Trainee_FirstName = "";
+            Trainee_MiddleName = "";
+            Trainee_LastName = "";
+            PassportNo = "";
+            MartialID = -1;
+            FatherEmailID = "";
+            Mother_Email = "";
+            chklocalGuaother = false;
+            Guardian_Title = -1;
         }
 
         public string HosReq { get; set; }
@@ -181,6 +192,7 @@ namespace eSCOPEnquiry.Models
         public string AadharNo { get; set; }
         public string Blood { get; set; }
         public string PassportNo { get; set; }
+        public bool chklocalGuaother { get; set; }
         public string MobileNoCode { get; set; }
         public string AlterNateNoCode { get; set; }
         public string FatherMobileNoCode { get; set; }
@@ -208,6 +220,8 @@ namespace eSCOPEnquiry.Models
         public long ComnicationDataCount { get; set; }
         public DataTable Dt = new DataTable();
         public string EnquiryNo { get; set; }
+        public string Guardian_ReligiousName { get; set; }
+        public byte chkPermaAddress { get; set; } 
         public string TradeID { get; set; }
         public long SessionID { get; set; }
         public long Student_Title { get; set; }
@@ -218,7 +232,7 @@ namespace eSCOPEnquiry.Models
         public long GenderID { get; set; }
         public string MobileNo { get; set; }
         public string AlternateMobNo { get; set; }
-        public DateTime DateOfBirth { get; set; }
+        public string DateOfBirth { get; set; }
         public string EmailID { get; set; }
         public long CategoryID { get; set; }
         public string Caste { get; set; }
@@ -227,6 +241,7 @@ namespace eSCOPEnquiry.Models
         public long FatherID { get; set; }
         public long EnquirySourceID { get; set; }
         public long EnquirySubSourceID { get; set; }
+        public byte chkForGuardian { get; set; }
         public string Notes { get; set; }
         public string optMode { get; set; }
         public string Session { get; set; }
@@ -264,6 +279,7 @@ namespace eSCOPEnquiry.Models
         public string Address { get; set; }
         public string Father_MobileNo { get; set; }
         public string PinCode { get; set; }
+        public string Permanent_Pincode { get; set; }
         public string ImageID { get; set; }
         public string ImageName { get; set; }
         public string ImageUrl { get; set; }
@@ -610,6 +626,7 @@ namespace eSCOPEnquiry.Models
         public string Permanant_PinCode { get; set; }
         public string PermanantArea { get; set; }
         public string CorAddressReligious { get; set; }
+        public string PerAddressReligious { get; set; }
         public string Remarks { get; set; }
         public long SpouseID { get; set; }
 
@@ -626,6 +643,10 @@ namespace eSCOPEnquiry.Models
         {
             EDAL.CRUD_Registration(RBAL, out msgOut, out result, out EnquiryOut, out RegOut);
 
+        }
+        public void EnqRegistration_Save(Enquiry_BAL RBAL, out string msgOut, out int result, out string EnquiryOut, out string RegOut)
+        {
+            EDAL.Save_EnquiryRegistration(RBAL, out msgOut, out result, out EnquiryOut, out RegOut);
         }
         public DataSet GetEnqRegistrationData(Enquiry_BAL CMBAL)
         {

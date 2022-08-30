@@ -244,53 +244,59 @@ namespace eSCOPEnquiry.Controllers
         }
 
         [HttpPost]
-        public string SaveProgramWiseCounsellor(
-            long EnquiryNo, long InstituteID, long SessionID, long ProgramID, long BranchID, bool RequiredLateral, string StudentTitle, string StudentFirstName, 
-            string StudentMiddleName, string StudentlastName, long StudentReligiousLang, long StudentGender, DateTime StudentDOB , string StudentMobileNo, 
-            string StudentAltMobileNo, string StudentEmailId, string StudentAadharNo, long StudntBloodGroup, long StudentCategory, long StudentReligion, 
-            long StudentNationality, long StudentMartialStatus, long ExamStatus, byte HostelReq, byte TransportReq, string FatherTitle, string FatherFirstName,
-            string FatherMiddleName, string FatherlastName, long FatherReligiousLang, string FatherMobileNo, string FatherEmailId, string MotherTitle, 
-            string MotherFirstName, string MotherMiddleName, string MotherlastName, long MotherReligiousLang, string MotherMobileNo , string MotherEmailId,
-            long chkForGuardian, string GuardianTitle, string GuardianFirstName, string GuardianMiddleName, string GuardianlastName, long GuardianReligiousLang,
-            string GuardianMobileNo, string GuardianEmailId, long Relation, long CorresAddress, long CorresCountry, long CorresState, long CorresCity, 
-            long CorresReligiousLang, long CorresPincode, long CorresArea , long chkPermaAddress, long PermaAddress, long PermaCountry, long PermaState, 
-            long PermaCity, long PermaReligiousLang , long PermaPincode, long PermaArea)
-            int result = 0;
-            string msgout = string.Empty;
-            UBal.ProgramwiseId = ProgramWiseId;
-            UBal.InstituteID = InstituteID;
-            UBal.ProgramID = ProgramID;
-            UBal.BranchID = BranchId;
-            UBal.DepartmentID = DepartmentId;
-            UBal.FacultyID = EmployeeId;
-            UBal.IsActive = IsActive;
-            UBal.EnteredBy = CurrentUser.UserName;
-            UBal.MacAddress = GetClientMac();
-            UBal.IpAddress = GetClientIpAddress();
-            UBal.HostName = GetClientHost();
+        public ActionResult SaveEnquiryRegistration(string FormCommand, IFormCollection fc,Enquiry_BAL EBAL)
+        {
+            int Result = 0;
+            string msgOut = string.Empty;
+            string EnquiryOut = string.Empty;
+            string RegOut = string.Empty;
 
-            if (ProgramWiseId > -1)
+            if (FormCommand == "SaveRegistration")
             {
-                UBal.OptMode = "update";
+                EBAL.McAddress = GetClientMac();
+                EBAL.IpAddress = GetClientIpAddress();
+                EBAL.HostName = GetClientHost();
+                EBAL.optMode = "Insert";
+                EBAL.ExamStatus= fc["ddlexamstaus"].ToString();
+                EBAL.HostelReq = fc["HostelReq"].ToString();
+                EBAL.TransportReq = fc["TransportReq"].ToString();
+                EBAL.chklocalGuaother = fc["chklocalGuaother"].ToString();
+                EBAL.EnqRegistration_Save(EBAL, out msgOut, out Result, out EnquiryOut, out RegOut);
+                if (Result == 1)
+                {
+                    TempData["Successmsg"] = msgOut;
+                    TempData["RegNo"] = msgOut.Split('_')[1].ToString();
+                    TempData["RegData"] = msgOut.Split('_')[2].ToString();
+                    TempData["EnqNo"] = null;
+                    TempData["SchoolId"] = fc["InstituteID"].ToString(); 
+                }
+                else
+                {
+                    TempData["Errormsg"] = msgOut;
+                }
+            }
+
+            if (FormCommand.EndsWith("SubmitEnquiry2"))
+            {
+                TempData["Mode"] = "Offline";
+                return RedirectToAction("ThankYou");
             }
             else
             {
-                UBal.OptMode = "Insert";
-            }
-            UBal.ProgramWiseCounsellor_CRUD(UBal, out result, out msgout);
-            if (result == 1)
-            {
-                TempData["Successmsg"] = msgout;
-            }
-            else
-            {
-                TempData["Errormsg"] = msgout;
-            }
 
+                return RedirectToAction("ProceedPayment");
+            }
+            
+        }
 
-            return msgout;
+        public IActionResult ProceedPayment()
+        {
+            
+            return View();
         }
 
 
     }
+
+
 }

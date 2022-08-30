@@ -44,7 +44,7 @@
             <div class="col-md-10 col-xs-offset-2">
                 <div class="well well-lg mt30 mb30 ml60">
 
-                    @using (Html.BeginForm("RegistrationMaster", "Registration", FormMethod.Post, new { id = "Enquiry", @class = "smart-form" }))
+                    @using (Html.BeginForm("SaveEnquiryRegistration", "Enquiry", FormMethod.Post, new { id = "Enquiry", @class = "smart-form" }))
                     {
                         <h5 class="" style="color:red">Note: All ‘*' marked fields are mandatory.</h5>
                         <fieldset>
@@ -79,22 +79,22 @@
                                 <section class="form-group col-sm-3">
                                     <label>Branch<span style="color:red">*</span></label>
                                     <input type="hidden" id="hdnbranchid" name="hdnbranchid" value="-1" />
-                                    @Html.DropDownListFor(model => model.BranchID, new List<SelectListItem> { }, new { @class = "form-control" })
+                                    @Html.DropDownListFor(model => model.BranchID, new List<SelectListItem> { }, new { @class = "form-control",@required="" })
                                 </section>
                             </div>
                             <div class="row">
                                 <section class="form-group col-sm-3">
-                                    <label>Student Photo<span style="color:red">*</span></label>
-                                    <input name="filepic" required type="file" id="uploadStudentPhoto" onchange="filePreviewStud(this);" class="form-control">
+                                    <label>Student Photo</label>
+                                    <input name="filepic"  type="file" id="uploadStudentPhoto" onchange="filePreviewStud(this);" class="form-control">
                                 </section>
                                 <section class="form-group col-sm-3">
-                                    <label>Student Sign<span style="color:red">*</span></label>
-                                    <input name="filesig" required type="file" id="uploadStudentSign" onchange="filePreviewStudSign(this);" class="form-control">
+                                    <label>Student Sign</label>
+                                    <input name="filesig" type="file" id="uploadStudentSign" onchange="filePreviewStudSign(this);" class="form-control">
                                 </section>
 
                                 <section class="form-group col-sm-3" id="divlateral" style="margin-top:28px;">
                                     <div class="custom-control custom-checkbox mt-5">
-                                        <input type="checkbox" class="custom-control-input" id="chkislateralenq" name="chkislateralenq" onchange="LateralSemChanged()">
+                                        <input type="checkbox" class="custom-control-input" id="chkislateralenq" name="chkislateralenq">
                                         <label class="custom-control-label" for="chkislateralenq">Required Lateral</label>
                                     </div>
                                 </section>
@@ -111,62 +111,43 @@
                                 <section class="form-group col-sm-3">
                                     <label>First Name<span style="color:red">*</span></label>
 
-                                    @Html.Editor("Trainee_FirstName", new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter FirstName" ,@type = "text",@required = "" }})
+                                    @Html.EditorFor(model => model.Trainee_FirstName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter FirstName" ,@type = "text",@required = "" }})
                                 </section>
                                 <section class="form-group col-sm-3">
                                     <label>Middle Name<span style="color:red">*</span></label>
-                                    @Html.Editor("Trainee_MiddleName", new { htmlAttributes = new { @class = "form-control" ,@placeholder = "Please Enter MiddleName",@type = "text",@required = ""}})
+                                    @Html.EditorFor(model => model.Trainee_MiddleName, new { htmlAttributes = new { @class = "form-control" ,@placeholder = "Please Enter MiddleName",@type = "text",@required = ""}})
                                 </section>
                                 <section class="form-group col-sm-3">
                                     <label>Last Name<span style="color:red">*</span></label>
-                                    @Html.Editor("Trainee_LastName", new { htmlAttributes = new { @class = "form-control",@placeholder = "Please Enter LastName",@type = "text",@required = "" }})
+                                    @Html.EditorFor(model => model.Trainee_LastName, new { htmlAttributes = new { @class = "form-control",@placeholder = "Please Enter LastName",@type = "text",@required = "" }})
                                 </section>
                             </div>
                             <div class="row">
                                 <section class="form-group col-sm-12">
                                     <label>Student Name (in Religious Language)</label>
-                                    @Html.Editor("Student_ReligionName", new { htmlAttributes = new { @class = "form-control",@placeholder = "Please Enter Religion Name", @type = "text", @maxlength = "50" }})
+                                    @Html.EditorFor(model => model.Student_ReligionName, new { htmlAttributes = new { @class = "form-control",@placeholder = "Please Enter Religion Name", @type = "text", @maxlength = "50" }})
                                 </section>
                             </div>
                             <div class="row">
                                 <section class="form-group col-sm-3">
                                     <label>Gender<span style="color:red">*</span></label>
-                                    @*<input type="hidden" id="hdGenderID" name="hdGenderID" value="@Model.GenderID" />*@
+                                    <input type="hidden" id="hdGenderID" name="hdGenderID" value="-1" />
                                     @Html.DropDownListFor(model => model.GenderID, new List<SelectListItem> { }, new { @class = "form-control",@placeholder = "Please Enter Gender", @type = "text", @maxlength = "50" })
                                 </section>
                                 <section class="form-group col-sm-3">
                                     <label>Date of Birth <span style="color:red">*</span></label>
                                     <label class="input-group date">
-                                        @* <input type="hidden" id="hdStudent_Dob" name="hdStudent_Dob" value="@Model.DateOfBirth.Value.ToString("dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture)" />
-                                    *@
-                                        @*@if (Model.DateOfBirth == Convert.ToDateTime("01/01/1900", ci))
-                                    {*@
                                         @Html.TextBoxFor(x => x.DateOfBirth, "{0:dd/MM/yyyy}", new { @class = "form-control", @placeholder = "Date Of Birth", @type = "dateFormat", @Value = "", @required = "" })
-                                        @*}
-                                    @*else
-                                    {
-                                    @Html.TextBoxFor(x => x.DateOfBirth, "{0:dd/MM/yyyy}", new { @class = "form-control", @placeholder = "Date Of Birth", @type = "dateFormat", @required = "" })
-                                    }*@
-                                        <span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+                                       <span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
                                     </label>
                                 </section>
-                                @*<section class="form-group col-sm-1">
-                            <input type="text" value="@Model.MobileNoCode" required name="MobileNoCode" id="TxtMobileNoCode" class="form-control" maxlength="10" placeholder="+91">
-                            <label>&nbsp;</label>
-                            @Html.Editor("MobileNoCode", new { htmlAttributes = new { @class = "form-control", @placeholder = "+91", @type = "text", @maxlength = "10" } })
-                            </section>*@
                                 <section class="form-group col-sm-3">
                                     <label>Mobile No.<span style="color:red">*</span></label>
-                                    @Html.Editor("MobileNo", new { htmlAttributes = new { @class = "form-control", @required = "", @placeholder = "Please Enter Mobile No", @type = "text", @maxlength = "10" } })
+                                    @Html.EditorFor(model => model.MobileNo, new { htmlAttributes = new { @class = "form-control", @required = "", @placeholder = "Please Enter Mobile No", @type = "text", @maxlength = "10" } })
                                 </section>
-                                @*<section class="form-group col-sm-1">
-                            <input type="text" value="@Model.AlterNateNoCode" required name="AlterNateNoCode" id="AlterNateNoCode" class="form-control" maxlength="10" placeholder="+91">
-                            <label>&nbsp;<span style="color:red">*</span></label>
-                            @Html.Editor("AlterNateNoCode", new { htmlAttributes = new { @class = "form-control", @placeholder = "+91", @type = "text", @maxlength = "10" } })
-                            </section>*@
                                 <section class="form-group col-sm-3">
                                     <label>Alternate No.</label>
-                                    @Html.Editor("AlternateMobNo", new { htmlAttributes = new { @class = "form-control", @required = "", @placeholder = "Please Enter Alternate No", @type = "text", @maxlength = "10" } })
+                                    @Html.EditorFor(model => model.AlternateMobNo, new { htmlAttributes = new { @class = "form-control", @required = "", @placeholder = "Please Enter Alternate No", @type = "text", @maxlength = "10" } })
                                 </section>
                             </div>
                             <div class="row">
@@ -241,7 +222,7 @@
                                 </section>
                                 <section class="form-group col-sm-3">
                                     <label id="lblt">Transport Required</label>
-                                    @* <input type="hidden" id="hdtrasnType" name="hdtrasnType" value="@Model.TransportReq" />*@
+                                    <input type="hidden" id="hdtrasnType" name="hdtrasnType" value="-1" />
                                     <select id="TransportReq" class="form-control" name="TransportReq" required>
                                         <option value="No">No</option>
                                         <option value="Yes">Yes</option>
@@ -249,124 +230,6 @@
                                 </section>
                             </div>
                         </fieldset>
-                        <div class="row">
-                            <section class="col-md-3 mb-3" style="display:none">
-                                @*<input type="hidden" id="hdnappli" value="@Model.ApplicantStatus" />
-                            <input type="hidden" id="hdnmedium" value="@Model.ExamMedium" />
-                            <input type="hidden" id="hdnstatus" value="@Model.ExamStatus" />
-                            <input type="hidden" id="hdnback" value="@Model.BackGRound" />*@
-
-                                <label class="form-label" id="lblh">Applicant Employment Status<span style="color:red">*</span></label>
-                                <select id="ddlappli" class="form-control" name="ddlappli" required>
-                                    <option value="">Select</option>
-                                    <option value="Employed">Employed</option>
-                                    <option value="UnEmployed">UnEmployed</option>
-                                </select>
-                            </section>
-                            <section class="col-md-3 mb-3" style="display:none">
-                                <label class="form-label" id="lblh">Examination Medium<span style="color:red">*</span></label>
-
-                                <select id="ddlexammedium" class="form-control" name="ddlexammedium" required>
-                                    <option value="">Select</option>
-                                    <option value="English">English</option>
-                                    <option value="Hindi">Hindi</option>
-                                    <option value="Other">Other</option>
-                                </select>
-                            </section>
-                            <section class="col-md-3 mb-3" id="medother" style="display:none">
-                                <label class="form-label" id="lblh">Medium Name<span style="color:red">*</span></label>
-
-                                <input type="text" id="txtmedium" name="txtmedium" class="form-control" />
-                            </section>
-                            <section class="col-md-3 mb-3" style="display:none">
-                                <label class="form-label">BackGround<span style="color:red">*</span></label>
-                                <select id="ddlback" class="form-control" name="ddlback" required>
-                                    <option value="">Select</option>
-                                    <option value="Rural">Rural</option>
-                                    <option value="Urban">Urban</option>
-                                    <option value="Local">Local</option>
-                                </select>
-                            </section>
-                        </div>
-                        <div class="row">
-                            <div class="form-group col-sm-3" id="amt" style="display:none">
-                                <label>Registration Amount </label>
-                                <input type="text" id="lblamt" name="lblamt" class="form-control" readonly />
-                                <input type="hidden" id="hdnamt" name="hdnamt" />
-                            </div>
-                            <div class="col-md-3 mb-3" id="SCVTApplicationNo" style="display:none;">
-                                <label class="form-label">SCVT Application No.<span style="color:red">*</span></label>
-
-                                @Html.Editor("SCVTNo", new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter SCVT Application No", @type = "text", @maxlength = "50" } })
-
-
-                            </div>
-                            <div class="col-md-3 mb-3" id="NCVTApplicationNo" style="display:none;">
-
-                                <label class="label">NCVT Application No.</label>
-
-                                @Html.Editor("NCVTNo", new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter NCVT Application No", @type = "text", @maxlength = "50" } })
-
-
-
-
-                            </div>
-                        </div>
-                        <div id="FldSpouse1" style="display:none">
-
-                            <!--<legend class="col-md-12 page-title padding-top-0 padding-bottom-5">Spouse Details</legend>-->
-                            @*<div id="FldSpouse">*@
-                            <div class="form-row form-group">
-                                <div class="col-md-3 mb-3">
-                                    <label class="form-label">Spouse Title</label>
-
-                                    <input type="hidden" id="hdSpouse_Title" name="hdSpouse_Title" value="-1" />
-                                    @Html.DropDownList("Spouse_Title", new List<SelectListItem>
-                                {
-
-                                }, new { @class = "custom-select" })
-
-                                </div>
-                                <div class="col-md-3 mb-3">
-                                    <label class="form-label">Spouse First Name </label>
-
-                                    @Html.Editor("Spouse_FirstName", new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter First Name", @type = "text", @maxlength = "50" } })
-                                    <div class="invalid-feedback">
-                                        Please Enter Spouse First Name.
-                                    </div>
-                                </div>
-                                <div class="col-md-3 mb-3">
-                                    <label class="form-label">Spouse Middle Name</label>
-
-                                    @Html.Editor("Spouse_MiddleName", new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Middle Name", @type = "text", @maxlength = "50" } })
-
-                                </div>
-                                <div class="col-md-3 mb-3">
-                                    <label class="form-label">Spouse Last Name</label>
-
-                                    @Html.Editor("Spouse_LastName", new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Last Name", @type = "text", @maxlength = "50" } })
-
-                                </div>
-                                <div class="col-md-3 mb-3">
-                                    <label class="form-label">Spouse Mobile No.</label>
-
-                                    <i class="icon-prepend fa fa-mobile-phone"></i>
-                                    @Html.Editor("Spouse_MobileNo", new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Mobile No", @type = "text", @maxlength = "10" } })
-                                    <div class="invalid-feedback">
-                                        Please Enter Spouse Mobile No.
-                                    </div>
-                                </div>
-                                <div class="col-md-3 mb-3">
-                                    <label class="form-label">Spouse Email ID</label>
-
-                                    <i class="icon-prepend fa fa-mobile-phone"></i>
-                                    @Html.Editor("Spouse_EmailID", new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Alternate No", @type = "text", @maxlength = "50" } })
-
-
-                                </div>
-
-                            </div>
-                        </div>
                         <fieldset class="border-css mt-3">
                             <legend class="scheduler-border"><b>Parents Details</b></legend>
                             <div class="row">
@@ -377,48 +240,40 @@
                                 </section>
                                 <section class="form-group col-sm-3">
                                     <label>Father's First Name<span style="color:red">*</span></label>
-                                    @Html.Editor("Father_FirstName", new { htmlAttributes = new { @class = "form-control", @required = "", @placeholder = "Please Enter First Name", @type = "text", @maxlength = "50" } })
+                                    @Html.EditorFor(model => model.Father_FirstName, new { htmlAttributes = new { @class = "form-control", @required = "", @placeholder = "Please Enter First Name", @type = "text", @maxlength = "50" } })
                                 </section>
                                 <section class="form-group col-sm-3">
                                     <label>Father's Middle Name<span style="color:red">*</span></label>
-                                    @Html.Editor("Father_MiddleName", new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Middle Name", @type = "text", @maxlength = "50" } })
+                                    @Html.EditorFor(model => model.Father_MiddleName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Middle Name", @type = "text", @maxlength = "50" } })
                                 </section>
                                 <section class="form-group col-sm-3">
                                     <label>Father's Last Name<span style="color:red">*</span></label>
-                                    @Html.Editor("Father_LastName", new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Last Name", @type = "text", @maxlength = "50" } })
+                                    @Html.EditorFor(model => model.Father_LastName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Last Name", @type = "text", @maxlength = "50" } })
                                 </section>
                             </div>
                             <div class="row">
                                 <section class="form-group col-sm-4">
                                     <label>Father's Name (in Religious Language)</label>
-                                    @Html.Editor("Father_ReligiousName", new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Name", @type = "text", @maxlength = "50" } })
+                                    @Html.EditorFor(model => model.Father_ReligiousName ,new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Name", @type = "text", @maxlength = "50" } })
                                 </section>
                                 <section class="form-group col-sm-4">
                                     <label class="form-label">Father's Mobile No.<span style="color:red">*</span></label>
-                                    @Html.Editor("Father_MobileNo", new { htmlAttributes = new { @class = "form-control", @required = "", @placeholder = "Please Enter Mobile No", @type = "text", @maxlength = "10" } })
+                                    @Html.EditorFor(model => model.Father_MobileNo, new { htmlAttributes = new { @class = "form-control", @required = "", @placeholder = "Please Enter Mobile No", @type = "text", @maxlength = "10" } })
 
                                 </section>
                                 <section class="form-group col-sm-4">
                                     <label class="form-label">Father's Email ID</label>
 
-                                    @Html.Editor("FatherEmailID", new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Email ID", @type = "text", @maxlength = "50" } })
+                                    @Html.EditorFor(model => model.FatherEmailID, new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Email ID", @type = "text", @maxlength = "50" } })
 
                                 </section>
                             </div>
-                            <div class="row" style="display:none">
-                                <section class="col-md-1 mb-3">
-                                    <label class="label">&nbsp;</label>
-                                    @Html.Editor("FatherMobileNoCode", new { htmlAttributes = new { @class = "form-control", @placeholder = "+91", @type = "text", @maxlength = "10" } })
-                                </section>
-
-                            </div>
-
                             <div class="row">
                                 <section class="form-group col-sm-3">
                                     <label class="form-label">Title</label>
 
                                     <input type="hidden" id="hdMother_Title" name="hdMother_Title" value="-1" />
-                                    @Html.DropDownList("Mother_Title", new List<SelectListItem>
+                                    @Html.DropDownListFor(model => model.Mother_Title, new List<SelectListItem>
                                 {
 
                                 }, new { @class = "form-control",@placeholder = "Please Select Title"})
@@ -428,38 +283,32 @@
                                 <section class="form-group col-sm-3">
                                     <label class="form-label">Mother's First Name <span style="color:red">*</span></label>
 
-                                    @Html.Editor("Mother_FirstName", new { htmlAttributes = new { @class = "form-control", @required = "", @placeholder = "Please Enter First Name", @type = "text", @maxlength = "50" } })
+                                    @Html.EditorFor(model => model.Mother_FirstName, new { htmlAttributes = new { @class = "form-control", @required = "", @placeholder = "Please Enter First Name", @type = "text", @maxlength = "50" } })
 
                                 </section>
                                 <section class="form-group col-sm-3">
                                     <label class="form-label">Mother's Middle Name</label>
 
-                                    @Html.Editor("Mother_MiddleName", new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Middle Name", @type = "text", @maxlength = "50" } })
+                                    @Html.EditorFor(model => model.Mother_MiddleName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Middle Name", @type = "text", @maxlength = "50" } })
 
                                 </section>
                                 <section class="form-group col-sm-3">
                                     <label class="form-label">Mother's Last Name</label>
-
-                                    @Html.Editor("Mother_LastName", new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Last Name", @type = "text", @maxlength = "50" } })
-
+                                    @Html.EditorFor(model => model.Mother_LastName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Last Name", @type = "text", @maxlength = "50" } })
                                 </section>
                             </div>
                             <div class="row">
                                 <section class="form-group col-sm-4">
                                     <label class="form-label">Mother's Name (in Religious Language)</label>
-                                    @Html.Editor("Mother_ReligiousName", new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Religious Name", @type = "text", @maxlength = "50" } })
+                                    @Html.EditorFor(model => model.Mother_ReligiousName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Religious Name", @type = "text", @maxlength = "50" } })
 
                                 </section>
-                                @*<section class="col-md-1 mb-3">
-                            <label class="label">&nbsp;</label>
-                            @Html.Editor("MotherMobileNoCode", new { htmlAttributes = new { @class = "form-control", @placeholder = "+91", @type = "text", @maxlength = "10" } })
-
-                            </section>*@
+                               
                                 <section class="form-group col-sm-4">
                                     <label class="form-label">Mother's Mobile No.</label>
 
                                     <i class="icon-prepend fal fa-phone"></i>
-                                    @Html.Editor("Mother_MobileNo", new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Mobile No", @type = "text", @maxlength = "10" } })
+                                    @Html.EditorFor(model => model.Mother_MobileNo, new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Mobile No", @type = "text", @maxlength = "10" } })
 
 
                                 </section>
@@ -467,7 +316,7 @@
                                     <label class="form-label">Mother's Email ID</label>
 
                                     <i class="icon-prepend fa fa-envelope-o"></i>
-                                    @Html.Editor("Mother_EmailID", new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Email ID", @type = "text", @maxlength = "50" } })
+                                    @Html.EditorFor(model => model.Mother_Email, new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Email ID", @type = "text", @maxlength = "50" } })
 
                                 </section>
                             </div>
@@ -487,7 +336,7 @@
                                     <div class="form-group col-sm-3">
                                         <label class="form-label">Title</label>
                                         <input type="hidden" id="hdGuardian_Title" name="hdGuardian_Title" value="-1" />
-                                        @Html.DropDownList("Guardian_Title", new List<SelectListItem>
+                                        @Html.DropDownListFor(model => model.Guardian_Title, new List<SelectListItem>
                                     {
 
                                     }, new { @class = "form-control" })
@@ -496,41 +345,36 @@
                                     <div class="form-group col-sm-3">
                                         <label class="form-label">First Name <span style="color:red">*</span></label>
 
-                                        @Html.Editor("Guardian_FirstName", new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter First Name", @type = "text", @maxlength = "50" } })
+                                        @Html.EditorFor(model => model.Guardian_FirstName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter First Name", @type = "text", @maxlength = "50" } })
 
                                     </div>
                                     <div class="form-group col-sm-3">
                                         <label class="form-label">Middle Name</label>
 
-                                        @Html.Editor("Guardian_MiddleName", new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Middle Name", @type = "text", @maxlength = "50" } })
+                                        @Html.EditorFor(model => model.Guardian_MiddleName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Middle Name", @type = "text", @maxlength = "50" } })
 
                                     </div>
                                     <div class="form-group col-sm-3">
                                         <label class="form-label">Last Name</label>
-                                        @Html.Editor("Guardian_LastName", new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Last Name", @type = "text", @maxlength = "50" } })
+                                        @Html.EditorFor(model => model.Guardian_LastName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Last Name", @type = "text", @maxlength = "50" } })
 
                                     </div>
                                     <div class="form-group col-sm-12">
 
                                         <label class="form-label">Guardian Name (in Religious Language)</label>
-                                        @Html.Editor("Guradian_ReligiousName", new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Name", @type = "text", @maxlength = "50" } })
+                                        @Html.EditorFor(model => model.Guardian_ReligiousName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Name", @type = "text", @maxlength = "50" } })
 
                                     </div>
-                                    @*<div class="col-md-1 mb-3">
-                                <label class="label">&nbsp;</label>
-                                @Html.Editor("GuardianMobileNoCode", new { htmlAttributes = new { @class = "form-control", @placeholder = "+91", @type = "text", @maxlength = "10" } })
-
-                                </div>*@
                                     <div class="form-group col-sm-4">
                                         <label class="form-label">Mobile No.<span style="color:red">*</span></label>
 
-                                        @Html.Editor("Guardian_MobileNo", new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Mobile No", @type = "text", @maxlength = "10" } })
+                                        @Html.EditorFor(model => model.Guardian_MobileNo, new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Mobile No", @type = "text", @maxlength = "10" } })
 
                                     </div>
                                     <div class="form-group col-sm-4">
                                         <label class="form-label">Email ID </label>
 
-                                        @Html.Editor("Guardian_EmailID", new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Email ID", @type = "text", @maxlength = "50" } })
+                                        @Html.EditorFor(model => model.Guardian_EmailID, new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Email ID", @type = "text", @maxlength = "50" } })
 
                                     </div>
                                     <div class="form-group col-sm-4">
@@ -538,7 +382,7 @@
 
 
                                          <input type="hidden" id="hdRelation" name="hdRelation" value="-1" />
-                                        @Html.DropDownList("Relation", new List<SelectListItem>
+                                        @Html.DropDownListFor(model => model.Guardian_RelationShip, new List<SelectListItem>
                                     {
 
                                     }, new { @class = "form-control" })
@@ -557,18 +401,15 @@
                                 <section class="form-group col-sm-12">
                                     <label class="form-label">Address<span style="color:red">*</span></label>
 
-                                    @*   <input type="hidden" id="hdAddressID" value="@Model.AddressID" name="hdAddressID" />*@
-                                    @Html.TextArea("Address", new { @rows = 2, @cols = 150, @required = "", @placeholder = "Please Enter Address ", @maxlength = 250, @class = "form-control" })
+                                    @Html.TextAreaFor(model => model.Correspondence_AddressId, new { @rows = 2, @cols = 150, @required = "", @placeholder = "Please Enter Address ", @maxlength = 250, @class = "form-control" })
 
                                 </section>
                             </div>
                             <div class="row">
                                 <section class="form-group col-sm-4">
                                     <label class="form-label">Country<span style="color:red">*</span></label>
-                                    @*
-                                <input type="hidden" id="hdCountry" value="@Model.CountryID" name="hdCountry" />*@
 
-                                    @Html.DropDownList("CountryID", new List<SelectListItem>
+                                    @Html.DropDownListFor(model => model.CorCountryID, new List<SelectListItem>
                                 {
 
                                 }, new { @class = "form-control", @required = "" })
@@ -577,9 +418,7 @@
                                 <section class="form-group col-sm-4">
                                     <label class="form-label">State<span style="color:red">*</span></label>
 
-                                    @*<input type="hidden" id="hdState" value="@Model.StateID" name="hdState" />*@
-
-                                    @Html.DropDownList("StateID", new List<SelectListItem>
+                                    @Html.DropDownListFor(model => model.CorStateID, new List<SelectListItem>
                                 {
 
                                 }, new { @class = "form-control", @required = "" })
@@ -588,8 +427,7 @@
                                 <section class="form-group col-sm-4">
                                     <label class="form-label">District / City<span style="color:red">*</span></label>
 
-                                    @* <input type="hidden" id="hdCity" value="@Model.CityID" name="hdCity" />*@
-                                    @Html.DropDownList("CityID", new List<SelectListItem>
+                                    @Html.DropDownListFor(model => model.CorCityID, new List<SelectListItem>
                                 {
 
                                 }, new { @class = "form-control", @required = "" })
@@ -601,19 +439,19 @@
                             <div class="row">
                                 <section class="form-group col-sm-12">
                                     <label class="form-label">Correspondance Address (in Religious Language)<span style="color:red"></span></label>
-                                    @Html.TextArea("CorAddressReligious", new { @rows = 2, @cols = 100, @placeholder = "Please Enter Address ", @maxlength = 250, @class = "form-control" })
+                                    @Html.TextAreaFor(model => model.CorAddressReligious, new { @rows = 2, @cols = 100, @placeholder = "Please Enter Address ", @maxlength = 250, @class = "form-control" })
 
                                 </section>
                             </div>
                             <div class="row">
                                 <section class="form-group col-sm-4">
                                     <label class="form-label">Pincode</label>
-                                    @Html.Editor("PinCode", new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Pincode", @type = "text", @maxlength = "6", @required = "" } })
+                                    @Html.EditorFor(model => model.PinCode, new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Pincode", @type = "text", @maxlength = "6", @required = "" } })
                                 </section>
 
                                 <section class="form-group col-sm-4">
                                     <label class="form-label">Area</label>
-                                    @Html.Editor("Area", new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Area", @type = "text", @maxlength = "150" } })
+                                    @Html.EditorFor(model => model.Area, new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Area", @type = "text", @maxlength = "150" } })
 
                                 </section>
 
@@ -634,17 +472,14 @@
                                 <div class="row">
                                     <section class="form-group col-sm-12">
                                         <label class="form-label">Address<span style="color:red">*</span></label>
-
-                                        @*<input type="hidden" id="hdnPerAdsressID" value="@Model.Permanant_AddressID" name="hdnPerAdsressID" />*@
-                                        @Html.TextArea("Permanant_Address", new { @rows = 2, @cols = 150, @placeholder = "Please Enter Address ", @maxlength = 250, @class = "form-control" })
+                                         @Html.TextAreaFor(model => model.Permanent_AddressId, new { @rows = 2, @cols = 150, @placeholder = "Please Enter Address ", @maxlength = 250, @class = "form-control" })
 
                                     </section>
                                 </div>
                                 <div class="row">
                                     <section class="form-group col-sm-4">
                                         <label class="form-label">Country<span style="color:red">*</span></label>
-                                        @* //<input type="hidden" id="hdPerCountry" value="@Model.Permanant_CountryID" name="hdPerCountry" />*@
-                                        @Html.DropDownList("Permanant_CountryID", new List<SelectListItem>
+                                        @Html.DropDownListFor(model => model.Permanant_CountryID, new List<SelectListItem>
                                     {
 
                                     }, new { @class = "form-control" })
@@ -652,9 +487,7 @@
                                     </section>
                                     <section class="form-group col-sm-4">
                                         <label class="form-label">State<span style="color:red">*</span></label>
-
-                                        @* <input type="hidden" id="hdPerState" value="@Model.Permanant_StateID" name="hdPerState" />*@
-                                        @Html.DropDownList("Permanant_StateID", new List<SelectListItem>
+                                        @Html.DropDownListFor(model => model.Permanant_StateID, new List<SelectListItem>
                                     {
 
                                     }, new { @class = "form-control" })
@@ -664,9 +497,7 @@
                                     </section>
                                     <section class="form-group col-sm-4">
                                         <label class="form-label">District / City<span style="color:red">*</span></label>
-                                        @*
-                                    <input type="hidden" id="hdPerCity" value="@Model.Permanant_CityID" name="hdPerCity" />*@
-                                        @Html.DropDownList("Permanant_CityID", new List<SelectListItem>
+                                        @Html.DropDownListFor(model => model.Permanant_CityID, new List<SelectListItem>
                                     {
 
                                     }, new { @class = "form-control" })
@@ -676,27 +507,27 @@
                                 <div class="row">
                                     <section class="form-group col-sm-12">
                                         <label class="form-label">Permanent Address (in Religious Language)<span style="color:red"></span></label>
-                                        @Html.TextArea("PerAddressReligious", new { @rows = 2, @cols = 100, @placeholder = "Please Enter Address ", @maxlength = 250, @class = "form-control" })
+                                        @Html.TextAreaFor(model => model.PerAddressReligious, new { @rows = 2, @cols = 100, @placeholder = "Please Enter Address ", @maxlength = 250, @class = "form-control" })
 
                                     </section>
                                 </div>
                                 <div class="row">
                                     <section class="form-group col-sm-4">
                                         <label class="form-label">Pincode</label>
-                                        @Html.Editor("Permanant_PinCode", new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Pincode", @type = "text", @maxlength = "6" } })
+                                        @Html.EditorFor(model => model.Permanant_PinCode, new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Pincode", @type = "text", @maxlength = "6" } })
 
                                     </section>
                                     <section class="form-group col-sm-4">
                                         <label class="form-label">Area</label>
-                                        @Html.Editor("PermanantArea", new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Area", @type = "text", @maxlength = "150" } })
+                                        @Html.EditorFor(model => model.PermanantArea, new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Area", @type = "text", @maxlength = "150" } })
 
                                     </section>
                                 </div>
                             </div>
                         </fieldset>
-                <div class="form-group text-right mt30 mb30">
+                    <div class="form-group text-right mt30 mb30">
                         <a class="btn btn btn-default" onclick="window.location.reload();">Cancel</a>
-                        <button id="btnSave" type="submit" class="btn btn btn-primary" value="Submit" name="FormCommand">Submit</button>
+                        <button id="btnSave" type="submit" class="btn btn btn-primary" value="SaveRegistration" name="FormCommand">Submit</button>
                     </div>
                     }
                     
@@ -769,27 +600,27 @@
 
         LoadReligion("#ReligionID", $("#hdReligionID").val() == "" ? "-1" : $("#hdReligionID").val(), -1);
         LoadMaritalStatus("#MartialID", $("#hdMartialID").val() == "" ? "-1" : $("#hdMartialID").val());
-        LoadRelation("#Relation", $("#hdRelation").val() == "-1" ? "" : $("#hdRelation").val(), "");
+        LoadRelation("#Guardian_RelationShip", $("#hdRelation").val() == "-1" ? "" : $("#hdRelation").val(), "");
         LoadAgency("#AgencyID", "", 1)
 
 
-        LoadCountry("#CountryID", $("#hdCountry").val() == "-1" ? "" : $("#hdCountry").val(), 1);
-        var CountryID = $('#CountryID').find(':selected').val();
-        LoadState("#StateID", $("#hdCountry").val() == "-1" ? "" : $("#hdCountry").val(), $("#hdState").val() == "-1" ? "" : $("#hdState").val(), 1);
-        LoadCity("#CityID", $("#hdState").val() == 0 ? "-1" : $("#hdState").val(), $("#hdCity").val() == "-1" ? "" : $("#hdCity").val(), 1);
+        LoadCountry("#CorCountryID", $("#hdCountry").val() == "-1" ? "" : $("#hdCountry").val(), 1);
+        var CountryID = $('#CorCountryID').find(':selected').val();
+        LoadState("#CorStateID", $("#hdCountry").val() == "-1" ? "" : $("#hdCountry").val(), $("#hdState").val() == "-1" ? "" : $("#hdState").val(), 1);
+        LoadCity("#CorCityID", $("#hdState").val() == 0 ? "-1" : $("#hdState").val(), $("#hdCity").val() == "-1" ? "" : $("#hdCity").val(), 1);
 
-        $("#CountryID").change(function() {
+        $("#CorCountryID").change(function() {
             $("#hdState").val("-1")
             var Country = $(this).val();
-            LoadState("#StateID", Country == "0" ? "" : Country, $("#hdState").val() == "-1" ? "" : $("#hdState").val(), 1);
+            LoadState("#CorStateID", Country == "0" ? "" : Country, $("#hdState").val() == "-1" ? "" : $("#hdState").val(), 1);
             //LoadState("#StateID", Country == "-1" ? "-1" : Country);
         });
 
-        $("#StateID").change(function() {
+        $("#CorStateID").change(function() {
             $("#hdCity").val("-1")
             var State = $(this).val();
 
-            LoadCity("#CityID", $(this).val(), $("#hdCity").val() == "-1" ? "" : $("#hdCity").val(), 1);
+            LoadCity("#CorCityID", $(this).val(), $("#hdCity").val() == "-1" ? "" : $("#hdCity").val(), 1);
         });
 
         //Permanent
@@ -832,6 +663,10 @@
             $('#dvCors').hide();
         }
     });
+
+$('#btnSave').click(function() {
+    CheckValidation();
+});
 
      $("#MobileNo").bind("paste", function (e) {
             e.preventDefault();
@@ -931,7 +766,7 @@
                     alert(errormessage.responseText);
                 }
             })
-        }
+     }
 
       function CheckValidation() {
             debugger
@@ -986,12 +821,12 @@
             var GuardianReligiousLang = $("#Guradian_ReligiousName").val() == "" ? "-1" : $("#Guradian_ReligiousName").val() ;
             var GuardianMobileNo = $("#Guardian_MobileNo").val() == "" ? "-1" : $("#Guardian_MobileNo").val() ;
             var GuardianEmailId = $("#Guardian_EmailID").val() == "" ? "-1" : $("#Guardian_EmailID").val();
-            var Relation = $("#Relation").val() == "" ? "-1" : $("#Relation").val();
+            var Relation = $("#Guardian_RelationShip").val() == "" ? "-1" : $("#Guardian_RelationShip").val();
            ////// Address Details
             var CorresAddress = $("#Address").val() == "" ? "-1" : $("#Address").val() ;
             var CorresCountry = $("#CountryID").val() == "" ? "-1" : $("#CountryID").val();
             var CorresState = $("#StateID").val() == "" ? "-1" : $("#StateID").val();
-            var CorresCity = $("#CityID").val() == "" ? "-1" : $("#CityID").val();
+            var CorresCity = $("#Permanant_CityID").val() == "" ? "-1" : $("#Permanant_CityID").val();
             var CorresReligiousLang = $("#CorAddressReligious").val() == "" ? "-1" : $("#CorAddressReligious").val() ;
             var CorresPincode = $("#PinCode").val() == "" ? "-1" : $("#PinCode").val();
             var CorresArea = $("#Area").val() == "" ? "-1" : $("#Area").val();
@@ -1001,7 +836,7 @@
             var PermaAddress = $("#Permanant_Address").val() == "" ? "-1" : $("#Permanant_Address").val() ;
             var PermaCountry = $("#Permanant_CountryID").val() == "" ? "-1" : $("#Permanant_CountryID").val();
             var PermaState = $("#Permanant_StateID").val() == "" ? "-1" : $("#Permanant_StateID").val();
-            var PermaCity = $("#Permanant_CityID").val() == "" ? "-1" : $("#Permanant_CityID").val();
+            var PermaCity = $("#Permanant_Permanant_CityID").val() == "" ? "-1" : $("#Permanant_Permanant_CityID").val();
             var PermaReligiousLang = $("#PerAddressReligious").val() == "" ? "-1" : $("#PerAddressReligious").val() ;
             var PermaPincode = $("#Permanant_PinCode").val() == "" ? "-1" : $("#Permanant_PinCode").val();
             var PermaArea = $("#PermanantArea").val() == "" ? "-1" : $("#PermanantArea").val();
@@ -1085,7 +920,7 @@
                         }
                         else {
 
-                            window.location.href = "/Home/Index";
+                            window.location.href = "../Enquiry/ProceedPayment";
                         }
                     },
                     error: function (data) {
@@ -1094,7 +929,7 @@
                         $("#msg").html("<div class='alert alert-danger fade in'><button class='close' data-dismiss='alert'> × </button><i class='fa-fw fa fa-times'></i><strong>Error!</strong>Record not save succesfully</div>")
                     }
                 });
-        }
+      }
 
 
 
