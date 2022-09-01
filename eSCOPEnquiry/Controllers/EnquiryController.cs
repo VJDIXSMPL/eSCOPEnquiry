@@ -24,7 +24,7 @@ namespace eSCOPEnquiry.Controllers
         Enquiry_DAL EDAL;
         public EnquiryController(IConfiguration configuration)
         {
-            Configuration = configuration;
+                Configuration = configuration;
             conCommon = Configuration.GetConnectionString("DefaultConnection");
             EBAL = new Enquiry_BAL(conCommon);
             EDAL = new Enquiry_DAL(conCommon);
@@ -244,7 +244,7 @@ namespace eSCOPEnquiry.Controllers
         }
 
         [HttpPost]
-        public ActionResult SaveEnquiryRegistration(string FormCommand, IFormCollection fc,Enquiry_BAL EBAL)
+        public ActionResult SaveEnquiryRegistration(string FormCommand, IFormCollection fc, Enquiry_BAL EBAL)
         {
             int Result = 0;
             string msgOut = string.Empty;
@@ -257,18 +257,16 @@ namespace eSCOPEnquiry.Controllers
                 EBAL.IpAddress = GetClientIpAddress();
                 EBAL.HostName = GetClientHost();
                 EBAL.optMode = "Insert";
-                EBAL.ExamStatus= fc["ddlexamstaus"].ToString();
-                EBAL.HostelReq = fc["HostelReq"].ToString();
-                EBAL.TransportReq = fc["TransportReq"].ToString();
-                EBAL.chklocalGuaother = fc["chklocalGuaother"].ToString();
-                EBAL.EnqRegistration_Save(EBAL, out msgOut, out Result, out EnquiryOut, out RegOut);
+                EBAL.EnqNo = fc["hdEnquiryID"].ToString();
+
+                EDAL.Save_EnquiryRegistration(EBAL, out msgOut, out Result);
                 if (Result == 1)
                 {
                     TempData["Successmsg"] = msgOut;
                     TempData["RegNo"] = msgOut.Split('_')[1].ToString();
                     TempData["RegData"] = msgOut.Split('_')[2].ToString();
                     TempData["EnqNo"] = null;
-                    TempData["SchoolId"] = fc["InstituteID"].ToString(); 
+                    TempData["SchoolId"] = fc["InstituteID"].ToString();
                 }
                 else
                 {
@@ -286,12 +284,12 @@ namespace eSCOPEnquiry.Controllers
 
                 return RedirectToAction("ProceedPayment");
             }
-            
+
         }
 
         public IActionResult ProceedPayment()
         {
-            
+
             return View();
         }
 

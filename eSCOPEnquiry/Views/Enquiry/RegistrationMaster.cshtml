@@ -157,7 +157,8 @@
                                 </section>
                                 <section class="form-group col-sm-3">
                                     <label>Aadhar No.<span style="color:red">*</span></label>
-                                    @Html.EditorFor(model => model.AadharNo, new { htmlAttributes = new { @name = "AadharNo", @class = "form-control", @autocomplete = "off", @MaxLength = 100, @placeholder = "Please Enter Aadhar No", @Type = "text" } })
+                                     
+                                    @Html.EditorFor(model => model.AadharNo, new { htmlAttributes = new { @name = "AadharNo", @class = "form-control", @autocomplete = "off", @MaxLength = 12, @placeholder = "Please Enter Aadhar No", @Type = "number",@oninput = "javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" } })
                                 </section>
                                 <section class="form-group col-sm-3" style="display:none">
                                     <label>Passport No<span style="color:red">*</span></label>
@@ -259,7 +260,7 @@
                                 <section class="form-group col-sm-4">
                                     <label class="form-label">Father's Mobile No.<span style="color:red">*</span></label>
                                     @Html.EditorFor(model => model.Father_MobileNo, new { htmlAttributes = new { @class = "form-control", @required = "", @placeholder = "Please Enter Mobile No", @type = "text", @maxlength = "10" } })
-
+                                
                                 </section>
                                 <section class="form-group col-sm-4">
                                     <label class="form-label">Father's Email ID</label>
@@ -446,12 +447,12 @@
                             <div class="row">
                                 <section class="form-group col-sm-4">
                                     <label class="form-label">Pincode</label>
-                                    @Html.EditorFor(model => model.PinCode, new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Pincode", @type = "text", @maxlength = "6", @required = "" } })
+                                    @Html.EditorFor(model => model.CorPincode, new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Pincode", @type = "text", @maxlength = "6", @required = "" } })
                                 </section>
 
                                 <section class="form-group col-sm-4">
                                     <label class="form-label">Area</label>
-                                    @Html.EditorFor(model => model.Area, new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Area", @type = "text", @maxlength = "150" } })
+                                    @Html.EditorFor(model => model.CorArea, new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Area", @type = "text", @maxlength = "150" } })
 
                                 </section>
 
@@ -613,7 +614,6 @@
             $("#hdState").val("-1")
             var Country = $(this).val();
             LoadState("#CorStateID", Country == "0" ? "" : Country, $("#hdState").val() == "-1" ? "" : $("#hdState").val(), 1);
-            //LoadState("#StateID", Country == "-1" ? "-1" : Country);
         });
 
         $("#CorStateID").change(function() {
@@ -677,7 +677,8 @@ $('#btnSave').click(function() {
                 e.preventDefault();
 
             }
-        });
+     });
+     
      $("#Spouse_MobileNo").keypress(function (e) {
             if (String.fromCharCode(e.which).match(/[^0-9 ]/)) {
                 e.preventDefault();

@@ -18,7 +18,13 @@ namespace eSCOPEnquiry.Models
         Enquiry_DAL EDAL;
 
         public string[] cell;
-        public Enquiry_BAL(string conCommon)
+
+        public Enquiry_BAL()
+        {
+            string conCommon = "";
+            EDAL = new Enquiry_DAL(conCommon);
+        }
+            public Enquiry_BAL(string conCommon)
         {
             EDAL = new Enquiry_DAL(conCommon);
             CultureInfo provider = new CultureInfo("en-GB");
@@ -182,6 +188,28 @@ namespace eSCOPEnquiry.Models
             Mother_Email = "";
             chklocalGuaother = false;
             Guardian_Title = -1;
+            Guardian_FirstName = "";
+            Guardian_MiddleName = "";
+            Guardian_LastName = "";
+            Guardian_ReligiousName = "";
+            Guardian_MobileNo = "";
+            Guardian_EmailID = "";
+            Guardian_RelationShip = -1;
+            Correspondence_AddressId = -1;
+            CorAddressReligious = "";
+            Correspondence_Pincode = "";
+            Correspondence_Area = "";
+            chklocalGua = false;
+            Permanent_AddressId = -1;
+            Permanant_CountryID = -1;
+            Permanant_StateID = -1;
+            Permanant_CityID = -1;
+            PerAddressReligious = "";
+            Permanant_PinCode = "";
+            PermanantArea = "";
+            chkislateralenq = false;
+
+
         }
 
         public string HosReq { get; set; }
@@ -191,7 +219,9 @@ namespace eSCOPEnquiry.Models
         public string F_Email { get; set; }
         public string AadharNo { get; set; }
         public string Blood { get; set; }
+        public bool chkislateralenq { get; set; }
         public string PassportNo { get; set; }
+        public bool chklocalGua { get; set; }
         public bool chklocalGuaother { get; set; }
         public string MobileNoCode { get; set; }
         public string AlterNateNoCode { get; set; }
@@ -644,9 +674,9 @@ namespace eSCOPEnquiry.Models
             EDAL.CRUD_Registration(RBAL, out msgOut, out result, out EnquiryOut, out RegOut);
 
         }
-        public void EnqRegistration_Save(Enquiry_BAL RBAL, out string msgOut, out int result, out string EnquiryOut, out string RegOut)
+        public void EnqRegistration_Save(Enquiry_BAL RBAL, out string msgOut, out int result)
         {
-            EDAL.Save_EnquiryRegistration(RBAL, out msgOut, out result, out EnquiryOut, out RegOut);
+            EDAL.Save_EnquiryRegistration(RBAL, out msgOut, out result);
         }
         public DataSet GetEnqRegistrationData(Enquiry_BAL CMBAL)
         {

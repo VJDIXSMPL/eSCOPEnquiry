@@ -189,7 +189,7 @@ namespace eSCOPEnquiry.Models
 
             }
         }
-        public void Save_EnquiryRegistration(Enquiry_BAL RegBal, out string msgOutCaller, out int ResultCaller, out string EnquiryCallOuter, out string RegCallOuter)
+        public void Save_EnquiryRegistration(Enquiry_BAL RegBal, out string msgOutCaller, out int ResultCaller)
         {
             using (SqlConnection con = new SqlConnection(constring))
             {
@@ -203,7 +203,7 @@ namespace eSCOPEnquiry.Models
                 cmd.Parameters.AddWithValue("@BranchID", RegBal.BranchID);
                 cmd.Parameters.AddWithValue("@ProgramID", RegBal.ProgramID);
                 cmd.Parameters.AddWithValue("@EnquiryID", RegBal.EnquiryID);
-                cmd.Parameters.AddWithValue("@EnquiryNo", RegBal.EnquiryNo);
+                cmd.Parameters.AddWithValue("@EnquiryNo", RegBal.EnqNo);
                 cmd.Parameters.AddWithValue("@RegID", RegBal.RegistrationID);
                 cmd.Parameters.AddWithValue("@StudentID", RegBal.StudentID);
                 cmd.Parameters.AddWithValue("@Student_Title", RegBal.Trainee_Title);
@@ -263,24 +263,23 @@ namespace eSCOPEnquiry.Models
                 cmd.Parameters.AddWithValue("@Guardian_MobileNo", RegBal.Guardian_MobileNo);
                 cmd.Parameters.AddWithValue("@Guardian_EmailID", RegBal.Guardian_EmailID);
                 cmd.Parameters.AddWithValue("@Guardian_Relation", RegBal.Guardian_RelationShip);
-                cmd.Parameters.AddWithValue("@CorrespondenceAddressID", RegBal.AddressID);
-                cmd.Parameters.AddWithValue("@Correspondence_Address", RegBal.Address.Trim());
-                cmd.Parameters.AddWithValue("@Correspondence_Country", RegBal.CountryID);
-                cmd.Parameters.AddWithValue("@Correspondence_State", RegBal.StateID);
-                cmd.Parameters.AddWithValue("@Correspondence_City", RegBal.CityID);
-                cmd.Parameters.AddWithValue("@Correspondence_Pincode", RegBal.PinCode);
-                cmd.Parameters.AddWithValue("@CorrespondenceArea", RegBal.Area);
-
+                cmd.Parameters.AddWithValue("@CorrespondenceAddressID", RegBal.Correspondence_AddressId);
+                cmd.Parameters.AddWithValue("@Correspondence_Address", RegBal.Correspondence_Address);
+                cmd.Parameters.AddWithValue("@Correspondence_Country", RegBal.CorCountryID);
+                cmd.Parameters.AddWithValue("@Correspondence_State", RegBal.CorStateID);
+                cmd.Parameters.AddWithValue("@Correspondence_City", RegBal.CorCityID);
+                cmd.Parameters.AddWithValue("@Correspondence_Pincode", RegBal.CorPincode);
+                cmd.Parameters.AddWithValue("@CorrespondenceArea", RegBal.CorArea);
                 cmd.Parameters.AddWithValue("@PermanentAddressID", RegBal.Permanent_AddressId);
 
-                if (RegBal.AddressCheck == "Yes")
+                if (RegBal.chklocalGua == true)
                 {
-                    cmd.Parameters.AddWithValue("@Permanent_Address", RegBal.Address.Trim());
-                    cmd.Parameters.AddWithValue("@Permanent_Country", RegBal.CountryID);
-                    cmd.Parameters.AddWithValue("@Permanent_State", RegBal.StateID);
-                    cmd.Parameters.AddWithValue("@Permanent_City", RegBal.CityID);
-                    cmd.Parameters.AddWithValue("@Permanent_Pincode", RegBal.PinCode);
-                    cmd.Parameters.AddWithValue("@PermanentArea", RegBal.Area);
+                    cmd.Parameters.AddWithValue("@Permanent_Address", RegBal.PermanentAddress);
+                    cmd.Parameters.AddWithValue("@Permanent_Country", RegBal.Permanant_CountryID);
+                    cmd.Parameters.AddWithValue("@Permanent_State", RegBal.Permanant_StateID);
+                    cmd.Parameters.AddWithValue("@Permanent_City", RegBal.Permanant_CityID);
+                    cmd.Parameters.AddWithValue("@Permanent_Pincode", RegBal.Permanent_Pincode);
+                    cmd.Parameters.AddWithValue("@PermanentArea", RegBal.PermanantArea);
                 }
                 else
                 {
@@ -295,15 +294,15 @@ namespace eSCOPEnquiry.Models
                 cmd.Parameters.AddWithValue("@BatchID", RegBal.BatchID);
                 cmd.Parameters.AddWithValue("@FormNo", RegBal.FormNo);
 
-                cmd.Parameters.AddWithValue("@IsLateral", RegBal.RequiredLateral);
+                cmd.Parameters.AddWithValue("@IsLateral", RegBal.chkislateralenq);
 
                 cmd.Parameters.AddWithValue("@StudentNameInReligiousLan", RegBal.Student_ReligionName);
-                cmd.Parameters.AddWithValue("@MobileNoCode", RegBal.MobileNoCode == null ? "+91" : RegBal.MobileNoCode);
-                cmd.Parameters.AddWithValue("@AlternateMobileNoCode", RegBal.AlterNateNoCode == null ? "+91" : RegBal.AlterNateNoCode);
+                cmd.Parameters.AddWithValue("@MobileNoCode", RegBal.MobileNoCode);
+                cmd.Parameters.AddWithValue("@AlternateMobileNoCode", RegBal.AlterNateNoCode);
                 cmd.Parameters.AddWithValue("@NameInReligiousLangF", RegBal.Father_ReligiousName);
-                cmd.Parameters.AddWithValue("@MobileNoCodeParF", RegBal.FatherMobileNoCode == null ? "+91" : RegBal.FatherMobileNoCode);
+                cmd.Parameters.AddWithValue("@MobileNoCodeParF", RegBal.FatherMobileNoCode);
                 cmd.Parameters.AddWithValue("@NameInReligiousLangM", RegBal.Mother_ReligiousName);
-                cmd.Parameters.AddWithValue("@MobileNoCodeParM", RegBal.MotherMobileNoCode == null ? "+91" : RegBal.MotherMobileNoCode);
+                cmd.Parameters.AddWithValue("@MobileNoCodeParM", RegBal.MotherMobileNoCode);
                 cmd.Parameters.AddWithValue("@AddressInfoInReligiousLang", RegBal.CorAddressReligious);
                 cmd.Parameters.AddWithValue("@HostelReq", RegBal.HostelReq);
                 cmd.Parameters.AddWithValue("@TransportReq", RegBal.TransportReq);
@@ -346,7 +345,7 @@ namespace eSCOPEnquiry.Models
                 cmd.Parameters.AddWithValue("@McAddress", RegBal.McAddress);
                 cmd.Parameters.AddWithValue("@HostName", RegBal.HostName);
                 //cmd.Parameters.AddWithValue("@optMode",RegBal.optMode);
-                cmd.Parameters.Add("@msgOut", SqlDbType.VarChar, 50);
+                cmd.Parameters.Add("@msgOut", SqlDbType.VarChar, 500);
                 cmd.Parameters.Add("@Result", SqlDbType.Int);
                 cmd.Parameters.Add("@EnquiryMsgs", SqlDbType.VarChar, 50);
                 cmd.Parameters.Add("@RegMsgs", SqlDbType.VarChar, 50);
@@ -361,8 +360,6 @@ namespace eSCOPEnquiry.Models
                     int a = cmd.ExecuteNonQuery();
                     ResultCaller = Convert.ToInt32(cmd.Parameters["@Result"].Value);
                     msgOutCaller = (cmd.Parameters["@msgOut"].Value).ToString();
-                    EnquiryCallOuter = (cmd.Parameters["@EnquiryMsgs"].Value).ToString();
-                    RegCallOuter = (cmd.Parameters["@RegMsgs"].Value).ToString();
 
 
                 }
@@ -371,8 +368,6 @@ namespace eSCOPEnquiry.Models
                 {
                     msgOutCaller = ex.ToString();
                     ResultCaller = -1;
-                    EnquiryCallOuter = ex.ToString();
-                    RegCallOuter = ex.ToString();
                 }
 
             }
