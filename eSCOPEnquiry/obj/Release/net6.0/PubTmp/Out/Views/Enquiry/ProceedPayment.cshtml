@@ -1,0 +1,32 @@
+﻿@using System.Configuration;
+@{
+    Layout = null;
+    ViewBag.Title = "ProceedPayment";
+}
+
+<h2 style="text-align:center">Please Wait...<br />
+    Do not refresh and press back button.</h2>
+<form action="https://prudence.schooloncloud.com/AirPayOnlinePayment/PayNow" method="post" id="frmpay">
+    @if (TempData["RegData"] != null)
+    {
+        <input type="hidden" id="CandRegID" name="CandRegID" value="@TempData["RegData"]" />
+        <input type="hidden" id="paymentfor" name="paymentfor" value="onlineregfees" />
+        <input type="hidden" id="PaidAmount" name="PaidAmount" value="@TempData["RegAmount"]" />
+        <input type="hidden" id="MySchoolID" name="MySchoolID" value="@TempData["SchoolId"]" />
+    }
+
+    else
+    {
+        <input type="hidden" value="-1" name="CandRegID" id="CandRegID" />
+    }
+</form>
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        if ($('#CandRegID').val().trim() != '-1') {
+            $('#frmpay').submit();
+        }
+    });
+</script>
+

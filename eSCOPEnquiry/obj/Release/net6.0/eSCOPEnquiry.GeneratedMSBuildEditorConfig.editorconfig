@@ -15,12 +15,20 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes = true
 build_property.MSBuildProjectDirectory = C:\Users\varun.SONET\source\repos\eSCOPEnquiry\eSCOPEnquiry
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/varun.SONET/source/repos/eSCOPEnquiry/eSCOPEnquiry/Views/Enquiry/EnquiredUser.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW5xdWlyeVxFbnF1aXJlZFVzZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/varun.SONET/source/repos/eSCOPEnquiry/eSCOPEnquiry/Views/Enquiry/EnquiryDetails.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW5xdWlyeVxFbnF1aXJ5RGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/varun.SONET/source/repos/eSCOPEnquiry/eSCOPEnquiry/Views/Enquiry/PrintForm.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW5xdWlyeVxQcmludEZvcm0uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/varun.SONET/source/repos/eSCOPEnquiry/eSCOPEnquiry/Views/Enquiry/ProceedPayment.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW5xdWlyeVxQcm9jZWVkUGF5bWVudC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/varun.SONET/source/repos/eSCOPEnquiry/eSCOPEnquiry/Views/Enquiry/RegistrationMaster.cshtml]
@@ -49,6 +57,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/varun.SONET/source/repos/eSCOPEnquiry/eSCOPEnquiry/Views/Home/HelpLine.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxIZWxwTGluZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/varun.SONET/source/repos/eSCOPEnquiry/eSCOPEnquiry/Views/Home/HTMLTOPDF.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxIVE1MVE9QREYuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/varun.SONET/source/repos/eSCOPEnquiry/eSCOPEnquiry/Views/Home/Index.cshtml]

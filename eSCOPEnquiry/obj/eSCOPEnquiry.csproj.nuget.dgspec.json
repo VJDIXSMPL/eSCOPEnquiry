@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\aditya\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\eSCOPEnquiry.csproj": {}
+    "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\eSCOPEnquiry.csproj": {}
   },
   "projects": {
-    "C:\\Users\\aditya\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\eSCOPEnquiry.csproj": {
+    "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\eSCOPEnquiry.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\aditya\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\eSCOPEnquiry.csproj",
+        "projectUniqueName": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\eSCOPEnquiry.csproj",
         "projectName": "eSCOPEnquiry",
-        "projectPath": "C:\\Users\\aditya\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\eSCOPEnquiry.csproj",
-        "packagesPath": "C:\\Users\\aditya\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\aditya\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\obj\\",
+        "projectPath": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\eSCOPEnquiry.csproj",
+        "packagesPath": "C:\\Users\\varun.SONET\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\aditya\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\varun.SONET\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -102,7 +102,7 @@
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
-              "version": "[6.0.8, )"
+              "version": "[6.0.10, )"
             },
             "Newtonsoft.Json": {
               "target": "Package",
@@ -119,7 +119,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -131,7 +132,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

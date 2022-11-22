@@ -45,5 +45,10 @@ namespace eSCOPEnquiry.Controllers
             EBAL.SaveEnquirySession(EBAL, out ResultCaller, out msgOutCaller);
             return RedirectToAction("Index");
         }
+
+        public IActionResult HTMLTOPDF()
+        {
+            return View();
+        }
     }
 }

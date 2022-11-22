@@ -1,0 +1,64 @@
+﻿@{
+    ViewBag.Title = "Thank You";
+}
+<style>
+    h3:first-child {
+        font-size: 28px;
+        text-transform: capitalize;
+        text-align: center;
+        line-height: 35px;
+        color: #23324d;
+    }
+
+    p {
+        text-align: center;
+        font-size: 14px;
+        padding: 20px;
+    }
+
+    h3 {
+        text-align: center;
+    }
+</style>
+<div class="container">
+
+    @using (Html.BeginForm("", "Enquiry", FormMethod.Post, new { id = "ActionAddNewEnquiry", Class = "smart-form" }))
+    {
+        if (TempData["EnqNo"] != null)
+        {
+            <input type="hidden" id="hdnenq" name="hdnenq" value="@TempData["EnqNo"].ToString()" />
+            <div class="row">
+                <div class="col-sm-8 col-sm-offset-2">
+                    <div class="well well-lg mt30 mb30">
+                        <h3 class="text-success animated tada" style="font-size:28px">Thank you for enquiring with <strong>@TempData["InstituteName"].ToString()</strong><span>.</span></h3>
+                        <p>Your enquiry number is <strong>@TempData["EnqNo"].ToString()</strong>. Kindly make a note of the enquiry number for future reference or to complete the application form.</p>
+                        <h3 class="text-success animated tada" style="font-size:28px">Do You Want To Proceed Further.</h3>
+                        <div class="row" style="margin-left:278px">
+                            <button type="button" name="BtnYes" id="BtnYes" class="btn btn-info">YES</button>
+                            <button type="button" name="BtnNo" id="BtnNo" class="btn btn-info" style="margin-left:10px">NO</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        }
+    }
+</div>
+
+<script type="text/javascript">
+
+    $(document).ready(function() {
+        document.title = "Thank You";
+    });
+
+    $("#BtnYes").click(function() {
+        var hdnenq = $('#hdnenq').val();
+        window.location.href = "../Enquiry/RegistrationMaster?EnquiryNo="+hdnenq+"";
+    });
+
+    $("#BtnNo").click(function() {
+        window.location.href = "/Home";
+    });
+
+</script>

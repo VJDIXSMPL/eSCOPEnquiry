@@ -1,0 +1,73 @@
+﻿@model eSCOPEnquiry.Models.Enquiry_BAL
+@{
+    ViewBag.Title = "Enquired User";
+}
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-8 col-xs-offset-2">
+            <div class="well well-lg mt30 mb30">
+                @using (Html.BeginForm("EnqtoReg", "Enquiry", FormMethod.Post, new { id = "ActionAddNewEnquiry", Class = "smart-form" }))
+                {
+                    <fieldset>
+                        <legend>Enquiry Details</legend>
+                        <div class="row">
+                            <section class="form-group col-sm-6">
+                                <label>Student Full Name <span style="color:red">*</span></label>
+                                @Html.EditorFor(model => model.Student_FirstName, new { htmlAttributes = new { @name = "Studentname", @class = "form-control", @MaxLength = 50, @placeholder = "Student Name" } })
+                            </section>
+                            <section class="form-group col-sm-6">
+                                <label>Date of Birth <span style="color:red">*</span></label>
+                                <label class="input-group date">
+                                    @Html.TextBoxFor(model => model.Student_Dob, "{0:dd/MM/yyyy}", new { @class = "form-control", @placeholder = "Select Date", @maxlength = 10, @type = "dateFormat" })
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+                                </label>
+                            </section>
+                        </div>
+                        <div class="row">
+                            <section class="form-group col-sm-6">
+                                <label>Mobile No.<span style="color:red">*</span></label>
+                                @Html.EditorFor(model => model.FMobileNo, new { htmlAttributes = new { @name = "FMobileNo", @class = "form-control", @MaxLength = 10, @placeholder = "Mobile No.", @Type = "number", @oninput = "javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" } })
+                            </section>
+                        </div>
+                    </fieldset>
+                    <div class="form-group text-right mt30 mb30">
+                        <a class="btn btn btn-primary" onclick="Reg_validation();">Next</a>
+                        <button class="btn btn-primary" id="btnSave" type="submit" value="Submit" name="FormCommand" style="display:none"></button>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    function Reg_validation() {
+        var Student_FirstName = $('#Student_FirstName').val();
+        var StudentDob = $('#StudentDob').val();
+        var FMobileNo = $('#FMobileNo').val();
+        var optMode = 'Enquireduser';
+        $.ajax({
+            url: "/Enquiry/Reg_Validate",
+            data: { Student_FirstName: Student_FirstName, StudentDob: StudentDob, FMobileNo: FMobileNo, optMode: optMode },
+            type: "get",
+            success: function(msg) {
+            }
+        });
+    }
+
+    $("#Student_Dob").datepicker({
+        format: 'dd/mm/yyyy',
+        todayHighlight: true,
+        autoclose: true
+    }).on('changeDate', function(e) {
+        var from = $("#Student_Dob").val().split("/");
+        var f = new Date(from[2], from[1] - 1, from[0]);
+        $('#hdStudent_Dob').val($("#Student_Dob").val());
+        $("#StudentDob").val($("#Student_Dob").val());
+        $('#ActionAddNewEnquiry').bootstrapValidator('revalidateField', 'Student_Dob');
+    });
+
+</script>

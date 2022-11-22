@@ -24,7 +24,7 @@ namespace eSCOPEnquiry.Controllers
         Enquiry_DAL EDAL;
         public EnquiryController(IConfiguration configuration)
         {
-                Configuration = configuration;
+            Configuration = configuration;
             conCommon = Configuration.GetConnectionString("DefaultConnection");
             EBAL = new Enquiry_BAL(conCommon);
             EDAL = new Enquiry_DAL(conCommon);
@@ -250,7 +250,6 @@ namespace eSCOPEnquiry.Controllers
             string msgOut = string.Empty;
             string EnquiryOut = string.Empty;
             string RegOut = string.Empty;
-
             if (FormCommand == "SaveRegistration")
             {
                 EBAL.McAddress = GetClientMac();
@@ -258,7 +257,6 @@ namespace eSCOPEnquiry.Controllers
                 EBAL.HostName = GetClientHost();
                 EBAL.optMode = "Insert";
                 EBAL.EnqNo = fc["hdEnquiryID"].ToString();
-
                 EDAL.Save_EnquiryRegistration(EBAL, out msgOut, out Result);
                 if (Result == 1)
                 {
@@ -273,7 +271,6 @@ namespace eSCOPEnquiry.Controllers
                     TempData["Errormsg"] = msgOut;
                 }
             }
-
             if (FormCommand.EndsWith("SubmitEnquiry2"))
             {
                 TempData["Mode"] = "Offline";
@@ -281,20 +278,25 @@ namespace eSCOPEnquiry.Controllers
             }
             else
             {
-
                 return RedirectToAction("ProceedPayment");
             }
-
         }
 
         public IActionResult ProceedPayment()
         {
-
             return View();
         }
 
+        public IActionResult EnquiredUser()
+        {
+            Enquiry_BAL EBAL = new Enquiry_BAL();
+            return View(EBAL);
+        }
 
+        public IActionResult RegisteredUser()
+        {
+            Enquiry_BAL EBAL = new Enquiry_BAL();
+            return View(EBAL);
+        }
     }
-
-
 }
