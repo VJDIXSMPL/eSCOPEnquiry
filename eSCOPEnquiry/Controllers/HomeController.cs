@@ -50,5 +50,14 @@ namespace eSCOPEnquiry.Controllers
         {
             return View();
         }
+
+        public IActionResult HTMLTOPDFNew()
+        {
+            return View();
+        }
+        public IActionResult HTMLTOPDFBonafide()
+        {
+            return View();
+        }
     }
 }

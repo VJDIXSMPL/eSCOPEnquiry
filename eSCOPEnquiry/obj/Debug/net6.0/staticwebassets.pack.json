@@ -1,0 +1,1553 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\eSCOPEnquiry.bundle.scp.css",
+      "PackagePath": "staticwebassets\\eSCOPEnquiry.bundle.scp.css"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\DocsUpload\\School_2_bak\\-1\\AddressProof\\AddressProof_-1\\Second_PaymentCreditCard.png",
+      "PackagePath": "staticwebassets\\DocsUpload\\School_2_bak\\-1\\AddressProof\\AddressProof_-1\\Second_PaymentCreditCard.png"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\DocsUpload\\School_2_bak\\-1\\AddressProof\\AddressProof_-1\\add.png",
+      "PackagePath": "staticwebassets\\DocsUpload\\School_2_bak\\-1\\AddressProof\\AddressProof_-1\\add.png"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\DocsUpload\\School_2_bak\\-1\\AddressProof\\AddressProof_-1\\ui-icons_eb990f_256x240.png",
+      "PackagePath": "staticwebassets\\DocsUpload\\School_2_bak\\-1\\AddressProof\\AddressProof_-1\\ui-icons_eb990f_256x240.png"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\DocsUpload\\School_2_bak\\-1\\Father\\FatherPhoto_-1\\Second_PaymentCreditCard.png",
+      "PackagePath": "staticwebassets\\DocsUpload\\School_2_bak\\-1\\Father\\FatherPhoto_-1\\Second_PaymentCreditCard.png"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\DocsUpload\\School_2_bak\\-1\\Father\\FatherPhoto_-1\\ui-icons_eb990f_256x240.png",
+      "PackagePath": "staticwebassets\\DocsUpload\\School_2_bak\\-1\\Father\\FatherPhoto_-1\\ui-icons_eb990f_256x240.png"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\DocsUpload\\School_2_bak\\-1\\Mohter\\MohterPhoto_-1\\Second_PaymentCreditCard.png",
+      "PackagePath": "staticwebassets\\DocsUpload\\School_2_bak\\-1\\Mohter\\MohterPhoto_-1\\Second_PaymentCreditCard.png"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\DocsUpload\\School_2_bak\\-1\\Mohter\\MohterPhoto_-1\\add.png",
+      "PackagePath": "staticwebassets\\DocsUpload\\School_2_bak\\-1\\Mohter\\MohterPhoto_-1\\add.png"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\DocsUpload\\School_2_bak\\-1\\Mohter\\MohterPhoto_-1\\ui-icons_eb990f_256x240.png",
+      "PackagePath": "staticwebassets\\DocsUpload\\School_2_bak\\-1\\Mohter\\MohterPhoto_-1\\ui-icons_eb990f_256x240.png"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\DocsUpload\\School_2_bak\\-1\\SelfAttested\\SelfAttested_-1\\Second_PaymentCreditCard.png",
+      "PackagePath": "staticwebassets\\DocsUpload\\School_2_bak\\-1\\SelfAttested\\SelfAttested_-1\\Second_PaymentCreditCard.png"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\DocsUpload\\School_2_bak\\-1\\SelfAttested\\SelfAttested_-1\\add.png",
+      "PackagePath": "staticwebassets\\DocsUpload\\School_2_bak\\-1\\SelfAttested\\SelfAttested_-1\\add.png"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\DocsUpload\\School_2_bak\\-1\\Student\\StudentPhoto_-1\\Second_PaymentCreditCard.png",
+      "PackagePath": "staticwebassets\\DocsUpload\\School_2_bak\\-1\\Student\\StudentPhoto_-1\\Second_PaymentCreditCard.png"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\DocsUpload\\School_2_bak\\-1\\Student\\StudentPhoto_-1\\add.png",
+      "PackagePath": "staticwebassets\\DocsUpload\\School_2_bak\\-1\\Student\\StudentPhoto_-1\\add.png"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\DocsUpload\\School_2_bak\\-1\\Student\\StudentPhoto_-1\\ui-icons_eb990f_256x240.png",
+      "PackagePath": "staticwebassets\\DocsUpload\\School_2_bak\\-1\\Student\\StudentPhoto_-1\\ui-icons_eb990f_256x240.png"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\DocsUpload\\School_2_bak\\03491123\\AddressProof\\AddressProof_03491123\\Screenshot (6).png",
+      "PackagePath": "staticwebassets\\DocsUpload\\School_2_bak\\03491123\\AddressProof\\AddressProof_03491123\\Screenshot (6).png"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\DocsUpload\\School_2_bak\\03491123\\Father\\FatherPhoto_03491123\\Screenshot (6).png",
+      "PackagePath": "staticwebassets\\DocsUpload\\School_2_bak\\03491123\\Father\\FatherPhoto_03491123\\Screenshot (6).png"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\DocsUpload\\School_2_bak\\03491123\\Mohter\\MohterPhoto_03491123\\Screenshot (5).png",
+      "PackagePath": "staticwebassets\\DocsUpload\\School_2_bak\\03491123\\Mohter\\MohterPhoto_03491123\\Screenshot (5).png"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\DocsUpload\\School_2_bak\\03491123\\SelfAttested\\SelfAttested_03491123\\Screenshot (3).png",
+      "PackagePath": "staticwebassets\\DocsUpload\\School_2_bak\\03491123\\SelfAttested\\SelfAttested_03491123\\Screenshot (3).png"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\DocsUpload\\School_2_bak\\03491123\\Student\\StudentPhoto_03491123\\Screenshot (4).png",
+      "PackagePath": "staticwebassets\\DocsUpload\\School_2_bak\\03491123\\Student\\StudentPhoto_03491123\\Screenshot (4).png"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\DocsUpload\\School_2_bak\\09657356\\AddressProof\\AddressProof_09657356\\Screenshot (4).png",
+      "PackagePath": "staticwebassets\\DocsUpload\\School_2_bak\\09657356\\AddressProof\\AddressProof_09657356\\Screenshot (4).png"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\DocsUpload\\School_2_bak\\09657356\\Father\\FatherPhoto_09657356\\Screenshot (6).png",
+      "PackagePath": "staticwebassets\\DocsUpload\\School_2_bak\\09657356\\Father\\FatherPhoto_09657356\\Screenshot (6).png"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\DocsUpload\\School_2_bak\\09657356\\Mohter\\MohterPhoto_09657356\\Screenshot (4).png",
+      "PackagePath": "staticwebassets\\DocsUpload\\School_2_bak\\09657356\\Mohter\\MohterPhoto_09657356\\Screenshot (4).png"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\DocsUpload\\School_2_bak\\09657356\\SelfAttested\\SelfAttested_09657356\\Screenshot (3).png",
+      "PackagePath": "staticwebassets\\DocsUpload\\School_2_bak\\09657356\\SelfAttested\\SelfAttested_09657356\\Screenshot (3).png"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\DocsUpload\\School_2_bak\\09657356\\Student\\StudentPhoto_09657356\\Screenshot (5).png",
+      "PackagePath": "staticwebassets\\DocsUpload\\School_2_bak\\09657356\\Student\\StudentPhoto_09657356\\Screenshot (5).png"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\DocsUpload\\School_2_bak\\15938845\\AddressProof\\AddressProof_15938845\\communication_history.jpg",
+      "PackagePath": "staticwebassets\\DocsUpload\\School_2_bak\\15938845\\AddressProof\\AddressProof_15938845\\communication_history.jpg"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\DocsUpload\\School_2_bak\\15938845\\Father\\FatherPhoto_15938845\\communication_history.jpg",
+      "PackagePath": "staticwebassets\\DocsUpload\\School_2_bak\\15938845\\Father\\FatherPhoto_15938845\\communication_history.jpg"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\DocsUpload\\School_2_bak\\15938845\\Mohter\\MohterPhoto_15938845\\communication_history.jpg",
+      "PackagePath": "staticwebassets\\DocsUpload\\School_2_bak\\15938845\\Mohter\\MohterPhoto_15938845\\communication_history.jpg"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\DocsUpload\\School_2_bak\\15938845\\SelfAttested\\SelfAttested_15938845\\add.png",
+      "PackagePath": "staticwebassets\\DocsUpload\\School_2_bak\\15938845\\SelfAttested\\SelfAttested_15938845\\add.png"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\DocsUpload\\School_2_bak\\15938845\\Student\\StudentPhoto_15938845\\communication_history.jpg",
+      "PackagePath": "staticwebassets\\DocsUpload\\School_2_bak\\15938845\\Student\\StudentPhoto_15938845\\communication_history.jpg"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\DocsUpload\\School_2_bak\\18878028\\AddressProof\\AddressProof_18878028\\communication_history.jpg",
+      "PackagePath": "staticwebassets\\DocsUpload\\School_2_bak\\18878028\\AddressProof\\AddressProof_18878028\\communication_history.jpg"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\DocsUpload\\School_2_bak\\18878028\\Father\\FatherPhoto_18878028\\add.png",
+      "PackagePath": "staticwebassets\\DocsUpload\\School_2_bak\\18878028\\Father\\FatherPhoto_18878028\\add.png"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\DocsUpload\\School_2_bak\\18878028\\Mohter\\MohterPhoto_18878028\\communication_history.jpg",
+      "PackagePath": "staticwebassets\\DocsUpload\\School_2_bak\\18878028\\Mohter\\MohterPhoto_18878028\\communication_history.jpg"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\DocsUpload\\School_2_bak\\18878028\\SelfAttested\\SelfAttested_18878028\\add.png",
+      "PackagePath": "staticwebassets\\DocsUpload\\School_2_bak\\18878028\\SelfAttested\\SelfAttested_18878028\\add.png"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\DocsUpload\\School_2_bak\\18878028\\Student\\StudentPhoto_18878028\\ui-icons_eb990f_256x240.png",
+      "PackagePath": "staticwebassets\\DocsUpload\\School_2_bak\\18878028\\Student\\StudentPhoto_18878028\\ui-icons_eb990f_256x240.png"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\DocsUpload\\School_2_bak\\23202986\\AddressProof\\AddressProof_23202986\\Screenshot (4).png",
+      "PackagePath": "staticwebassets\\DocsUpload\\School_2_bak\\23202986\\AddressProof\\AddressProof_23202986\\Screenshot (4).png"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\DocsUpload\\School_2_bak\\23202986\\Father\\FatherPhoto_23202986\\Screenshot (6).png",
+      "PackagePath": "staticwebassets\\DocsUpload\\School_2_bak\\23202986\\Father\\FatherPhoto_23202986\\Screenshot (6).png"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\DocsUpload\\School_2_bak\\23202986\\Mohter\\MohterPhoto_23202986\\Screenshot (3).png",
+      "PackagePath": "staticwebassets\\DocsUpload\\School_2_bak\\23202986\\Mohter\\MohterPhoto_23202986\\Screenshot (3).png"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\DocsUpload\\School_2_bak\\23202986\\SelfAttested\\SelfAttested_23202986\\Screenshot (3).png",
+      "PackagePath": "staticwebassets\\DocsUpload\\School_2_bak\\23202986\\SelfAttested\\SelfAttested_23202986\\Screenshot (3).png"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\DocsUpload\\School_2_bak\\23202986\\Student\\StudentPhoto_23202986\\Screenshot (5).png",
+      "PackagePath": "staticwebassets\\DocsUpload\\School_2_bak\\23202986\\Student\\StudentPhoto_23202986\\Screenshot (5).png"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\DocsUpload\\School_2_bak\\3244242\\AddressProof\\AddressProof_3244242\\add.png",
+      "PackagePath": "staticwebassets\\DocsUpload\\School_2_bak\\3244242\\AddressProof\\AddressProof_3244242\\add.png"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\DocsUpload\\School_2_bak\\3244242\\Father\\FatherPhoto_3244242\\ui-icons_eb990f_256x240.png",
+      "PackagePath": "staticwebassets\\DocsUpload\\School_2_bak\\3244242\\Father\\FatherPhoto_3244242\\ui-icons_eb990f_256x240.png"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\DocsUpload\\School_2_bak\\3244242\\Mohter\\MohterPhoto_3244242\\Second_PaymentCreditCard.png",
+      "PackagePath": "staticwebassets\\DocsUpload\\School_2_bak\\3244242\\Mohter\\MohterPhoto_3244242\\Second_PaymentCreditCard.png"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\DocsUpload\\School_2_bak\\3244242\\SelfAttested\\SelfAttested_3244242\\Second_PaymentCreditCard.png",
+      "PackagePath": "staticwebassets\\DocsUpload\\School_2_bak\\3244242\\SelfAttested\\SelfAttested_3244242\\Second_PaymentCreditCard.png"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\DocsUpload\\School_2_bak\\3244242\\Student\\StudentPhoto_3244242\\communication_history.jpg",
+      "PackagePath": "staticwebassets\\DocsUpload\\School_2_bak\\3244242\\Student\\StudentPhoto_3244242\\communication_history.jpg"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\DocsUpload\\School_2_bak\\47605583\\Father\\FatherPhoto_47605583\\communication_history.jpg",
+      "PackagePath": "staticwebassets\\DocsUpload\\School_2_bak\\47605583\\Father\\FatherPhoto_47605583\\communication_history.jpg"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\DocsUpload\\School_2_bak\\47605583\\Mohter\\MohterPhoto_47605583\\add.png",
+      "PackagePath": "staticwebassets\\DocsUpload\\School_2_bak\\47605583\\Mohter\\MohterPhoto_47605583\\add.png"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\DocsUpload\\School_2_bak\\47605583\\SelfAttested\\SelfAttested_47605583\\add.png",
+      "PackagePath": "staticwebassets\\DocsUpload\\School_2_bak\\47605583\\SelfAttested\\SelfAttested_47605583\\add.png"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\DocsUpload\\School_2_bak\\47850857\\AddressProof\\AddressProof_47850857\\Second_PaymentCreditCard.png",
+      "PackagePath": "staticwebassets\\DocsUpload\\School_2_bak\\47850857\\AddressProof\\AddressProof_47850857\\Second_PaymentCreditCard.png"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\DocsUpload\\School_2_bak\\47850857\\Father\\FatherPhoto_47850857\\Second_PaymentCreditCard.png",
+      "PackagePath": "staticwebassets\\DocsUpload\\School_2_bak\\47850857\\Father\\FatherPhoto_47850857\\Second_PaymentCreditCard.png"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\DocsUpload\\School_2_bak\\47850857\\Mohter\\MohterPhoto_47850857\\add.png",
+      "PackagePath": "staticwebassets\\DocsUpload\\School_2_bak\\47850857\\Mohter\\MohterPhoto_47850857\\add.png"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\DocsUpload\\School_2_bak\\47850857\\SelfAttested\\SelfAttested_47850857\\Second_PaymentCreditCard.png",
+      "PackagePath": "staticwebassets\\DocsUpload\\School_2_bak\\47850857\\SelfAttested\\SelfAttested_47850857\\Second_PaymentCreditCard.png"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\DocsUpload\\School_2_bak\\47850857\\Student\\StudentPhoto_47850857\\Second_PaymentCreditCard.png",
+      "PackagePath": "staticwebassets\\DocsUpload\\School_2_bak\\47850857\\Student\\StudentPhoto_47850857\\Second_PaymentCreditCard.png"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\DocsUpload\\School_2_bak\\51937860\\AddressProof\\AddressProof_51937860\\Screenshot (4).png",
+      "PackagePath": "staticwebassets\\DocsUpload\\School_2_bak\\51937860\\AddressProof\\AddressProof_51937860\\Screenshot (4).png"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\DocsUpload\\School_2_bak\\51937860\\Father\\FatherPhoto_51937860\\Screenshot (6).png",
+      "PackagePath": "staticwebassets\\DocsUpload\\School_2_bak\\51937860\\Father\\FatherPhoto_51937860\\Screenshot (6).png"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\DocsUpload\\School_2_bak\\51937860\\Mohter\\MohterPhoto_51937860\\Screenshot (6).png",
+      "PackagePath": "staticwebassets\\DocsUpload\\School_2_bak\\51937860\\Mohter\\MohterPhoto_51937860\\Screenshot (6).png"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\DocsUpload\\School_2_bak\\51937860\\SelfAttested\\SelfAttested_51937860\\Screenshot (3).png",
+      "PackagePath": "staticwebassets\\DocsUpload\\School_2_bak\\51937860\\SelfAttested\\SelfAttested_51937860\\Screenshot (3).png"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\DocsUpload\\School_2_bak\\51937860\\Student\\StudentPhoto_51937860\\Screenshot (4).png",
+      "PackagePath": "staticwebassets\\DocsUpload\\School_2_bak\\51937860\\Student\\StudentPhoto_51937860\\Screenshot (4).png"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\DocsUpload\\School_2_bak\\52522598\\AddressProof\\AddressProof_52522598\\communication_history.jpg",
+      "PackagePath": "staticwebassets\\DocsUpload\\School_2_bak\\52522598\\AddressProof\\AddressProof_52522598\\communication_history.jpg"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\DocsUpload\\School_2_bak\\52522598\\Father\\FatherPhoto_52522598\\communication_history.jpg",
+      "PackagePath": "staticwebassets\\DocsUpload\\School_2_bak\\52522598\\Father\\FatherPhoto_52522598\\communication_history.jpg"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\DocsUpload\\School_2_bak\\52522598\\Mohter\\MohterPhoto_52522598\\communication_history.jpg",
+      "PackagePath": "staticwebassets\\DocsUpload\\School_2_bak\\52522598\\Mohter\\MohterPhoto_52522598\\communication_history.jpg"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\DocsUpload\\School_2_bak\\52522598\\SelfAttested\\SelfAttested_52522598\\add.png",
+      "PackagePath": "staticwebassets\\DocsUpload\\School_2_bak\\52522598\\SelfAttested\\SelfAttested_52522598\\add.png"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\DocsUpload\\School_2_bak\\52522598\\Student\\StudentPhoto_52522598\\ui-icons_eb990f_256x240.png",
+      "PackagePath": "staticwebassets\\DocsUpload\\School_2_bak\\52522598\\Student\\StudentPhoto_52522598\\ui-icons_eb990f_256x240.png"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\DocsUpload\\School_2_bak\\57374680\\SelfAttested\\SelfAttested_57374680\\add.png",
+      "PackagePath": "staticwebassets\\DocsUpload\\School_2_bak\\57374680\\SelfAttested\\SelfAttested_57374680\\add.png"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\DocsUpload\\School_2_bak\\61673319\\AddressProof\\AddressProof_61673319\\communication_history.jpg",
+      "PackagePath": "staticwebassets\\DocsUpload\\School_2_bak\\61673319\\AddressProof\\AddressProof_61673319\\communication_history.jpg"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\DocsUpload\\School_2_bak\\61673319\\Father\\FatherPhoto_61673319\\ui-icons_eb990f_256x240.png",
+      "PackagePath": "staticwebassets\\DocsUpload\\School_2_bak\\61673319\\Father\\FatherPhoto_61673319\\ui-icons_eb990f_256x240.png"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\DocsUpload\\School_2_bak\\61673319\\Mohter\\MohterPhoto_61673319\\add.png",
+      "PackagePath": "staticwebassets\\DocsUpload\\School_2_bak\\61673319\\Mohter\\MohterPhoto_61673319\\add.png"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\DocsUpload\\School_2_bak\\61673319\\SelfAttested\\SelfAttested_61673319\\add.png",
+      "PackagePath": "staticwebassets\\DocsUpload\\School_2_bak\\61673319\\SelfAttested\\SelfAttested_61673319\\add.png"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\DocsUpload\\School_2_bak\\61673319\\Student\\StudentPhoto_61673319\\communication_history.jpg",
+      "PackagePath": "staticwebassets\\DocsUpload\\School_2_bak\\61673319\\Student\\StudentPhoto_61673319\\communication_history.jpg"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\DocsUpload\\School_2_bak\\63026845\\AddressProof\\AddressProof_63026845\\Screenshot (3).png",
+      "PackagePath": "staticwebassets\\DocsUpload\\School_2_bak\\63026845\\AddressProof\\AddressProof_63026845\\Screenshot (3).png"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\DocsUpload\\School_2_bak\\63026845\\Father\\FatherPhoto_63026845\\Screenshot (3).png",
+      "PackagePath": "staticwebassets\\DocsUpload\\School_2_bak\\63026845\\Father\\FatherPhoto_63026845\\Screenshot (3).png"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\DocsUpload\\School_2_bak\\63026845\\Student\\StudentPhoto_63026845\\Screenshot (3).png",
+      "PackagePath": "staticwebassets\\DocsUpload\\School_2_bak\\63026845\\Student\\StudentPhoto_63026845\\Screenshot (3).png"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\DocsUpload\\School_2_bak\\70923696\\SelfAttested\\SelfAttested_70923696\\add.png",
+      "PackagePath": "staticwebassets\\DocsUpload\\School_2_bak\\70923696\\SelfAttested\\SelfAttested_70923696\\add.png"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\DocsUpload\\School_2_bak\\71301610\\AddressProof\\AddressProof_71301610\\Screenshot (5).png",
+      "PackagePath": "staticwebassets\\DocsUpload\\School_2_bak\\71301610\\AddressProof\\AddressProof_71301610\\Screenshot (5).png"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\DocsUpload\\School_2_bak\\71301610\\Father\\FatherPhoto_71301610\\Screenshot (6).png",
+      "PackagePath": "staticwebassets\\DocsUpload\\School_2_bak\\71301610\\Father\\FatherPhoto_71301610\\Screenshot (6).png"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\DocsUpload\\School_2_bak\\71301610\\Mohter\\MohterPhoto_71301610\\Screenshot (3).png",
+      "PackagePath": "staticwebassets\\DocsUpload\\School_2_bak\\71301610\\Mohter\\MohterPhoto_71301610\\Screenshot (3).png"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\DocsUpload\\School_2_bak\\71301610\\SelfAttested\\SelfAttested_71301610\\Screenshot (3).png",
+      "PackagePath": "staticwebassets\\DocsUpload\\School_2_bak\\71301610\\SelfAttested\\SelfAttested_71301610\\Screenshot (3).png"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\DocsUpload\\School_2_bak\\71301610\\Student\\StudentPhoto_71301610\\Screenshot (4).png",
+      "PackagePath": "staticwebassets\\DocsUpload\\School_2_bak\\71301610\\Student\\StudentPhoto_71301610\\Screenshot (4).png"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\DocsUpload\\School_2_bak\\76117440\\AddressProof\\AddressProof_76117440\\Screenshot (4).png",
+      "PackagePath": "staticwebassets\\DocsUpload\\School_2_bak\\76117440\\AddressProof\\AddressProof_76117440\\Screenshot (4).png"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\DocsUpload\\School_2_bak\\76117440\\Father\\FatherPhoto_76117440\\Screenshot (4).png",
+      "PackagePath": "staticwebassets\\DocsUpload\\School_2_bak\\76117440\\Father\\FatherPhoto_76117440\\Screenshot (4).png"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\DocsUpload\\School_2_bak\\76117440\\Mohter\\MohterPhoto_76117440\\Screenshot (6).png",
+      "PackagePath": "staticwebassets\\DocsUpload\\School_2_bak\\76117440\\Mohter\\MohterPhoto_76117440\\Screenshot (6).png"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\DocsUpload\\School_2_bak\\76117440\\SelfAttested\\SelfAttested_76117440\\Screenshot (3).png",
+      "PackagePath": "staticwebassets\\DocsUpload\\School_2_bak\\76117440\\SelfAttested\\SelfAttested_76117440\\Screenshot (3).png"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\DocsUpload\\School_2_bak\\76117440\\Student\\StudentPhoto_76117440\\Screenshot (3).png",
+      "PackagePath": "staticwebassets\\DocsUpload\\School_2_bak\\76117440\\Student\\StudentPhoto_76117440\\Screenshot (3).png"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\DocsUpload\\School_2_bak\\83572281\\AddressProof\\AddressProof_83572281\\Screenshot (4).png",
+      "PackagePath": "staticwebassets\\DocsUpload\\School_2_bak\\83572281\\AddressProof\\AddressProof_83572281\\Screenshot (4).png"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\DocsUpload\\School_2_bak\\83572281\\Father\\FatherPhoto_83572281\\Screenshot (6).png",
+      "PackagePath": "staticwebassets\\DocsUpload\\School_2_bak\\83572281\\Father\\FatherPhoto_83572281\\Screenshot (6).png"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\DocsUpload\\School_2_bak\\83572281\\Mohter\\MohterPhoto_83572281\\Screenshot (3).png",
+      "PackagePath": "staticwebassets\\DocsUpload\\School_2_bak\\83572281\\Mohter\\MohterPhoto_83572281\\Screenshot (3).png"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\DocsUpload\\School_2_bak\\83572281\\SelfAttested\\SelfAttested_83572281\\Screenshot (3).png",
+      "PackagePath": "staticwebassets\\DocsUpload\\School_2_bak\\83572281\\SelfAttested\\SelfAttested_83572281\\Screenshot (3).png"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\DocsUpload\\School_2_bak\\83572281\\Student\\StudentPhoto_83572281\\Screenshot (5).png",
+      "PackagePath": "staticwebassets\\DocsUpload\\School_2_bak\\83572281\\Student\\StudentPhoto_83572281\\Screenshot (5).png"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\DocsUpload\\School_2_bak\\85944427\\AddressProof\\AddressProof_85944427\\ui-icons_eb990f_256x240.png",
+      "PackagePath": "staticwebassets\\DocsUpload\\School_2_bak\\85944427\\AddressProof\\AddressProof_85944427\\ui-icons_eb990f_256x240.png"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\DocsUpload\\School_2_bak\\85944427\\Father\\FatherPhoto_85944427\\communication_history.jpg",
+      "PackagePath": "staticwebassets\\DocsUpload\\School_2_bak\\85944427\\Father\\FatherPhoto_85944427\\communication_history.jpg"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\DocsUpload\\School_2_bak\\85944427\\Father\\FatherPhoto_85944427\\ui-icons_eb990f_256x240.png",
+      "PackagePath": "staticwebassets\\DocsUpload\\School_2_bak\\85944427\\Father\\FatherPhoto_85944427\\ui-icons_eb990f_256x240.png"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\DocsUpload\\School_2_bak\\85944427\\Mohter\\MohterPhoto_85944427\\Second_PaymentCreditCard.png",
+      "PackagePath": "staticwebassets\\DocsUpload\\School_2_bak\\85944427\\Mohter\\MohterPhoto_85944427\\Second_PaymentCreditCard.png"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\DocsUpload\\School_2_bak\\85944427\\Mohter\\MohterPhoto_85944427\\communication_history.jpg",
+      "PackagePath": "staticwebassets\\DocsUpload\\School_2_bak\\85944427\\Mohter\\MohterPhoto_85944427\\communication_history.jpg"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\DocsUpload\\School_2_bak\\85944427\\SelfAttested\\SelfAttested_85944427\\add.png",
+      "PackagePath": "staticwebassets\\DocsUpload\\School_2_bak\\85944427\\SelfAttested\\SelfAttested_85944427\\add.png"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\DocsUpload\\School_2_bak\\85944427\\Student\\StudentPhoto_85944427\\add.png",
+      "PackagePath": "staticwebassets\\DocsUpload\\School_2_bak\\85944427\\Student\\StudentPhoto_85944427\\add.png"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\DocsUpload\\School_2_bak\\85944427\\Student\\StudentPhoto_85944427\\ui-icons_eb990f_256x240.png",
+      "PackagePath": "staticwebassets\\DocsUpload\\School_2_bak\\85944427\\Student\\StudentPhoto_85944427\\ui-icons_eb990f_256x240.png"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\DocsUpload\\School_2_bak\\96526674\\AddressProof\\AddressProof_96526674\\Second_PaymentCreditCard.png",
+      "PackagePath": "staticwebassets\\DocsUpload\\School_2_bak\\96526674\\AddressProof\\AddressProof_96526674\\Second_PaymentCreditCard.png"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\DocsUpload\\School_2_bak\\96526674\\Father\\FatherPhoto_96526674\\Second_PaymentCreditCard.png",
+      "PackagePath": "staticwebassets\\DocsUpload\\School_2_bak\\96526674\\Father\\FatherPhoto_96526674\\Second_PaymentCreditCard.png"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\DocsUpload\\School_2_bak\\96526674\\Mohter\\MohterPhoto_96526674\\Second_PaymentCreditCard.png",
+      "PackagePath": "staticwebassets\\DocsUpload\\School_2_bak\\96526674\\Mohter\\MohterPhoto_96526674\\Second_PaymentCreditCard.png"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\DocsUpload\\School_2_bak\\96526674\\SelfAttested\\SelfAttested_96526674\\Second_PaymentCreditCard.png",
+      "PackagePath": "staticwebassets\\DocsUpload\\School_2_bak\\96526674\\SelfAttested\\SelfAttested_96526674\\Second_PaymentCreditCard.png"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\DocsUpload\\School_2_bak\\96526674\\Student\\StudentPhoto_96526674\\Second_PaymentCreditCard.png",
+      "PackagePath": "staticwebassets\\DocsUpload\\School_2_bak\\96526674\\Student\\StudentPhoto_96526674\\Second_PaymentCreditCard.png"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\DocsUpload\\School_2_bak\\99388538\\AddressProof\\AddressProof_99388538\\ui-icons_eb990f_256x240.png",
+      "PackagePath": "staticwebassets\\DocsUpload\\School_2_bak\\99388538\\AddressProof\\AddressProof_99388538\\ui-icons_eb990f_256x240.png"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\DocsUpload\\School_2_bak\\99388538\\Father\\FatherPhoto_99388538\\Second_PaymentCreditCard.png",
+      "PackagePath": "staticwebassets\\DocsUpload\\School_2_bak\\99388538\\Father\\FatherPhoto_99388538\\Second_PaymentCreditCard.png"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\DocsUpload\\School_2_bak\\99388538\\Mohter\\MohterPhoto_99388538\\communication_history.jpg",
+      "PackagePath": "staticwebassets\\DocsUpload\\School_2_bak\\99388538\\Mohter\\MohterPhoto_99388538\\communication_history.jpg"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\DocsUpload\\School_2_bak\\99388538\\SelfAttested\\SelfAttested_99388538\\Second_PaymentCreditCard.png",
+      "PackagePath": "staticwebassets\\DocsUpload\\School_2_bak\\99388538\\SelfAttested\\SelfAttested_99388538\\Second_PaymentCreditCard.png"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\DocsUpload\\School_2_bak\\99388538\\Student\\StudentPhoto_99388538\\Second_PaymentCreditCard.png",
+      "PackagePath": "staticwebassets\\DocsUpload\\School_2_bak\\99388538\\Student\\StudentPhoto_99388538\\Second_PaymentCreditCard.png"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\Scripts\\UploadScripts.js",
+      "PackagePath": "staticwebassets\\Scripts\\UploadScripts.js"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\Scripts\\bootstrap-timepicker.min.js",
+      "PackagePath": "staticwebassets\\Scripts\\bootstrap-timepicker.min.js"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\Scripts\\bootstrap.bundle.js",
+      "PackagePath": "staticwebassets\\Scripts\\bootstrap.bundle.js"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\Scripts\\bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets\\Scripts\\bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\Scripts\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\Scripts\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\Scripts\\bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets\\Scripts\\bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\Scripts\\bootstrap.esm.js",
+      "PackagePath": "staticwebassets\\Scripts\\bootstrap.esm.js"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\Scripts\\bootstrap.esm.js.map",
+      "PackagePath": "staticwebassets\\Scripts\\bootstrap.esm.js.map"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\Scripts\\bootstrap.esm.min.js",
+      "PackagePath": "staticwebassets\\Scripts\\bootstrap.esm.min.js"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\Scripts\\bootstrap.esm.min.js.map",
+      "PackagePath": "staticwebassets\\Scripts\\bootstrap.esm.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\Scripts\\bootstrap.js",
+      "PackagePath": "staticwebassets\\Scripts\\bootstrap.js"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\Scripts\\bootstrap.js.map",
+      "PackagePath": "staticwebassets\\Scripts\\bootstrap.js.map"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\Scripts\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\Scripts\\bootstrap.min.js"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\Scripts\\bootstrap.min.js.map",
+      "PackagePath": "staticwebassets\\Scripts\\bootstrap.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\Scripts\\bootstrapValidator.min.js",
+      "PackagePath": "staticwebassets\\Scripts\\bootstrapValidator.min.js"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\Scripts\\eSCOP\\AttedanceMarking.js",
+      "PackagePath": "staticwebassets\\Scripts\\eSCOP\\AttedanceMarking.js"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\Scripts\\eSCOP\\AttedanceSetup.js",
+      "PackagePath": "staticwebassets\\Scripts\\eSCOP\\AttedanceSetup.js"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\Scripts\\eSCOP\\BuildAjaxData.js",
+      "PackagePath": "staticwebassets\\Scripts\\eSCOP\\BuildAjaxData.js"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\Scripts\\eSCOP\\CommonBinder.js",
+      "PackagePath": "staticwebassets\\Scripts\\eSCOP\\CommonBinder.js"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\Scripts\\eSCOP\\CommunicationStatusChange.js",
+      "PackagePath": "staticwebassets\\Scripts\\eSCOP\\CommunicationStatusChange.js"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\Scripts\\eSCOP\\ExamBinder.js",
+      "PackagePath": "staticwebassets\\Scripts\\eSCOP\\ExamBinder.js"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\Scripts\\eSCOP\\ExcelGanrate.js",
+      "PackagePath": "staticwebassets\\Scripts\\eSCOP\\ExcelGanrate.js"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\Scripts\\eSCOP\\HolidayDetails.js",
+      "PackagePath": "staticwebassets\\Scripts\\eSCOP\\HolidayDetails.js"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\Scripts\\eSCOP\\INVCommonBinder.js",
+      "PackagePath": "staticwebassets\\Scripts\\eSCOP\\INVCommonBinder.js"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\Scripts\\eSCOP\\OpenDays.js",
+      "PackagePath": "staticwebassets\\Scripts\\eSCOP\\OpenDays.js"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\Scripts\\eSCOP\\WeekofMapping.js",
+      "PackagePath": "staticwebassets\\Scripts\\eSCOP\\WeekofMapping.js"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\Scripts\\eSCOP\\validate.js",
+      "PackagePath": "staticwebassets\\Scripts\\eSCOP\\validate.js"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\Scripts\\eSSMS\\CommonBinder.js",
+      "PackagePath": "staticwebassets\\Scripts\\eSSMS\\CommonBinder.js"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\Scripts\\eSSMS\\ValdateScript.js",
+      "PackagePath": "staticwebassets\\Scripts\\eSSMS\\ValdateScript.js"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\Scripts\\jquery-1.10.2.intellisense.js",
+      "PackagePath": "staticwebassets\\Scripts\\jquery-1.10.2.intellisense.js"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\Scripts\\jquery-1.10.2.js",
+      "PackagePath": "staticwebassets\\Scripts\\jquery-1.10.2.js"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\Scripts\\jquery-1.10.2.min.js",
+      "PackagePath": "staticwebassets\\Scripts\\jquery-1.10.2.min.js"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\Scripts\\jquery-1.10.2.min.map",
+      "PackagePath": "staticwebassets\\Scripts\\jquery-1.10.2.min.map"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\Scripts\\jquery-3.6.0.js",
+      "PackagePath": "staticwebassets\\Scripts\\jquery-3.6.0.js"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\Scripts\\jquery-3.6.0.min.js",
+      "PackagePath": "staticwebassets\\Scripts\\jquery-3.6.0.min.js"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\Scripts\\jquery-3.6.0.min.map",
+      "PackagePath": "staticwebassets\\Scripts\\jquery-3.6.0.min.map"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\Scripts\\jquery-3.6.0.slim.js",
+      "PackagePath": "staticwebassets\\Scripts\\jquery-3.6.0.slim.js"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\Scripts\\jquery-3.6.0.slim.min.js",
+      "PackagePath": "staticwebassets\\Scripts\\jquery-3.6.0.slim.min.js"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\Scripts\\jquery-3.6.0.slim.min.map",
+      "PackagePath": "staticwebassets\\Scripts\\jquery-3.6.0.slim.min.map"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\Scripts\\jquery-ui-1.10.3.min.js",
+      "PackagePath": "staticwebassets\\Scripts\\jquery-ui-1.10.3.min.js"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\Scripts\\jquery-ui.js",
+      "PackagePath": "staticwebassets\\Scripts\\jquery-ui.js"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\Scripts\\jquery.validate-vsdoc.js",
+      "PackagePath": "staticwebassets\\Scripts\\jquery.validate-vsdoc.js"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\Scripts\\jquery.validate.js",
+      "PackagePath": "staticwebassets\\Scripts\\jquery.validate.js"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\Scripts\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\Scripts\\jquery.validate.min.js"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\Scripts\\jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets\\Scripts\\jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\Scripts\\jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets\\Scripts\\jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\Scripts\\modernizr-2.6.2.js",
+      "PackagePath": "staticwebassets\\Scripts\\modernizr-2.6.2.js"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\Scripts\\modernizr-2.8.3.js",
+      "PackagePath": "staticwebassets\\Scripts\\modernizr-2.8.3.js"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\Scripts\\notification\\SmartNotification.min.js",
+      "PackagePath": "staticwebassets\\Scripts\\notification\\SmartNotification.min.js"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\Scripts\\respond.js",
+      "PackagePath": "staticwebassets\\Scripts\\respond.js"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\Scripts\\respond.matchmedia.addListener.js",
+      "PackagePath": "staticwebassets\\Scripts\\respond.matchmedia.addListener.js"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\Scripts\\respond.matchmedia.addListener.min.js",
+      "PackagePath": "staticwebassets\\Scripts\\respond.matchmedia.addListener.min.js"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\Scripts\\respond.min.js",
+      "PackagePath": "staticwebassets\\Scripts\\respond.min.js"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\Scripts\\smart-chat-ui\\smart.chat.manager.min.js",
+      "PackagePath": "staticwebassets\\Scripts\\smart-chat-ui\\smart.chat.manager.min.js"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\Scripts\\smart-chat-ui\\smart.chat.ui.min.js",
+      "PackagePath": "staticwebassets\\Scripts\\smart-chat-ui\\smart.chat.ui.min.js"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\Scripts\\smartwidgets\\jarvis.widget.min.js",
+      "PackagePath": "staticwebassets\\Scripts\\smartwidgets\\jarvis.widget.min.js"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\Site.css",
+      "PackagePath": "staticwebassets\\Site.css"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\_css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\_css\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\_css\\core.css",
+      "PackagePath": "staticwebassets\\_css\\core.css"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\_css\\font-awesome.min.css",
+      "PackagePath": "staticwebassets\\_css\\font-awesome.min.css"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\_css\\icofont.css",
+      "PackagePath": "staticwebassets\\_css\\icofont.css"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\_css\\material-design-iconic-font.min.css",
+      "PackagePath": "staticwebassets\\_css\\material-design-iconic-font.min.css"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\_css\\plugins\\animate.css",
+      "PackagePath": "staticwebassets\\_css\\plugins\\animate.css"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\_css\\plugins\\chosen-sprite.png",
+      "PackagePath": "staticwebassets\\_css\\plugins\\chosen-sprite.png"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\_css\\plugins\\chosen-sprite@2x.html",
+      "PackagePath": "staticwebassets\\_css\\plugins\\chosen-sprite@2x.html"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\_css\\plugins\\chosen.min.css",
+      "PackagePath": "staticwebassets\\_css\\plugins\\chosen.min.css"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\_css\\plugins\\images\\ui-icons_444444_256x240.html",
+      "PackagePath": "staticwebassets\\_css\\plugins\\images\\ui-icons_444444_256x240.html"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\_css\\plugins\\images\\ui-icons_555555_256x240.html",
+      "PackagePath": "staticwebassets\\_css\\plugins\\images\\ui-icons_555555_256x240.html"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\_css\\plugins\\images\\ui-icons_777620_256x240.html",
+      "PackagePath": "staticwebassets\\_css\\plugins\\images\\ui-icons_777620_256x240.html"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\_css\\plugins\\images\\ui-icons_777777_256x240.html",
+      "PackagePath": "staticwebassets\\_css\\plugins\\images\\ui-icons_777777_256x240.html"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\_css\\plugins\\images\\ui-icons_cc0000_256x240.html",
+      "PackagePath": "staticwebassets\\_css\\plugins\\images\\ui-icons_cc0000_256x240.html"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\_css\\plugins\\images\\ui-icons_ffffff_256x240.html",
+      "PackagePath": "staticwebassets\\_css\\plugins\\images\\ui-icons_ffffff_256x240.html"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\_css\\plugins\\jquery-ui.min.css",
+      "PackagePath": "staticwebassets\\_css\\plugins\\jquery-ui.min.css"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\_css\\plugins\\magnific-popup.css",
+      "PackagePath": "staticwebassets\\_css\\plugins\\magnific-popup.css"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\_css\\plugins\\meanmenu.min.css",
+      "PackagePath": "staticwebassets\\_css\\plugins\\meanmenu.min.css"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\_css\\plugins\\slick.css",
+      "PackagePath": "staticwebassets\\_css\\plugins\\slick.css"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\_css\\responsive.css",
+      "PackagePath": "staticwebassets\\_css\\responsive.css"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\_css\\shortcode\\default.css",
+      "PackagePath": "staticwebassets\\_css\\shortcode\\default.css"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\_css\\shortcode\\footer.css",
+      "PackagePath": "staticwebassets\\_css\\shortcode\\footer.css"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\_css\\shortcode\\header.css",
+      "PackagePath": "staticwebassets\\_css\\shortcode\\header.css"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\_css\\shortcode\\shortcodes.css",
+      "PackagePath": "staticwebassets\\_css\\shortcode\\shortcodes.css"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\_css\\shortcode\\slider.css",
+      "PackagePath": "staticwebassets\\_css\\shortcode\\slider.css"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\_css\\style-customizer.css",
+      "PackagePath": "staticwebassets\\_css\\style-customizer.css"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\_fonts\\Material-Design-Iconic-Fontd1f1.ttf",
+      "PackagePath": "staticwebassets\\_fonts\\Material-Design-Iconic-Fontd1f1.ttf"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\_fonts\\Material-Design-Iconic-Fontd1f1.woff",
+      "PackagePath": "staticwebassets\\_fonts\\Material-Design-Iconic-Fontd1f1.woff"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\_fonts\\Material-Design-Iconic-Fontd1f1.woff2",
+      "PackagePath": "staticwebassets\\_fonts\\Material-Design-Iconic-Fontd1f1.woff2"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\_fonts\\fontawesome-webfont3295.eot",
+      "PackagePath": "staticwebassets\\_fonts\\fontawesome-webfont3295.eot"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\_fonts\\fontawesome-webfont3295.svg",
+      "PackagePath": "staticwebassets\\_fonts\\fontawesome-webfont3295.svg"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\_fonts\\fontawesome-webfont3295.ttf",
+      "PackagePath": "staticwebassets\\_fonts\\fontawesome-webfont3295.ttf"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\_fonts\\fontawesome-webfont3295.woff",
+      "PackagePath": "staticwebassets\\_fonts\\fontawesome-webfont3295.woff"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\_fonts\\fontawesome-webfont3295.woff2",
+      "PackagePath": "staticwebassets\\_fonts\\fontawesome-webfont3295.woff2"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\_fonts\\fontawesome-webfontd41d.eot",
+      "PackagePath": "staticwebassets\\_fonts\\fontawesome-webfontd41d.eot"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\_fonts\\icofont7858.eot",
+      "PackagePath": "staticwebassets\\_fonts\\icofont7858.eot"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\_fonts\\icofont7858.svg",
+      "PackagePath": "staticwebassets\\_fonts\\icofont7858.svg"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\_fonts\\icofont7858.ttf",
+      "PackagePath": "staticwebassets\\_fonts\\icofont7858.ttf"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\_fonts\\icofont7858.woff",
+      "PackagePath": "staticwebassets\\_fonts\\icofont7858.woff"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\_fonts\\slick.eot",
+      "PackagePath": "staticwebassets\\_fonts\\slick.eot"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\_fonts\\slick.svg",
+      "PackagePath": "staticwebassets\\_fonts\\slick.svg"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\_fonts\\slick.ttf",
+      "PackagePath": "staticwebassets\\_fonts\\slick.ttf"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\_fonts\\slick.woff",
+      "PackagePath": "staticwebassets\\_fonts\\slick.woff"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\_fonts\\slickd41d.eot",
+      "PackagePath": "staticwebassets\\_fonts\\slickd41d.eot"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\_images\\av-bldg-3.jpg",
+      "PackagePath": "staticwebassets\\_images\\av-bldg-3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\_images\\logo\\LOGOnew.png",
+      "PackagePath": "staticwebassets\\_images\\logo\\LOGOnew.png"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\_images\\logo\\logo.png",
+      "PackagePath": "staticwebassets\\_images\\logo\\logo.png"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\_images\\main-bg-0.html",
+      "PackagePath": "staticwebassets\\_images\\main-bg-0.html"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\_images\\pattern-2\\3.jpg",
+      "PackagePath": "staticwebassets\\_images\\pattern-2\\3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\_images\\slider\\2.jpg",
+      "PackagePath": "staticwebassets\\_images\\slider\\2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\_images\\slider\\3.jpg",
+      "PackagePath": "staticwebassets\\_images\\slider\\3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\_img\\icon\\accordion-down.html",
+      "PackagePath": "staticwebassets\\_img\\icon\\accordion-down.html"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\_img\\icon\\accordion-up.html",
+      "PackagePath": "staticwebassets\\_img\\icon\\accordion-up.html"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\_js\\ajax-mail.js",
+      "PackagePath": "staticwebassets\\_js\\ajax-mail.js"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\_js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\_js\\bootstrap.min.js"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\_js\\main.js",
+      "PackagePath": "staticwebassets\\_js\\main.js"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\_js\\plugins.js",
+      "PackagePath": "staticwebassets\\_js\\plugins.js"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\_js\\popper.min.js",
+      "PackagePath": "staticwebassets\\_js\\popper.min.js"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\_js\\vendor\\jquery-v1.12.4.min.js",
+      "PackagePath": "staticwebassets\\_js\\vendor\\jquery-v1.12.4.min.js"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\_js\\vendor\\modernizr-3.11.7.min.js",
+      "PackagePath": "staticwebassets\\_js\\vendor\\modernizr-3.11.7.min.js"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\alpha.png",
+      "PackagePath": "staticwebassets\\alpha.png"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\bootstrap-grid.css",
+      "PackagePath": "staticwebassets\\bootstrap-grid.css"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets\\bootstrap-grid.css.map"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets\\bootstrap-grid.min.css"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets\\bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\bootstrap-grid.rtl.css",
+      "PackagePath": "staticwebassets\\bootstrap-grid.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\bootstrap-grid.rtl.css.map",
+      "PackagePath": "staticwebassets\\bootstrap-grid.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\bootstrap-grid.rtl.min.css",
+      "PackagePath": "staticwebassets\\bootstrap-grid.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\bootstrap-grid.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\bootstrap-grid.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\bootstrap-reboot.css",
+      "PackagePath": "staticwebassets\\bootstrap-reboot.css"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets\\bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets\\bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets\\bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\bootstrap-reboot.rtl.css",
+      "PackagePath": "staticwebassets\\bootstrap-reboot.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\bootstrap-reboot.rtl.css.map",
+      "PackagePath": "staticwebassets\\bootstrap-reboot.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\bootstrap-reboot.rtl.min.css",
+      "PackagePath": "staticwebassets\\bootstrap-reboot.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\bootstrap-reboot.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\bootstrap-reboot.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\bootstrap-utilities.css",
+      "PackagePath": "staticwebassets\\bootstrap-utilities.css"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\bootstrap-utilities.css.map",
+      "PackagePath": "staticwebassets\\bootstrap-utilities.css.map"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\bootstrap-utilities.min.css",
+      "PackagePath": "staticwebassets\\bootstrap-utilities.min.css"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\bootstrap-utilities.min.css.map",
+      "PackagePath": "staticwebassets\\bootstrap-utilities.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\bootstrap-utilities.rtl.css",
+      "PackagePath": "staticwebassets\\bootstrap-utilities.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\bootstrap-utilities.rtl.css.map",
+      "PackagePath": "staticwebassets\\bootstrap-utilities.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\bootstrap-utilities.rtl.min.css",
+      "PackagePath": "staticwebassets\\bootstrap-utilities.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\bootstrap-utilities.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\bootstrap-utilities.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\bootstrap.css",
+      "PackagePath": "staticwebassets\\bootstrap.css"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\bootstrap.css.map",
+      "PackagePath": "staticwebassets\\bootstrap.css.map"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\bootstrap.rtl.css",
+      "PackagePath": "staticwebassets\\bootstrap.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\bootstrap.rtl.css.map",
+      "PackagePath": "staticwebassets\\bootstrap.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets\\bootstrap.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\bootstrap.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\bootstrap.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\css\\Print.css",
+      "PackagePath": "staticwebassets\\css\\Print.css"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\css\\animate.css",
+      "PackagePath": "staticwebassets\\css\\animate.css"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\css\\bootstrap-datepicker.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap-datepicker.css"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap.css"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\css\\eSCOPStyleSheet.css",
+      "PackagePath": "staticwebassets\\css\\eSCOPStyleSheet.css"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\css\\font-awesome.css",
+      "PackagePath": "staticwebassets\\css\\font-awesome.css"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\css\\jquery-confirm.css",
+      "PackagePath": "staticwebassets\\css\\jquery-confirm.css"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\css\\jquery-ui.css",
+      "PackagePath": "staticwebassets\\css\\jquery-ui.css"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\css\\plugins\\animate.css",
+      "PackagePath": "staticwebassets\\css\\plugins\\animate.css"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\css\\plugins\\chosen-sprite.png",
+      "PackagePath": "staticwebassets\\css\\plugins\\chosen-sprite.png"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\css\\plugins\\chosen-sprite@2x.html",
+      "PackagePath": "staticwebassets\\css\\plugins\\chosen-sprite@2x.html"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\css\\plugins\\chosen.min.css",
+      "PackagePath": "staticwebassets\\css\\plugins\\chosen.min.css"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\css\\plugins\\images\\ui-icons_444444_256x240.html",
+      "PackagePath": "staticwebassets\\css\\plugins\\images\\ui-icons_444444_256x240.html"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\css\\plugins\\images\\ui-icons_555555_256x240.html",
+      "PackagePath": "staticwebassets\\css\\plugins\\images\\ui-icons_555555_256x240.html"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\css\\plugins\\images\\ui-icons_777620_256x240.html",
+      "PackagePath": "staticwebassets\\css\\plugins\\images\\ui-icons_777620_256x240.html"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\css\\plugins\\images\\ui-icons_777777_256x240.html",
+      "PackagePath": "staticwebassets\\css\\plugins\\images\\ui-icons_777777_256x240.html"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\css\\plugins\\images\\ui-icons_cc0000_256x240.html",
+      "PackagePath": "staticwebassets\\css\\plugins\\images\\ui-icons_cc0000_256x240.html"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\css\\plugins\\images\\ui-icons_ffffff_256x240.html",
+      "PackagePath": "staticwebassets\\css\\plugins\\images\\ui-icons_ffffff_256x240.html"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\css\\plugins\\jquery-ui.min.css",
+      "PackagePath": "staticwebassets\\css\\plugins\\jquery-ui.min.css"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\css\\plugins\\magnific-popup.css",
+      "PackagePath": "staticwebassets\\css\\plugins\\magnific-popup.css"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\css\\plugins\\meanmenu.min.css",
+      "PackagePath": "staticwebassets\\css\\plugins\\meanmenu.min.css"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\css\\plugins\\slick.css",
+      "PackagePath": "staticwebassets\\css\\plugins\\slick.css"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\css\\smartadmin-production-plugins.min.css",
+      "PackagePath": "staticwebassets\\css\\smartadmin-production-plugins.min.css"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\css\\smartadmin-production.min.css",
+      "PackagePath": "staticwebassets\\css\\smartadmin-production.min.css"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\css\\style.css",
+      "PackagePath": "staticwebassets\\css\\style.css"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\fonts\\FontAwesome.otf",
+      "PackagePath": "staticwebassets\\fonts\\FontAwesome.otf"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\fonts\\fontawesome-webfont.eot",
+      "PackagePath": "staticwebassets\\fonts\\fontawesome-webfont.eot"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\fonts\\fontawesome-webfont.svg",
+      "PackagePath": "staticwebassets\\fonts\\fontawesome-webfont.svg"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\fonts\\fontawesome-webfont.ttf",
+      "PackagePath": "staticwebassets\\fonts\\fontawesome-webfont.ttf"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\fonts\\fontawesome-webfont.woff",
+      "PackagePath": "staticwebassets\\fonts\\fontawesome-webfont.woff"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\fonts\\fontawesome-webfont.woff2",
+      "PackagePath": "staticwebassets\\fonts\\fontawesome-webfont.woff2"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\fonts\\glyphicons-halflings-regular.eot",
+      "PackagePath": "staticwebassets\\fonts\\glyphicons-halflings-regular.eot"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\fonts\\glyphicons-halflings-regular.svg",
+      "PackagePath": "staticwebassets\\fonts\\glyphicons-halflings-regular.svg"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\fonts\\glyphicons-halflings-regular.ttf",
+      "PackagePath": "staticwebassets\\fonts\\glyphicons-halflings-regular.ttf"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\fonts\\glyphicons-halflings-regular.woff",
+      "PackagePath": "staticwebassets\\fonts\\glyphicons-halflings-regular.woff"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\fonts\\glyphicons-halflings-regular.woff2",
+      "PackagePath": "staticwebassets\\fonts\\glyphicons-halflings-regular.woff2"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\img\\123.jpg",
+      "PackagePath": "staticwebassets\\img\\123.jpg"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\img\\CommonBack.jpg",
+      "PackagePath": "staticwebassets\\img\\CommonBack.jpg"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\img\\Education-Background.png",
+      "PackagePath": "staticwebassets\\img\\Education-Background.png"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\img\\HLMHeader.jpg",
+      "PackagePath": "staticwebassets\\img\\HLMHeader.jpg"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\img\\Logo.jpg",
+      "PackagePath": "staticwebassets\\img\\Logo.jpg"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\img\\LogoKPS.jpg",
+      "PackagePath": "staticwebassets\\img\\LogoKPS.jpg"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\img\\Logo_01.png",
+      "PackagePath": "staticwebassets\\img\\Logo_01.png"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\img\\Logobak.jpg",
+      "PackagePath": "staticwebassets\\img\\Logobak.jpg"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\img\\Pearson-Logo.ico",
+      "PackagePath": "staticwebassets\\img\\Pearson-Logo.ico"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\img\\Pearson-Logo_old.png",
+      "PackagePath": "staticwebassets\\img\\Pearson-Logo_old.png"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\img\\Program-Background.png",
+      "PackagePath": "staticwebassets\\img\\Program-Background.png"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\img\\backimage.jpg",
+      "PackagePath": "staticwebassets\\img\\backimage.jpg"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\img\\download.jpg",
+      "PackagePath": "staticwebassets\\img\\download.jpg"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\img\\female.png",
+      "PackagePath": "staticwebassets\\img\\female.png"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\img\\header.jpg",
+      "PackagePath": "staticwebassets\\img\\header.jpg"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\img\\hlmLOGO.png",
+      "PackagePath": "staticwebassets\\img\\hlmLOGO.png"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\img\\logopru.jpg",
+      "PackagePath": "staticwebassets\\img\\logopru.jpg"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\img\\logopru.png",
+      "PackagePath": "staticwebassets\\img\\logopru.png"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\img\\male.png",
+      "PackagePath": "staticwebassets\\img\\male.png"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\img\\pearsonlogo-1.png",
+      "PackagePath": "staticwebassets\\img\\pearsonlogo-1.png"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\img\\tagline.gif",
+      "PackagePath": "staticwebassets\\img\\tagline.gif"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\js\\bootstrap-datepicker.js",
+      "PackagePath": "staticwebassets\\js\\bootstrap-datepicker.js"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\js\\bootstrap.confirm.js",
+      "PackagePath": "staticwebassets\\js\\bootstrap.confirm.js"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\js\\bootstrap.js",
+      "PackagePath": "staticwebassets\\js\\bootstrap.js"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\js\\bootstrapValidator.min.js",
+      "PackagePath": "staticwebassets\\js\\bootstrapValidator.min.js"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\js\\jquery-confirm.js",
+      "PackagePath": "staticwebassets\\js\\jquery-confirm.js"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\js\\jquery.min.js",
+      "PackagePath": "staticwebassets\\js\\jquery.min.js"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\js\\jspdf.min.js",
+      "PackagePath": "staticwebassets\\js\\jspdf.min.js"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\js\\npm.js",
+      "PackagePath": "staticwebassets\\js\\npm.js"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\js\\site.js",
+      "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "PackagePath": "staticwebassets\\lib\\bootstrap"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "C:\\Users\\varun.SONET\\source\\repos\\eSCOPEnquiry\\eSCOPEnquiry\\wwwroot\\style.css",
+      "PackagePath": "staticwebassets\\style.css"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.build.eSCOPEnquiry.props",
+      "PackagePath": "build\\eSCOPEnquiry.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildMultiTargeting.eSCOPEnquiry.props",
+      "PackagePath": "buildMultiTargeting\\eSCOPEnquiry.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildTransitive.eSCOPEnquiry.props",
+      "PackagePath": "buildTransitive\\eSCOPEnquiry.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.eSCOPEnquiry.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

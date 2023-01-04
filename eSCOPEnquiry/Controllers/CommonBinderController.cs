@@ -67,7 +67,7 @@ namespace eSCOPEnquiry.Controllers
         {
             try
             {
-                Dllbind.UserinfoDetails.optMode = "StdAcademicSession";
+                Dllbind.UserinfoDetails.optMode = "StdAcademicSessionOnline";
                 Dllbind.InstituteID = InstituteID;
                 dt = Dllbind.getBindersList(Dllbind).Tables[0];
                 var stateData = JsonConvert.SerializeObject(dt);

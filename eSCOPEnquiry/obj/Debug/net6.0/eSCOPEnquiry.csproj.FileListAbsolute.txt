@@ -1140,3 +1140,10 @@ C:\Users\varun.SONET\Source\Repos\eSCOPEnquiry\eSCOPEnquiry\bin\Debug\net6.0\run
 C:\Users\varun.SONET\source\repos\eSCOPEnquiry\eSCOPEnquiry\bin\Debug\net6.0\Microsoft.Build.dll
 C:\Users\varun.SONET\source\repos\eSCOPEnquiry\eSCOPEnquiry\bin\Debug\net6.0\Microsoft.Build.Framework.dll
 C:\Users\varun.SONET\source\repos\eSCOPEnquiry\eSCOPEnquiry\bin\Debug\net6.0\Microsoft.NET.StringTools.dll
+C:\Users\varun.SONET\source\repos\eSCOPEnquiry\eSCOPEnquiry\obj\Debug\net6.0\staticwebassets\msbuild.eSCOPEnquiry.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\varun.SONET\source\repos\eSCOPEnquiry\eSCOPEnquiry\obj\Debug\net6.0\staticwebassets\msbuild.build.eSCOPEnquiry.props
+C:\Users\varun.SONET\source\repos\eSCOPEnquiry\eSCOPEnquiry\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.eSCOPEnquiry.props
+C:\Users\varun.SONET\source\repos\eSCOPEnquiry\eSCOPEnquiry\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.eSCOPEnquiry.props
+C:\Users\varun.SONET\source\repos\eSCOPEnquiry\eSCOPEnquiry\obj\Debug\net6.0\staticwebassets.pack.json
+C:\Users\varun.SONET\source\repos\eSCOPEnquiry\eSCOPEnquiry\obj\Debug\net6.0\scopedcss\Views\Shared\_LayoutPrint.cshtml.rz.scp.css
+C:\Users\varun.SONET\source\repos\eSCOPEnquiry\eSCOPEnquiry\bin\Debug\net6.0\System.Reflection.MetadataLoadContext.dll

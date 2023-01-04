@@ -743,6 +743,7 @@ $('#btnSave').click(function() {
                         debugger;
                         var _htmlstr = '';
                         var v = $.parseJSON(result)
+                        var Institute = v.Table[0].InstituteID;
                         var Session = v.Table[0].SessionID;
                         var Program = v.Table[0].ProgramID;
                         var DateOfBirth = v.Table[0].DOB;
@@ -753,6 +754,7 @@ $('#btnSave').click(function() {
                         var Father_FirstName = v.Table[0].fatherFName;
 
                         $("#hdEnquiryID").val(v.Table[0].EnquiryNo);
+                        $("#InstituteID").val(Institute);
                         $("#SessionID").val(Session);
                         $("#ProgramID").val(Program);
                         $("#DateOfBirth").val(DateOfBirth);
