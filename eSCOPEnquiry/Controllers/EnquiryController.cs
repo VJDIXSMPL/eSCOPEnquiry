@@ -54,14 +54,26 @@ namespace eSCOPEnquiry.Controllers
             EBAL.ProgramID = Convert.ToInt64(fc["ProgramID"].ToString() == "" ? "-1" : fc["ProgramID"].ToString());
             EBAL.Student_Dob = Convert.ToDateTime(hdStudent_Dob, ci);
             EBAL.Student_FirstName = fc["Student_FirstName"].ToString().Split(' ')[0];
-            if (fc["Student_FirstName"].ToString().Split(' ').Length > 1)
+            if (fc["Student_FirstName"].ToString().Split(' ').Length >= 2)
             {
-                EBAL.Student_LastName = fc["Student_FirstName"].ToString().Split(' ')[1];
+                EBAL.Student_MiddleName = fc["Student_FirstName"].ToString().Split(' ')[1];
+            }
+            if (fc["Student_FirstName"].ToString().Split(' ').Length == 3)
+            {
+                EBAL.Student_LastName = fc["Student_FirstName"].ToString().Split(' ')[2];
             }
             EBAL.MobileNo = fc["FMobileNo"].ToString();
             EBAL.AlternateMobNo = fc["AlternateMobNo"].ToString();
             EBAL.EmailID = fc["FatherEmailID"].ToString();
-            EBAL.FatherName = fc["Father_FirstName"].ToString();
+            EBAL.Father_FirstName = fc["Father_FirstName"].ToString().Split(' ')[0];
+            if (fc["Father_FirstName"].ToString().Split(' ').Length >= 2)
+            {
+                EBAL.Father_MiddleName = fc["Father_FirstName"].ToString().Split(' ')[1];
+            }
+            if (fc["Father_FirstName"].ToString().Split(' ').Length == 3)
+            {
+                EBAL.Father_LastName = fc["Father_FirstName"].ToString().Split(' ')[2];
+            }
             EBAL.ProgramType = fc["ProgramType"].ToString();
             EBAL.optMode = "Insert";
             EBAL.EnquiryType = "2";
@@ -70,12 +82,12 @@ namespace eSCOPEnquiry.Controllers
             EBAL.McAddress = GetClientMac();
             EBAL.HostName = GetClientHost();
             EBAL.Session = fc["Session"].ToString();
-            TempData["InstituteName"] = fc["hdnname"].ToString();
             TempData["MobileNo"] = fc["FMobileNo"].ToString();
             EBAL.EnqNo = "";
             EBAL.crmEnquiry(EBAL, out ResultCaller, out msgOutCaller);
             if (ResultCaller > 0)
             {
+                TempData["InstituteName"] = fc["hdnname"].ToString();
                 TempData["EnqNo"] = JsonConvert.SerializeObject(msgOutCaller.Split('.')[1]);
                 TempData["RegData"] = null;
                 TempData["Mode"] = "Enq";
@@ -282,8 +294,9 @@ namespace eSCOPEnquiry.Controllers
             }
         }
 
-        public IActionResult ProceedPayment()
+        public IActionResult ProceedPayment(string RegNo= "201215")
         {
+            TempData["RegData"] = RegNo;
             return View();
         }
 

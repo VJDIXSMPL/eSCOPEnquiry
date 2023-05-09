@@ -1,0 +1,46 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Error</title>
+</head>
+<body>
+    @if (ViewBag.Data != null)
+    {
+        <h3 style="text-align:center">@ViewBag.Data</h3>
+    }
+
+
+    @if (TempData["MyResponseVal"] != null)
+    {
+        <center>
+            @TempData["MyResponseVal"]
+        </center>
+
+
+    }
+
+    @if (TempData["tnxmessage"] != null)
+    {
+        <center>
+            @TempData["tnxmessage"]
+        </center>
+
+
+    }
+    else
+
+    {
+        <center>
+            <h1>Oooops, Something went wrong!</h1>
+            You have experienced a technical error. We apologize.<br />
+            We are working hard to correct this issue. Please wait a few moments and try your search again.
+        </center>
+    }
+</body>
+</html>

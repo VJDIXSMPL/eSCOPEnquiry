@@ -1,0 +1,304 @@
+﻿@model  Enquiry_BAL
+@using System.Globalization;
+@{CultureInfo ci = new CultureInfo("en-GB");}
+@{
+    ViewBag.Title = "EnquiryDetails";
+}
+<style>
+    .test {
+        border: 1px solid #ccc;
+        padding: 9px;
+        margin: 0 -2px 20px 0px;
+    }
+
+    .checkbox {
+        margin-bottom: 4px;
+        padding-left: 25px;
+        line-height: 25px;
+        color: #404040;
+        cursor: pointer;
+        font-size: 13px;
+    }
+	.ml60{
+	margin-left: -70px;
+	}
+</style>
+<div class="container">
+
+
+    <div class="row">
+       
+        <div class="col-md-8 col-xs-offset-2">
+            <div class="well well-lg mt30 mb30 ml60">
+
+                @using (Html.BeginForm("EnquirySave", "Enquiry", FormMethod.Post, new { id = "ActionAddNewEnquiry", Class = "smart-form" }))
+                {
+                    <h5 class="" style="color:red">Note: All ‘*' marked fields are mandatory.</h5>
+                    <fieldset>
+                        <legend style="text-align: center;">Enquiry Form</legend>
+                        <div class="alert alert-danger fade in" id="DivError" style="display:none">
+                            <button class="close" data-dismiss="alert">
+                                ×
+                            </button>
+                            <i class="fa-fw fa fa-check"></i>
+                            <strong>Error!</strong><span id="ValiError"></span>
+                        </div>
+                        <div class="row">
+                            <section class="form-group col-sm-6">
+                                <label>Session <span style="color:red">*</span></label>
+                                <input type="hidden" id="hdSessionId" value="@Model.SessionId" />
+                                @Html.DropDownListFor(model => model.SessionId, new List<SelectListItem> { }, new { @class = "form-control" })
+                            </section>
+
+                            <section class="form-group col-sm-6">
+                                <label>Program Type <span style="color:red">*</span></label>
+                                <input type="hidden" id="hdSchoolId" value="@Model.InstituteID" />
+                                <input type="hidden" id="hdnname" name="hdnname" />
+                                <input type="hidden" id="InstituteID" name="InstituteID" value="-1" />
+                                @Html.DropDownListFor(model => model.ProgramType, new List<SelectListItem> { }, new { @class = "form-control" })
+                            </section>
+                        </div>
+                        <div class="row">
+                            <section class="form-group col-sm-6">
+                                <label>Program<span style="color:red">*</span></label>
+                                @Html.DropDownListFor(model => model.ProgramID, new List<SelectListItem> { }, new { @class = "form-control" })
+                            </section>
+                            <section class="form-group col-sm-6">
+                                <label>Date of Birth <span style="color:red">*</span></label>
+                                <label class="input-group date">
+                                    <input type="hidden" id="hdStudent_Dob" name="hdStudent_Dob" value="@Model.Student_Dob.Value.ToString("dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture)" />
+
+                                    @if (Model.Student_Dob == Convert.ToDateTime("01/01/1900", ci))
+                                    {
+                                        @Html.TextBoxFor(model => model.Student_Dob, "{0:dd/MM/yyyy}", new { @class = "form-control", @placeholder = "Select Date", @maxlength = 10, @type = "dateFormat", @autocomplete = "off", @Value = "" })
+
+                                    }
+                                    else
+                                    {
+                                        @Html.TextBoxFor(model => model.Student_Dob, "{0:dd/MM/yyyy}", new { @class = "form-control", @placeholder = "Select Date", @maxlength = 10, @type = "dateFormat", @autocomplete = "off" })
+
+                                    }
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+                                </label>
+
+                            </section>
+                            <section class="form-group col-sm-6" style="display:none">
+                                <label>Grade Seeking Admission <span style="color:red">*</span></label>
+                                <input type="hidden" id="hdClassApplyingFor" value="@Model.ClassApplyingFor" />
+                                @Html.DropDownListFor(model => model.ClassApplyingFor, new List<SelectListItem> { }, new { @class = "form-control" })
+
+                            </section>
+                        </div>
+                        <div class="row">
+                            <section class="form-group col-sm-12">
+                                <label>Candidate Full Name <span style="color:red">*</span></label>
+                                @Html.EditorFor(model => model.Student_FirstName, new { htmlAttributes = new { @name = "Student_FirstName", @autocomplete = "off", @class = "form-control title", @MaxLength = 50, @placeholder = "Student Name" } })
+
+                            </section>
+
+                        </div>
+
+                        <div class="row">
+                            <section class="form-group col-sm-6">
+                                <label>Mobile No.<span style="color:red">*</span></label>
+                                @Html.EditorFor(model => model.FMobileNo, new { htmlAttributes = new { @name = "FMobileNo", @class = "form-control", @autocomplete = "off", @MaxLength = 10, @placeholder = "Mobile No.", @Type = "number", @oninput = "javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" } })
+                            </section>
+                            <section class="form-group col-sm-6">
+                                <label>Alternate Mobile No.<span style="color:red">*</span></label>
+                                @Html.EditorFor(model => model.AlternateMobNo, new { htmlAttributes = new { @name = "AlternateMobNo", @class = "form-control", @autocomplete = "off", @MaxLength = 10, @placeholder = "Mobile No.", @Type = "number", @oninput = "javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" } })
+                            </section>
+                        </div>
+                        <div class="row">
+                            <section class="form-group col-sm-12">
+                                <label>Email<span style="color:red">*</span></label>
+                                @Html.EditorFor(model => model.FatherEmailID, new { htmlAttributes = new { @name = "FatherEmailID", @class = "form-control", @autocomplete = "off", @MaxLength = 100, @placeholder = "Email", @Type = "text" } })
+                            </section>
+                        </div>
+                        <div class="row">
+                            <section class="form-group col-sm-12">
+                                <label>Father's Full Name<span style="color:red">*</span></label>
+                                @Html.EditorFor(model => model.Father_FirstName, new { htmlAttributes = new { @class = "form-control title", @autocomplete = "off", @MaxLength = 50, @placeholder = "Father's Name", @Type = "text" } })
+                            </section>
+                        </div>
+                    </fieldset>
+
+                    <div class="form-group text-right mt30 mb30">
+                        <a class="btn btn btn-primary" onclick="window.location.reload();">Cancel</a>
+                        <a class="btn btn btn-primary" onclick="Reg_validation();" id="validateBasic">Submit</a>
+                        <button id="btnSave" type="submit" value="Submit" name="FormCommand" style="display:none"></button>
+                    </div>
+                }
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        LoadInstitute("#InstituteID", "-1", 1);
+        LoadStdAcademicSessionWiseSession("#SessionId", "3")
+        //LoadInstituteWiseProgram("#ProgramID", "-1", "-1");
+        LoadSessionWiseAcademicDepartment("#ProgramType", 3, "-1");
+        LoadAcademicDepartmentWiseProgram("#ProgramID", "-1", "-1", "-1");
+    });
+
+    //$("#InstituteID").change(function () {
+    //    var InstituteID = $("#InstituteID").val();
+    //    LoadInstituteWiseProgram("#ProgramID", InstituteID == "-1" ? "-1" : InstituteID, "-1");
+    //});
+
+    $("#SessionId").change(function () {
+        var SessionId = $("#SessionId").val();
+        LoadSessionWiseAcademicDepartment("#ProgramType", SessionId, "-1");
+    });
+		
+    $("#ProgramType").change(function () {
+        var ProgramType = $("#ProgramType").val();
+        LoadAcademicDepartmentWiseProgram("#ProgramID", $("#SessionId").val(), ProgramType, "-1");
+    });
+
+    function PageIsvalid() {
+        return true;
+    }
+
+    function ConfirmSubmit() {
+        //document.getElementById("ActionAddNewEnquiry").submit();
+        //$("#ActionAddNewEnquiry").submit();
+        $('#btnSave').prop('disabled', false);
+        //$("#hdnname").val($('#InstituteID option:selected').text());
+        $('#btnSave').click();
+    }
+
+    function Reg_validation() {
+        if ($('#father').val() == '') {
+            if ($('#mother').val() == '') {
+                alert('Please enter either father name or mother name !!!');
+                return false;
+            }
+            else {
+                FinalValid();
+            }
+        }
+        else {
+            FinalValid();
+        }
+    }
+
+    var RetVal = false;
+    function FinalValid() {
+
+        if ($('#ActionAddNewEnquiry').bootstrapValidator('validate').has('.has-error').length) {
+            return false;
+        }
+        else {
+            var Student_FirstName = $('#Student_FirstName').val();
+            var StudentDob = $('#Student_Dob').val();
+            var FMobileNo = $('#FMobileNo').val();
+            var optMode = 'Registration';
+
+            $.ajax({
+                url: "/Enquiry/Reg_Validate",
+                data: { Student_FirstName: Student_FirstName, StudentDob: StudentDob, FMobileNo: FMobileNo, optMode: optMode },
+                type: "get",
+                success: function (msg) {
+                    debugger;
+                    console.log(msg)
+                    var v = $.parseJSON(msg)
+                    console.log(v)
+                    if (v.Table[0].Message == "Confirm Registration") {
+                        ConfirmSubmit();
+                    }
+                    else {
+                        $.SmartMessageBox({
+                            title: "Error",
+                            content: v.Table[0].Message,
+                            buttons: '[Ok]',
+                        })
+                    }
+                },
+                error: function (msg) {
+                    return false;
+                }
+            });
+        }
+    }
+
+    $("#Student_Dob").datepicker({
+        format: 'dd/mm/yyyy',
+        todayHighlight: true,
+        autoclose: true
+    }).on('changeDate', function (e) {
+        // Revalidate the date field
+        var from = $("#Student_Dob").val().split("/");
+        var f = new Date(from[2], from[1] - 1, from[0]);
+        //  $('#hdStudent_Dob').val(f.toLocaleDateString());
+        $('#hdStudent_Dob').val($("#Student_Dob").val());
+        $("#StudentDob").val($("#Student_Dob").val());
+        $('#ActionAddNewEnquiry').bootstrapValidator('revalidateField', 'Student_Dob');
+    });	
+
+    $("#Student_Dob").change(function () {
+        var DOB = $(this).val();
+        $('#hdStudent_Dob').val(DOB);
+    })
+    function LoadSessionWiseAcademicDepartment(id, SessionID, defaultval) {
+    defaultval = typeof defaultval !== 'undefined' ? defaultval : -1;
+    $.ajax({
+        type: 'GET',
+        url: '../CommonBinder/LoadEnquiryBinder',
+        async: false,
+        data: { SessionID: SessionID, optMode: "SessionWiseAcademicDepartment" },
+        success: function (Data) {
+            var select = $(id);
+            select.empty();
+            select.append($('<option/>', {
+                value: ddlInitialValue,
+                text: "Select"
+            }));
+            $.each($.parseJSON(Data), function (index, Data) {
+                select.append($('<option/>', {
+                    value: Data.AID,
+                    text: Data.AcademicDepartment
+                }));
+            });
+            select.val(defaultval);
+        },
+        error: function (errorData) {
+            console.log(errorData);
+        }
+    });
+}
+    function LoadAcademicDepartmentWiseProgram(id, SessionID, ProgramType, defaultval) {
+    defaultval = typeof defaultval !== 'undefined' ? defaultval : -1;
+    $.ajax({
+        type: 'GET',
+        url: '../CommonBinder/LoadEnquiryBinder',
+        async: false,
+        data: { SessionID: SessionID, optMode: "AcademicDepartmentWiseProgram", ProgramType: ProgramType },
+        success: function (Data) {
+            var select = $(id);
+            select.empty();
+            select.append($('<option/>', {
+                value: ddlInitialValue,
+                text: "Select"
+            }));
+            $.each($.parseJSON(Data), function (index, Data) {
+                select.append($('<option/>', {
+                    value: Data.ProgramID,
+                    text: Data.Program
+                }));
+            });
+            select.val(defaultval);
+        },
+        error: function (errorData) {
+            console.log(errorData);
+        }
+    });
+}
+
+
+</script>
+

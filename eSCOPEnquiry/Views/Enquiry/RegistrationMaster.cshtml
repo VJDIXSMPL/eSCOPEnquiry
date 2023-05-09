@@ -743,7 +743,6 @@ $('#btnSave').click(function() {
                         debugger;
                         var _htmlstr = '';
                         var v = $.parseJSON(result)
-                        var Institute = v.Table[0].InstituteID;
                         var Session = v.Table[0].SessionID;
                         var Program = v.Table[0].ProgramID;
                         var DateOfBirth = v.Table[0].DOB;
@@ -754,7 +753,6 @@ $('#btnSave').click(function() {
                         var Father_FirstName = v.Table[0].fatherFName;
 
                         $("#hdEnquiryID").val(v.Table[0].EnquiryNo);
-                        $("#InstituteID").val(Institute);
                         $("#SessionID").val(Session);
                         $("#ProgramID").val(Program);
                         $("#DateOfBirth").val(DateOfBirth);
@@ -771,168 +769,168 @@ $('#btnSave').click(function() {
             })
      }
 
-      function CheckValidation() {
-            debugger
-            var EnquiryNo = $("#hdEnquiryID").val() == "" ? "-1" : $("#hdEnquiryID").val();
-            var InstituteID = $("#InstituteID").val() == "" ? "-1" : $("#InstituteID").val() ;
-            var SessionID = $("#SessionID").val() == "" ? "-1" : $("#SessionID").val();
-            var ProgramID = $("#ProgramID").val() == "" ? "-1" : $("#ProgramID").val();
-            var BranchID = $("#BranchID").val() == "" ? "-1" : $("#BranchID").val();
-            var RequiredLateral = $("#chkislateralenq").prop('checked');
-            ///////  student Details
-            var StudentTitle = $("#Trainee_Title").val() == "" ? "-1" : $("#Trainee_Title").val() ;
-            var StudentFirstName = $("#Trainee_FirstName").val() == "" ? "-1" : $("#Trainee_FirstName").val();
-            var StudentMiddleName = $("#Trainee_MiddleName").val() == "" ? "-1" : $("#Trainee_MiddleName").val();
-            var StudentlastName = $("#Trainee_LastName").val() == "" ? "-1" : $("#Trainee_LastName").val();
-            var StudentReligiousLang = $("#Student_ReligionName").val() == "" ? "-1" : $("#Student_ReligionName").val() ;
-            var StudentGender = $("#GenderID").val() == "" ? "-1" : $("#GenderID").val();
-            var StudentDOB = $("#DateOfBirth").val() == "" ? "-1" : $("#DateOfBirth").val();
-            var StudentMobileNo = $("#MobileNo").val() == "" ? "-1" : $("#MobileNo").val() ;
-            var StudentAltMobileNo = $("#AlternateMobNo").val() == "" ? "-1" : $("#AlternateMobNo").val();
-            var StudentEmailId = $("#EmailID").val() == "" ? "-1" : $("#EmailID").val();
-            var StudentAadharNo = $("#AadharNo").val() == "" ? "-1" : $("#AadharNo").val() ;
-            var StudntBloodGroup = $("#Blood").val() == "" ? "-1" : $("#Blood").val();
-            var StudentCategory = $("#CategoryID").val() == "" ? "-1" : $("#CategoryID").val();
-            var StudentReligion = $("#ReligionID").val() == "" ? "-1" : $("#ReligionID").val() ;
-            var StudentNationality = $("#NationalityID").val() == "" ? "-1" : $("#NationalityID").val();
-            var StudentMartialStatus = $("#MartialID").val() == "" ? "-1" : $("#MartialID").val();
-            var ExamStatus = $("#ddlexamstaus").val() == "" ? "-1" : $("#ddlexamstaus").val() ;
-            var HostelReq = $("#HostelReq").val() == "" ? "-1" : $("#HostelReq").val();
-            var TransportReq = $("#TransportReq").val() == "" ? "-1" : $("#TransportReq").val();
-            //// Parent Details
-            var FatherTitle = $("#Father_Title").val() == "" ? "-1" : $("#Father_Title").val() ;
-            var FatherFirstName = $("#Father_FirstName").val() == "" ? "-1" : $("#Father_FirstName").val();
-            var FatherMiddleName = $("#Father_MiddleName").val() == "" ? "-1" : $("#Father_MiddleName").val();
-            var FatherlastName = $("#Father_LastName").val() == "" ? "-1" : $("#Father_LastName").val();
-            var FatherReligiousLang = $("#Father_ReligiousName").val() == "" ? "-1" : $("#Father_ReligiousName").val() ;
-            var FatherMobileNo = $("#Father_MobileNo").val() == "" ? "-1" : $("#Father_MobileNo").val() ;
-            var FatherEmailId = $("#FatherEmailID").val() == "" ? "-1" : $("#FatherEmailID").val();
-
-            var MotherTitle = $("#Mother_Title").val() == "" ? "-1" : $("#Mother_Title").val() ;
-            var MotherFirstName = $("#Mother_FirstName").val() == "" ? "-1" : $("#Mother_FirstName").val();
-            var MotherMiddleName = $("#Mother_MiddleName").val() == "" ? "-1" : $("#Mother_MiddleName").val();
-            var MotherlastName = $("#Mother_LastName").val() == "" ? "-1" : $("#Mother_LastName").val();
-            var MotherReligiousLang = $("#Mother_ReligiousName").val() == "" ? "-1" : $("#Mother_ReligiousName").val() ;
-            var MotherMobileNo = $("#Mother_MobileNo").val() == "" ? "-1" : $("#Mother_MobileNo").val() ;
-            var MotherEmailId = $("#Mother_EmailID").val() == "" ? "-1" : $("#Mother_EmailID").val();
-
-            var chkForGuardian = $("#chklocalGuaother").prop('checked');
-            var GuardianTitle = $("#Guardian_Title").val() == "" ? "-1" : $("#Guardian_Title").val() ;
-            var GuardianFirstName = $("#Guardian_FirstName").val() == "" ? "-1" : $("#Guardian_FirstName").val();
-            var GuardianMiddleName = $("#Guardian_MiddleName").val() == "" ? "-1" : $("#Guardian_MiddleName").val();
-            var GuardianlastName = $("#Guardian_LastName").val() == "" ? "-1" : $("#Guardian_LastName").val();
-            var GuardianReligiousLang = $("#Guradian_ReligiousName").val() == "" ? "-1" : $("#Guradian_ReligiousName").val() ;
-            var GuardianMobileNo = $("#Guardian_MobileNo").val() == "" ? "-1" : $("#Guardian_MobileNo").val() ;
-            var GuardianEmailId = $("#Guardian_EmailID").val() == "" ? "-1" : $("#Guardian_EmailID").val();
-            var Relation = $("#Guardian_RelationShip").val() == "" ? "-1" : $("#Guardian_RelationShip").val();
-           ////// Address Details
-            var CorresAddress = $("#Address").val() == "" ? "-1" : $("#Address").val() ;
-            var CorresCountry = $("#CountryID").val() == "" ? "-1" : $("#CountryID").val();
-            var CorresState = $("#StateID").val() == "" ? "-1" : $("#StateID").val();
-            var CorresCity = $("#Permanant_CityID").val() == "" ? "-1" : $("#Permanant_CityID").val();
-            var CorresReligiousLang = $("#CorAddressReligious").val() == "" ? "-1" : $("#CorAddressReligious").val() ;
-            var CorresPincode = $("#PinCode").val() == "" ? "-1" : $("#PinCode").val();
-            var CorresArea = $("#Area").val() == "" ? "-1" : $("#Area").val();
-
-            
-            var chkPermaAddress = $("#chklocalGuaId").prop('checked');
-            var PermaAddress = $("#Permanant_Address").val() == "" ? "-1" : $("#Permanant_Address").val() ;
-            var PermaCountry = $("#Permanant_CountryID").val() == "" ? "-1" : $("#Permanant_CountryID").val();
-            var PermaState = $("#Permanant_StateID").val() == "" ? "-1" : $("#Permanant_StateID").val();
-            var PermaCity = $("#Permanant_Permanant_CityID").val() == "" ? "-1" : $("#Permanant_Permanant_CityID").val();
-            var PermaReligiousLang = $("#PerAddressReligious").val() == "" ? "-1" : $("#PerAddressReligious").val() ;
-            var PermaPincode = $("#Permanant_PinCode").val() == "" ? "-1" : $("#Permanant_PinCode").val();
-            var PermaArea = $("#PermanantArea").val() == "" ? "-1" : $("#PermanantArea").val();
-
-
-          
-                $.ajax({
-                    type: "Post",
-                    url: "/Enquiry/SaveEnquiryRegistrationMaster",
-                    data: {
-                     EnquiryNo              :  EnquiryNo    
-                    ,InstituteID            :  InstituteID          
-                    ,SessionID 			  :  SessionID 			
-                    ,ProgramID 			  :  ProgramID 			
-                    ,BranchID 			  :  BranchID 			
-                    ,RequiredLateral 	  :  RequiredLateral 
-                    ,StudentTitle 		  :  StudentTitle 		
-                    ,StudentFirstName 	  :  StudentFirstName 	
-                    ,StudentMiddleName 	  :  StudentMiddleName 	
-                    ,StudentlastName 	  :  StudentlastName 	
-                    ,StudentReligiousLang   :  StudentReligiousLang 
-                    ,StudentGender 		  :  StudentGender 		
-                    ,StudentDOB 			  :  StudentDOB 			
-                    ,StudentMobileNo 	  :  StudentMobileNo 	
-                    ,StudentAltMobileNo 	  :  StudentAltMobileNo 	
-                    ,StudentEmailId 		  :  StudentEmailId 		
-                    ,StudentAadharNo 	  :  StudentAadharNo 	
-                    ,StudntBloodGroup 	  :  StudntBloodGroup 	
-                    ,StudentCategory 	  :  StudentCategory 	
-                    ,StudentReligion 	  :  StudentReligion 	
-                    ,StudentNationality 	  :  StudentNationality 	
-                    ,StudentMartialStatus   :  StudentMartialStatus 
-                    ,ExamStatus 			  :  ExamStatus 			
-                    ,HostelReq 			  :  HostelReq 			
-                    ,TransportReq 		  :  TransportReq 
-                    ,FatherTitle 		  :  FatherTitle 		
-                    ,FatherFirstName 	  :  FatherFirstName 	
-                    ,FatherMiddleName 	  :  FatherMiddleName 	
-                    ,FatherlastName 		  :  FatherlastName 		
-                    ,FatherReligiousLang   :  FatherReligiousLang 
-                    ,FatherMobileNo 		  :  FatherMobileNo 		
-                    ,FatherEmailId 		  :  FatherEmailId 
-                    ,MotherTitle 		  :  MotherTitle 		
-                    ,MotherFirstName 	  :  MotherFirstName 	
-                    ,MotherMiddleName 	  :  MotherMiddleName 	
-                    ,MotherlastName 		  :  MotherlastName 		
-                    ,MotherReligiousLang   :  MotherReligiousLang 
-                    ,MotherMobileNo 		  :  MotherMobileNo 		
-                    ,MotherEmailId 		  :  MotherEmailId 		
-                    ,chkForGuardian		   :  chkForGuardian		 
-                    ,GuardianTitle		   :  GuardianTitle		 
-                    ,GuardianFirstName	  :  GuardianFirstName	
-                    ,GuardianMiddleName 	  :  GuardianMiddleName 	
-                    ,GuardianlastName	  :  GuardianlastName	
-                    ,GuardianReligiousLang  :  GuardianReligiousLang
-                    ,GuardianMobileNo	  :  GuardianMobileNo	
-                    ,GuardianEmailId 	  :  GuardianEmailId 	
-                    ,Relation			   :  Relation	
-                    ,CorresAddress		   :  CorresAddress		 
-                    ,CorresCountry 		  :  CorresCountry 		
-                    ,CorresState 		  :  CorresState 		
-                    ,CorresCity 			  :  CorresCity 			
-                    ,CorresReligiousLang   :  CorresReligiousLang 
-                    ,CorresPincode 		  :  CorresPincode 		
-                    ,CorresArea 			  :  CorresArea 
-                    ,chkPermaAddress 	  :  chkPermaAddress 	
-                    ,PermaAddress 		  :  PermaAddress 		
-                    ,PermaCountry 		  :  PermaCountry 		
-                    ,PermaState 			  :  PermaState 			
-                    ,PermaCity 			  :  PermaCity 			
-                    ,PermaReligiousLang 	  :  PermaReligiousLang 	
-                    ,PermaPincode 		  :  PermaPincode 		
-                    ,PermaArea 			  :  PermaArea 			
-    
-                    }, async: false,
-                    success: function (response) {
-                        if (response == 'Record Already Exists') {
-
-
-                            $("#msg").html("<div class='alert alert-danger alert-dismissible fade show' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'><i class='fal fa-trash-alt'></i></span></button><strong>Error!</strong>" + response + "</div >");
-                        }
-                        else {
-
-                            window.location.href = "../Enquiry/ProceedPayment";
-                        }
-                    },
-                    error: function (data) {
-
-
-                        $("#msg").html("<div class='alert alert-danger fade in'><button class='close' data-dismiss='alert'> × </button><i class='fa-fw fa fa-times'></i><strong>Error!</strong>Record not save succesfully</div>")
-                    }
-                });
-      }
+    //  function CheckValidation() {
+       //     debugger
+       //     var EnquiryNo = $("#hdEnquiryID").val() == "" ? "-1" : $("#hdEnquiryID").val();
+       //     var InstituteID = $("#InstituteID").val() == "" ? "-1" : $("#InstituteID").val() ;
+       //     var SessionID = $("#SessionID").val() == "" ? "-1" : $("#SessionID").val();
+       //     var ProgramID = $("#ProgramID").val() == "" ? "-1" : $("#ProgramID").val();
+       //     var BranchID = $("#BranchID").val() == "" ? "-1" : $("#BranchID").val();
+       //     var RequiredLateral = $("#chkislateralenq").prop('checked');
+       //     ///////  student Details
+       //     var StudentTitle = $("#Trainee_Title").val() == "" ? "-1" : $("#Trainee_Title").val() ;
+       //     var StudentFirstName = $("#Trainee_FirstName").val() == "" ? "-1" : $("#Trainee_FirstName").val();
+       //     var StudentMiddleName = $("#Trainee_MiddleName").val() == "" ? "-1" : $("#Trainee_MiddleName").val();
+       //     var StudentlastName = $("#Trainee_LastName").val() == "" ? "-1" : $("#Trainee_LastName").val();
+       //     var StudentReligiousLang = $("#Student_ReligionName").val() == "" ? "-1" : $("#Student_ReligionName").val() ;
+       //     var StudentGender = $("#GenderID").val() == "" ? "-1" : $("#GenderID").val();
+       //     var StudentDOB = $("#DateOfBirth").val() == "" ? "-1" : $("#DateOfBirth").val();
+       //     var StudentMobileNo = $("#MobileNo").val() == "" ? "-1" : $("#MobileNo").val() ;
+       //     var StudentAltMobileNo = $("#AlternateMobNo").val() == "" ? "-1" : $("#AlternateMobNo").val();
+       //     var StudentEmailId = $("#EmailID").val() == "" ? "-1" : $("#EmailID").val();
+       //     var StudentAadharNo = $("#AadharNo").val() == "" ? "-1" : $("#AadharNo").val() ;
+       //     var StudntBloodGroup = $("#Blood").val() == "" ? "-1" : $("#Blood").val();
+       //     var StudentCategory = $("#CategoryID").val() == "" ? "-1" : $("#CategoryID").val();
+       //     var StudentReligion = $("#ReligionID").val() == "" ? "-1" : $("#ReligionID").val() ;
+       //     var StudentNationality = $("#NationalityID").val() == "" ? "-1" : $("#NationalityID").val();
+       //     var StudentMartialStatus = $("#MartialID").val() == "" ? "-1" : $("#MartialID").val();
+       //     var ExamStatus = $("#ddlexamstaus").val() == "" ? "-1" : $("#ddlexamstaus").val() ;
+       //     var HostelReq = $("#HostelReq").val() == "" ? "-1" : $("#HostelReq").val();
+       //     var TransportReq = $("#TransportReq").val() == "" ? "-1" : $("#TransportReq").val();
+       //     //// Parent Details
+       //     var FatherTitle = $("#Father_Title").val() == "" ? "-1" : $("#Father_Title").val() ;
+       //     var FatherFirstName = $("#Father_FirstName").val() == "" ? "-1" : $("#Father_FirstName").val();
+       //     var FatherMiddleName = $("#Father_MiddleName").val() == "" ? "-1" : $("#Father_MiddleName").val();
+       //     var FatherlastName = $("#Father_LastName").val() == "" ? "-1" : $("#Father_LastName").val();
+       //     var FatherReligiousLang = $("#Father_ReligiousName").val() == "" ? "-1" : $("#Father_ReligiousName").val() ;
+       //     var FatherMobileNo = $("#Father_MobileNo").val() == "" ? "-1" : $("#Father_MobileNo").val() ;
+       //     var FatherEmailId = $("#FatherEmailID").val() == "" ? "-1" : $("#FatherEmailID").val();
+       //
+       //     var MotherTitle = $("#Mother_Title").val() == "" ? "-1" : $("#Mother_Title").val() ;
+       //     var MotherFirstName = $("#Mother_FirstName").val() == "" ? "-1" : $("#Mother_FirstName").val();
+       //     var MotherMiddleName = $("#Mother_MiddleName").val() == "" ? "-1" : $("#Mother_MiddleName").val();
+       //     var MotherlastName = $("#Mother_LastName").val() == "" ? "-1" : $("#Mother_LastName").val();
+       //     var MotherReligiousLang = $("#Mother_ReligiousName").val() == "" ? "-1" : $("#Mother_ReligiousName").val() ;
+       //     var MotherMobileNo = $("#Mother_MobileNo").val() == "" ? "-1" : $("#Mother_MobileNo").val() ;
+       //     var MotherEmailId = $("#Mother_EmailID").val() == "" ? "-1" : $("#Mother_EmailID").val();
+       //
+       //     var chkForGuardian = $("#chklocalGuaother").prop('checked');
+       //     var GuardianTitle = $("#Guardian_Title").val() == "" ? "-1" : $("#Guardian_Title").val() ;
+       //     var GuardianFirstName = $("#Guardian_FirstName").val() == "" ? "-1" : $("#Guardian_FirstName").val();
+       //     var GuardianMiddleName = $("#Guardian_MiddleName").val() == "" ? "-1" : $("#Guardian_MiddleName").val();
+       //     var GuardianlastName = $("#Guardian_LastName").val() == "" ? "-1" : $("#Guardian_LastName").val();
+       //     var GuardianReligiousLang = $("#Guradian_ReligiousName").val() == "" ? "-1" : $("#Guradian_ReligiousName").val() ;
+       //     var GuardianMobileNo = $("#Guardian_MobileNo").val() == "" ? "-1" : $("#Guardian_MobileNo").val() ;
+       //     var GuardianEmailId = $("#Guardian_EmailID").val() == "" ? "-1" : $("#Guardian_EmailID").val();
+       //     var Relation = $("#Guardian_RelationShip").val() == "" ? "-1" : $("#Guardian_RelationShip").val();
+       //    ////// Address Details
+       //     var CorresAddress = $("#Address").val() == "" ? "-1" : $("#Address").val() ;
+       //     var CorresCountry = $("#CountryID").val() == "" ? "-1" : $("#CountryID").val();
+       //     var CorresState = $("#StateID").val() == "" ? "-1" : $("#StateID").val();
+       //     var CorresCity = $("#Permanant_CityID").val() == "" ? "-1" : $("#Permanant_CityID").val();
+       //     var CorresReligiousLang = $("#CorAddressReligious").val() == "" ? "-1" : $("#CorAddressReligious").val() ;
+       //     var CorresPincode = $("#PinCode").val() == "" ? "-1" : $("#PinCode").val();
+       //     var CorresArea = $("#Area").val() == "" ? "-1" : $("#Area").val();
+       //
+       //     
+       //     var chkPermaAddress = $("#chklocalGuaId").prop('checked');
+       //     var PermaAddress = $("#Permanant_Address").val() == "" ? "-1" : $("#Permanant_Address").val() ;
+       //     var PermaCountry = $("#Permanant_CountryID").val() == "" ? "-1" : $("#Permanant_CountryID").val();
+       //     var PermaState = $("#Permanant_StateID").val() == "" ? "-1" : $("#Permanant_StateID").val();
+       //     var PermaCity = $("#Permanant_Permanant_CityID").val() == "" ? "-1" : $("#Permanant_Permanant_CityID").val();
+       //     var PermaReligiousLang = $("#PerAddressReligious").val() == "" ? "-1" : $("#PerAddressReligious").val() ;
+       //     var PermaPincode = $("#Permanant_PinCode").val() == "" ? "-1" : $("#Permanant_PinCode").val();
+       //     var PermaArea = $("#PermanantArea").val() == "" ? "-1" : $("#PermanantArea").val();
+       //
+       //
+       //   
+       //         $.ajax({
+       //             type: "Post",
+       //     url: "/Enquiry/SaveEnquiryRegistration",
+       //             data: {
+       //              EnquiryNo              :  EnquiryNo    
+       //             ,InstituteID            :  InstituteID          
+       //             ,SessionID 			  :  SessionID 			
+       //             ,ProgramID 			  :  ProgramID 			
+       //             ,BranchID 			  :  BranchID 			
+       //             ,RequiredLateral 	  :  RequiredLateral 
+       //             ,StudentTitle 		  :  StudentTitle 		
+       //             ,StudentFirstName 	  :  StudentFirstName 	
+       //             ,StudentMiddleName 	  :  StudentMiddleName 	
+       //             ,StudentlastName 	  :  StudentlastName 	
+       //             ,StudentReligiousLang   :  StudentReligiousLang 
+       //             ,StudentGender 		  :  StudentGender 		
+       //             ,StudentDOB 			  :  StudentDOB 			
+       //             ,StudentMobileNo 	  :  StudentMobileNo 	
+       //             ,StudentAltMobileNo 	  :  StudentAltMobileNo 	
+       //             ,StudentEmailId 		  :  StudentEmailId 		
+       //             ,StudentAadharNo 	  :  StudentAadharNo 	
+       //             ,StudntBloodGroup 	  :  StudntBloodGroup 	
+       //             ,StudentCategory 	  :  StudentCategory 	
+       //             ,StudentReligion 	  :  StudentReligion 	
+       //             ,StudentNationality 	  :  StudentNationality 	
+       //             ,StudentMartialStatus   :  StudentMartialStatus 
+       //             ,ExamStatus 			  :  ExamStatus 			
+       //             ,HostelReq 			  :  HostelReq 			
+       //             ,TransportReq 		  :  TransportReq 
+       //             ,FatherTitle 		  :  FatherTitle 		
+       //             ,FatherFirstName 	  :  FatherFirstName 	
+       //             ,FatherMiddleName 	  :  FatherMiddleName 	
+       //             ,FatherlastName 		  :  FatherlastName 		
+       //             ,FatherReligiousLang   :  FatherReligiousLang 
+       //             ,FatherMobileNo 		  :  FatherMobileNo 		
+       //             ,FatherEmailId 		  :  FatherEmailId 
+       //             ,MotherTitle 		  :  MotherTitle 		
+       //             ,MotherFirstName 	  :  MotherFirstName 	
+       //             ,MotherMiddleName 	  :  MotherMiddleName 	
+       //             ,MotherlastName 		  :  MotherlastName 		
+       //             ,MotherReligiousLang   :  MotherReligiousLang 
+       //             ,MotherMobileNo 		  :  MotherMobileNo 		
+       //             ,MotherEmailId 		  :  MotherEmailId 		
+       //             ,chkForGuardian		   :  chkForGuardian		 
+       //             ,GuardianTitle		   :  GuardianTitle		 
+       //             ,GuardianFirstName	  :  GuardianFirstName	
+       //             ,GuardianMiddleName 	  :  GuardianMiddleName 	
+       //             ,GuardianlastName	  :  GuardianlastName	
+       //             ,GuardianReligiousLang  :  GuardianReligiousLang
+       //             ,GuardianMobileNo	  :  GuardianMobileNo	
+       //             ,GuardianEmailId 	  :  GuardianEmailId 	
+       //             ,Relation			   :  Relation	
+       //             ,CorresAddress		   :  CorresAddress		 
+       //             ,CorresCountry 		  :  CorresCountry 		
+       //             ,CorresState 		  :  CorresState 		
+       //             ,CorresCity 			  :  CorresCity 			
+       //             ,CorresReligiousLang   :  CorresReligiousLang 
+       //             ,CorresPincode 		  :  CorresPincode 		
+       //             ,CorresArea 			  :  CorresArea 
+       //             ,chkPermaAddress 	  :  chkPermaAddress 	
+       //             ,PermaAddress 		  :  PermaAddress 		
+       //             ,PermaCountry 		  :  PermaCountry 		
+       //             ,PermaState 			  :  PermaState 			
+       //             ,PermaCity 			  :  PermaCity 			
+       //             ,PermaReligiousLang 	  :  PermaReligiousLang 	
+       //             ,PermaPincode 		  :  PermaPincode 		
+       //             ,PermaArea 			  :  PermaArea 			
+       //
+       //             }, async: false,
+       //             success: function (response) {
+       //                 if (response == 'Record Already Exists') {
+       //
+       //
+       //                     $("#msg").html("<div class='alert alert-danger alert-dismissible fade show' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'><i class='fal fa-trash-alt'></i></span></button><strong>Error!</strong>" + response + "</div >");
+       //                 }
+       //                 else {
+       //
+       //                     window.location.href = "../Enquiry/ProceedPayment";
+       //                 }
+       //             },
+       //             error: function (data) {
+       //
+       //
+       //                 $("#msg").html("<div class='alert alert-danger fade in'><button class='close' data-dismiss='alert'> × </button><i class='fa-fw fa fa-times'></i><strong>Error!</strong>Record not save succesfully</div>")
+       //             }
+       //         });
+      //}
 
 
 

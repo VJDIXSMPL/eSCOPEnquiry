@@ -60,18 +60,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxIZWxwTGluZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/varun.SONET/source/repos/eSCOPEnquiry/eSCOPEnquiry/Views/Home/HTMLTOPDF.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxIVE1MVE9QREYuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/varun.SONET/source/repos/eSCOPEnquiry/eSCOPEnquiry/Views/Home/HTMLTOPDFBonafide.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxIVE1MVE9QREZCb25hZmlkZS5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/varun.SONET/source/repos/eSCOPEnquiry/eSCOPEnquiry/Views/Home/HTMLTOPDFNew.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxIVE1MVE9QREZOZXcuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/varun.SONET/source/repos/eSCOPEnquiry/eSCOPEnquiry/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -82,6 +70,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/varun.SONET/source/repos/eSCOPEnquiry/eSCOPEnquiry/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/varun.SONET/source/repos/eSCOPEnquiry/eSCOPEnquiry/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/varun.SONET/source/repos/eSCOPEnquiry/eSCOPEnquiry/Views/Shared/_ValidationScriptsPartial.cshtml]
@@ -96,10 +88,90 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/varun.SONET/source/repos/eSCOPEnquiry/eSCOPEnquiry/Views/Shared/_Layout.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = b-i1g9g27fl6
+[C:/Users/varun.SONET/source/repos/eSCOPEnquiry/eSCOPEnquiry/Views_13022023/Enquiry/EnquiredUser.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NfMTMwMjIwMjNcRW5xdWlyeVxFbnF1aXJlZFVzZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/varun.SONET/source/repos/eSCOPEnquiry/eSCOPEnquiry/Views/Shared/_LayoutPrint.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRQcmludC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = b-ijxzvqctkn
+[C:/Users/varun.SONET/source/repos/eSCOPEnquiry/eSCOPEnquiry/Views_13022023/Enquiry/EnquiryDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NfMTMwMjIwMjNcRW5xdWlyeVxFbnF1aXJ5RGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/varun.SONET/source/repos/eSCOPEnquiry/eSCOPEnquiry/Views_13022023/Enquiry/PrintForm.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NfMTMwMjIwMjNcRW5xdWlyeVxQcmludEZvcm0uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/varun.SONET/source/repos/eSCOPEnquiry/eSCOPEnquiry/Views_13022023/Enquiry/ProceedPayment.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NfMTMwMjIwMjNcRW5xdWlyeVxQcm9jZWVkUGF5bWVudC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/varun.SONET/source/repos/eSCOPEnquiry/eSCOPEnquiry/Views_13022023/Enquiry/RegistrationMaster.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NfMTMwMjIwMjNcRW5xdWlyeVxSZWdpc3RyYXRpb25NYXN0ZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/varun.SONET/source/repos/eSCOPEnquiry/eSCOPEnquiry/Views_13022023/Enquiry/ThankYou.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NfMTMwMjIwMjNcRW5xdWlyeVxUaGFua1lvdS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/varun.SONET/source/repos/eSCOPEnquiry/eSCOPEnquiry/Views_13022023/Enquiry/UploadFile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NfMTMwMjIwMjNcRW5xdWlyeVxVcGxvYWRGaWxlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/varun.SONET/source/repos/eSCOPEnquiry/eSCOPEnquiry/Views_13022023/Error/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NfMTMwMjIwMjNcRXJyb3JcRXJyb3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/varun.SONET/source/repos/eSCOPEnquiry/eSCOPEnquiry/Views_13022023/Home/About.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NfMTMwMjIwMjNcSG9tZVxBYm91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/varun.SONET/source/repos/eSCOPEnquiry/eSCOPEnquiry/Views_13022023/Home/Contact.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NfMTMwMjIwMjNcSG9tZVxDb250YWN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/varun.SONET/source/repos/eSCOPEnquiry/eSCOPEnquiry/Views_13022023/Home/HelpLine.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NfMTMwMjIwMjNcSG9tZVxIZWxwTGluZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/varun.SONET/source/repos/eSCOPEnquiry/eSCOPEnquiry/Views_13022023/Home/HTMLTOPDF.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NfMTMwMjIwMjNcSG9tZVxIVE1MVE9QREYuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/varun.SONET/source/repos/eSCOPEnquiry/eSCOPEnquiry/Views_13022023/Home/HTMLTOPDFBonafide.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NfMTMwMjIwMjNcSG9tZVxIVE1MVE9QREZCb25hZmlkZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/varun.SONET/source/repos/eSCOPEnquiry/eSCOPEnquiry/Views_13022023/Home/HTMLTOPDFNew.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NfMTMwMjIwMjNcSG9tZVxIVE1MVE9QREZOZXcuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/varun.SONET/source/repos/eSCOPEnquiry/eSCOPEnquiry/Views_13022023/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NfMTMwMjIwMjNcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/varun.SONET/source/repos/eSCOPEnquiry/eSCOPEnquiry/Views_13022023/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NfMTMwMjIwMjNcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/varun.SONET/source/repos/eSCOPEnquiry/eSCOPEnquiry/Views_13022023/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NfMTMwMjIwMjNcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/varun.SONET/source/repos/eSCOPEnquiry/eSCOPEnquiry/Views_13022023/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NfMTMwMjIwMjNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/varun.SONET/source/repos/eSCOPEnquiry/eSCOPEnquiry/Views_13022023/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NfMTMwMjIwMjNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/varun.SONET/source/repos/eSCOPEnquiry/eSCOPEnquiry/Views_13022023/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NfMTMwMjIwMjNcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/varun.SONET/source/repos/eSCOPEnquiry/eSCOPEnquiry/Views_13022023/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NfMTMwMjIwMjNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-ejhujwkxuz
+
+[C:/Users/varun.SONET/source/repos/eSCOPEnquiry/eSCOPEnquiry/Views_13022023/Shared/_LayoutPrint.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NfMTMwMjIwMjNcU2hhcmVkXF9MYXlvdXRQcmludC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = b-3nssnd2x73

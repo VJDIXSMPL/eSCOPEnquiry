@@ -21,7 +21,6 @@
     }
 </style>
 <div class="container">
-
     @using (Html.BeginForm("", "Enquiry", FormMethod.Post, new { id = "ActionAddNewEnquiry", Class = "smart-form" }))
     {
         if (TempData["EnqNo"] != null)
@@ -41,7 +40,6 @@
 
                 </div>
             </div>
-
         }
     }
 </div>
@@ -54,7 +52,7 @@
 
     $("#BtnYes").click(function() {
         var hdnenq = $('#hdnenq').val();
-        window.location.href = '../Enquiry/RegistrationMaster?EnquiryNo='+hdnenq+;
+        window.location.href = "../Enquiry/RegistrationMaster?EnquiryNo="+hdnenq+"";
     });
 
     $("#BtnNo").click(function() {

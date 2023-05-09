@@ -1,0 +1,943 @@
+﻿@model Enquiry_BAL
+@using System.Globalization;
+@{
+    CultureInfo ci = new CultureInfo("en-GB");
+}
+@{
+    ViewBag.Title = "RegistrationMaster";
+}
+<style>
+    legend.scheduler-border {
+        font-size: 1.2em !important;
+        font-weight: bold !important;
+        text-align: left !important;
+        width: inherit; /* Or auto */
+        padding: 0 10px; /* To give a bit of padding on the left and right */
+        border-bottom: none;
+    }
+
+    .custom-control-inline-inline-block {
+        position: relative;
+        display: inline-block;
+        min-height: 1.19437rem;
+        padding-left: 1.625rem;
+    }
+
+    fieldset.border-css {
+        border: 1px solid #605296;
+        padding: 20px;
+        margin-bottom: 30px;
+    }
+
+    .abc {
+        height: 19px;
+        width: 17px;
+    }
+</style>
+
+<div id="content">
+
+    <span id="msg"></span>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-xs-offset-2">
+                <div class="well well-lg mt30 mb30 ml60">
+
+                    @using (Html.BeginForm("SaveEnquiryRegistration", "Enquiry", FormMethod.Post, new { id = "Enquiry", @class = "smart-form" }))
+                    {
+                        <h5 class="" style="color:red">Note: All ‘*' marked fields are mandatory.</h5>
+                        <fieldset>
+                            <legend style="text-align: center;">Registration Form</legend>
+                            <div class="alert alert-danger fade in" id="DivError" style="display:none">
+                                <button class="close" data-dismiss="alert">
+                                    ×
+                                </button>
+                                <i class="fa-fw fa fa-check"></i>
+                                <strong>Error!</strong><span id="ValiError"></span>
+                            </div>
+                        </fieldset>
+                        <fieldset class="border-css mt-3">
+                            <legend class="scheduler-border"><b>Official Details</b></legend>
+                            <div class="row">
+                                <section class="form-group col-sm-3">
+                                    <label>Institute Name <span style="color:red">*</span></label>
+                                    <input type="hidden" name="hdEnquiryID" id="hdEnquiryID" value="@TempData["EnqNo"].ToString()" />
+                                    <input type="hidden" name="hdInstituteID" id="hdInstituteID" value="-1" />
+                                    @Html.DropDownListFor(model => model.InstituteID, new List<SelectListItem> { }, new { @class = "form-control" })
+                                </section>
+                                <section class="form-group col-sm-3">
+                                    <label>Session<span style="color:red">*</span></label>
+                                    <input type="hidden" name="hdSessionID" id="hdSessionID" value="-1">
+                                    @Html.DropDownListFor(model => model.SessionID, new List<SelectListItem> { }, new { @class = "form-control" })
+                                </section>
+                                <section class="form-group col-sm-3">
+                                    <label>Program<span style="color:red">*</span></label>
+                                    <input type="hidden" id="hdProgram" value="-1" name="hDProgram" />
+                                    @Html.DropDownListFor(model => model.ProgramID, new List<SelectListItem> { }, new { @class = "form-control" })
+                                </section>
+                                <section class="form-group col-sm-3">
+                                    <label>Branch<span style="color:red">*</span></label>
+                                    <input type="hidden" id="hdnbranchid" name="hdnbranchid" value="-1" />
+                                    @Html.DropDownListFor(model => model.BranchID, new List<SelectListItem> { }, new { @class = "form-control",@required="" })
+                                </section>
+                            </div>
+                            <div class="row">
+                                <section class="form-group col-sm-3">
+                                    <label>Student Photo</label>
+                                    <input name="filepic"  type="file" id="uploadStudentPhoto" onchange="filePreviewStud(this);" class="form-control">
+                                </section>
+                                <section class="form-group col-sm-3">
+                                    <label>Student Sign</label>
+                                    <input name="filesig" type="file" id="uploadStudentSign" onchange="filePreviewStudSign(this);" class="form-control">
+                                </section>
+
+                                <section class="form-group col-sm-3" id="divlateral" style="margin-top:28px;">
+                                    <div class="custom-control custom-checkbox mt-5">
+                                        <input type="checkbox" class="custom-control-input" id="chkislateralenq" name="chkislateralenq">
+                                        <label class="custom-control-label" for="chkislateralenq">Required Lateral</label>
+                                    </div>
+                                </section>
+                            </div>
+                        </fieldset>
+                        <fieldset class="border-css mt-3">
+                            <legend class="scheduler-border"><b>Student Details</b></legend>
+                            <div class="row">
+                                <section class="form-group col-sm-3">
+                                    <label>Title</label>
+                                    <input type="hidden" id="hdTrainee_Title" name="hdTrainee_Title" value="-1" />
+                                    @Html.DropDownListFor(model => model.Trainee_Title, new List<SelectListItem> { }, new { @class = "form-control" , @placeholder = "Please Enter Title"})
+                                </section>
+                                <section class="form-group col-sm-3">
+                                    <label>First Name<span style="color:red">*</span></label>
+
+                                    @Html.EditorFor(model => model.Trainee_FirstName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter FirstName" ,@type = "text",@required = "" }})
+                                </section>
+                                <section class="form-group col-sm-3">
+                                    <label>Middle Name<span style="color:red">*</span></label>
+                                    @Html.EditorFor(model => model.Trainee_MiddleName, new { htmlAttributes = new { @class = "form-control" ,@placeholder = "Please Enter MiddleName",@type = "text",@required = ""}})
+                                </section>
+                                <section class="form-group col-sm-3">
+                                    <label>Last Name<span style="color:red">*</span></label>
+                                    @Html.EditorFor(model => model.Trainee_LastName, new { htmlAttributes = new { @class = "form-control",@placeholder = "Please Enter LastName",@type = "text",@required = "" }})
+                                </section>
+                            </div>
+                            <div class="row">
+                                <section class="form-group col-sm-12">
+                                    <label>Student Name (in Religious Language)</label>
+                                    @Html.EditorFor(model => model.Student_ReligionName, new { htmlAttributes = new { @class = "form-control",@placeholder = "Please Enter Religion Name", @type = "text", @maxlength = "50" }})
+                                </section>
+                            </div>
+                            <div class="row">
+                                <section class="form-group col-sm-3">
+                                    <label>Gender<span style="color:red">*</span></label>
+                                    <input type="hidden" id="hdGenderID" name="hdGenderID" value="-1" />
+                                    @Html.DropDownListFor(model => model.GenderID, new List<SelectListItem> { }, new { @class = "form-control",@placeholder = "Please Enter Gender", @type = "text", @maxlength = "50" })
+                                </section>
+                                <section class="form-group col-sm-3">
+                                    <label>Date of Birth <span style="color:red">*</span></label>
+                                    <label class="input-group date">
+                                        @Html.TextBoxFor(x => x.DateOfBirth, "{0:dd/MM/yyyy}", new { @class = "form-control", @placeholder = "Date Of Birth", @type = "dateFormat", @Value = "", @required = "" })
+                                       <span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+                                    </label>
+                                </section>
+                                <section class="form-group col-sm-3">
+                                    <label>Mobile No.<span style="color:red">*</span></label>
+                                    @Html.EditorFor(model => model.MobileNo, new { htmlAttributes = new { @class = "form-control", @required = "", @placeholder = "Please Enter Mobile No", @type = "text", @maxlength = "10" } })
+                                </section>
+                                <section class="form-group col-sm-3">
+                                    <label>Alternate No.</label>
+                                    @Html.EditorFor(model => model.AlternateMobNo, new { htmlAttributes = new { @class = "form-control", @required = "", @placeholder = "Please Enter Alternate No", @type = "text", @maxlength = "10" } })
+                                </section>
+                            </div>
+                            <div class="row">
+                                <section class="form-group col-sm-3">
+                                    <label>Email ID<span style="color:red">*</span></label>
+                                    @Html.EditorFor(model => model.EmailID, new { htmlAttributes = new { @name = "EmailID", @class = "form-control", @autocomplete = "off", @MaxLength = 100, @placeholder = "Please Enter Email Id", @Type = "text" } })
+                                </section>
+                                <section class="form-group col-sm-3">
+                                    <label>Aadhar No.<span style="color:red">*</span></label>
+                                     
+                                    @Html.EditorFor(model => model.AadharNo, new { htmlAttributes = new { @name = "AadharNo", @class = "form-control", @autocomplete = "off", @MaxLength = 12, @placeholder = "Please Enter Aadhar No", @Type = "number",@oninput = "javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" } })
+                                </section>
+                                <section class="form-group col-sm-3" style="display:none">
+                                    <label>Passport No<span style="color:red">*</span></label>
+                                    @Html.EditorFor(model => model.PassportNo, new { htmlAttributes = new { @name = "PassportNo", @class = "form-control", @autocomplete = "off", @MaxLength = 100, @placeholder = "Please Enter Email Id", @Type = "text" } })
+                                </section>
+                                <section class="form-group col-sm-3">
+                                    <label>Blood Group</label>
+                                    <input type="hidden" id="hdBlood" name="hdBlood" value="-1" />
+                                    @Html.DropDownListFor(m => m.Blood, new List<SelectListItem>
+                                {
+
+                                }, new { @class = "form-control" })
+                                </section>
+                                <section class="form-group col-sm-3">
+                                    <label>Category<span style="color:red">*</span></label>
+                                    <input type="hidden" id="hdCategoryID" name="hdCategoryID" value="-1" />
+                                    @Html.DropDownListFor(m => m.CategoryID, new List<SelectListItem>
+                                {
+
+                                }, new { @class = "form-control", @required = "" })
+                                </section>
+                            </div>
+                            <div class="row">
+                                <section class="form-group col-sm-3">
+                                    <input type="hidden" id="hdReligionID" name="hdReligionID" value="-1" />
+                                    <label>Religion<span style="color:red">*</span></label>
+                                    @Html.DropDownListFor(m => m.ReligionID, new List<SelectListItem>
+                                {
+
+                                }, new { @class = "form-control", @required = "" })
+
+                                </section>
+                                <section class="form-group col-sm-3">
+                                    <label>Nationality<span style="color:red">*</span></label>
+                                    <input type="hidden" id="hdnationalityID" name="hdnationalityID" value="-1" />
+                                    @Html.DropDownListFor(model => model.NationalityID, new List<SelectListItem> { }, new { @class = "form-control" })
+                                </section>
+                                <section class="form-group col-sm-3">
+                                    <label>Marital Status</label>
+                                    <input type="hidden" id="hdMartialID" name="hdMartialID" value="-1" />
+                                    @Html.DropDownListFor(model => model.MartialID, new List<SelectListItem> { }, new { @class = "form-control" })
+                                </section>
+
+                                <section class="form-group col-sm-3">
+                                    <label>Exam Status<span style="color:red">*</span></label>
+                                    <select id="ddlexamstaus" class="form-control" name="ddlexamstaus" required>
+                                        <option value="">Select</option>
+                                        <option value="Passed">Passed</option>
+                                        <option value="Appeared">Appeared</option>
+                                        <option value="Appearing">Appearing</option>
+                                    </select>
+                                </section>
+                            </div>
+                            <div class="row">
+                                <section class="form-group col-sm-3">
+                                    <label>Hostel Required</label>
+                                    <input type="hidden" id="hdhosType" name="hdhosType" value="-1" />
+                                    <select id="HostelReq" class="form-control" name="HostelReq" required>
+                                        <option value="No">No</option>
+                                        <option value="Yes">Yes</option>
+                                    </select>
+                                </section>
+                                <section class="form-group col-sm-3">
+                                    <label id="lblt">Transport Required</label>
+                                    <input type="hidden" id="hdtrasnType" name="hdtrasnType" value="-1" />
+                                    <select id="TransportReq" class="form-control" name="TransportReq" required>
+                                        <option value="No">No</option>
+                                        <option value="Yes">Yes</option>
+                                    </select>
+                                </section>
+                            </div>
+                        </fieldset>
+                        <fieldset class="border-css mt-3">
+                            <legend class="scheduler-border"><b>Parents Details</b></legend>
+                            <div class="row">
+                                <section class="form-group col-sm-3">
+                                    <label>Title</label>
+                                    <input type="hidden" id="hdFather_Title" name="hdFather_Title" value="-1" />
+                                    @Html.DropDownListFor(model => model.Father_Title, new List<SelectListItem> { }, new { @class = "form-control" ,@placeholder = "Please Select Title" })
+                                </section>
+                                <section class="form-group col-sm-3">
+                                    <label>Father's First Name<span style="color:red">*</span></label>
+                                    @Html.EditorFor(model => model.Father_FirstName, new { htmlAttributes = new { @class = "form-control", @required = "", @placeholder = "Please Enter First Name", @type = "text", @maxlength = "50" } })
+                                </section>
+                                <section class="form-group col-sm-3">
+                                    <label>Father's Middle Name<span style="color:red">*</span></label>
+                                    @Html.EditorFor(model => model.Father_MiddleName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Middle Name", @type = "text", @maxlength = "50" } })
+                                </section>
+                                <section class="form-group col-sm-3">
+                                    <label>Father's Last Name<span style="color:red">*</span></label>
+                                    @Html.EditorFor(model => model.Father_LastName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Last Name", @type = "text", @maxlength = "50" } })
+                                </section>
+                            </div>
+                            <div class="row">
+                                <section class="form-group col-sm-4">
+                                    <label>Father's Name (in Religious Language)</label>
+                                    @Html.EditorFor(model => model.Father_ReligiousName ,new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Name", @type = "text", @maxlength = "50" } })
+                                </section>
+                                <section class="form-group col-sm-4">
+                                    <label class="form-label">Father's Mobile No.<span style="color:red">*</span></label>
+                                    @Html.EditorFor(model => model.Father_MobileNo, new { htmlAttributes = new { @class = "form-control", @required = "", @placeholder = "Please Enter Mobile No", @type = "text", @maxlength = "10" } })
+                                
+                                </section>
+                                <section class="form-group col-sm-4">
+                                    <label class="form-label">Father's Email ID</label>
+
+                                    @Html.EditorFor(model => model.FatherEmailID, new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Email ID", @type = "text", @maxlength = "50" } })
+
+                                </section>
+                            </div>
+                            <div class="row">
+                                <section class="form-group col-sm-3">
+                                    <label class="form-label">Title</label>
+
+                                    <input type="hidden" id="hdMother_Title" name="hdMother_Title" value="-1" />
+                                    @Html.DropDownListFor(model => model.Mother_Title, new List<SelectListItem>
+                                {
+
+                                }, new { @class = "form-control",@placeholder = "Please Select Title"})
+
+
+                                </section>
+                                <section class="form-group col-sm-3">
+                                    <label class="form-label">Mother's First Name <span style="color:red">*</span></label>
+
+                                    @Html.EditorFor(model => model.Mother_FirstName, new { htmlAttributes = new { @class = "form-control", @required = "", @placeholder = "Please Enter First Name", @type = "text", @maxlength = "50" } })
+
+                                </section>
+                                <section class="form-group col-sm-3">
+                                    <label class="form-label">Mother's Middle Name</label>
+
+                                    @Html.EditorFor(model => model.Mother_MiddleName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Middle Name", @type = "text", @maxlength = "50" } })
+
+                                </section>
+                                <section class="form-group col-sm-3">
+                                    <label class="form-label">Mother's Last Name</label>
+                                    @Html.EditorFor(model => model.Mother_LastName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Last Name", @type = "text", @maxlength = "50" } })
+                                </section>
+                            </div>
+                            <div class="row">
+                                <section class="form-group col-sm-4">
+                                    <label class="form-label">Mother's Name (in Religious Language)</label>
+                                    @Html.EditorFor(model => model.Mother_ReligiousName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Religious Name", @type = "text", @maxlength = "50" } })
+
+                                </section>
+                               
+                                <section class="form-group col-sm-4">
+                                    <label class="form-label">Mother's Mobile No.</label>
+
+                                    <i class="icon-prepend fal fa-phone"></i>
+                                    @Html.EditorFor(model => model.Mother_MobileNo, new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Mobile No", @type = "text", @maxlength = "10" } })
+
+
+                                </section>
+                                <section class="form-group col-sm-4">
+                                    <label class="form-label">Mother's Email ID</label>
+
+                                    <i class="icon-prepend fa fa-envelope-o"></i>
+                                    @Html.EditorFor(model => model.Mother_Email, new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Email ID", @type = "text", @maxlength = "50" } })
+
+                                </section>
+                            </div>
+                            <div class="row" id="divguard">
+                                <section class="form-group col-sm-6">
+                                    <section class="inline-group">
+                                        <section class="custom-control custom-checkbox mt-2">
+                                            <input name="chklocalGuaother" class="custom-control-input" id="chklocalGuaother" type="checkbox" />
+                                            <label class="custom-control-label" for="chklocalGuaother">Has Guardian other than parents</label>
+                                        </section>
+                                    </section>
+                                </section>
+                            </div>
+
+                            <div id="dvother" style="display:none">
+                                <div class="form-row form-group">
+                                    <div class="form-group col-sm-3">
+                                        <label class="form-label">Title</label>
+                                        <input type="hidden" id="hdGuardian_Title" name="hdGuardian_Title" value="-1" />
+                                        @Html.DropDownListFor(model => model.Guardian_Title, new List<SelectListItem>
+                                    {
+
+                                    }, new { @class = "form-control" })
+
+                                    </div>
+                                    <div class="form-group col-sm-3">
+                                        <label class="form-label">First Name <span style="color:red">*</span></label>
+
+                                        @Html.EditorFor(model => model.Guardian_FirstName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter First Name", @type = "text", @maxlength = "50" } })
+
+                                    </div>
+                                    <div class="form-group col-sm-3">
+                                        <label class="form-label">Middle Name</label>
+
+                                        @Html.EditorFor(model => model.Guardian_MiddleName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Middle Name", @type = "text", @maxlength = "50" } })
+
+                                    </div>
+                                    <div class="form-group col-sm-3">
+                                        <label class="form-label">Last Name</label>
+                                        @Html.EditorFor(model => model.Guardian_LastName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Last Name", @type = "text", @maxlength = "50" } })
+
+                                    </div>
+                                    <div class="form-group col-sm-12">
+
+                                        <label class="form-label">Guardian Name (in Religious Language)</label>
+                                        @Html.EditorFor(model => model.Guardian_ReligiousName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Name", @type = "text", @maxlength = "50" } })
+
+                                    </div>
+                                    <div class="form-group col-sm-4">
+                                        <label class="form-label">Mobile No.<span style="color:red">*</span></label>
+
+                                        @Html.EditorFor(model => model.Guardian_MobileNo, new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Mobile No", @type = "text", @maxlength = "10" } })
+
+                                    </div>
+                                    <div class="form-group col-sm-4">
+                                        <label class="form-label">Email ID </label>
+
+                                        @Html.EditorFor(model => model.Guardian_EmailID, new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Email ID", @type = "text", @maxlength = "50" } })
+
+                                    </div>
+                                    <div class="form-group col-sm-4">
+                                        <label class="form-label">Relation<span style="color:red">*</span></label>
+
+
+                                         <input type="hidden" id="hdRelation" name="hdRelation" value="-1" />
+                                        @Html.DropDownListFor(model => model.Guardian_RelationShip, new List<SelectListItem>
+                                    {
+
+                                    }, new { @class = "form-control" })
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </fieldset>
+                        <fieldset class="border-css mt-3">
+                            <legend class="scheduler-border"><b>Address Details</b></legend>
+
+                            <p class="margin-bottom-10"><strong>Correspondance Address</strong></p>
+
+                            <div class="row">
+                                <section class="form-group col-sm-12">
+                                    <label class="form-label">Address<span style="color:red">*</span></label>
+
+                                    @Html.TextAreaFor(model => model.Correspondence_AddressId, new { @rows = 2, @cols = 150, @required = "", @placeholder = "Please Enter Address ", @maxlength = 250, @class = "form-control" })
+
+                                </section>
+                            </div>
+                            <div class="row">
+                                <section class="form-group col-sm-4">
+                                    <label class="form-label">Country<span style="color:red">*</span></label>
+
+                                    @Html.DropDownListFor(model => model.CorCountryID, new List<SelectListItem>
+                                {
+
+                                }, new { @class = "form-control", @required = "" })
+
+                                </section>
+                                <section class="form-group col-sm-4">
+                                    <label class="form-label">State<span style="color:red">*</span></label>
+
+                                    @Html.DropDownListFor(model => model.CorStateID, new List<SelectListItem>
+                                {
+
+                                }, new { @class = "form-control", @required = "" })
+
+                                </section>
+                                <section class="form-group col-sm-4">
+                                    <label class="form-label">District / City<span style="color:red">*</span></label>
+
+                                    @Html.DropDownListFor(model => model.CorCityID, new List<SelectListItem>
+                                {
+
+                                }, new { @class = "form-control", @required = "" })
+
+
+                                </section>
+
+                            </div>
+                            <div class="row">
+                                <section class="form-group col-sm-12">
+                                    <label class="form-label">Correspondance Address (in Religious Language)<span style="color:red"></span></label>
+                                    @Html.TextAreaFor(model => model.CorAddressReligious, new { @rows = 2, @cols = 100, @placeholder = "Please Enter Address ", @maxlength = 250, @class = "form-control" })
+
+                                </section>
+                            </div>
+                            <div class="row">
+                                <section class="form-group col-sm-4">
+                                    <label class="form-label">Pincode</label>
+                                    @Html.EditorFor(model => model.CorPincode, new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Pincode", @type = "text", @maxlength = "6", @required = "" } })
+                                </section>
+
+                                <section class="form-group col-sm-4">
+                                    <label class="form-label">Area</label>
+                                    @Html.EditorFor(model => model.CorArea, new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Area", @type = "text", @maxlength = "150" } })
+
+                                </section>
+
+                                <div class="row" id="checkdiv">
+                                    <section class="form-group col-sm-6" style="margin-left:17px">
+                                        <section class="inline-group">
+                                            <section class="custom-control custom-checkbox mt-2">
+                                                <input name="chklocalGua" class="custom-control-input" id="chklocalGuaId" type="checkbox" />
+                                                <label class="custom-control-label" for="chklocalGuaId">Permanant Address (Other than Correspondance Address)</label>
+                                            </section>
+                                        </section>
+                                    </section>
+                                </div>
+                            </div>
+
+
+                            <div id="dvCors" style="display:none">
+                                <div class="row">
+                                    <section class="form-group col-sm-12">
+                                        <label class="form-label">Address<span style="color:red">*</span></label>
+                                         @Html.TextAreaFor(model => model.Permanent_AddressId, new { @rows = 2, @cols = 150, @placeholder = "Please Enter Address ", @maxlength = 250, @class = "form-control" })
+
+                                    </section>
+                                </div>
+                                <div class="row">
+                                    <section class="form-group col-sm-4">
+                                        <label class="form-label">Country<span style="color:red">*</span></label>
+                                        @Html.DropDownListFor(model => model.Permanant_CountryID, new List<SelectListItem>
+                                    {
+
+                                    }, new { @class = "form-control" })
+
+                                    </section>
+                                    <section class="form-group col-sm-4">
+                                        <label class="form-label">State<span style="color:red">*</span></label>
+                                        @Html.DropDownListFor(model => model.Permanant_StateID, new List<SelectListItem>
+                                    {
+
+                                    }, new { @class = "form-control" })
+
+
+
+                                    </section>
+                                    <section class="form-group col-sm-4">
+                                        <label class="form-label">District / City<span style="color:red">*</span></label>
+                                        @Html.DropDownListFor(model => model.Permanant_CityID, new List<SelectListItem>
+                                    {
+
+                                    }, new { @class = "form-control" })
+
+                                    </section>
+                                </div>
+                                <div class="row">
+                                    <section class="form-group col-sm-12">
+                                        <label class="form-label">Permanent Address (in Religious Language)<span style="color:red"></span></label>
+                                        @Html.TextAreaFor(model => model.PerAddressReligious, new { @rows = 2, @cols = 100, @placeholder = "Please Enter Address ", @maxlength = 250, @class = "form-control" })
+
+                                    </section>
+                                </div>
+                                <div class="row">
+                                    <section class="form-group col-sm-4">
+                                        <label class="form-label">Pincode</label>
+                                        @Html.EditorFor(model => model.Permanant_PinCode, new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Pincode", @type = "text", @maxlength = "6" } })
+
+                                    </section>
+                                    <section class="form-group col-sm-4">
+                                        <label class="form-label">Area</label>
+                                        @Html.EditorFor(model => model.PermanantArea, new { htmlAttributes = new { @class = "form-control", @placeholder = "Please Enter Area", @type = "text", @maxlength = "150" } })
+
+                                    </section>
+                                </div>
+                            </div>
+                        </fieldset>
+                    <div class="form-group text-right mt30 mb30">
+                        <a class="btn btn btn-default" onclick="window.location.reload();">Cancel</a>
+                        <button id="btnSave" type="submit" class="btn btn btn-primary" value="SaveRegistration" name="FormCommand">Submit</button>
+                    </div>
+                    }
+                    
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<link href="~/Content/css/bootstrap-multiselect.css" rel="stylesheet" />
+<link href="~/Content/css/jquery-ui.css" rel="stylesheet" />
+<script src="~/Scripts/bootstrap/bootstrap-multiselect.js"></script>
+<script src="~/Scripts/eSCOP/CommonBinder.js"></script>
+<script type="text/javascript">
+    (function() {
+        // Example starter JavaScript for disabling form submissions if there are invalid fields
+        'use strict';
+        window.addEventListener('load', function() {
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.getElementsByClassName('needs-validation');
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function(form) {
+                form.addEventListener('submit', function(event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        }, false);
+    })();
+
+    $(document).ready(function() {
+
+        LoadPermissionWiseInstitute("#InstituteID", $('#hdInstituteID').val() == "-1" ? "" : $('#hdInstituteID').val(), 1);
+        LoadStdAcademicSessionWiseSession("#SessionID", $("#hdSessionID").val() == "" ? "-1" : $("#hdSessionID").val(), "");
+
+        LoadEducationExam("#Examination", "", "-1")
+        LoadInstituteWiseProgram("#ProgramID", $('#hdInstituteID').val() == "-1" ? "-1" : $('#hdInstituteID').val(), $("#hdProgram").val() == "" ? "-1" : $("#hdProgram").val(), -1);
+        LoadProgramWiseBranch("#BranchID", $("#hdProgram").val() == "-1" ? "-1" : $("#hdProgram").val(), $('#hdInstituteID').val() == "-1" ? "-1" : $('#hdInstituteID').val(), $("#hdnbranchid").val() == "" ? "-1" : $("#hdnbranchid").val())
+
+        $("#InstituteID").change(function() {
+            var InstituteID = $("#InstituteID").val();
+            ProgramID = $("#ProgramID").val();
+            LoadStdAcademicSessionWiseSession("#SessionID", $("#hdSessionID").val() == "-1" ? "" : $("#hdSessionID").val(), InstituteID == "-1" ? "-1" : InstituteID, "");
+            LoadInstituteWiseProgram("#ProgramID", InstituteID == "-1" ? "-1" : InstituteID, $("#hdProgram").val() == "" ? "-1" : $("#hdProgram").val(), -1);
+        });
+        $("#ProgramID").change(function() {
+            var ProgramID = $("#ProgramID").val();
+            var InstituteID = $("#InstituteID").val();
+            var SessionID = $("#SessionID").val();
+            LoadProgramWiseBranch("#BranchID", ProgramID == "-1" ? "-1" : ProgramID, InstituteID == "-1" ? "-1" : InstituteID)
+        });
+
+        LoadTitle("#Trainee_Title", $("#hdTrainee_Title").val() == "-1" ? "" : $("#hdTrainee_Title").val(), -1);
+
+        LoadGender("#GenderID", $("#hdGenderID").val() == "-1" ? "" : $("#hdGenderID").val(), 0);
+        LoadBlood("#Blood", $("#hdBlood").val() == "" ? "-1" : $("#hdBlood").val(), -1);
+        LoadCategory("#CategoryID", $("#hdCategoryID").val() == "" ? "-1" : $("#hdCategoryID").val(), -1);
+        LoadPermissionnationality("#NationalityID", $('#hdnationalityID').val() == "-1" ? "" : $('#hdnationalityID').val(), "");
+
+        LoadTitle("#Spouse_Title", $("#hdSpouse_Title").val() == "-1" ? "" : $("#hdSpouse_Title").val());
+        LoadTitle("#Father_Title", $("#hdFather_Title").val() == "-1" ? "" : $("#hdFather_Title").val());
+        LoadTitle("#Mother_Title", $("#hdMother_Title").val() == "-1" ? "" : $("#hdMother_Title").val());
+        LoadTitle("#Guardian_Title", $("#hdGuardian_Title").val() == "-1" ? "" : $("#hdGuardian_Title").val());
+
+
+
+        LoadReligion("#ReligionID", $("#hdReligionID").val() == "" ? "-1" : $("#hdReligionID").val(), -1);
+        LoadMaritalStatus("#MartialID", $("#hdMartialID").val() == "" ? "-1" : $("#hdMartialID").val());
+        LoadRelation("#Guardian_RelationShip", $("#hdRelation").val() == "-1" ? "" : $("#hdRelation").val(), "");
+        LoadAgency("#AgencyID", "", 1)
+
+
+        LoadCountry("#CorCountryID", $("#hdCountry").val() == "-1" ? "" : $("#hdCountry").val(), 1);
+        var CountryID = $('#CorCountryID').find(':selected').val();
+        LoadState("#CorStateID", $("#hdCountry").val() == "-1" ? "" : $("#hdCountry").val(), $("#hdState").val() == "-1" ? "" : $("#hdState").val(), 1);
+        LoadCity("#CorCityID", $("#hdState").val() == 0 ? "-1" : $("#hdState").val(), $("#hdCity").val() == "-1" ? "" : $("#hdCity").val(), 1);
+
+        $("#CorCountryID").change(function() {
+            $("#hdState").val("-1")
+            var Country = $(this).val();
+            LoadState("#CorStateID", Country == "0" ? "" : Country, $("#hdState").val() == "-1" ? "" : $("#hdState").val(), 1);
+        });
+
+        $("#CorStateID").change(function() {
+            $("#hdCity").val("-1")
+            var State = $(this).val();
+
+            LoadCity("#CorCityID", $(this).val(), $("#hdCity").val() == "-1" ? "" : $("#hdCity").val(), 1);
+        });
+
+        //Permanent
+        LoadCountry("#Permanant_CountryID", $("#hdPerCountry").val() == "-1" ? "" : $("#hdPerCountry").val(), 1);
+
+        var PerCountryID = $('#Permanant_CountryID').find(':selected').val();
+        LoadState("#Permanant_StateID", $("#hdPerCountry").val() == "-1" ? "" : $("#hdPerCountry").val(), $("#hdPerState").val() == "-1" ? "" : $("#hdPerState").val(), 1);
+        LoadCity("#Permanant_CityID", $("#hdPerState").val() == 0 ? "-1" : $("#hdPerState").val(), $("#hdPerCity").val() == "-1" ? "" : $("#hdPerCity").val(), 1);
+
+        $("#Permanant_CountryID").change(function() {
+            $("#hdPerState").val("-1")
+            var Country = $(this).val();
+            LoadState("#Permanant_StateID", Country == "0" ? "" : Country, $("#hdPerState").val() == "-1" ? "" : $("#hdPerState").val(), 1);
+        });
+        $("#Permanant_StateID").change(function() {
+            $("#hdCity").val("-1")
+            var State = $(this).val();
+            LoadCity("#Permanant_CityID", $(this).val(), $("#hdPerCity").val() == "-1" ? "" : $("#hdPerCity").val(), 1);
+        });
+       Edit()
+    });
+
+    $("#DateOfBirth").datepicker({
+        format: 'dd/mm/yyyy',
+        todayHighlight: true,
+        autoclose: true
+    });
+
+    $('#chklocalGuaother').click(function() {
+        if ($(this).is(":checked")) {
+            $('#dvother').show();
+        } else {
+            $('#dvother').hide();
+        }
+    });
+    $('#chklocalGuaId').click(function() {
+        if ($(this).is(":checked")) {
+            $('#dvCors').show();
+        } else {
+            $('#dvCors').hide();
+        }
+    });
+
+$('#btnSave').click(function() {
+    CheckValidation();
+});
+
+     $("#MobileNo").bind("paste", function (e) {
+            e.preventDefault();
+        });
+
+     $("#MobileNo").keypress(function (e) {
+            if (String.fromCharCode(e.which).match(/[^0-9 ]/)) {
+                e.preventDefault();
+
+            }
+     });
+     
+     $("#Spouse_MobileNo").keypress(function (e) {
+            if (String.fromCharCode(e.which).match(/[^0-9 ]/)) {
+                e.preventDefault();
+
+            }
+        });
+     $("#Father_MobileNo").bind("paste", function (e) {
+            e.preventDefault();
+        });
+     $("#Father_MobileNo").keypress(function (e) {
+            if (String.fromCharCode(e.which).match(/[^0-9 ]/)) {
+                e.preventDefault();
+
+            }
+        });
+     $("#MarksObtained").keypress(function (e) {
+            if (String.fromCharCode(e.which).match(/[^0-9 ]/)) {
+                e.preventDefault();
+
+            }
+
+
+        });
+     $("#YearOfPassing").keypress(function (e) {
+            if (String.fromCharCode(e.which).match(/[^0-9 ]/)) {
+                e.preventDefault();
+
+            }
+        });
+
+     $("#MonthofPassing").keypress(function (e) {
+            if (!String.fromCharCode(e.which).match('[a-z A-Z]')) {
+                e.preventDefault();
+
+            }
+        });
+     $("#CGPA").keypress(function (e) {
+            if (String.fromCharCode(e.which).match('/(\d{1,2}\.(?=\d{1,2}))/')) {
+                e.preventDefault();
+
+            }
+        });
+
+     $("#RefMobileNo").keypress(function (e) {
+            if (String.fromCharCode(e.which).match(/[^0-9 ]/)) {
+                e.preventDefault();
+
+            }
+     });
+
+    function Edit() {
+            debugger;
+       
+            $.ajax({
+                url: "/Enquiry/GetEnqRegistrationData",
+                data: { optMode: "GetEnquiryForReg", EnquiryNo: $('#hdEnquiryID').val() },
+                type: "Get",
+                contentType: "application/json;charset=utf-8",
+                dataType: "json",
+                success:
+                    function (result) {
+                        debugger;
+                        var _htmlstr = '';
+                        var v = $.parseJSON(result)
+                        var Institute = v.Table[0].InstituteID;
+                        var Session = v.Table[0].SessionID;
+                        var Program = v.Table[0].ProgramID;
+                        var DateOfBirth = v.Table[0].DOB;
+                        var Trainee_FirstName = v.Table[0].FirstName;
+                        var MobileNo = v.Table[0].MobileNo;
+                        var AlternateMobNo = v.Table[0].AlternateMobileNo;
+                        var EmailID = v.Table[0].Email;
+                        var Father_FirstName = v.Table[0].fatherFName;
+
+                        $("#hdEnquiryID").val(v.Table[0].EnquiryNo);
+                        $("#InstituteID").val(Institute);
+                        $("#SessionID").val(Session);
+                        $("#ProgramID").val(Program);
+                        $("#DateOfBirth").val(DateOfBirth);
+                        $("#Trainee_FirstName").val(Trainee_FirstName);
+                        $("#MobileNo").val(MobileNo);
+                        $("#AlternateMobNo").val(AlternateMobNo);
+                        $("#EmailID").val(EmailID);
+                        $("#Father_FirstName").val(Father_FirstName);
+
+                    },
+                error: function (errormessage) {
+                    alert(errormessage.responseText);
+                }
+            })
+     }
+
+      function CheckValidation() {
+            debugger
+            var EnquiryNo = $("#hdEnquiryID").val() == "" ? "-1" : $("#hdEnquiryID").val();
+            var InstituteID = $("#InstituteID").val() == "" ? "-1" : $("#InstituteID").val() ;
+            var SessionID = $("#SessionID").val() == "" ? "-1" : $("#SessionID").val();
+            var ProgramID = $("#ProgramID").val() == "" ? "-1" : $("#ProgramID").val();
+            var BranchID = $("#BranchID").val() == "" ? "-1" : $("#BranchID").val();
+            var RequiredLateral = $("#chkislateralenq").prop('checked');
+            ///////  student Details
+            var StudentTitle = $("#Trainee_Title").val() == "" ? "-1" : $("#Trainee_Title").val() ;
+            var StudentFirstName = $("#Trainee_FirstName").val() == "" ? "-1" : $("#Trainee_FirstName").val();
+            var StudentMiddleName = $("#Trainee_MiddleName").val() == "" ? "-1" : $("#Trainee_MiddleName").val();
+            var StudentlastName = $("#Trainee_LastName").val() == "" ? "-1" : $("#Trainee_LastName").val();
+            var StudentReligiousLang = $("#Student_ReligionName").val() == "" ? "-1" : $("#Student_ReligionName").val() ;
+            var StudentGender = $("#GenderID").val() == "" ? "-1" : $("#GenderID").val();
+            var StudentDOB = $("#DateOfBirth").val() == "" ? "-1" : $("#DateOfBirth").val();
+            var StudentMobileNo = $("#MobileNo").val() == "" ? "-1" : $("#MobileNo").val() ;
+            var StudentAltMobileNo = $("#AlternateMobNo").val() == "" ? "-1" : $("#AlternateMobNo").val();
+            var StudentEmailId = $("#EmailID").val() == "" ? "-1" : $("#EmailID").val();
+            var StudentAadharNo = $("#AadharNo").val() == "" ? "-1" : $("#AadharNo").val() ;
+            var StudntBloodGroup = $("#Blood").val() == "" ? "-1" : $("#Blood").val();
+            var StudentCategory = $("#CategoryID").val() == "" ? "-1" : $("#CategoryID").val();
+            var StudentReligion = $("#ReligionID").val() == "" ? "-1" : $("#ReligionID").val() ;
+            var StudentNationality = $("#NationalityID").val() == "" ? "-1" : $("#NationalityID").val();
+            var StudentMartialStatus = $("#MartialID").val() == "" ? "-1" : $("#MartialID").val();
+            var ExamStatus = $("#ddlexamstaus").val() == "" ? "-1" : $("#ddlexamstaus").val() ;
+            var HostelReq = $("#HostelReq").val() == "" ? "-1" : $("#HostelReq").val();
+            var TransportReq = $("#TransportReq").val() == "" ? "-1" : $("#TransportReq").val();
+            //// Parent Details
+            var FatherTitle = $("#Father_Title").val() == "" ? "-1" : $("#Father_Title").val() ;
+            var FatherFirstName = $("#Father_FirstName").val() == "" ? "-1" : $("#Father_FirstName").val();
+            var FatherMiddleName = $("#Father_MiddleName").val() == "" ? "-1" : $("#Father_MiddleName").val();
+            var FatherlastName = $("#Father_LastName").val() == "" ? "-1" : $("#Father_LastName").val();
+            var FatherReligiousLang = $("#Father_ReligiousName").val() == "" ? "-1" : $("#Father_ReligiousName").val() ;
+            var FatherMobileNo = $("#Father_MobileNo").val() == "" ? "-1" : $("#Father_MobileNo").val() ;
+            var FatherEmailId = $("#FatherEmailID").val() == "" ? "-1" : $("#FatherEmailID").val();
+
+            var MotherTitle = $("#Mother_Title").val() == "" ? "-1" : $("#Mother_Title").val() ;
+            var MotherFirstName = $("#Mother_FirstName").val() == "" ? "-1" : $("#Mother_FirstName").val();
+            var MotherMiddleName = $("#Mother_MiddleName").val() == "" ? "-1" : $("#Mother_MiddleName").val();
+            var MotherlastName = $("#Mother_LastName").val() == "" ? "-1" : $("#Mother_LastName").val();
+            var MotherReligiousLang = $("#Mother_ReligiousName").val() == "" ? "-1" : $("#Mother_ReligiousName").val() ;
+            var MotherMobileNo = $("#Mother_MobileNo").val() == "" ? "-1" : $("#Mother_MobileNo").val() ;
+            var MotherEmailId = $("#Mother_EmailID").val() == "" ? "-1" : $("#Mother_EmailID").val();
+
+            var chkForGuardian = $("#chklocalGuaother").prop('checked');
+            var GuardianTitle = $("#Guardian_Title").val() == "" ? "-1" : $("#Guardian_Title").val() ;
+            var GuardianFirstName = $("#Guardian_FirstName").val() == "" ? "-1" : $("#Guardian_FirstName").val();
+            var GuardianMiddleName = $("#Guardian_MiddleName").val() == "" ? "-1" : $("#Guardian_MiddleName").val();
+            var GuardianlastName = $("#Guardian_LastName").val() == "" ? "-1" : $("#Guardian_LastName").val();
+            var GuardianReligiousLang = $("#Guradian_ReligiousName").val() == "" ? "-1" : $("#Guradian_ReligiousName").val() ;
+            var GuardianMobileNo = $("#Guardian_MobileNo").val() == "" ? "-1" : $("#Guardian_MobileNo").val() ;
+            var GuardianEmailId = $("#Guardian_EmailID").val() == "" ? "-1" : $("#Guardian_EmailID").val();
+            var Relation = $("#Guardian_RelationShip").val() == "" ? "-1" : $("#Guardian_RelationShip").val();
+           ////// Address Details
+            var CorresAddress = $("#Address").val() == "" ? "-1" : $("#Address").val() ;
+            var CorresCountry = $("#CountryID").val() == "" ? "-1" : $("#CountryID").val();
+            var CorresState = $("#StateID").val() == "" ? "-1" : $("#StateID").val();
+            var CorresCity = $("#Permanant_CityID").val() == "" ? "-1" : $("#Permanant_CityID").val();
+            var CorresReligiousLang = $("#CorAddressReligious").val() == "" ? "-1" : $("#CorAddressReligious").val() ;
+            var CorresPincode = $("#PinCode").val() == "" ? "-1" : $("#PinCode").val();
+            var CorresArea = $("#Area").val() == "" ? "-1" : $("#Area").val();
+
+            
+            var chkPermaAddress = $("#chklocalGuaId").prop('checked');
+            var PermaAddress = $("#Permanant_Address").val() == "" ? "-1" : $("#Permanant_Address").val() ;
+            var PermaCountry = $("#Permanant_CountryID").val() == "" ? "-1" : $("#Permanant_CountryID").val();
+            var PermaState = $("#Permanant_StateID").val() == "" ? "-1" : $("#Permanant_StateID").val();
+            var PermaCity = $("#Permanant_Permanant_CityID").val() == "" ? "-1" : $("#Permanant_Permanant_CityID").val();
+            var PermaReligiousLang = $("#PerAddressReligious").val() == "" ? "-1" : $("#PerAddressReligious").val() ;
+            var PermaPincode = $("#Permanant_PinCode").val() == "" ? "-1" : $("#Permanant_PinCode").val();
+            var PermaArea = $("#PermanantArea").val() == "" ? "-1" : $("#PermanantArea").val();
+
+
+          
+                $.ajax({
+                    type: "Post",
+                    url: "/Enquiry/SaveEnquiryRegistrationMaster",
+                    data: {
+                     EnquiryNo              :  EnquiryNo    
+                    ,InstituteID            :  InstituteID          
+                    ,SessionID 			  :  SessionID 			
+                    ,ProgramID 			  :  ProgramID 			
+                    ,BranchID 			  :  BranchID 			
+                    ,RequiredLateral 	  :  RequiredLateral 
+                    ,StudentTitle 		  :  StudentTitle 		
+                    ,StudentFirstName 	  :  StudentFirstName 	
+                    ,StudentMiddleName 	  :  StudentMiddleName 	
+                    ,StudentlastName 	  :  StudentlastName 	
+                    ,StudentReligiousLang   :  StudentReligiousLang 
+                    ,StudentGender 		  :  StudentGender 		
+                    ,StudentDOB 			  :  StudentDOB 			
+                    ,StudentMobileNo 	  :  StudentMobileNo 	
+                    ,StudentAltMobileNo 	  :  StudentAltMobileNo 	
+                    ,StudentEmailId 		  :  StudentEmailId 		
+                    ,StudentAadharNo 	  :  StudentAadharNo 	
+                    ,StudntBloodGroup 	  :  StudntBloodGroup 	
+                    ,StudentCategory 	  :  StudentCategory 	
+                    ,StudentReligion 	  :  StudentReligion 	
+                    ,StudentNationality 	  :  StudentNationality 	
+                    ,StudentMartialStatus   :  StudentMartialStatus 
+                    ,ExamStatus 			  :  ExamStatus 			
+                    ,HostelReq 			  :  HostelReq 			
+                    ,TransportReq 		  :  TransportReq 
+                    ,FatherTitle 		  :  FatherTitle 		
+                    ,FatherFirstName 	  :  FatherFirstName 	
+                    ,FatherMiddleName 	  :  FatherMiddleName 	
+                    ,FatherlastName 		  :  FatherlastName 		
+                    ,FatherReligiousLang   :  FatherReligiousLang 
+                    ,FatherMobileNo 		  :  FatherMobileNo 		
+                    ,FatherEmailId 		  :  FatherEmailId 
+                    ,MotherTitle 		  :  MotherTitle 		
+                    ,MotherFirstName 	  :  MotherFirstName 	
+                    ,MotherMiddleName 	  :  MotherMiddleName 	
+                    ,MotherlastName 		  :  MotherlastName 		
+                    ,MotherReligiousLang   :  MotherReligiousLang 
+                    ,MotherMobileNo 		  :  MotherMobileNo 		
+                    ,MotherEmailId 		  :  MotherEmailId 		
+                    ,chkForGuardian		   :  chkForGuardian		 
+                    ,GuardianTitle		   :  GuardianTitle		 
+                    ,GuardianFirstName	  :  GuardianFirstName	
+                    ,GuardianMiddleName 	  :  GuardianMiddleName 	
+                    ,GuardianlastName	  :  GuardianlastName	
+                    ,GuardianReligiousLang  :  GuardianReligiousLang
+                    ,GuardianMobileNo	  :  GuardianMobileNo	
+                    ,GuardianEmailId 	  :  GuardianEmailId 	
+                    ,Relation			   :  Relation	
+                    ,CorresAddress		   :  CorresAddress		 
+                    ,CorresCountry 		  :  CorresCountry 		
+                    ,CorresState 		  :  CorresState 		
+                    ,CorresCity 			  :  CorresCity 			
+                    ,CorresReligiousLang   :  CorresReligiousLang 
+                    ,CorresPincode 		  :  CorresPincode 		
+                    ,CorresArea 			  :  CorresArea 
+                    ,chkPermaAddress 	  :  chkPermaAddress 	
+                    ,PermaAddress 		  :  PermaAddress 		
+                    ,PermaCountry 		  :  PermaCountry 		
+                    ,PermaState 			  :  PermaState 			
+                    ,PermaCity 			  :  PermaCity 			
+                    ,PermaReligiousLang 	  :  PermaReligiousLang 	
+                    ,PermaPincode 		  :  PermaPincode 		
+                    ,PermaArea 			  :  PermaArea 			
+    
+                    }, async: false,
+                    success: function (response) {
+                        if (response == 'Record Already Exists') {
+
+
+                            $("#msg").html("<div class='alert alert-danger alert-dismissible fade show' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'><i class='fal fa-trash-alt'></i></span></button><strong>Error!</strong>" + response + "</div >");
+                        }
+                        else {
+
+                            window.location.href = "../Enquiry/ProceedPayment";
+                        }
+                    },
+                    error: function (data) {
+
+
+                        $("#msg").html("<div class='alert alert-danger fade in'><button class='close' data-dismiss='alert'> × </button><i class='fa-fw fa fa-times'></i><strong>Error!</strong>Record not save succesfully</div>")
+                    }
+                });
+      }
+
+
+
+
+
+
+
+</script>

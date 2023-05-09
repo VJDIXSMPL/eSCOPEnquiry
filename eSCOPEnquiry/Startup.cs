@@ -105,6 +105,7 @@ namespace eSCOPEnquiry
             app.UseCors(
                 options => options.WithOrigins(MyAllowSpecificOrigins.Split(',')).AllowAnyMethod()
                 );
+            app.UseSession();
             app.UseMvc();
             app.UseAuthentication();
             app.UseAuthorization();

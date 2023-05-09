@@ -46,14 +46,37 @@
 
     function Reg_validation() {
         var Student_FirstName = $('#Student_FirstName').val();
-        var StudentDob = $('#StudentDob').val();
+        var StudentDob = $('#Student_Dob').val();
         var FMobileNo = $('#FMobileNo').val();
         var optMode = 'Enquireduser';
         $.ajax({
             url: "/Enquiry/Reg_Validate",
             data: { Student_FirstName: Student_FirstName, StudentDob: StudentDob, FMobileNo: FMobileNo, optMode: optMode },
             type: "get",
-            success: function(msg) {
+            success: function (msg) {
+                debugger
+                var data = JSON.parse(msg);
+                if (data.Table[0].Message.split("_")[0] == "Record Found") {
+                    $.SmartMessageBox({
+                        title: "Success",
+                        content: data.Table[0].Message,
+                        buttons: '[Ok]',
+                    })
+                }
+                else if (data.Table[0].Message.split("_")[0] == "Record Not Found") {
+                    $.SmartMessageBox({
+                        title: "Error",
+                        content: data.Table[0].Message,
+                        buttons: '[Ok]',
+                    })
+                }
+                else if (data.Table[0].Message.split("_")[0] == "Already Registered") {
+                    $.SmartMessageBox({
+                        title: "Alert",
+                        content: data.Table[0].Message,
+                        buttons: '[Ok]',
+                    })
+                }
             }
         });
     }
@@ -62,7 +85,7 @@
         format: 'dd/mm/yyyy',
         todayHighlight: true,
         autoclose: true
-    }).on('changeDate', function(e) {
+    }).on('changeDate', function (e) {
         var from = $("#Student_Dob").val().split("/");
         var f = new Date(from[2], from[1] - 1, from[0]);
         $('#hdStudent_Dob').val($("#Student_Dob").val());

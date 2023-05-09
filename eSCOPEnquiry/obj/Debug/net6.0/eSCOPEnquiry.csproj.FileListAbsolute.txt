@@ -385,7 +385,6 @@ C:\Users\varun.SONET\Source\Repos\eSCOPEnquiry\eSCOPEnquiry\obj\Debug\net6.0\eSC
 C:\Users\varun.SONET\Source\Repos\eSCOPEnquiry\eSCOPEnquiry\obj\Debug\net6.0\eSCOPEnquiry.RazorAssemblyInfo.cs
 C:\Users\varun.SONET\Source\Repos\eSCOPEnquiry\eSCOPEnquiry\obj\Debug\net6.0\staticwebassets.build.json
 C:\Users\varun.SONET\Source\Repos\eSCOPEnquiry\eSCOPEnquiry\obj\Debug\net6.0\staticwebassets.development.json
-C:\Users\varun.SONET\Source\Repos\eSCOPEnquiry\eSCOPEnquiry\obj\Debug\net6.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 C:\Users\varun.SONET\Source\Repos\eSCOPEnquiry\eSCOPEnquiry\obj\Debug\net6.0\scopedcss\bundle\eSCOPEnquiry.styles.css
 C:\Users\varun.SONET\Source\Repos\eSCOPEnquiry\eSCOPEnquiry\obj\Debug\net6.0\scopedcss\projectbundle\eSCOPEnquiry.bundle.scp.css
 C:\Users\varun.SONET\Source\Repos\eSCOPEnquiry\eSCOPEnquiry\obj\Debug\net6.0\eSCOPEnquiry.csproj.CopyComplete
@@ -1145,5 +1144,6 @@ C:\Users\varun.SONET\source\repos\eSCOPEnquiry\eSCOPEnquiry\obj\Debug\net6.0\sta
 C:\Users\varun.SONET\source\repos\eSCOPEnquiry\eSCOPEnquiry\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.eSCOPEnquiry.props
 C:\Users\varun.SONET\source\repos\eSCOPEnquiry\eSCOPEnquiry\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.eSCOPEnquiry.props
 C:\Users\varun.SONET\source\repos\eSCOPEnquiry\eSCOPEnquiry\obj\Debug\net6.0\staticwebassets.pack.json
-C:\Users\varun.SONET\source\repos\eSCOPEnquiry\eSCOPEnquiry\obj\Debug\net6.0\scopedcss\Views\Shared\_LayoutPrint.cshtml.rz.scp.css
 C:\Users\varun.SONET\source\repos\eSCOPEnquiry\eSCOPEnquiry\bin\Debug\net6.0\System.Reflection.MetadataLoadContext.dll
+C:\Users\varun.SONET\source\repos\eSCOPEnquiry\eSCOPEnquiry\obj\Debug\net6.0\scopedcss\Views_13022023\Shared\_Layout.cshtml.rz.scp.css
+C:\Users\varun.SONET\source\repos\eSCOPEnquiry\eSCOPEnquiry\obj\Debug\net6.0\scopedcss\Views_13022023\Shared\_LayoutPrint.cshtml.rz.scp.css

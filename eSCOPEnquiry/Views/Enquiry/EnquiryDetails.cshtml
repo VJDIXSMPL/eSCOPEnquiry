@@ -139,9 +139,9 @@
 
     $(document).ready(function () {
         LoadInstitute("#InstituteID", "-1", 1);
-        LoadStdAcademicSessionWiseSession("#SessionId", "3")
+        LoadStdAcademicSessionWiseSession("#SessionId", "-1")
         //LoadInstituteWiseProgram("#ProgramID", "-1", "-1");
-        LoadSessionWiseAcademicDepartment("#ProgramType", 3, "-1");
+        LoadSessionWiseAcademicDepartment("#ProgramType", "4", "-1");
         LoadAcademicDepartmentWiseProgram("#ProgramID", "-1", "-1", "-1");
     });
 
@@ -244,61 +244,6 @@
         var DOB = $(this).val();
         $('#hdStudent_Dob').val(DOB);
     })
-    function LoadSessionWiseAcademicDepartment(id, SessionID, defaultval) {
-    defaultval = typeof defaultval !== 'undefined' ? defaultval : -1;
-    $.ajax({
-        type: 'GET',
-        url: '../CommonBinder/LoadEnquiryBinder',
-        async: false,
-        data: { SessionID: SessionID, optMode: "SessionWiseAcademicDepartment" },
-        success: function (Data) {
-            var select = $(id);
-            select.empty();
-            select.append($('<option/>', {
-                value: ddlInitialValue,
-                text: "Select"
-            }));
-            $.each($.parseJSON(Data), function (index, Data) {
-                select.append($('<option/>', {
-                    value: Data.AID,
-                    text: Data.AcademicDepartment
-                }));
-            });
-            select.val(defaultval);
-        },
-        error: function (errorData) {
-            console.log(errorData);
-        }
-    });
-}
-    function LoadAcademicDepartmentWiseProgram(id, SessionID, ProgramType, defaultval) {
-    defaultval = typeof defaultval !== 'undefined' ? defaultval : -1;
-    $.ajax({
-        type: 'GET',
-        url: '../CommonBinder/LoadEnquiryBinder',
-        async: false,
-        data: { SessionID: SessionID, optMode: "AcademicDepartmentWiseProgram", ProgramType: ProgramType },
-        success: function (Data) {
-            var select = $(id);
-            select.empty();
-            select.append($('<option/>', {
-                value: ddlInitialValue,
-                text: "Select"
-            }));
-            $.each($.parseJSON(Data), function (index, Data) {
-                select.append($('<option/>', {
-                    value: Data.ProgramID,
-                    text: Data.Program
-                }));
-            });
-            select.val(defaultval);
-        },
-        error: function (errorData) {
-            console.log(errorData);
-        }
-    });
-}
-
 
 </script>
 
